@@ -39,6 +39,7 @@ const dataUri = (p, mime) => `data:${mime};base64,${b64(p)}`;
 
 let tokensCss = readFileSync(join(root, '../design-system/colors_and_type.css'), 'utf8')
   .replace(/@import[^;]+;/g, '')
+  .replace(/\[data-theme="dark"\]\s*\{[^}]*\}/, '/* Prototyp bewusst einfarbig hell */')
   .replace("url('fonts/Manrope-VariableFont_wght.woff2')", `url('${dataUri('../design-system/fonts/Manrope-VariableFont_wght.woff2', 'font/woff2')}')`);
 let siteCss = read('css/site.css').replace(/@import[^;]+;/, '');
 const svgCache = {};

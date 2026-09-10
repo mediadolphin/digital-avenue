@@ -135,36 +135,7 @@
 }
 
 /* ── DARK MODE ────────────────────────────────────────────── */
-[data-theme="dark"] {
-  --da-bg:             #182a33;
-  --da-bg-alt:         #1e333e;
-  --da-text:           #ede9e0;
-  --da-muted:          #7796a6;
-  --da-border:         #294653;
-
-  --da-hero-from:      #1e333e;
-  --da-hero-to:        #182a33;
-
-  --da-teal:           #4d8aa0;
-  --da-teal-hover:     #5e9cb3;
-  --da-teal-subtle:    #1d3c4a;
-  --da-teal-text:      #82c2d2;
-
-  --da-sand:           #c4b393;
-  --da-sand-hover:     #d7c9aa;
-  --da-sand-subtle:    #2a2318;
-  --da-sand-text:      #d7c9aa;
-
-  --da-card-bg:        #1d3340;
-  --da-card-shadow:    0 1px 3px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.3);
-  --da-card-hover:     0 2px 8px rgb(0 0 0 / 0.5), 0 8px 28px rgb(0 0 0 / 0.4);
-
-  --da-plum:           #8a5c7e;
-  --da-plum-hover:     #9e6e92;
-  --da-plum-subtle:    #2a1a26;
-  --da-plum-text:      #c49ab8;
-  --da-plum-light:     #c49ab8;
-}
+/* Prototyp bewusst einfarbig hell */
 
 /* ── SEMANTIC ALIASES ─────────────────────────────────────── */
 :root {
@@ -778,7 +749,7 @@ dialog.check-dialog.sent .form-success { display: block; }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 
 /* ── Reveal ────────────────────────────────────────────────── */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal { opacity: 0.55; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in, .no-reveal .reveal { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } * { scroll-behavior: auto !important; } }
 
