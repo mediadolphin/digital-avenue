@@ -357,6 +357,7 @@ body { margin: 0; min-height: 100vh; background: var(--da-bg); color: var(--da-t
 img, svg, video { display: block; max-width: 100%; }
 button { font-family: inherit; cursor: pointer; }
 h1, h2, h3, h4, p { margin: 0; }
+a { text-decoration: none; }
 ul { margin: 0; padding: 0; list-style: none; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--da-teal); outline-offset: 3px;
@@ -413,12 +414,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--da-text); transition: color var(--da-t);
 }
-.nav-menu a::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 1.5px;
-  background: var(--da-teal); transform: scaleX(0); transform-origin: left; transition: transform var(--da-t);
-}
 .nav-menu a:hover { color: var(--da-teal); }
-.nav-menu a:hover::after, .nav-menu a[aria-current="page"]::after { transform: scaleX(1); }
 .nav-menu a[aria-current="page"] { color: var(--da-teal); font-weight: 600; }
 .nav-actions { display: flex; align-items: center; gap: var(--da-sp-3); }
 .nav-burger {
