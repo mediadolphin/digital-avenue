@@ -50,3 +50,42 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
 - GitHub-Repo war zu Beginn leer. Arbeits-Branch: `claude/digital-avenue-redesign-0wnw6r`.
 - Redirect-Plan sieht neue URL-Struktur `/leistungen/...` vor; die Landingpages
   sind darin noch nicht enthalten.
+
+## Layout-Inspiration (von Nils, 10.09.2026)
+
+Referenz: Landingpage-Layout "HALSA" (Wellness-App, Vorschau gola.io/HALSA). Nur als
+Struktur- und Stimmungsvorlage, keine Nachbildung.
+
+Was übernommen wird:
+
+- **Luftiger, warmer Grundton**: cremeweißer Hintergrund, große Weißräume, dünne
+  Linien, keine harten Kanten. Passt zum Sand-Ton der bisherigen Akzentfarbe.
+- **Schlanke Navigation**: Logo links, Menü als zentrierte Pill-Gruppe,
+  rechts ein einziger Button ("Digital-Check anfragen").
+- **Hero zentriert**: kleines Eyebrow-Label, zweizeilige leichte Headline,
+  kurze Subline, Primärbutton dunkel plus Ghost-Button, darunter eine
+  Vertrauenszeile.
+- **Bildband unter dem Hero**: breite, warm belichtete Fotografie mit ruhigen
+  Menschen, in die ein bis zwei schwebende Karten eingebettet sind. Bei
+  Digital Avenue zeigen die Karten keine App-Statistiken, sondern konkrete
+  Entlastung: etwa die Urlaubs-Service-Karte ("Website, Google-Profil und
+  Telefonansage umgestellt") oder eine Digital-Check-Karte.
+- **Partner-Logozeile** in Grau direkt unter dem Bildband (Doctolib, Placetel,
+  Netleaders).
+- **Kachelraster als Herzstück**: 4 x 2 Kacheln, abwechselnd Foto und
+  Farbfläche. Farbflächen in Cremeweiß, Primärblau `#305b75` und einem tiefen
+  Nachtblau. Jede Farbkachel: Überschrift, zwei Sätze, ein Textlink. Hier
+  sitzen die drei Säulen und die drei Zielgruppen-Einstiege (Praxen,
+  Kanzleien, Mittelstand) nebeneinander.
+- **Zweispaltiger Leitbild-Block**: links Eyebrow und Headline, rechts
+  Fließtext. Ersetzt die bisherige "Über uns"-Ansprache auf der Startseite.
+- **Typografie**: geometrische Sans mit leichten Schnitten in den Headlines,
+  enge Zeilenabstände, kleine Labels in Versalien mit Sperrung.
+
+Was bewusst anders wird:
+
+- Keine Avatare, Sterne oder "Trusted by 1 Million"-Zeile. Die
+  Vertrauenszeile nennt stattdessen Referenzprojekte oder die Partner.
+- Keine App-Screens. Die schwebenden Karten zeigen Service-Momente aus dem
+  Alltag der Inhaber.
+- Nachtblau-Kacheln sparsam einsetzen, damit es dezent bleibt.
