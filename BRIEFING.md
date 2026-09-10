@@ -41,6 +41,10 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
   https://claude.ai/design/p/019ddea1-f8fe-7a97-bba0-f6d090a4b241
 - Inhalt des "Digital-Check" mit Nils abstimmen (Umfang, Dauer, was der Kunde bekommt).
 - Echte Kundenstimmen nachliefern.
+- Hosting-Hintergrund (Nils, 10.09.2026): Digital Avenue hostet nicht selbst,
+  sondern arbeitet mit Partnern (IONOS, Netleaders), weil diese Infrastruktur
+  und Personal für Sicherheit und Performance haben. Partnerzeile: Doctolib,
+  Placetel, Netleaders, IONOS.
 - Placetel-Logo und Partnerstatus prüfen (fehlt auf der Live-Site, steht im Konzept).
 
 ## Technische Hinweise
