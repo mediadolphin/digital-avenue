@@ -182,9 +182,9 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .mosaic-list .icon { color: var(--da-teal); margin-top: 3px; }
 .mosaic-card-foot { font-size: var(--da-text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--da-teal-text); }
 .mosaic-kanzlei { grid-column: 3; }
-.mosaic-kanzlei img { object-position: 50% 25%; }
+.mosaic-kanzlei img { object-position: 64% 30%; }
 .mosaic-mittelstand { grid-column: 4; }
-.mosaic-mittelstand img { object-position: 50% 25%; }
+.mosaic-mittelstand img { object-position: 40% 30%; }
 .mosaic-kanzlei .service-card, .mosaic-mittelstand .service-card { padding: var(--da-sp-4); margin: var(--da-sp-3); }
 .mosaic-kanzlei .sc-title, .mosaic-mittelstand .sc-title { font-size: var(--da-text-sm); }
 @media (max-width: 1080px) {
