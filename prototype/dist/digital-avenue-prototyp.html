@@ -376,6 +376,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--da-sp-16); align-items: start; }
 @media (max-width: 880px) { .split { grid-template-columns: 1fr; gap: var(--da-sp-10); } }
 
+/* ── Eyebrow: Linie + Versalien statt Pill ─────────────────── */
+.da-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 0; background: none; border: 0; border-radius: 0;
+  font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--da-teal-text);
+}
+.da-eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; opacity: 0.55; flex-shrink: 0; }
+.hero .da-eyebrow::after, .section-head.center .da-eyebrow::after { content: ''; width: 28px; height: 1px; background: currentColor; opacity: 0.55; flex-shrink: 0; }
+.on-dark .da-eyebrow, .concierge-text .da-eyebrow, .check .da-eyebrow { color: var(--da-sand); }
+
 .icon { width: 16px; height: 16px; flex-shrink: 0; }
 .icon-20 { width: 20px; height: 20px; }
 
@@ -691,7 +703,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 /* ── Concierge-Beispiel ────────────────────────────────────── */
 .concierge { border-radius: var(--da-r-xl); overflow: hidden; background: var(--da-teal-deeper); color: #fff; display: grid; grid-template-columns: 1fr 1fr; }
 .concierge-text { padding: clamp(32px, 5vw, 64px); }
-.concierge-text .da-eyebrow { background: color-mix(in srgb, var(--da-sand) 18%, transparent); color: var(--da-sand); border-color: color-mix(in srgb, var(--da-sand) 35%, transparent); }
+.concierge-text .da-eyebrow { color: var(--da-sand); }
 .concierge h2 { margin-top: var(--da-sp-4); color: #fff; font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.03em; line-height: 1.1; }
 .concierge p { margin-top: var(--da-sp-4); color: color-mix(in srgb, #fff 78%, transparent); font-size: var(--da-text-md); line-height: 1.6; }
 .concierge-visual { position: relative; min-height: 360px; }
@@ -717,7 +729,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .check { border-radius: var(--da-r-xl); background: var(--da-teal); color: #fff; padding: clamp(36px, 6vw, 72px); position: relative; overflow: hidden; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--da-sp-12); align-items: center; }
 .check::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(600px 400px at 100% 100%, color-mix(in srgb, var(--da-sand) 30%, transparent), transparent 60%); }
 .check > * { position: relative; }
-.check .da-eyebrow { background: color-mix(in srgb, #fff 14%, transparent); color: #fff; border-color: color-mix(in srgb, #fff 30%, transparent); }
+.check .da-eyebrow { color: var(--da-sand); }
 .check h2 { margin-top: var(--da-sp-4); color: #fff; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -0.03em; line-height: 1.08; max-width: 18ch; }
 .check p { margin-top: var(--da-sp-4); color: color-mix(in srgb, #fff 82%, transparent); font-size: var(--da-text-md); line-height: 1.6; max-width: 48ch; }
 .check-list { margin-top: var(--da-sp-6); display: grid; grid-template-columns: 1fr 1fr; gap: 10px var(--da-sp-6); }
