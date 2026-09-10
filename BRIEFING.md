@@ -163,9 +163,10 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 - Seiten: Startseite, Für Praxen, Für Kanzleien, Für den Mittelstand. Alle mit
   Zielgruppen-Umschalter (Startseite), Digital-Check-Dialog mit Validierung,
   FAQ, Referenzen und Kundenstimmen-Platzhaltern.
-- Bilder: 23 Higgsfield-Motive (Soul 2.0, ca. 3 Credits gesamt) in `prototype/img/`,
-  Übersicht in `prototype/img/contact-sheet.jpg`. Nicht verwendet: m08 (Ostsee),
-  m14 (Textartefakt an der Wand), m17 (unleserliches Firmenschild).
+- Bilder: 29 Higgsfield-Motive (Soul 2.0, unter 5 Credits gesamt) in `prototype/img/`,
+  Übersicht in `prototype/img/contact-sheet.jpg`. Kein Motiv wird doppelt verwendet.
+  Nicht verwendet: m08 (Ostsee), m10, m14 (Textartefakt), m17 (unleserliches
+  Firmenschild), m20, m23.
 - Vorschau als Artefakt: https://claude.ai/code/artifact/5c43ea84-ecc7-491f-8a93-f851f2335770
 - Offen im Prototyp, als Platzhalter markiert: Adresse im Footer, Konditionen des
   Digital-Checks, Referenz-Beschreibungen, Kanzlei-Referenz, Kundenstimmen,
