@@ -186,8 +186,9 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 
 - Für alle Kunden außer Ferienvermietung ein Kernthema: SEO-optimierte
   Karriereseite mit Online-Bewerbung (Stellen als Google-Jobs, Bewerbung vom
-  Handy ohne Hürden). Referenzen: Dialyse Güstrow und DIGIZT GmbH, dort wurden
-  Stellen trotz Fachkräftemangel besetzt.
+  Handy ohne Hürden). Referenzen: Dialyse Güstrow (zwei MFA innerhalb von vier Wochen) und
+  DIGIZT GmbH (zwei Servicetechniker innerhalb von sechs Wochen), jeweils
+  trotz Fachkräftemangel.
 - Im Prototyp: Recruiting-Kachel auf der Startseite (ersetzt die Digital-Check-
   Kachel, der Check bleibt als CTA-Block), dritter Punkt in jedem Zielgruppen-Tab,
   je eine Recruiting-Kachel und ein "Kennen Sie das?"-Satz auf den drei
