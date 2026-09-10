@@ -132,24 +132,65 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero-trust li { display: inline-flex; align-items: center; gap: 8px; }
 .hero-trust .icon { color: var(--da-teal); }
 
-/* ── Bildband mit Service-Karten ───────────────────────────── */
-.band { position: relative; }
-.band-frame {
-  position: relative; border-radius: var(--da-r-xl); overflow: hidden;
-  aspect-ratio: 21 / 9; min-height: 340px;
-  box-shadow: var(--da-shadow-lg);
-  background: var(--da-teal-dark);
+/* ── Mosaik unter dem Hero (Zielgruppen) ───────────────────── */
+.mosaic {
+  display: grid; gap: var(--da-sp-4);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 250px;
 }
-.band-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 65% 40%; }
-.band-frame::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--da-teal-deeper) 55%, transparent) 0%, transparent 55%);
+.mosaic-tile {
+  position: relative; border-radius: var(--da-r-lg); overflow: hidden;
+  background: var(--da-bg-alt); color: inherit; text-decoration: none;
+  box-shadow: var(--da-shadow-md); display: flex; flex-direction: column; justify-content: flex-end;
+  transition: transform var(--da-t), box-shadow var(--da-t);
 }
-.band-cards {
-  position: absolute; inset: 0; z-index: 2;
-  display: flex; flex-direction: column; justify-content: center; gap: var(--da-sp-4);
-  padding: var(--da-sp-8); max-width: 420px;
+a.mosaic-tile:hover { transform: translateY(-3px); box-shadow: var(--da-shadow-lg); }
+.mosaic-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+a.mosaic-tile:hover img { transform: scale(1.03); }
+.mosaic-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--da-teal-deeper) 55%, transparent) 100%); pointer-events: none; }
+.mosaic-tile .service-card, .mosaic-tile .mosaic-chip { position: relative; z-index: 2; }
+.mosaic-tile .mosaic-chip { top: auto; left: auto; align-self: flex-start; margin: 0 0 6px var(--da-sp-4); }
+.mosaic-kanzlei .mosaic-chip, .mosaic-mittelstand .mosaic-chip { margin-left: var(--da-sp-3); }
+.mosaic-tile .service-card { margin: var(--da-sp-4); }
+.mosaic-chip {
+  position: absolute; top: var(--da-sp-4); left: var(--da-sp-4);
+  font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--da-teal-dark); background: color-mix(in srgb, #fff 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  padding: 6px 12px; border-radius: var(--da-r-pill);
 }
+.mosaic-praxis { grid-column: 1 / 6; grid-row: 1 / 3; }
+.mosaic-praxis img { object-position: 62% 40%; }
+.mosaic-card { grid-column: 6 / 9; grid-row: 1 / 3; justify-content: flex-start; padding: var(--da-sp-6); background: var(--da-card-bg); border: 1px solid var(--da-border); box-shadow: var(--da-card-shadow); }
+.mosaic-card::after { display: none; }
+.mosaic-card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.mosaic-card-head .sc-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--da-sand-text); }
+.mosaic-card-head .sc-status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--da-teal); }
+.mosaic-card-title { margin-top: var(--da-sp-4); font-size: clamp(22px, 2vw, 28px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+.mosaic-list { margin-top: var(--da-sp-5); display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.mosaic-list li { display: flex; gap: 10px; align-items: flex-start; font-size: var(--da-text-sm); color: var(--da-muted); line-height: 1.45; padding-bottom: 10px; border-bottom: 1px solid var(--da-border); }
+.mosaic-list li:last-child { border-bottom: 0; }
+.mosaic-list .icon { color: var(--da-teal); margin-top: 3px; }
+.mosaic-card-foot { font-size: var(--da-text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--da-teal-text); }
+.mosaic-kanzlei { grid-column: 9 / 11; grid-row: 1 / 3; }
+.mosaic-mittelstand { grid-column: 11 / 13; grid-row: 1 / 3; }
+.mosaic-kanzlei .service-card, .mosaic-mittelstand .service-card { padding: var(--da-sp-4); margin: var(--da-sp-3); }
+.mosaic-kanzlei .sc-title, .mosaic-mittelstand .sc-title { font-size: var(--da-text-sm); }
+@media (max-width: 1080px) {
+  .mosaic { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 230px; }
+  .mosaic-praxis { grid-column: 1 / 4; grid-row: 1 / 3; }
+  .mosaic-card { grid-column: 4 / 7; grid-row: 1 / 3; }
+  .mosaic-kanzlei { grid-column: 1 / 4; grid-row: 3 / 5; }
+  .mosaic-mittelstand { grid-column: 4 / 7; grid-row: 3 / 5; }
+}
+@media (max-width: 640px) {
+  .mosaic { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .mosaic-praxis, .mosaic-card, .mosaic-kanzlei, .mosaic-mittelstand { grid-column: 1; grid-row: auto; }
+  .mosaic-praxis, .mosaic-kanzlei, .mosaic-mittelstand { min-height: 420px; }
+}
+
+/* Service-Karte (auf Fotos, in Hero-Figuren) */
 .service-card {
   background: color-mix(in srgb, #fff 92%, transparent);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
@@ -165,12 +206,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .service-card li { display: flex; gap: 8px; align-items: flex-start; font-size: var(--da-text-sm); color: var(--da-muted); line-height: 1.4; }
 .service-card li .icon { margin-top: 2px; color: var(--da-teal); }
 .service-card.sand { background: color-mix(in srgb, var(--da-sand-subtle) 94%, transparent); }
-@media (max-width: 880px) {
-  .band-frame { aspect-ratio: auto; min-height: 0; }
-  .band-frame img { aspect-ratio: 4 / 3; }
-  .band-frame::after { background: linear-gradient(180deg, transparent 30%, color-mix(in srgb, var(--da-teal-deeper) 60%, transparent) 100%); }
-  .band-cards { position: static; max-width: none; padding: var(--da-sp-5); background: var(--da-teal-dark); }
-}
 
 /* ── Partnerzeile ──────────────────────────────────────────── */
 .partners { padding-block: var(--da-sp-10); }
