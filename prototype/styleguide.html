@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style Guide – Digital Avenue</title>
+<meta name="description" content="Farben, Typografie und Komponenten des Digital-Avenue-Redesigns.">
+<link rel="icon" type="image/svg+xml" href="../design-system/assets/favicon.svg">
+<script>
+/* Bricks-Logik: gespeicherte Wahl (localStorage "brx_mode") vor dem ersten Rendern anwenden,
+   sonst Systemeinstellung. ?dark / ?light dienen nur der Vorschau. */
+(function () {
+  try {
+    var m = null, q = location.search;
+    if (/[?&]dark\b/.test(q)) m = 'dark'; else if (/[?&]light\b/.test(q)) m = 'light';
+    if (!m) m = localStorage.getItem('brx_mode');
+    if (!m && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) m = 'dark';
+    document.documentElement.setAttribute('data-brx-theme', m === 'dark' ? 'dark' : 'light');
+  } catch (e) { document.documentElement.setAttribute('data-brx-theme', 'light'); }
+})();
+</script>
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/styleguide.css">
+</head>
+<body data-page="styleguide">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 16 16" fill="none"><path d="M3.5 2h2.2l1.1 3-1.5 1a8 8 0 0 0 4.7 4.7l1-1.5 3 1.1v2.2A1.5 1.5 0 0 1 12.5 14 11 11 0 0 1 2 3.5 1.5 1.5 0 0 1 3.5 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 16 16" fill="none"><rect x="2" y="3.5" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 4.5 8 8.5l5.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 16 16" fill="none"><path d="M8 14s-5-3.8-5-7.5A5 5 0 0 1 13 6.5C13 10.2 8 14 8 14z" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="6.5" r="1.6" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3.5l2 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 16 16" fill="none"><path d="M8 1.8 13 3.6v4.1c0 3-2.1 5.4-5 6.5-2.9-1.1-5-3.5-5-6.5V3.6L8 1.8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 16 16" fill="none"><path d="M3.5 6l4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5v1.8M8 12.7v1.8M1.5 8h1.8M12.7 8h1.8M3.4 3.4l1.3 1.3M11.3 11.3l1.3 1.3M3.4 12.6l1.3-1.3M11.3 4.7l1.3-1.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 16 16" fill="none"><path d="M13.5 9.6A5.5 5.5 0 0 1 6.4 2.5a5.5 5.5 0 1 0 7.1 7.1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+</svg>
+<header class="sg-top">
+  <div class="wrap sg-top-inner">
+    <div class="sg-top-title">
+      <img class="logo-light" src="../design-system/assets/logo-digital-avenue.svg" alt="Digital Avenue">
+      <img class="logo-dark" src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue">
+      <span>Style Guide</span>
+    </div>
+    <div class="sg-top-actions">
+      <span>Stand 10.09.2026</span>
+      <button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus einschalten" aria-pressed="false" data-toggle-mode>
+        <span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span>
+        <span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap sg-layout">
+<aside class="sg-toc" aria-label="Inhalt">
+  <h4>Grundlagen</h4>
+  <ul>
+    <li><a href="#farben">Farben</a></li>
+    <li><a href="#typografie">Typografie</a></li>
+    <li><a href="#abstaende">Abstände, Radien, Schatten</a></li>
+    <li><a href="#icons">Icons</a></li>
+    <li><a href="#bilder">Bildwelt</a></li>
+  </ul>
+  <h4>Elemente</h4>
+  <ul>
+    <li><a href="#el-eyebrow">Eyebrow</a></li>
+    <li><a href="#el-buttons">Buttons und Textlinks</a></li>
+    <li><a href="#el-labels">Labels, Chips, Tags</a></li>
+    <li><a href="#el-toggle">Mode-Umschalter</a></li>
+    <li><a href="#el-tabs">Tabs</a></li>
+    <li><a href="#el-form">Formularfelder</a></li>
+  </ul>
+  <h4>Komponenten</h4>
+  <ul>
+    <li><a href="#c-nav">Navigation</a></li>
+    <li><a href="#c-hero">Hero (Startseite)</a></li>
+    <li><a href="#c-mosaic">Mosaik</a></li>
+    <li><a href="#c-service-card">Service-Karte</a></li>
+    <li><a href="#c-partners">Partnerzeile</a></li>
+    <li><a href="#c-audience">Zielgruppen-Umschalter</a></li>
+    <li><a href="#c-tiles">Kachelraster</a></li>
+    <li><a href="#c-steps">Schritte</a></li>
+    <li><a href="#c-refs">Referenzen und Kundenstimmen</a></li>
+    <li><a href="#c-about">Leitbild mit Fakten</a></li>
+    <li><a href="#c-lp-hero">Hero (Landingpage)</a></li>
+    <li><a href="#c-pains">Kennen Sie das?</a></li>
+    <li><a href="#c-feature">Feature mit Bild</a></li>
+    <li><a href="#c-concierge">Concierge-Block</a></li>
+    <li><a href="#c-faq">FAQ</a></li>
+    <li><a href="#c-check">Digital-Check-Block</a></li>
+    <li><a href="#c-dialog">Dialog und Formular</a></li>
+    <li><a href="#c-footer">Footer</a></li>
+  </ul>
+  <h4>Planung</h4>
+  <ul>
+    <li><a href="#inventar">Inventar</a></li>
+    <li><a href="#bricks24">Bricks 2.4</a></li>
+  </ul>
+</aside>
+
+<main class="sg-main" id="main">
+
+<div class="sg-intro">
+  <span class="da-eyebrow">Digital Avenue · Redesign 2026</span>
+  <h1>Alles, was die neue Seite ausmacht. Auf einer Seite.</h1>
+  <p>Dieser Style Guide zeigt jede Farbe, jede Schriftgröße und jede Komponente des Prototyps so, wie sie im echten CSS gerendert wird. Der Umschalter oben rechts zeigt alles im Hell- und im Dunkelmodus. Er dient der Planung des Umzugs nach Bricks: Was lässt sich importieren, was wird Theme Style, Global Class oder Component, was bleibt Custom CSS.</p>
+  <p>Die Badges an jeder Komponente sind ein Vorschlag, kein Beschluss. Die Tabelle am Ende ist die Arbeitsliste.</p>
+  <div class="sg-legend">
+    <span class="sg-badge import">Import</span>
+    <span class="sg-badge theme">Theme Style</span>
+    <span class="sg-badge class">Global Class</span>
+    <span class="sg-badge component">Component</span>
+    <span class="sg-badge native">Element nativ</span>
+    <span class="sg-badge css">Custom CSS</span>
+    <span class="sg-badge open">Entscheidung offen</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ FARBEN ═══════════════════════════ -->
+<section class="sg-section" id="farben">
+  <h2>Farben <small>Quelle: design-system/colors_and_type.css · Import in den Bricks Color Manager mit Hell- und Dunkelwert je Farbe</small></h2>
+  <div class="sg-meta"><span class="sg-badge import">Import</span><span>Datei <code>handoff/export/bricks-color-palette-tokens.json</code> · Dunkelwerte werden in Bricks unter <code>:root[data-brx-theme="dark"]</code> ausgegeben</span></div>
+  <p class="sg-note">Die Kacheln zeigen die Farbe des aktiven Modus. Darunter stehen beide Werte. <strong>Teal</strong> ist die Markenfarbe (fix, #305b75), <strong>Sand</strong> der warme Akzent für Eyebrows auf dunklen Flächen, Labels und Zähler, <strong>Plum</strong> ist im Design System angelegt, im Prototyp aber nicht eingesetzt.</p>
+  <div class="sg-group-title">Marke: Teal</div><div class="sg-swatches"><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal)"></div><div class="sg-swatch-body"><b>--da-teal</b><span>Hell #305b75</span><span>Dunkel #4d8aa0</span><span style="margin-top:4px;color:var(--da-text)">Markenfarbe, Links, Icons, H1-Betonung</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal-hover)"></div><div class="sg-swatch-body"><b>--da-teal-hover</b><span>Hell #264a60</span><span>Dunkel #5e9cb3</span><span style="margin-top:4px;color:var(--da-text)">Hover für Text und Kontur</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal-fill)"></div><div class="sg-swatch-body"><b>--da-teal-fill</b><span>Hell #305b75</span><span>Dunkel #3a7189</span><span style="margin-top:4px;color:var(--da-text)">Gefüllte Flächen mit weißem Text</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal-fill-hover)"></div><div class="sg-swatch-body"><b>--da-teal-fill-hover</b><span>Hell #264a60</span><span>Dunkel #45819a</span><span style="margin-top:4px;color:var(--da-text)">Hover der gefüllten Flächen</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal-text)"></div><div class="sg-swatch-body"><b>--da-teal-text</b><span>Hell #234c5f</span><span>Dunkel #82c2d2</span><span style="margin-top:4px;color:var(--da-text)">Eyebrow, Zähler, Karten-Fuß</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal-subtle)"></div><div class="sg-swatch-body"><b>--da-teal-subtle</b><span>Hell #e7eff3</span><span>Dunkel #1d3c4a</span><span style="margin-top:4px;color:var(--da-text)">Zähler-Kreis, Ghost-Hover, Code</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal-dark)"></div><div class="sg-swatch-body"><b>--da-teal-dark</b><span>Hell #1b3a4a</span><span>Dunkel #24485a</span><span style="margin-top:4px;color:var(--da-text)">Nav/Footer-Blau, Chip-Text, Sand-Button-Text</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-teal-deeper)"></div><div class="sg-swatch-body"><b>--da-teal-deeper</b><span>Hell #132a37</span><span>Dunkel #0f2129</span><span style="margin-top:4px;color:var(--da-text)">Tiefste Fläche: Concierge, Deep-Kachel, Dialog-Backdrop</span></div></div></div><div class="sg-group-title">Akzent: Sand</div><div class="sg-swatches"><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-sand)"></div><div class="sg-swatch-body"><b>--da-sand</b><span>Hell #d7c9aa</span><span>Dunkel #c4b393</span><span style="margin-top:4px;color:var(--da-text)">Eyebrow auf dunkel, Haken im Check, Footer-Hover</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-sand-hover)"></div><div class="sg-swatch-body"><b>--da-sand-hover</b><span>Hell #c4b393</span><span>Dunkel #d7c9aa</span><span style="margin-top:4px;color:var(--da-text)">Hover Sand-Button</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-sand-text)"></div><div class="sg-swatch-body"><b>--da-sand-text</b><span>Hell #7a6845</span><span>Dunkel #d7c9aa</span><span style="margin-top:4px;color:var(--da-text)">Labels (tile-num, sc-label, ref-kind), Tags</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-sand-dark)"></div><div class="sg-swatch-body"><b>--da-sand-dark</b><span>Hell #a89470</span><span>Dunkel wie hell</span><span style="margin-top:4px;color:var(--da-text)">Reserve</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-sand-subtle)"></div><div class="sg-swatch-body"><b>--da-sand-subtle</b><span>Hell #f6f2ea</span><span>Dunkel #2a2318</span><span style="margin-top:4px;color:var(--da-text)">Sand-Kachel, Tag-Hintergrund, Light-Button-Hover</span></div></div></div><div class="sg-group-title">Akzent: Plum (angelegt, nicht eingesetzt)</div><div class="sg-swatches"><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-plum)"></div><div class="sg-swatch-body"><b>--da-plum</b><span>Hell #42253b</span><span>Dunkel #8a5c7e</span><span style="margin-top:4px;color:var(--da-text)">Reserve</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-plum-hover)"></div><div class="sg-swatch-body"><b>--da-plum-hover</b><span>Hell #351b30</span><span>Dunkel #9e6e92</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-plum-light)"></div><div class="sg-swatch-body"><b>--da-plum-light</b><span>Hell #8a5c7e</span><span>Dunkel #c49ab8</span><span style="margin-top:4px;color:var(--da-text)">Badge im Style Guide</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-plum-text)"></div><div class="sg-swatch-body"><b>--da-plum-text</b><span>Hell #42253b</span><span>Dunkel #c49ab8</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-plum-subtle)"></div><div class="sg-swatch-body"><b>--da-plum-subtle</b><span>Hell #f0e8ee</span><span>Dunkel #2a1a26</span></div></div></div><div class="sg-group-title">Flächen und Text</div><div class="sg-swatches"><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-bg)"></div><div class="sg-swatch-body"><b>--da-bg</b><span>Hell #f9f8f6</span><span>Dunkel #182a33</span><span style="margin-top:4px;color:var(--da-text)">Seitenhintergrund, Felder</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-bg-alt)"></div><div class="sg-swatch-body"><b>--da-bg-alt</b><span>Hell #f2efe9</span><span>Dunkel #1e333e</span><span style="margin-top:4px;color:var(--da-text)">Wechselnde Abschnitte, Leitbild</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-card-bg)"></div><div class="sg-swatch-body"><b>--da-card-bg</b><span>Hell #ffffff</span><span>Dunkel #1d3340</span><span style="margin-top:4px;color:var(--da-text)">Karten, Kacheln, Dialog, Tabs</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-text)"></div><div class="sg-swatch-body"><b>--da-text</b><span>Hell #19242b</span><span>Dunkel #ede9e0</span><span style="margin-top:4px;color:var(--da-text)">Überschriften, Fließtext</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-muted)"></div><div class="sg-swatch-body"><b>--da-muted</b><span>Hell #5a6e77</span><span>Dunkel #7796a6</span><span style="margin-top:4px;color:var(--da-text)">Absätze, Labels, Wortmarken</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-border)"></div><div class="sg-swatch-body"><b>--da-border</b><span>Hell #d9e3e8</span><span>Dunkel #294653</span><span style="margin-top:4px;color:var(--da-text)">Konturen, Trennlinien</span></div></div></div><div class="sg-group-title">Hero-Verlauf</div><div class="sg-swatches"><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-hero-from)"></div><div class="sg-swatch-body"><b>--da-hero-from</b><span>Hell #e7eff3</span><span>Dunkel #1e333e</span><span style="margin-top:4px;color:var(--da-text)">Hero oben</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-hero-to)"></div><div class="sg-swatch-body"><b>--da-hero-to</b><span>Hell #f9f8f6</span><span>Dunkel #182a33</span><span style="margin-top:4px;color:var(--da-text)">Hero unten</span></div></div></div><div class="sg-group-title">Navigation und Footer</div><div class="sg-swatches"><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-nav-bg)"></div><div class="sg-swatch-body"><b>--da-nav-bg</b><span>Hell #1b3a4a</span><span>Dunkel #10202a</span><span style="margin-top:4px;color:var(--da-text)">Footer-Hintergrund</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-nav-text)"></div><div class="sg-swatch-body"><b>--da-nav-text</b><span>Hell #ede9e0</span><span>Dunkel wie hell</span><span style="margin-top:4px;color:var(--da-text)">Footer-Titel</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-nav-muted)"></div><div class="sg-swatch-body"><b>--da-nav-muted</b><span>Hell #7796a6</span><span>Dunkel wie hell</span><span style="margin-top:4px;color:var(--da-text)">Footer-Links und -Text</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-nav-border)"></div><div class="sg-swatch-body"><b>--da-nav-border</b><span>Hell #264350</span><span>Dunkel #1f3742</span><span style="margin-top:4px;color:var(--da-text)">Footer-Trennlinie</span></div></div></div><div class="sg-group-title">Status</div><div class="sg-swatches"><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-success)"></div><div class="sg-swatch-body"><b>--da-success</b><span>Hell oklch(58% 0.140 145)</span><span>Dunkel oklch(72% 0.140 145)</span><span style="margin-top:4px;color:var(--da-text)">Status „erledigt“, Erfolgskreis</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-success-subtle)"></div><div class="sg-swatch-body"><b>--da-success-subtle</b><span>Hell oklch(94% 0.030 145)</span><span>Dunkel oklch(30% 0.050 145)</span><span style="margin-top:4px;color:var(--da-text)">Erfolgskreis-Hintergrund</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-warning)"></div><div class="sg-swatch-body"><b>--da-warning</b><span>Hell oklch(70% 0.150 65)</span><span>Dunkel oklch(78% 0.150 65)</span><span style="margin-top:4px;color:var(--da-text)">Badge im Style Guide</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-warning-subtle)"></div><div class="sg-swatch-body"><b>--da-warning-subtle</b><span>Hell oklch(96% 0.030 65)</span><span>Dunkel oklch(32% 0.050 65)</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-error)"></div><div class="sg-swatch-body"><b>--da-error</b><span>Hell oklch(56% 0.180 25)</span><span>Dunkel oklch(70% 0.160 25)</span><span style="margin-top:4px;color:var(--da-text)">Formularfehler</span></div></div><div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--da-error-subtle)"></div><div class="sg-swatch-body"><b>--da-error-subtle</b><span>Hell oklch(95% 0.030 25)</span><span>Dunkel oklch(30% 0.060 25)</span></div></div></div>
+</section>
+
+<!-- ═══════════════════════════ TYPOGRAFIE ═══════════════════════════ -->
+<section class="sg-section" id="typografie">
+  <h2>Typografie <small>Manrope (Fließtext, selbst gehostet, variabel 400–800) · Jost (Logo-Schrift, Google Fonts, 400–700) · Georgia (Zitate)</small></h2>
+  <div class="sg-meta"><span class="sg-badge theme">Theme Style</span><span class="sg-badge import">Import</span><span>Größen als Bricks-Variablen (<code>bricks-variables.json</code>), Zuordnung zu H1–H6 und Body in den Theme Styles</span></div>
+  <p class="sg-note"><strong>Grundsatz:</strong> Überschriften tragen wenig Gewicht, die Differenzierung kommt aus Größe und Farbe. Die H1 nutzt Schriftstärke 400, der betonte Satzteil steht in Teal. Alle Größen sind flüssig (clamp), deshalb gibt es keine festen Pixelwerte je Breakpoint.</p>
+
+  <div class="sg-demo pad">
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H1 · Hero</b>clamp(30px, 3.9vw, 52px) · 400 · 1.14 · -0.02em<br><code>.hero h1</code>, <code>.lp-hero h1</code> · Betonung: <code>strong</code> in Teal</div>
+      <div class="hero" style="background:none;padding:0;text-align:left;overflow:visible"><h1 style="margin:0;max-width:none">Ihre Digitalagentur in Hamburg und Rostock. <strong>Damit alles Digitale läuft.</strong></h1></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H1 · Design System</b>var(--da-text-xl) = clamp(30px, 4vw, 44px) · 800 · 1.15<br>Basisstil, im Prototyp nicht verwendet</div>
+      <div class="h1">Ihre Digitalagentur in Hamburg und Rostock.</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H2 · Abschnitt</b>clamp(28px, 3.4vw, 44px) · 700 · 1.1 · -0.03em<br><code>.section-head h2</code>, <code>.check h2</code></div>
+      <div class="section-head" style="margin:0;max-width:none"><h2 style="margin:0">Drei Bereiche. Ein Ansprechpartner.</h2></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H2 · Design System</b>var(--da-text-lg) = clamp(22px, 3vw, 30px) · 700<br>Dialog, Concierge, Feature nutzen eigene Größen (26–38px)</div>
+      <div class="h2">Drei Bereiche. Ein Ansprechpartner.</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H3 · Karte / Kachel</b>clamp(20px, 1.8vw, 24px) · 700 · 1.2 · -0.02em<br><code>.tile h3</code>, <code>.step h3</code> (19–22px), <code>.audience h3</code> (24–34px)</div>
+      <div class="tile" style="padding:0;min-height:0;border:0;background:none"><h3 style="margin:0">Gefunden werden. Und überzeugen.</h3></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H3 · Design System</b>var(--da-text-h3) = clamp(18px, 2vw, 21px) · 700 · 1.35</div>
+      <div class="h3">Gefunden werden. Und überzeugen.</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H4</b>var(--da-text-md) = clamp(17px, 1.4vw, 18px) · 600 · 1.35<br>Footer-Spalten nutzen H4 als Versal-Label (12px, 0.12em)</div>
+      <div class="h4">Ein Ansprechpartner für Marketing und Technik</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H5 / H6</b><span class="sg-badge open">Entscheidung offen</span><br>Im Design System nicht definiert, im Prototyp nicht verwendet. Vorschlag: H5 = Base 16px · 700, H6 = Label-Stil (12px Versalien, 0.12em)</div>
+      <div><div style="font-size:var(--da-text-base);font-weight:700">H5 Vorschlag: Base, fett</div><div style="font-size:var(--da-text-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--da-muted);margin-top:8px">H6 Vorschlag: Label in Versalien</div></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Lead / Lede</b>clamp(17px, 1.4vw, 20px) · 400 · 1.55 · Muted<br><code>.hero .lead</code>, <code>.lp-hero .lead</code>; in Karten var(--da-text-md)</div>
+      <p class="lead" style="font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--da-muted)">Website, Telefonanlage, Terminbuchung, Google-Profil und E-Mail aus einer Hand: Wir sind die externe Digitalabteilung für Praxen, Kanzleien und Mittelstand.</p>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Copy / Body</b>var(--da-text-base) = clamp(15px, 1.1vw, 16px) · 400 · 1.65<br>Absätze standardmäßig in Muted, Listentexte in Text</div>
+      <p>Kein Projekt, das nach dem Launch endet. Wir bleiben Ihr Ansprechpartner, solange Sie uns brauchen. Sie schreiben uns, wenn sich etwas ändert. Wir melden uns, bevor etwas ausläuft.</p>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Copy · klein</b>var(--da-text-sm) = clamp(13px, 1vw, 14px) · 1.6<br>Kacheltexte, Referenzen, Schritte, Fußzeilen</div>
+      <p style="font-size:var(--da-text-sm);line-height:1.6">Cloud-Telefonie mit Placetel, Terminbuchung mit Doctolib, Hosting und E-Mail bei Partnern wie IONOS und Netleaders. Alles verbunden, alles gewartet.</p>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Fußnote</b>var(--da-text-xs) = clamp(11px, 0.8vw, 12px)<br>Formular-Hinweise, Copyright, Check-Note</div>
+      <small style="font-size:var(--da-text-xs);color:var(--da-muted)">Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Kontaktaufnahme speichern.</small>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Zitat</b>Georgia italic · clamp(20px, 1.8vw, 28px) · 1.3<br><code>.quote blockquote</code>; Pain-Karten 18–21px</div>
+      <blockquote style="margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(20px,1.8vw,28px);line-height:1.3">„Montags um acht steht das Telefon nicht still, und die Hälfte will nur ein Rezept.“</blockquote>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Navigation</b>Jost · 13px · 500 · 0.14em · Versalien<br>Aktiv: Teal, 600. Mobil 17–22px</div>
+      <div class="nav-menu" style="display:flex;gap:24px"><a href="#" style="font-family:var(--da-font-logo);font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--da-text)">Leistungen</a><a href="#" style="font-family:var(--da-font-logo);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--da-teal)">Für Praxen</a></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Eyebrow</b>Jost · 12px · 500 · 0.18em · Versalien · Teal-Text<br>Auf dunklen Flächen in Sand</div>
+      <span class="da-eyebrow">Für Praxen, Kanzleien und Mittelstand</span>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Label</b>Manrope · 10–12px · 700 · 0.1–0.12em · Versalien<br><code>.tile-num</code>, <code>.sc-label</code>, <code>.ref-kind</code> in Sand-Text; <code>.partners-label</code>, <code>.hero-trust</code> in Muted</div>
+      <div class="sg-row"><span class="tile-num">01 · Sichtbarkeit &amp; Marke</span><span class="partners-label">Partner, mit denen wir arbeiten</span></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Zahl</b>clamp(26px, 2.6vw, 34px) · 800 · Teal · -0.03em<br><code>.fact .num</code></div>
+      <span class="num" style="font-size:clamp(26px,2.6vw,34px);font-weight:800;color:var(--da-teal);letter-spacing:-0.03em">30</span>
+    </div>
+  </div>
+
+  <div class="sg-table-wrap" style="margin-top:var(--da-sp-8)">
+  <table class="sg-table">
+    <thead><tr><th>Token</th><th>Wert</th><th>Gewichte</th><th>Verwendung</th></tr></thead>
+    <tbody>
+      <tr><td><code>--da-font</code></td><td>'Manrope', system-ui</td><td>400 · 500 · 600 · 700 · 800</td><td>Alles außer Navigation, Eyebrow, Chips</td></tr>
+      <tr><td><code>--da-font-logo</code></td><td>'Jost', system-ui</td><td>400 · 500 · 600 · 700</td><td>Navigation, Eyebrows, Mosaik-Chips (Logo-Schrift)</td></tr>
+      <tr><td>Serif</td><td>Georgia, 'Times New Roman'</td><td>400 italic</td><td>Zitate, Pain-Karten, Wortmarke „Urlaub bei Jana“</td></tr>
+      <tr><td><code>--da-text-2xs</code></td><td>clamp(10px, 0.7vw, 11px)</td><td></td><td>Chip, kleinste Labels</td></tr>
+      <tr><td><code>--da-text-xs</code></td><td>clamp(11px, 0.8vw, 12px)</td><td></td><td>Labels, Fußnoten, Trust-Zeile</td></tr>
+      <tr><td><code>--da-text-sm</code></td><td>clamp(13px, 1vw, 14px)</td><td></td><td>Karten-Copy, Textlinks, Tabs</td></tr>
+      <tr><td><code>--da-text-base</code></td><td>clamp(15px, 1.1vw, 16px)</td><td></td><td>Body, Formularfelder</td></tr>
+      <tr><td><code>--da-text-md</code></td><td>clamp(17px, 1.4vw, 18px)</td><td></td><td>Lead in Karten, H4, Referenz-Titel</td></tr>
+      <tr><td><code>--da-text-lg</code></td><td>clamp(22px, 3vw, 30px)</td><td></td><td>H2 Basis (Design System)</td></tr>
+      <tr><td><code>--da-text-xl</code></td><td>clamp(30px, 4vw, 44px)</td><td></td><td>H1 Basis (Design System)</td></tr>
+      <tr><td><code>--da-text-h3</code></td><td>clamp(18px, 2vw, 21px)</td><td></td><td>H3 Basis (Design System)</td></tr>
+      <tr><td><code>--da-leading-*</code></td><td>tight 1.15 · snug 1.35 · normal 1.65</td><td></td><td>Prototyp nutzt zusätzlich 1.1 (H2), 1.14 (H1), 1.55 (Lead)</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ABSTÄNDE ═══════════════════════════ -->
+<section class="sg-section" id="abstaende">
+  <h2>Abstände, Radien, Schatten <small>Alle Werte als Bricks-Variablen importierbar</small></h2>
+  <div class="sg-meta"><span class="sg-badge import">Import</span><span><code>bricks-variables.json</code> · Kategorien Spacing, Border Radius, Box Shadow, Transitions</span></div>
+  <div class="sg-demo pad">
+    <span class="sg-label">Spacing (flüssig, min–max)</span>
+    <div class="sg-stack" style="gap:6px">
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-2 6–8</code><div class="sg-space" style="width:8px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-4 12–16</code><div class="sg-space" style="width:16px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-6 18–24</code><div class="sg-space" style="width:24px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-8 24–32</code><div class="sg-space" style="width:32px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-12 36–48</code><div class="sg-space" style="width:48px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-16 48–64</code><div class="sg-space" style="width:64px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-20 60–80</code><div class="sg-space" style="width:80px"></div></div>
+    </div>
+    <p class="sg-note" style="margin-top:var(--da-sp-4)">Abschnitte: <code>.section</code> = sp-20 oben und unten, <code>.section-sm</code> = sp-16. Inhaltsbreite <code>--wrap</code> = 1240px, Seitenrand sp-6. Kartenraster-Lücke sp-5, Mosaik sp-4.</p>
+
+    <span class="sg-label" style="margin-top:var(--da-sp-6)">Radien</span>
+    <div class="sg-row">
+      <div><div class="sg-radius" style="border-radius:var(--da-r-xs)"></div><code style="font-size:11px">xs 4</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-sm)"></div><code style="font-size:11px">sm 6 · Burger, Tag</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-md)"></div><code style="font-size:11px">md 10 · Button, Feld, Fakt</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-lg)"></div><code style="font-size:11px">lg 16 · Karten, Kacheln</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-xl)"></div><code style="font-size:11px">xl 24 · Hero-Bild, Check, Dialog</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-pill)"></div><code style="font-size:11px">pill · Tabs, Chips</code></div>
+    </div>
+
+    <span class="sg-label" style="margin-top:var(--da-sp-6)">Schatten (im Dunkelmodus kräftiger)</span>
+    <div class="sg-row" style="gap:var(--da-sp-8)">
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-sm)"></div><code style="font-size:11px">shadow-sm · Tabs, Light-Button</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-md)"></div><code style="font-size:11px">shadow-md · Mosaik, Service-Karte</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-lg)"></div><code style="font-size:11px">shadow-lg · Bilder, Dialog</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-card-shadow)"></div><code style="font-size:11px">card-shadow · Schritte</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-card-hover)"></div><code style="font-size:11px">card-hover · Kachel/Referenz hover</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-teal);background:var(--da-teal-fill)"></div><code style="font-size:11px">shadow-teal · Primär-Button</code></div>
+    </div>
+    <p class="sg-note" style="margin-top:var(--da-sp-4)">Bewegung: <code>--da-t</code> für Hover (Farbe, Schatten, 1–3px Hebung), Bilder zoomen in 0.6–0.7s auf 1.03. Reveal beim Scrollen: von 55 % Deckkraft und 12px Versatz in 0.6s. Bei <code>prefers-reduced-motion</code> alles aus.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ICONS ═══════════════════════════ -->
+<section class="sg-section" id="icons">
+  <h2>Icons <small>Eigenes Set, 16px-Raster, Strich 1.5–1.6px, currentColor · als Sprite im Prototyp, in Bricks als eigenes Icon-Set (SVG-Upload)</small></h2>
+  <div class="sg-meta"><span class="sg-badge native">Element nativ</span><span>Einzeldateien in <code>handoff/export/icons/</code> · Bricks 2.4 verwaltet SVG-Uploads in eigenen Icon-Sets</span></div>
+  <div class="sg-icons"><div class="sg-icon"><svg><use href="#i-check"/></svg>i-check</div><div class="sg-icon"><svg><use href="#i-arrow"/></svg>i-arrow</div><div class="sg-icon"><svg><use href="#i-phone"/></svg>i-phone</div><div class="sg-icon"><svg><use href="#i-mail"/></svg>i-mail</div><div class="sg-icon"><svg><use href="#i-pin"/></svg>i-pin</div><div class="sg-icon"><svg><use href="#i-clock"/></svg>i-clock</div><div class="sg-icon"><svg><use href="#i-shield"/></svg>i-shield</div><div class="sg-icon"><svg><use href="#i-menu"/></svg>i-menu</div><div class="sg-icon"><svg><use href="#i-x"/></svg>i-x</div><div class="sg-icon"><svg><use href="#i-chev"/></svg>i-chev</div><div class="sg-icon"><svg><use href="#i-sun"/></svg>i-sun</div><div class="sg-icon"><svg><use href="#i-moon"/></svg>i-moon</div></div>
+</section>
+
+<!-- ═══════════════════════════ BILDER ═══════════════════════════ -->
+<section class="sg-section" id="bilder">
+  <h2>Bildwelt <small>Fotorealistisch, ruhige europäische Menschen, natürliches Licht, gedeckte Farben · 33 Motive, keines doppelt</small></h2>
+  <div class="sg-meta"><span class="sg-badge native">Element nativ</span><span>Bilder in Bricks als Medien hochladen; Zuschnitt und Fokuspunkt über <code>object-fit: cover</code> und <code>object-position</code> je Motiv</span></div>
+  <p class="sg-note">Regeln: Bilder liegen immer in einem Container mit Radius lg oder xl, <code>overflow: hidden</code> und transparentem Hintergrund, das Bild erbt den Radius (verhindert Haarlinien an den Ecken). Über Fotos liegt entweder ein Verlauf nach Teal-Deeper (Mosaik) oder eine Service-Karte. Fremdlogos brauchen für den Dunkelmodus eine eigene helle Variante.</p>
+  <div class="sg-img-grid">
+    <figure><img src="img/m01-praxis-inhaberin-fenster.jpg" alt=""><figcaption>m01 · Mosaik Praxis</figcaption></figure>
+    <figure><img src="img/m32-anwalt-portrait-wand.jpg" alt=""><figcaption>m32 · Mosaik Kanzlei</figcaption></figure>
+    <figure><img src="img/m33-unternehmerin-portrait-wand.jpg" alt=""><figcaption>m33 · Mosaik Mittelstand</figcaption></figure>
+    <figure><img src="img/m09-arzt-sprechzimmer-lachend.jpg" alt=""><figcaption>m09 · Hero Praxen</figcaption></figure>
+    <figure><img src="img/m13-anwaeltin-fenster.jpg" alt=""><figcaption>m13 · Hero Kanzleien</figcaption></figure>
+    <figure><img src="img/m27-unternehmer-buero-portrait.jpg" alt=""><figcaption>m27 · Hero Mittelstand</figcaption></figure>
+    <figure><img src="img/m22-aerztin-patient.jpg" alt=""><figcaption>m22 · Zielgruppe Praxis</figcaption></figure>
+    <figure><img src="img/m07-hamburg-hafen-morgen.jpg" alt=""><figcaption>m07 · Stimmung Hamburg</figcaption></figure>
+  </div>
+  <p class="sg-note" style="margin-top:var(--da-sp-4)">Vollständige Liste mit Einsatzort in <code>BRIEFING.md</code>, Quellen in <code>prototype/img/sources.json</code>.</p>
+</section>
+
+<!-- ═══════════════════════════ ELEMENTE ═══════════════════════════ -->
+<section class="sg-section" id="elemente">
+  <h2>Elemente <small>Kleine, überall wiederverwendete Bausteine</small></h2>
+
+  <div class="sg-item" id="el-eyebrow">
+    <h3>Eyebrow</h3>
+    <div class="sg-meta"><code>.da-eyebrow</code><span>Vor jeder H1/H2, im Dialog, in Concierge und Check</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Linie plus Versalien in Jost, keine Pill. Zentriert (Hero, zentrierte Abschnittsköpfe) bekommt sie eine zweite Linie rechts. Auf dunklen Flächen wechselt die Farbe auf Sand.</p>
+    <div class="sg-demo pad">
+      <div class="sg-stack">
+        <div><span class="sg-label">Standard, linksbündig</span><span class="da-eyebrow">Was wir übernehmen</span></div>
+        <div class="section-head center" style="margin:0;max-width:none"><span class="sg-label">Zentriert mit zwei Linien</span><span class="da-eyebrow">Häufige Fragen</span></div>
+        <div class="on-dark" style="background:var(--da-teal-deeper);padding:20px;border-radius:var(--da-r-md)"><span class="sg-label" style="color:#fff;opacity:.6">Auf dunkler Fläche</span><span class="da-eyebrow">Digital-Concierge</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="el-buttons">
+    <h3>Buttons und Textlinks</h3>
+    <div class="sg-meta"><code>.da-btn-primary</code> <code>.da-btn-ghost</code> <code>.da-btn-sand</code> <code>.da-btn-light</code> <code>.da-btn-sm</code> <code>.textlink</code><span class="sg-badge theme">Theme Style</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Manrope 15px · 700, Padding 13/26, Radius md. Primär ist die einzige Variante mit Schatten (Teal, beim Hover kräftiger und 1px Hebung). Die Füllfarbe ist <code>--da-teal-fill</code>, damit Weiß auch im Dunkelmodus lesbar bleibt. Ghost auf dunklen Flächen bekommt <code>.on-dark</code>. Primärer CTA ist immer „Digital-Check anfragen“.</p>
+    <div class="sg-demo pad">
+      <div class="sg-stack">
+        <div class="sg-row">
+          <a href="#" class="da-btn-primary">Digital-Check anfragen</a>
+          <a href="#" class="da-btn-ghost">So arbeiten wir</a>
+          <a href="#" class="da-btn-sand">Sand-Variante</a>
+          <a href="#" class="da-btn-primary da-btn-sm">Klein (Navigation)</a>
+        </div>
+        <div class="sg-row" style="background:var(--da-teal-fill);padding:20px;border-radius:var(--da-r-md)">
+          <a href="#" class="da-btn-light">Digital-Check anfragen</a>
+          <a href="#" class="da-btn-ghost on-dark">Mehr erfahren</a>
+          <span class="check-note">Kostenlos und unverbindlich.</span>
+        </div>
+        <div class="sg-row">
+          <a href="#" class="textlink">Mehr für Praxen <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a href="#" class="textlink" style="color:var(--da-sand-text)">Referenzen ansehen <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="el-labels">
+    <h3>Labels, Chips, Tags, Zähler</h3>
+    <div class="sg-meta"><code>.tile-num</code> <code>.sc-label</code> <code>.sc-status</code> <code>.ref-kind</code> <code>.mosaic-chip</code> <code>.placeholder-tag</code> <code>.step-num</code> <code>.hero-trust</code><span class="sg-badge class">Global Class</span></div>
+    <div class="sg-demo pad">
+      <div class="sg-stack">
+        <div class="sg-row">
+          <span class="tile-num">01 · Sichtbarkeit &amp; Marke</span>
+          <span class="ref-kind">Facharztpraxis · Hamburg</span>
+          <span class="sc-status" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--da-success)"><svg class="icon"><use href="#i-check"/></svg>erledigt</span>
+        </div>
+        <div class="sg-row">
+          <span class="mosaic-chip" style="position:static">Arztpraxen</span>
+          <span class="placeholder-tag">[Kundenstimme]</span>
+          <span class="step-num">1</span>
+          <span class="step-num">2</span>
+        </div>
+        <ul class="hero-trust" style="margin:0;justify-content:flex-start">
+          <li><svg class="icon"><use href="#i-check"/></svg>Ein Ansprechpartner</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Marketing und IT aus einer Hand</li>
+        </ul>
+        <ul class="checks" style="margin:0">
+          <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Weniger Anrufe am Tresen:</strong> Online-Termine und klare Telefonansagen entlasten Ihr Team.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="el-toggle">
+    <h3>Mode-Umschalter</h3>
+    <div class="sg-meta"><code>.brxe-toggle-mode</code><span>Navigation, Style Guide</span><span class="sg-badge native">Element nativ</span></div>
+    <p class="sg-note">Markup wie das Bricks-Element „Toggle – Mode“: ein Button mit <code>.toggle.light</code> (Mond) und <code>.toggle.dark</code> (Sonne). Bricks setzt <code>data-brx-theme</code> auf <code>&lt;html&gt;</code> und speichert die Wahl unter <code>brx_mode</code>. Rund, 40px, Kontur in Border-Farbe, Hover in Teal.</p>
+    <div class="sg-demo pad"><button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus umschalten" data-toggle-mode><span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span><span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span></button></div>
+  </div>
+
+  <div class="sg-item" id="el-tabs">
+    <h3>Tabs</h3>
+    <div class="sg-meta"><code>.tabs</code><span>Zielgruppen-Umschalter Startseite</span><span class="sg-badge native">Element nativ</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Pill-Gruppe auf Kartenhintergrund, aktiver Tab in Teal-Fill mit weißem Text. Auf Mobil scrollbar. In Bricks: Element „Tabs“ (Nestable) mit diesem CSS, Pfeiltasten-Navigation bringt Bricks mit.</p>
+    <div class="sg-demo pad"><div class="tabs" role="tablist"><button role="tab" aria-selected="true">Arztpraxen</button><button role="tab" aria-selected="false">Kanzleien</button><button role="tab" aria-selected="false">Mittelstand</button></div></div>
+  </div>
+
+  <div class="sg-item" id="el-form">
+    <h3>Formularfelder</h3>
+    <div class="sg-meta"><code>.field</code> <code>.segmented</code> <code>.form-foot</code><span>Digital-Check-Dialog</span><span class="sg-badge native">Element nativ</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Label 12px Versalien in Muted, Feld 48px hoch, Hintergrund = Seitenhintergrund, Radius md, Fokus mit 3px Teal-Ring. Fehlerzustand: Rahmen und Hinweistext in Error. Segmented Control als Radio-Gruppe für die Zielgruppe. In Bricks: Element „Form“, Klassen über Custom CSS.</p>
+    <div class="sg-demo pad">
+      <div class="form" style="margin:0;max-width:640px">
+        <div class="field full"><label>Ich führe</label><div class="segmented"><input type="radio" name="sg-aud" id="sg-a1" checked><label for="sg-a1">eine Praxis</label><input type="radio" name="sg-aud" id="sg-a2"><label for="sg-a2">eine Kanzlei</label><input type="radio" name="sg-aud" id="sg-a3"><label for="sg-a3">ein Unternehmen</label></div></div>
+        <div class="field half"><label for="sg-f1">Ihr Name</label><input id="sg-f1" type="text" value="Nils Rudolph"></div>
+        <div class="field half invalid"><label for="sg-f2">E-Mail oder Telefon</label><input id="sg-f2" type="text" value="post@"><span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span></div>
+        <div class="field full"><label for="sg-f3">Was beschäftigt Sie gerade? (optional)</label><textarea id="sg-f3" placeholder="Zum Beispiel: Die Telefonanlage ist alt, die Website auch."></textarea></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ KOMPONENTEN ═══════════════════════════ -->
+<section class="sg-section" id="komponenten">
+  <h2>Komponenten <small>Live aus dem Prototyp gerendert, gleiche Quelle wie die Seiten</small></h2>
+
+  <div class="sg-item" id="c-nav">
+    <h3>Navigation und Drawer</h3>
+    <div class="sg-meta"><code>.nav</code> <code>.nav-menu</code> <code>.nav-actions</code> <code>.nav-drawer</code><span>Alle Seiten</span><span class="sg-badge component">Component</span><span class="sg-badge native">Header-Template</span></div>
+    <p class="sg-note">Sticky, 72px, Hintergrund = Seitenfarbe zu 82 % mit Blur, beim Scrollen Linie und Schatten. Logo wechselt im Dunkelmodus auf Weiß. Menü in Jost-Versalien ohne Unterstreichung, aktiv in Teal. Rechts Mode-Umschalter und kleiner Primär-Button. Unter 960px: Burger und Drawer (Vollfläche, Menü groß, CTA, Kontakt). Der Drawer liegt als Geschwister neben dem Header, weil <code>backdrop-filter</code> sonst das Fixed-Element einfängt.</p>
+    <div class="sg-demo"><header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Digital Avenue – Startseite"><img class="logo-light" src="../design-system/assets/logo-digital-avenue.svg" alt="Digital Avenue"><img class="logo-dark" src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue"></a>
+    <nav class="nav-menu" aria-label="Hauptnavigation">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="praxen.html" data-page="praxen">Für Praxen</a>
+      <a href="kanzleien.html" data-page="kanzleien">Für Kanzleien</a>
+      <a href="mittelstand.html" data-page="mittelstand">Für den Mittelstand</a>
+      <a href="index.html#ueber-uns">Über uns</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus einschalten" aria-pressed="false" data-toggle-mode>
+        <span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span>
+        <span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span>
+      </button>
+      <a href="#digital-check" class="da-btn-primary da-btn-sm" data-open-check>Digital-Check anfragen</a>
+      <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg class="icon icon-20"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="nav-drawer" id="drawer">
+    <nav aria-label="Mobile Navigation">
+      <a href="index.html" data-page="start">Start</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="praxen.html" data-page="praxen">Für Praxen</a>
+      <a href="kanzleien.html" data-page="kanzleien">Für Kanzleien</a>
+      <a href="mittelstand.html" data-page="mittelstand">Für den Mittelstand</a>
+      <a href="index.html#ueber-uns">Über uns</a>
+      <a href="#digital-check" class="da-btn-primary" data-open-check>Digital-Check anfragen</a>
+    </nav>
+    <div class="nav-drawer-contact">
+      <span>+49 (40) 41343870</span>
+      <span>post@digital-avenue.de</span>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="sg-item" id="c-hero">
+    <h3>Hero (Startseite, zentriert)</h3>
+    <div class="sg-meta"><code>.hero</code> <code>.hero-ctas</code> <code>.hero-trust</code><span>Startseite</span><span class="sg-badge native">Section</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Verlauf Hero-from nach Hero-to, darüber zwei radiale Glanzflächen (Sand rechts oben, Teal links; im Dunkelmodus auf 14 % reduziert). Eyebrow, H1 mit Teal-Betonung, Lead, zwei Buttons, Trust-Zeile.</p>
+    <div class="sg-demo"><section class="hero">
+    <div class="wrap">
+      <span class="da-eyebrow">Für Praxen, Kanzleien und Mittelstand</span>
+      <h1>Ihre Digitalagentur in Hamburg und Rostock. <strong>Damit alles Digitale läuft und Sie den Kopf frei haben.</strong></h1>
+      <p class="lead">Website, Telefonanlage, Terminbuchung, Google-Profil und E-Mail aus einer Hand: Wir sind die externe Digitalabteilung für Arztpraxen, Kanzleien und mittelständische Unternehmen. Persönlich, vorausschauend und ohne dass Sie dafür Technik verstehen müssen.</p>
+      <div class="hero-ctas">
+        <button type="button" class="da-btn-primary" data-open-check>Digital-Check anfragen</button>
+        <a href="#so-arbeiten-wir" class="da-btn-ghost">So arbeiten wir</a>
+      </div>
+      <ul class="hero-trust">
+        <li><svg class="icon"><use href="#i-check"/></svg>Ein Ansprechpartner</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Marketing und IT aus einer Hand</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>30 Jahre im Digitalgeschäft</li>
+      </ul>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-mosaic">
+    <h3>Mosaik (Zielgruppen)</h3>
+    <div class="sg-meta"><code>.mosaic</code> <code>.mosaic-tile</code> <code>.mosaic-card</code> <code>.mosaic-chip</code><span>Startseite, direkt unter dem Hero</span><span class="sg-badge component">Component</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Vier Spalten 4 / 3 / 2.4 / 2.4, Zeilenhöhe 500px, bei 1080px zwei Spalten, bei 640px eine. Drei Foto-Kacheln (Praxis, Kanzlei, Mittelstand) mit Chip oben und Service-Karte unten, dazwischen eine Textkarte „Diese Woche“. Fotos zoomen beim Hover auf 1.03, Kachel hebt sich 3px. In Bricks als Component mit vier Slots; das Grid wird Custom CSS.</p>
+    <div class="sg-demo"><section class="band">
+    <div class="wrap">
+      <div class="mosaic reveal">
+        <a class="mosaic-tile mosaic-praxis" href="praxen.html">
+          <img src="img/m01-praxis-inhaberin-fenster.jpg" alt="Eine Praxisinhaberin steht mit einem Kaffee am Fenster ihrer Praxis und blickt hinaus.">
+          <span class="mosaic-chip">Arztpraxen</span>
+          <div class="service-card">
+            <div class="sc-head"><span class="sc-label">Urlaubs-Service</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>erledigt</span></div>
+            <div class="sc-title">Praxis geschlossen vom 14. bis 28. Juli</div>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Website, Google-Profil und Telefonansage umgestellt</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Rückstellung am 29. Juli, ohne Ihr Zutun</li>
+            </ul>
+          </div>
+        </a>
+        <div class="mosaic-tile mosaic-card">
+          <div class="mosaic-card-head">
+            <span class="sc-label">Diese Woche</span>
+            <span class="sc-status"><svg class="icon"><use href="#i-clock"/></svg>ohne Ihr Zutun</span>
+          </div>
+          <div class="mosaic-card-title">Alles Digitale läuft.</div>
+          <ul class="mosaic-list">
+            <li><svg class="icon"><use href="#i-check"/></svg><span>Sicherheitsupdate eingespielt, Backup geprüft</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span>Neue Kollegin auf der Team-Seite und im Telefonmenü</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span>Zertifikat verlängert, bevor es ausläuft</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span>Zwei Google-Bewertungen beantwortet</span></li>
+          </ul>
+          <div class="mosaic-card-foot">Ein Ansprechpartner. Marketing und IT.</div>
+        </div>
+        <a class="mosaic-tile mosaic-kanzlei" href="kanzleien.html">
+          <img src="img/m32-anwalt-portrait-wand.jpg" alt="Ein Anwalt steht mit einer Kaffeetasse vor einer ruhigen grauen Wand.">
+          <span class="mosaic-chip">Kanzleien</span>
+          <div class="service-card">
+            <div class="sc-head"><span class="sc-label">Freitag, 17:40</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>läuft</span></div>
+            <div class="sc-title">Anruf nach Bürozeit: Mailbox, Text per E-Mail.</div>
+          </div>
+        </a>
+        <a class="mosaic-tile mosaic-mittelstand" href="mittelstand.html">
+          <img src="img/m33-unternehmerin-portrait-wand.jpg" alt="Eine Unternehmerin steht mit locker verschränkten Armen vor einer ruhigen sandfarbenen Wand.">
+          <span class="mosaic-chip">Mittelstand</span>
+          <div class="service-card">
+            <div class="sc-head"><span class="sc-label">Anfrage über die Website</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>im CRM</span></div>
+            <div class="sc-title">Automatisch in HubSpot, Rückruf am selben Tag.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-service-card">
+    <h3>Service-Karte</h3>
+    <div class="sg-meta"><code>.service-card</code> <code>.service-card.sand</code><span>Mosaik, Landingpage-Heros, Concierge</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Glas-Karte auf Fotos: Weiß zu 92 % mit Blur und heller Kontur, im Dunkelmodus Kartenfarbe zu 90 %. Kopfzeile aus Label (Sand-Text) und Status (Erfolgsgrün mit Haken), Titel, optional Liste mit Teal-Haken. Erzählt in einer Zeile, was „ohne Ihr Zutun“ passiert ist.</p>
+    <div class="sg-demo pad alt">
+      <div class="sg-row" style="align-items:flex-start">
+        <div class="service-card" style="max-width:360px">
+          <div class="sc-head"><span class="sc-label">Urlaubs-Service</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>erledigt</span></div>
+          <div class="sc-title">Praxis geschlossen vom 14. bis 28. Juli</div>
+          <ul><li><svg class="icon"><use href="#i-check"/></svg>Website, Google-Profil und Telefonansage umgestellt</li><li><svg class="icon"><use href="#i-check"/></svg>Rückstellung am 29. Juli, ohne Ihr Zutun</li></ul>
+        </div>
+        <div class="service-card sand" style="max-width:360px">
+          <div class="sc-head"><span class="sc-label">Nachricht an Digital Avenue</span></div>
+          <div class="sc-title">„Wir sind vom 14. bis 28. Juli im Urlaub, Vertretung macht Dr. [Name].“</div>
+          <ul><li><svg class="icon"><use href="#i-check"/></svg>Das ist alles, was Sie schreiben müssen.</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="c-partners">
+    <h3>Partnerzeile</h3>
+    <div class="sg-meta"><code>.partners</code> <code>.wordmark</code><span>Startseite</span><span class="sg-badge native">Section</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Wortmarken statt Logos, Muted zu 60 %, beim Hover Teal. Varianten: <code>.serif</code>, <code>.wide</code> (gesperrt). Echte Partnerlogos später als Bild mit Graustufen-Filter, im Dunkelmodus invertiert.</p>
+    <div class="sg-demo"><section class="partners">
+    <div class="wrap partners-inner">
+      <span class="partners-label">Partner, mit denen wir arbeiten</span>
+      <span class="wordmark">Doctolib</span>
+      <span class="wordmark wide">Placetel</span>
+      <span class="wordmark serif">Netleaders</span>
+      <span class="wordmark" style="text-transform:uppercase;letter-spacing:0.08em">Ionos</span>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-audience">
+    <h3>Zielgruppen-Umschalter</h3>
+    <div class="sg-meta"><code>.tabs</code> <code>.audience</code> <code>.checks</code><span>Startseite</span><span class="sg-badge native">Tabs (Nestable)</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Zentrierter Abschnittskopf, Tabs, darunter je Zielgruppe ein zweispaltiges Panel: Bild 4:3 mit Radius xl links, rechts H3, Lead, drei Haken-Punkte mit fettem Auftakt und Textlink. Panelwechsel blendet in 0.35s ein.</p>
+    <div class="sg-demo"><section class="section" id="fuer-wen">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="da-eyebrow">Für wen wir arbeiten</span>
+        <h2>Für Menschen, die ein Unternehmen führen. Nicht eine IT-Abteilung.</h2>
+        <p>Sie behandeln, beraten, produzieren. Das Digitale drumherum soll einfach funktionieren. Genau dafür sind wir da.</p>
+      </div>
+      <div data-tabs="tab-praxen" style="text-align:center">
+        <div class="tabs" role="tablist" aria-label="Zielgruppe wählen">
+          <button role="tab" aria-selected="true" aria-controls="tab-praxen">Arztpraxen</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-kanzleien">Kanzleien</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-mittelstand">Mittelstand</button>
+        </div>
+
+        <div class="tab-panel audience active" id="tab-praxen" role="tabpanel" style="text-align:left">
+          <figure><img src="img/m22-aerztin-patient.jpg" alt="Eine Ärztin hört einem älteren Patienten im Sprechzimmer aufmerksam zu."></figure>
+          <div>
+            <h3>Damit die Sprechstunde Ihnen gehört, nicht der Technik.</h3>
+            <p class="lead">Terminbuchung über Doctolib, eine Telefonanlage, die Rezeptwünsche vorsortiert, und eine Website, die neue Patienten nicht abschreckt. Wir richten es ein und halten es am Laufen.</p>
+            <ul class="checks">
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Weniger Anrufe am Tresen:</strong> Online-Termine und klare Telefonansagen entlasten Ihr Team.</span></li>
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Urlaub in einer Nachricht:</strong> Website, Google-Profil und Ansage stellen wir um und wieder zurück.</span></li>
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>MFA finden:</strong> Karriereseite, die bei Google gefunden wird, und Bewerbung in zwei Minuten vom Handy.</span></li>
+            </ul>
+            <a href="praxen.html" class="textlink">Mehr für Praxen <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+
+        <div class="tab-panel audience" id="tab-kanzleien" role="tabpanel" style="text-align:left">
+          <figure><img src="img/m23-anwalt-mandantin-flur.jpg" alt="Ein Anwalt geht mit einer Mandantin durch den hellen Flur seiner Kanzlei."></figure>
+          <div>
+            <h3>Ein Auftritt, der so souverän ist wie Ihre Beratung.</h3>
+            <p class="lead">Mandanten prüfen Sie im Netz, bevor sie anrufen. Wir sorgen dafür, dass dieser erste Eindruck stimmt und dass danach jeder Anruf und jede E-Mail zuverlässig ankommt.</p>
+            <ul class="checks">
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Diskret und erreichbar:</strong> Telefonie mit Weiterleitung, Mailbox und klaren Ansagen außerhalb der Bürozeiten.</span></li>
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Vertrauen sichtbar machen:</strong> Website und Google-Profil mit Schwerpunkten, Team und Bewertungen.</span></li>
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Fachkräfte gewinnen:</strong> Karriereseite mit Online-Bewerbung für Fachangestellte und Anwälte.</span></li>
+            </ul>
+            <a href="kanzleien.html" class="textlink">Mehr für Kanzleien <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+
+        <div class="tab-panel audience" id="tab-mittelstand" role="tabpanel" style="text-align:left">
+          <figure><img src="img/m20-unternehmerin-telefon.jpg" alt="Eine Unternehmerin telefoniert lächelnd an einem Stehpult am Fenster."></figure>
+          <div>
+            <h3>Marketing und IT, die endlich miteinander reden.</h3>
+            <p class="lead">Kein Pendeln mehr zwischen Webagentur und Systemhaus. Wir verbinden Website, Telefonie, CRM und E-Mail zu einem Ganzen und halten es aktuell, während Sie Ihr Geschäft führen.</p>
+            <ul class="checks">
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Anfragen, die ankommen:</strong> Website und Google-Profil bringen Kunden, HubSpot sortiert sie.</span></li>
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Telefonie für alle Standorte:</strong> Placetel für Büro, Außendienst und Homeoffice.</span></li>
+              <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Stellen besetzen:</strong> Karriereseite und Online-Bewerbung, die trotz Fachkräftemangel Bewerbungen bringen.</span></li>
+            </ul>
+            <a href="mittelstand.html" class="textlink">Mehr für den Mittelstand <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-tiles">
+    <h3>Kachelraster (Leistungen)</h3>
+    <div class="sg-meta"><code>.tiles</code> <code>.tile</code> <code>.tile-photo</code> <code>.tile-cream</code> <code>.tile-teal</code> <code>.tile-deep</code> <code>.tile-sand</code><span>Startseite, alle Landingpages</span><span class="sg-badge component">Component</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Vier Spalten, Mindesthöhe 300px, Lücke sp-5. Textkacheln: Label (Sand-Text), H3, Copy klein, unten Textlink. Fünf Varianten: Cream (Karte), Teal (Fill, weißer Text, Sand-Label), Deep (Teal-Deeper, im Dunkelmodus mit Kontur), Sand (Sand-Subtle mit Sand-Kontur) und Foto. Fotos und Textkacheln wechseln sich ab, damit kein Block entsteht.</p>
+    <div class="sg-demo"><section class="section" id="leistungen" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Was wir übernehmen</span>
+        <h2>Drei Bereiche. Ein Ansprechpartner.</h2>
+        <p>Sichtbarkeit, Technik und Betreuung gehören zusammen. Deshalb bekommen Sie bei uns alle drei aus einer Hand.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile tile-photo reveal"><img style="object-position:35% 25%" src="img/m25-anwalt-kanzlei-portrait.jpg" alt="Ein Anwalt steht entspannt in seiner hellen Altbaukanzlei."></div>
+        <article class="tile tile-cream reveal">
+          <div><span class="tile-num">01 · Sichtbarkeit &amp; Marke</span><h3>Gefunden werden. Und überzeugen.</h3><p>Website, Google-Profil, Texte und Bilder: Wir sorgen dafür, dass Ihr erster Eindruck so professionell ist wie Ihre Arbeit.</p></div>
+          <a href="#digital-check-info" class="textlink">Mehr erfahren <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+        <div class="tile tile-photo reveal"><img src="img/m05-unternehmerin-halle-gehend.jpg" alt="Eine Unternehmerin geht mit einem Tablet unter dem Arm durch ihre helle Werkhalle."></div>
+        <article class="tile tile-teal reveal">
+          <div><span class="tile-num">02 · Infrastruktur &amp; Prozesse</span><h3>Technik, die einfach läuft.</h3><p>Cloud-Telefonie mit Placetel, Terminbuchung mit Doctolib, Hosting und E-Mail bei Partnern wie IONOS und Netleaders. Alles verbunden, alles gewartet.</p></div>
+          <a href="#digital-check-info" class="textlink">Mehr erfahren <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="tile tile-deep reveal">
+          <div><span class="tile-num">03 · Digital-Concierge</span><h3>Wir denken mit, bevor Sie fragen.</h3><p>Eine kurze Nachricht genügt. Urlaub, neue Öffnungszeiten, eine neue Kollegin: Wir stellen Website, Google-Eintrag und Telefonansage um. Und wieder zurück.</p></div>
+          <a href="#so-arbeiten-wir" class="textlink">So arbeiten wir <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+        <div class="tile tile-photo reveal"><img src="img/m07-hamburg-hafen-morgen.jpg" alt="Ruhiges Hafenwasser in Hamburg im Morgenlicht."></div>
+        <article class="tile tile-sand reveal">
+          <div><span class="tile-num">Schwerpunkt · Recruiting</span><h3>Stellen besetzen. Trotz Fachkräftemangel.</h3><p>Eine Karriereseite, die bei Google gefunden wird, und eine Online-Bewerbung, die in zwei Minuten vom Handy geht. Dialyse Güstrow: zwei MFA in vier Wochen. DIGIZT: zwei Servicetechniker in sechs Wochen.</p></div>
+          <a href="#referenzen" class="textlink">Referenzen ansehen <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+        <div class="tile tile-photo reveal"><img src="img/m11-praxis-empfang-telefon.jpg" alt="Eine Empfangsmitarbeiterin telefoniert mit Headset an einem aufgeräumten Tresen."></div>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-steps">
+    <h3>Schritte</h3>
+    <div class="sg-meta"><code>.steps</code> <code>.step</code> <code>.step-num</code><span>Startseite</span><span class="sg-badge component">Component</span></div>
+    <div class="sg-demo"><section class="section" id="so-arbeiten-wir">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">So arbeiten wir</span>
+        <h2>Erst zuhören. Dann übernehmen. Dann dranbleiben.</h2>
+        <p>Kein Projekt, das nach dem Launch endet. Wir bleiben Ihr Ansprechpartner, solange Sie uns brauchen.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="step-num">1</span><h3>Der Digital-Check</h3><p>20 Minuten am Telefon oder per Video. Wir schauen vorher auf Website, Telefon und Google-Profil und sagen Ihnen offen, was gut ist und was nicht.</p></div>
+        <div class="step reveal"><span class="step-num">2</span><h3>Ein Plan in Klartext</h3><p>Sie bekommen eine Seite: was wir empfehlen, in welcher Reihenfolge und was es kostet. Ohne Fachchinesisch, ohne Kleingedrucktes.</p></div>
+        <div class="step reveal"><span class="step-num">3</span><h3>Wir übernehmen</h3><p>Einrichten, umstellen, betreuen. Sie schreiben uns, wenn sich etwas ändert. Wir melden uns, bevor etwas ausläuft.</p></div>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-refs">
+    <h3>Referenzen und Kundenstimmen</h3>
+    <div class="sg-meta"><code>.refs</code> <code>.ref</code> <code>.quotes</code> <code>.quote</code> <code>.quote.featured</code><span>Startseite, Landingpages (Referenz)</span><span class="sg-badge component">Component</span><span class="sg-badge native">Query Loop</span></div>
+    <p class="sg-note">Referenzkarten: Logo-Zeile 32px, Art (Label), H3, Copy klein, Hover hebt. In Bricks sinnvoll als Query Loop über einen Post-Type „Referenzen“. Kundenstimmen: gestrichelte Kontur als Platzhalter-Signal, Zitat in Georgia, Featured in Teal-Fill. Die Tags <code>[Kundenstimme]</code> verschwinden mit echten Zitaten.</p>
+    <div class="sg-demo"><section class="section-sm" id="referenzen" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Referenzen</span>
+        <h2>Menschen, für die es einfach läuft.</h2>
+      </div>
+      <div class="refs">
+        <article class="ref reveal">
+          <div class="ref-logo"><img src="../design-system/assets/logo-digizt.svg" alt="DIGIZT"></div>
+          <span class="ref-kind">Reparaturservice · bundesweit</span>
+          <h3>DIGIZT Haushaltsgeräte</h3>
+          <p>Bundesweiter Reparaturservice für Haushaltsgeräte mit Online-Terminbuchung. Über die Karriereseite mit Online-Bewerbung zwei Servicetechniker in sechs Wochen gewonnen. [Leistungsumfang ergänzen]</p>
+        </article>
+        <article class="ref reveal">
+          <div class="ref-logo"><span class="wordmark">Dialyse Güstrow</span></div>
+          <span class="ref-kind">Dialysepraxis · Güstrow · Recruiting</span>
+          <h3>Dialyse Güstrow</h3>
+          <p>SEO-optimierte Karriereseite mit Online-Bewerbung. Zwei MFA in vier Wochen besetzt, trotz Fachkräftemangel. [Leistungsumfang ergänzen]</p>
+        </article>
+        <article class="ref reveal">
+          <div class="ref-logo"><span class="wordmark">Lungenpraxis am Tibarg</span></div>
+          <span class="ref-kind">Facharztpraxis · Hamburg</span>
+          <h3>Lungenpraxis am Tibarg</h3>
+          <p>Praxis-Website und digitale Erreichbarkeit für eine Facharztpraxis. [Leistungsumfang ergänzen]</p>
+        </article>
+        <article class="ref reveal">
+          <div class="ref-logo"><span class="wordmark serif">Urlaub bei Jana</span></div>
+          <span class="ref-kind">Ferienvermietung</span>
+          <h3>Urlaub bei Jana</h3>
+          <p>Website mit Buchungsanfrage für eine Ferienvermietung. [Leistungsumfang ergänzen]</p>
+        </article>
+      </div>
+      <div class="quotes" style="margin-top:var(--da-sp-5)">
+        <div class="quote featured reveal">
+          <span class="placeholder-tag">[Kundenstimme]</span>
+          <blockquote>„Hier steht ein echtes Zitat einer Kundin oder eines Kunden. Zwei bis drei Sätze darüber, was sich im Alltag verändert hat.“</blockquote>
+          <cite>[Name, Funktion, Unternehmen]</cite>
+        </div>
+        <div class="quote reveal">
+          <span class="placeholder-tag">[Kundenstimme]</span>
+          <blockquote>„Ein kurzes Zitat, ein Satz genügt.“</blockquote>
+          <cite>[Name, Funktion, Unternehmen]</cite>
+        </div>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-about">
+    <h3>Leitbild mit Fakten</h3>
+    <div class="sg-meta"><code>.about</code> <code>.about-facts</code> <code>.fact</code><span>Startseite</span><span class="sg-badge native">Section</span><span class="sg-badge class">Global Class</span></div>
+    <div class="sg-demo"><section class="section about" id="ueber-uns">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="da-eyebrow">Über Digital Avenue</span>
+        <h2>Eine Agentur, die den Hörer abnimmt.</h2>
+        <div class="about-facts">
+          <div class="fact"><span class="num">30</span><span class="label">Jahre Erfahrung im Content- und Internetgeschäft</span></div>
+          <div class="fact"><span class="num">2</span><span class="label">Standorte: Hamburg und Rostock, bundesweit tätig</span></div>
+          <div class="fact"><span class="num">1</span><span class="label">Ansprechpartner für Marketing und Technik</span></div>
+          <div class="fact"><span class="num">DE</span><span class="label">Hosting, E-Mail und Telefonie bei Partnern mit Servern in Deutschland</span></div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p>Die meisten Praxen, Kanzleien und Betriebe kennen das: Für die Website gibt es eine Agentur, für die Telefonanlage ein Systemhaus, für den Google-Eintrag niemanden. Und wenn etwas hakt, zeigt jeder auf den anderen.</p>
+        <p>Digital Avenue ist entstanden, um genau das zu beenden. Wir verbinden die Werbeagentur mit dem Internetdienstleister, das Kreative mit dem Technischen. Sie haben einen Ansprechpartner, der beides versteht und beides verantwortet.</p>
+        <p>Wir sind bewusst klein und persönlich. Sie sprechen mit Nils Rudolph, nicht mit einem Ticketsystem. Wir merken uns Ihre Urlaubszeiten, wissen, welche Kollegin neu ist, und melden uns, bevor ein Zertifikat ausläuft.</p>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-lp-hero">
+    <h3>Hero (Landingpage, zweispaltig)</h3>
+    <div class="sg-meta"><code>.lp-hero</code> <code>.lp-hero-ctas</code><span>Praxen, Kanzleien, Mittelstand</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Links Eyebrow, H1, Lead, zwei Buttons; rechts Bild 4:5 (max. 520px) mit Service-Karte unten. Verlauf 165° mit Sand-Glanz rechts oben. Unter 880px einspaltig, Bild 4:3.</p>
+    <div class="sg-demo"><section class="lp-hero">
+    <div class="wrap">
+      <div>
+        <span class="da-eyebrow">Für Arztpraxen</span>
+        <h1>Weniger Telefon am Tresen. <strong>Mehr Zeit für Patienten.</strong></h1>
+        <p class="lead">Online-Terminbuchung, eine Telefonanlage, die Rezeptwünsche vorsortiert, und eine Website, die Sie nicht pflegen müssen. Wir richten alles ein, verbinden es und halten es am Laufen. Sie behandeln.</p>
+        <div class="lp-hero-ctas">
+          <button type="button" class="da-btn-primary" data-open-check data-audience="praxis">Digital-Check für Ihre Praxis</button>
+          <a href="#praxis-leistungen" class="da-btn-ghost">Was wir übernehmen</a>
+        </div>
+      </div>
+      <figure class="reveal" style="aspect-ratio:4/3">
+        <img style="object-position:74% 45%" src="img/m09-arzt-sprechzimmer-lachend.jpg" alt="Ein Hausarzt sitzt entspannt auf der Kante seines Schreibtischs und lacht.">
+        <div class="service-card">
+          <div class="sc-head"><span class="sc-label">Montag, 8:02 Uhr</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>läuft</span></div>
+          <div class="sc-title">14 Termine über Nacht online gebucht, 0 Anrufe dafür.</div>
+        </div>
+      </figure>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-pains">
+    <h3>Kennen Sie das? (Pain-Karten)</h3>
+    <div class="sg-meta"><code>.pains</code> <code>.pain</code><span>Alle Landingpages</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Drei Karten, oben ein Zitat aus dem Alltag in Georgia, darunter die Antwort in Copy klein. Der Textkontrast zwischen Serif und Manrope ist gewollt.</p>
+    <div class="sg-demo"><section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Kennen Sie das?</span>
+        <h2>Drei Sätze, die wir in Praxen oft hören.</h2>
+      </div>
+      <div class="pains">
+        <div class="pain reveal"><blockquote>„Montags um acht steht das Telefon nicht still, und die Hälfte will nur ein Rezept.“</blockquote><p>Eine Telefonanlage mit Ansagemenü nimmt Rezept- und Überweisungswünsche auf, bevor jemand abhebt. Ihr Team telefoniert mit denen, die es wirklich brauchen.</p></div>
+        <div class="pain reveal"><blockquote>„Wir suchen seit Monaten eine MFA. Auf die Anzeige meldet sich niemand.“</blockquote><p>Wer heute eine Stelle sucht, googelt und bewirbt sich vom Handy. Wir bauen eine Karriereseite, die gefunden wird, und eine Online-Bewerbung, die in zwei Minuten erledigt ist. Für die Dialyse Güstrow haben wir so zwei MFA in vier Wochen gefunden.</p></div>
+        <div class="pain reveal"><blockquote>„Vor dem Urlaub muss ich an zehn Stellen denken. Und danach wieder.“</blockquote><p>Das ist unser Urlaubs-Service. Eine Nachricht, und wir stellen Website, Google-Profil und Telefonansage um. Nach Ihrer Rückkehr stellen wir alles wieder zurück.</p></div>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-feature">
+    <h3>Feature mit Bild</h3>
+    <div class="sg-meta"><code>.feature</code> <code>.feature.flip</code><span>Kanzleien (Diskretion), Mittelstand (Bericht)</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Zweispaltig, Bild 4:3 mit Radius xl und Schatten lg. <code>.flip</code> stellt das Bild nach links.</p>
+    <div class="sg-demo"><section class="section">
+    <div class="wrap">
+      <div class="feature reveal">
+        <div>
+          <span class="da-eyebrow">Diskretion</span>
+          <h2>Wir verstehen, dass in einer Kanzlei nichts nach außen dringen darf.</h2>
+          <p class="lead">Deshalb arbeiten wir mit klaren Zuständigkeiten: Sie wissen jederzeit, wer bei uns worauf Zugriff hat. Zugänge werden dokumentiert, Änderungen protokolliert, und alles, was wir für Sie hosten, liegt auf Servern in Deutschland.</p>
+          <ul class="checks">
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Vertrag zur Auftragsverarbeitung</strong> und Übersicht aller Zugänge</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Verschlüsselte E-Mail</strong> und geprüfte Backups</span></li>
+            <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Ein Ansprechpartner</strong>, der Ihre Kanzlei kennt</span></li>
+          </ul>
+        </div>
+        <figure><img src="img/m26-anwaeltin-fenster-lesend.jpg" alt="Eine Anwältin liest am hohen Fenster ihrer Kanzlei eine Seite."></figure>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-concierge">
+    <h3>Concierge-Block</h3>
+    <div class="sg-meta"><code>.concierge</code> <code>.timeline</code><span>Praxen</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Dunkle Fläche (Teal-Deeper, Radius xl), links Text mit Sand-Eyebrow und Zeitleiste (Sand-Punkte, Trennlinien Weiß zu 12 %), rechts Foto mit Service-Karte. Im Dunkelmodus mit Kontur, damit sich der Block vom Hintergrund löst.</p>
+    <div class="sg-demo"><section class="section">
+    <div class="wrap">
+      <div class="concierge reveal">
+        <div class="concierge-text">
+          <span class="da-eyebrow">Digital-Concierge</span>
+          <h2>Der Urlaubs-Service. Unser bestes Beispiel.</h2>
+          <p>Sie schreiben uns Ihre Urlaubszeiten. Alles Weitere passiert, ohne dass Sie daran denken müssen.</p>
+          <ul class="timeline">
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Zwei Wochen vorher:</strong> Hinweis auf der Website, Vertretungspraxis verlinkt, Öffnungszeiten im Google-Profil eingetragen.</span></li>
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Am letzten Praxistag:</strong> Telefonansage mit Vertretung und Notdienst geschaltet, Doctolib-Zeiten gesperrt.</span></li>
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Am Tag Ihrer Rückkehr:</strong> Alles zurückgestellt. Sie merken davon nichts, Ihre Patienten auch nicht.</span></li>
+          </ul>
+        </div>
+        <div class="concierge-visual">
+          <img src="img/m24-praxis-inhaberin-nachricht.jpg" alt="Eine Praxisinhaberin tippt am Fenster ihrer Praxis eine kurze Nachricht ins Handy.">
+          <div class="service-card">
+            <div class="sc-head"><span class="sc-label">Nachricht an Digital Avenue</span></div>
+            <div class="sc-title">„Wir sind vom 14. bis 28. Juli im Urlaub, Vertretung macht Dr. [Name].“</div>
+            <ul><li><svg class="icon"><use href="#i-check"/></svg>Das ist alles, was Sie schreiben müssen.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-faq">
+    <h3>FAQ</h3>
+    <div class="sg-meta"><code>.faq</code><span>Praxen</span><span class="sg-badge native">Accordion</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Native <code>details</code>-Elemente, 760px breit, Karte mit Radius md, geöffnet Teal-Kontur, Chevron dreht. In Bricks: Element „Accordion“ (Nestable) mit diesem CSS; FAQ-Schema für SEO nicht vergessen.</p>
+    <div class="sg-demo"><section class="section-sm">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="da-eyebrow">Häufige Fragen</span>
+        <h2>Was Praxen uns vorab fragen.</h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>Müssen wir unsere bestehende Website aufgeben?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Nein. Wir schauen im Digital-Check, was Ihre Seite kann und was ihr fehlt. Oft reicht es, sie zu übernehmen, zu aktualisieren und ab dann zu pflegen. Ein Neubau ist nur dann sinnvoll, wenn er sich für Sie rechnet.</p></details>
+        <details><summary>Wir nutzen bereits Doctolib. Was ändert sich?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Dann verbinden wir es sauber mit Website, Google-Profil und Telefonansage, sodass alle Wege zum gleichen Kalender führen. Und wir kümmern uns um Urlaubssperren und Änderungen, damit Sie das nicht selbst tun müssen.</p></details>
+        <details><summary>Wie sieht es mit Datenschutz und Schweigepflicht aus?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Hosting, E-Mail und Telefonie laufen auf Servern in Deutschland. Wir schließen mit Ihnen einen Vertrag zur Auftragsverarbeitung und dokumentieren, wer worauf Zugriff hat. [Details mit Nils abstimmen]</p></details>
+        <details><summary>Wie schnell bringt eine Karriereseite Bewerbungen?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Das hängt von Region und Stelle ab. Entscheidend ist, dass die Seite bei Google für „MFA Stellenangebot [Ort]“ gefunden wird, die Stellen als Google-Jobs ausgespielt werden und die Bewerbung vom Handy in zwei Minuten geht. Bei der Dialyse Güstrow waren zwei MFA-Stellen nach vier Wochen besetzt.</p></details>
+        <details><summary>Was kostet die laufende Betreuung?<svg class="icon"><use href="#i-chev"/></svg></summary><p>[Preismodell ergänzen: z. B. monatliche Pauschale nach Umfang, ohne lange Laufzeit.] Im Digital-Check sagen wir Ihnen, welches Paket zu Ihrer Praxis passt.</p></details>
+      </div>
+    </div>
+  </section></div>
+  </div>
+
+  <div class="sg-item" id="c-check">
+    <h3>Digital-Check-Block (CTA)</h3>
+    <div class="sg-meta"><code>.check</code> <code>.check-list</code> <code>.check-aside</code><span>Alle Seiten, vor dem Footer</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Teal-Fill, Radius xl, Sand-Glanz rechts unten. Links Eyebrow (Sand), H2, Copy, fünf Prüfpunkte mit Sand-Haken, Light-Button mit Hinweis. Rechts Glas-Box „So läuft es ab“ mit drei nummerierten Schritten (Sand-Kreise). Einmal bauen, überall einsetzen.</p>
+    <div class="sg-demo"><section class="section" id="digital-check-info">
+  <div class="wrap">
+    <div class="check reveal">
+      <div>
+        <span class="da-eyebrow">Der Digital-Check</span>
+        <h2>20 Minuten, nach denen Sie wissen, wo Sie stehen.</h2>
+        <p>Wir schauen uns an, was Ihre Kunden, Patienten oder Mandanten heute erleben, wenn sie Sie erreichen wollen. Sie bekommen eine ehrliche Einschätzung in Klartext. Ob daraus mehr wird, entscheiden Sie.</p>
+        <ul class="check-list">
+          <li><svg class="icon"><use href="#i-check"/></svg>Website: Eindruck, Erreichbarkeit, Aktualität</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Telefonanlage: Warteschleife, Ansagen, Weiterleitung</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Google-Unternehmensprofil: Zeiten, Bewertungen, Bilder</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>E-Mail &amp; Hosting: Sicherheit, Zustellung, Backups</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Karriereseite: Auffindbarkeit, Stellen, Bewerbungsweg</li>
+        </ul>
+        <div class="check-ctas">
+          <button type="button" class="da-btn-light" data-open-check>Digital-Check anfragen</button>
+          <span class="check-note">Kostenlos und unverbindlich. [Konditionen bestätigen]</span>
+        </div>
+      </div>
+      <aside class="check-aside">
+        <h3>So läuft es ab</h3>
+        <ol>
+          <li><div><strong>Sie fragen an.</strong> Name, Kontakt, fertig. Wir melden uns innerhalb eines Werktags.</div></li>
+          <li><div><strong>Wir schauen vorab hin.</strong> Website, Telefon und Google-Profil prüfen wir schon vor dem Gespräch.</div></li>
+          <li><div><strong>20 Minuten Gespräch.</strong> Sie bekommen drei konkrete Punkte, die sich sofort lohnen.</div></li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+</div>
+  </div>
+
+  <div class="sg-item" id="c-dialog">
+    <h3>Dialog und Formular</h3>
+    <div class="sg-meta"><code>dialog.check-dialog</code> <code>.form</code> <code>.form-success</code><span>Alle Seiten, geöffnet über jeden Primär-Button</span><span class="sg-badge native">Popup + Form</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Modal 640px, Radius xl, Hintergrund abgedunkelt (Teal-Deeper zu 70 %) und weichgezeichnet. Kopf mit Eyebrow, H2, Hinweis, runder Schließen-Button. Formular zweispaltig, Pflichtfelder Name und Kontakt, Validierung im Browser, Erfolgszustand mit grünem Kreis. In Bricks: Element „Popup“ (Template) mit Element „Form“, Ziel-Vorbelegung über Button-Attribut <code>data-audience</code>.</p>
+    <div class="sg-demo pad alt"><dialog class="check-dialog" open id="sg-check-dialog" aria-labelledby="sg-check-title">
+  <div class="dialog-inner">
+    <div class="dialog-head">
+      <div>
+        <span class="da-eyebrow">Digital-Check</span>
+        <h2 id="sg-check-title">Sagen Sie uns kurz, wer Sie sind. Den Rest übernehmen wir.</h2>
+        <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Der Check dauert 20 Minuten, am Telefon oder per Video.</p>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Schließen"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <form class="form" onsubmit="return false" novalidate>
+      <div class="field full">
+        <label>Ich führe</label>
+        <div class="segmented">
+          <input type="radio" name="sg-audience" id="sg-aud-praxis" value="praxis" checked><label for="sg-aud-praxis">eine Praxis</label>
+          <input type="radio" name="sg-audience" id="sg-aud-kanzlei" value="kanzlei"><label for="sg-aud-kanzlei">eine Kanzlei</label>
+          <input type="radio" name="sg-audience" id="sg-aud-unternehmen" value="unternehmen"><label for="sg-aud-unternehmen">ein Unternehmen</label>
+        </div>
+      </div>
+      <div class="field half">
+        <label for="sg-f-name">Ihr Name</label>
+        <input id="sg-f-name" name="name" type="text" autocomplete="name" required>
+        <span class="error">Bitte nennen Sie uns Ihren Namen.</span>
+      </div>
+      <div class="field half">
+        <label for="sg-f-contact">E-Mail oder Telefon</label>
+        <input id="sg-f-contact" name="contact" type="text" autocomplete="email" inputmode="email" required>
+        <span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span>
+      </div>
+      <div class="field full">
+        <label for="sg-f-site">Ihre Website (optional)</label>
+        <input id="sg-f-site" name="website" type="url" inputmode="url" placeholder="www.">
+      </div>
+      <div class="field full">
+        <label for="sg-f-msg">Was beschäftigt Sie gerade? (optional)</label>
+        <textarea id="sg-f-msg" name="message" placeholder="Zum Beispiel: Die Telefonanlage ist alt, die Website auch, und niemand kümmert sich."></textarea>
+      </div>
+      <div class="form-foot">
+        <small>Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Kontaktaufnahme speichern. [Datenschutzhinweis ergänzen]</small>
+        <button type="submit" class="da-btn-primary">Digital-Check anfragen</button>
+      </div>
+    </form>
+    <div class="form-success" aria-live="polite">
+      <div class="ok"><svg class="icon icon-20"><use href="#i-check"/></svg></div>
+      <h3>Danke, Ihre Anfrage ist angekommen.</h3>
+      <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Bis dahin müssen Sie nichts weiter tun.</p>
+      <p style="margin-top:24px"><button type="button" class="da-btn-primary">Schließen</button></p>
+    </div>
+  </div>
+</dialog></div>
+  </div>
+
+  <div class="sg-item" id="c-footer">
+    <h3>Footer</h3>
+    <div class="sg-meta"><code>.footer</code> <code>.footer-grid</code> <code>.footer-contact</code> <code>.footer-bottom</code><span>Alle Seiten</span><span class="sg-badge native">Footer-Template</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Nav-Blau (im Dunkelmodus noch dunkler), vier Spalten 2 / 1 / 1 / 1.2, weißes Logo, Spaltentitel als Versal-Label, Links in Nav-Muted mit Sand-Hover, Kontakt mit Sand-Icons, Fußzeile mit Trennlinie. Adresse ist noch Platzhalter.</p>
+    <div class="sg-demo"><footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue">
+        <p>Ihre externe Digitalabteilung aus Hamburg und Rostock. Website, Telefonie, Termine und E-Mail aus einer Hand, persönlich betreut.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="index.html#leistungen">Sichtbarkeit &amp; Marke</a></li>
+          <li><a href="index.html#leistungen">Infrastruktur &amp; Prozesse</a></li>
+          <li><a href="index.html#leistungen">Digital-Concierge</a></li>
+          <li><a href="#digital-check" data-open-check>Digital-Check</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Für wen</h4>
+        <ul>
+          <li><a href="praxen.html">Arztpraxen</a></li>
+          <li><a href="kanzleien.html">Kanzleien</a></li>
+          <li><a href="mittelstand.html">Mittelstand</a></li>
+          <li><a href="index.html#ueber-uns">Über uns</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul class="footer-contact">
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+494041343870">+49 (40) 41343870</a></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:post@digital-avenue.de">post@digital-avenue.de</a></li>
+          <li><svg class="icon"><use href="#i-pin"/></svg><span>Digital Avenue UG (haftungsbeschränkt)<br>[ADRESSE], Hamburg · Rostock</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Digital Avenue UG (haftungsbeschränkt)</span>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="proto-note" aria-hidden="true">Prototyp · Entwurf</div>
+</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ INVENTAR ═══════════════════════════ -->
+<section class="sg-section" id="inventar">
+  <h2>Inventar und Arbeitsliste <small>Vorschlag für die Umsetzung in Bricks 2.4 · Status wird von uns gepflegt</small></h2>
+  <p class="sg-note"><strong>Import</strong> = kommt als Datei in Bricks (Color Manager, Variablen). <strong>Theme Style</strong> = globale Bricks-Einstellung (Typografie, Buttons, Links). <strong>Global Class</strong> = wiederverwendbare Klasse mit Custom CSS, ab 2.4 per CSS Sync auch in den Style-Controls sichtbar. <strong>Component</strong> = Bricks-Komponente mit Eigenschaften (Text, Bild, Link), einmal gebaut, überall eingesetzt. <strong>Element nativ</strong> = Bricks-Element ohne eigenen Bau. Kein Element des Prototyps ist ein Slider; die Zielgruppen laufen über Tabs.</p>
+  <div class="sg-table-wrap">
+  <table class="sg-table">
+    <thead><tr><th>Nr.</th><th>Baustein</th><th>Prototyp</th><th>Vorkommen</th><th>Bricks-Ansatz</th><th>Eigenschaften (Component)</th><th>Erledigt</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td>Farbpalette hell/dunkel</td><td><code>--da-*</code></td><td>global</td><td>Import Color Manager</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>02</td><td>Variablen (Abstände, Radien, Schatten, Schriftgrößen)</td><td><code>--da-*</code></td><td>global</td><td>Import Variablen-Manager</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>03</td><td>Schriften Manrope, Jost</td><td><code>--da-font*</code></td><td>global</td><td>Theme Style, Custom Fonts (Manrope-Datei hochladen)</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>04</td><td>H1–H4, Body, Lead, Small</td><td>Typografie</td><td>global</td><td>Theme Style Typography</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>05</td><td>H5, H6</td><td>nicht definiert</td><td></td><td>Entscheidung offen</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>06</td><td>Buttons (primär, ghost, sand, light, klein)</td><td><code>.da-btn-*</code></td><td>überall</td><td>Theme Style Buttons + Global Classes je Variante</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>07</td><td>Textlink mit Pfeil</td><td><code>.textlink</code></td><td>Kacheln, Panels</td><td>Global Class</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>08</td><td>Eyebrow (links, zentriert, auf dunkel)</td><td><code>.da-eyebrow</code></td><td>überall</td><td>Global Class + Modifier</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>09</td><td>Labels, Chips, Tags, Zähler</td><td><code>.tile-num</code> u. a.</td><td>Karten</td><td>Global Classes</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>10</td><td>Icon-Set (14 Icons)</td><td>Sprite</td><td>überall</td><td>Eigenes Icon-Set (SVG-Upload)</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>11</td><td>Mode-Umschalter</td><td><code>.brxe-toggle-mode</code></td><td>Header</td><td>Element „Toggle – Mode“</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>12</td><td>Header + Drawer</td><td><code>.nav</code></td><td>alle Seiten</td><td>Header-Template, Nav-Menu (Nestable), Offcanvas</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>13</td><td>Footer</td><td><code>.footer</code></td><td>alle Seiten</td><td>Footer-Template</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>14</td><td>Hero zentriert</td><td><code>.hero</code></td><td>Start</td><td>Section + Global Classes</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>15</td><td>Hero Landingpage</td><td><code>.lp-hero</code></td><td>3 Landingpages</td><td>Component</td><td>Eyebrow, H1, Betonung, Lead, Button-Text, Bild, Fokus, Service-Karte</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>16</td><td>Service-Karte</td><td><code>.service-card</code></td><td>7×</td><td>Component</td><td>Label, Status, Titel, Liste, Variante sand</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>17</td><td>Mosaik</td><td><code>.mosaic</code></td><td>Start</td><td>Component (Grid als Custom CSS)</td><td>3 Bilder, 3 Chips, 3 Service-Karten, Textkarte</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>18</td><td>Partnerzeile</td><td><code>.partners</code></td><td>Start</td><td>Section + Global Class</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>19</td><td>Zielgruppen-Tabs mit Panel</td><td><code>.tabs</code> <code>.audience</code></td><td>Start</td><td>Tabs (Nestable) + Custom CSS</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>20</td><td>Kachel (5 Varianten)</td><td><code>.tile</code></td><td>4 Seiten, 32×</td><td>Component</td><td>Variante, Label, H3, Copy, Link, Bild</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>21</td><td>Schritt</td><td><code>.step</code></td><td>Start</td><td>Component</td><td>Nummer, H3, Copy</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>22</td><td>Referenzkarte</td><td><code>.ref</code></td><td>Start, Landingpages</td><td>Component oder Query Loop (Post-Type Referenzen)</td><td>Logo, Art, Titel, Copy</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>23</td><td>Kundenstimme (Standard, featured)</td><td><code>.quote</code></td><td>Start</td><td>Component oder Query Loop</td><td>Zitat, Name, Variante</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>24</td><td>Leitbild mit Fakten</td><td><code>.about</code> <code>.fact</code></td><td>Start</td><td>Section + Global Classes</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>25</td><td>Pain-Karte</td><td><code>.pain</code></td><td>3 Landingpages</td><td>Component</td><td>Zitat, Antwort</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>26</td><td>Feature mit Bild</td><td><code>.feature</code></td><td>Kanzleien, Mittelstand</td><td>Component</td><td>Seite (flip), Eyebrow, H2, Lead, Liste, Bild</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>27</td><td>Concierge-Block</td><td><code>.concierge</code></td><td>Praxen</td><td>Component</td><td>Eyebrow, H2, Copy, Zeitleiste, Bild, Service-Karte</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>28</td><td>FAQ</td><td><code>.faq</code></td><td>Praxen</td><td>Accordion (Nestable) + Custom CSS</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>29</td><td>Digital-Check-Block</td><td><code>.check</code></td><td>alle Seiten</td><td>Component</td><td>Zielgruppe (Button-Attribut)</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>30</td><td>Dialog mit Formular</td><td><code>.check-dialog</code></td><td>alle Seiten</td><td>Popup-Template + Form</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>31</td><td>Reveal beim Scrollen</td><td><code>.reveal</code></td><td>überall</td><td>Bricks Interactions (Enter Viewport) oder Custom CSS + JS</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>32</td><td>Dunkelmodus</td><td><code>[data-brx-theme]</code></td><td>global</td><td>Color Manager Dunkelwerte + Custom CSS für Sonderfälle</td><td></td><td><span class="sg-check"></span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ BRICKS 2.4 ═══════════════════════════ -->
+<section class="sg-section sg-bricks" id="bricks24">
+  <h2>Bricks 2.4: Was sich für den Umzug ändert <small>Stand RC (September 2026), Quellen: Bricks-Changelog 2.4-beta bis rc, Bricks Academy, BricksExtras, Bricksfusion</small></h2>
+  <ul>
+    <li><strong>AI Abilities und nativer MCP-Server.</strong> Bricks stellt Builder-Aktionen über die WordPress Abilities API und MCP bereit. Claude Code, Cursor oder Copilot verbinden sich unter <code>/wp-json/bricks-mcp/v1/mcp</code> mit einem WordPress-Anwendungspasswort. Abilities: Seite, Element, Template, Component, Global Data, Design System, Dynamic Data, Query Loop, Navigationsmenü, WooCommerce, Remote Templates, Import/Export und HTML-zu-Bricks. Pro Ability schaltbar unter Bricks › AI. <em>Folge für uns:</em> Der Handoff muss keine JSON-Dateien mehr von Hand einspielen. Claude Code kann Templates, Global Classes und Components direkt in Staging anlegen, sofern die Staging-Domain aus dieser Umgebung erreichbar ist. Das Anwendungspasswort bleibt in der MCP-Konfiguration des Clients, nie in URLs oder im Repository.</li>
+    <li><strong>HTML-zu-Bricks.</strong> Eine der Abilities wandelt HTML in Bricks-Elemente um. Damit lässt sich der Prototyp Abschnitt für Abschnitt übertragen, statt jede Section neu zu klicken. Die Qualität der Umwandlung prüfen wir am ersten Abschnitt (Hero), bevor wir es breit einsetzen.</li>
+    <li><strong>CSS Sync (bidirektional).</strong> Custom CSS an Elementen und Global Classes wird mit den Style-Controls synchron gehalten: unterstützte Deklarationen erscheinen in den Controls, Änderungen an Controls schreiben ins CSS zurück, Unbekanntes bleibt stehen. Custom CSS hat bei Konflikten Vorrang. Breakpoint und Pseudoklasse werden berücksichtigt. <em>Folge:</em> Wir können das Prototyp-CSS je Klasse einfügen und Bricks macht daraus bearbeitbare Controls. Das entschärft die Frage „Global Class oder Custom CSS“ erheblich.</li>
+    <li><strong>Globaler Import/Export.</strong> Ein vereinheitlichtes System überträgt komplette Design Systems samt Builder-Konfiguration zwischen Installationen. Components lassen sich im Component Manager aus einer anderen Bricks-Installation importieren, inklusive verschachtelter Abhängigkeiten, Global Classes, Variablen, Paletten und optional Bildern. <em>Folge:</em> Wir bauen das Design System einmal auf einer Werkstatt-Installation und ziehen es dann in das Digital-Avenue-Staging. Dasselbe Set lässt sich später für Kundenprojekte wiederverwenden.</li>
+    <li><strong>Bricks Browser.</strong> Zentrale Übersicht für Seiten, Templates, Components und Post-Types im Builder, mit Medien-Workflow. Ersetzt das Springen zwischen WP-Admin und Builder.</li>
+    <li><strong>Builder-Layouts und Interface-Profile.</strong> Die Oberfläche lässt sich anpassen und als Profil speichern. Profile wandern mit dem globalen Export.</li>
+    <li><strong>Stile kopieren und verschieben.</strong> Alle Stile inklusive Breakpoints, Selektoren und Pseudoklassen kopieren, oder nur den aktiven Breakpoint; beim Einfügen wählen, ob der ursprüngliche Breakpoint erhalten bleibt. Stile zwischen Breakpoints verschieben, zusammenführen oder überschreiben. Verschachtelte Media Queries in Custom CSS werden den responsiven Controls zugeordnet.</li>
+    <li><strong>Kleinere Punkte mit Relevanz:</strong> Offcanvas-Richtung je Breakpoint (mobiler Drawer von rechts, Desktop anders möglich); Reihenfolge der Global-Class-Ausgabe folgt dem Class Manager (wichtig für Modifier wie <code>.on-dark</code>); Farbpaletten im Variablen-Manager und Sync mit Gutenberg; SVG-Uploads in eigenen Icon-Sets besser verwaltet; Cloudflare Turnstile im Formular wird verzögert geladen; neuer Admin-Bereich mit Suche und Speicherleiste.</li>
+    <li><strong>Was seit 2.2 schon da ist und wir nutzen:</strong> Color Manager mit Hell- und Dunkelwert je Farbe, Element „Toggle – Mode“, Attribut <code>data-brx-theme</code> auf <code>html</code>, Speicherung unter <code>brx_mode</code>.</li>
+    <li><strong>Vorbehalt.</strong> Die Bricks-Seiten sind aus dieser Umgebung gesperrt, die Angaben stammen aus Suchergebnissen und Sekundärquellen. Details wie die genauen Ability-Namen und das Verhalten von HTML-zu-Bricks prüfen wir am Staging, sobald 2.4 final ist.</li>
+  </ul>
+</section>
+
+</main>
+</div>
+<dialog class="check-dialog" id="check-dialog" aria-labelledby="check-title">
+  <div class="dialog-inner">
+    <div class="dialog-head">
+      <div>
+        <span class="da-eyebrow">Digital-Check</span>
+        <h2 id="check-title">Sagen Sie uns kurz, wer Sie sind. Den Rest übernehmen wir.</h2>
+        <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Der Check dauert 20 Minuten, am Telefon oder per Video.</p>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Schließen" data-close-check><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <form class="form" novalidate>
+      <div class="field full">
+        <label>Ich führe</label>
+        <div class="segmented">
+          <input type="radio" name="audience" id="aud-praxis" value="praxis" checked><label for="aud-praxis">eine Praxis</label>
+          <input type="radio" name="audience" id="aud-kanzlei" value="kanzlei"><label for="aud-kanzlei">eine Kanzlei</label>
+          <input type="radio" name="audience" id="aud-unternehmen" value="unternehmen"><label for="aud-unternehmen">ein Unternehmen</label>
+        </div>
+      </div>
+      <div class="field half">
+        <label for="f-name">Ihr Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <span class="error">Bitte nennen Sie uns Ihren Namen.</span>
+      </div>
+      <div class="field half">
+        <label for="f-contact">E-Mail oder Telefon</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email" inputmode="email" required>
+        <span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span>
+      </div>
+      <div class="field full">
+        <label for="f-site">Ihre Website (optional)</label>
+        <input id="f-site" name="website" type="url" inputmode="url" placeholder="www.">
+      </div>
+      <div class="field full">
+        <label for="f-msg">Was beschäftigt Sie gerade? (optional)</label>
+        <textarea id="f-msg" name="message" placeholder="Zum Beispiel: Die Telefonanlage ist alt, die Website auch, und niemand kümmert sich."></textarea>
+      </div>
+      <div class="form-foot">
+        <small>Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Kontaktaufnahme speichern. [Datenschutzhinweis ergänzen]</small>
+        <button type="submit" class="da-btn-primary">Digital-Check anfragen</button>
+      </div>
+    </form>
+    <div class="form-success" aria-live="polite">
+      <div class="ok"><svg class="icon icon-20"><use href="#i-check"/></svg></div>
+      <h3>Danke, Ihre Anfrage ist angekommen.</h3>
+      <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Bis dahin müssen Sie nichts weiter tun.</p>
+      <p style="margin-top:24px"><button type="button" class="da-btn-primary" data-close-check>Schließen</button></p>
+    </div>
+  </div>
+</dialog>
+<script src="js/site.js"></script>
+</body>
+</html>

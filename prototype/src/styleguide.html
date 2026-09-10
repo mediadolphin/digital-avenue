@@ -1,0 +1,557 @@
+<header class="sg-top">
+  <div class="wrap sg-top-inner">
+    <div class="sg-top-title">
+      <img class="logo-light" src="../design-system/assets/logo-digital-avenue.svg" alt="Digital Avenue">
+      <img class="logo-dark" src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue">
+      <span>Style Guide</span>
+    </div>
+    <div class="sg-top-actions">
+      <span>Stand {{DATE}}</span>
+      <button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus einschalten" aria-pressed="false" data-toggle-mode>
+        <span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span>
+        <span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap sg-layout">
+<aside class="sg-toc" aria-label="Inhalt">
+  <h4>Grundlagen</h4>
+  <ul>
+    <li><a href="#farben">Farben</a></li>
+    <li><a href="#typografie">Typografie</a></li>
+    <li><a href="#abstaende">Abstände, Radien, Schatten</a></li>
+    <li><a href="#icons">Icons</a></li>
+    <li><a href="#bilder">Bildwelt</a></li>
+  </ul>
+  <h4>Elemente</h4>
+  <ul>
+    <li><a href="#el-eyebrow">Eyebrow</a></li>
+    <li><a href="#el-buttons">Buttons und Textlinks</a></li>
+    <li><a href="#el-labels">Labels, Chips, Tags</a></li>
+    <li><a href="#el-toggle">Mode-Umschalter</a></li>
+    <li><a href="#el-tabs">Tabs</a></li>
+    <li><a href="#el-form">Formularfelder</a></li>
+  </ul>
+  <h4>Komponenten</h4>
+  <ul>
+    <li><a href="#c-nav">Navigation</a></li>
+    <li><a href="#c-hero">Hero (Startseite)</a></li>
+    <li><a href="#c-mosaic">Mosaik</a></li>
+    <li><a href="#c-service-card">Service-Karte</a></li>
+    <li><a href="#c-partners">Partnerzeile</a></li>
+    <li><a href="#c-audience">Zielgruppen-Umschalter</a></li>
+    <li><a href="#c-tiles">Kachelraster</a></li>
+    <li><a href="#c-steps">Schritte</a></li>
+    <li><a href="#c-refs">Referenzen und Kundenstimmen</a></li>
+    <li><a href="#c-about">Leitbild mit Fakten</a></li>
+    <li><a href="#c-lp-hero">Hero (Landingpage)</a></li>
+    <li><a href="#c-pains">Kennen Sie das?</a></li>
+    <li><a href="#c-feature">Feature mit Bild</a></li>
+    <li><a href="#c-concierge">Concierge-Block</a></li>
+    <li><a href="#c-faq">FAQ</a></li>
+    <li><a href="#c-check">Digital-Check-Block</a></li>
+    <li><a href="#c-dialog">Dialog und Formular</a></li>
+    <li><a href="#c-footer">Footer</a></li>
+  </ul>
+  <h4>Planung</h4>
+  <ul>
+    <li><a href="#inventar">Inventar</a></li>
+    <li><a href="#bricks24">Bricks 2.4</a></li>
+  </ul>
+</aside>
+
+<main class="sg-main" id="main">
+
+<div class="sg-intro">
+  <span class="da-eyebrow">Digital Avenue · Redesign 2026</span>
+  <h1>Alles, was die neue Seite ausmacht. Auf einer Seite.</h1>
+  <p>Dieser Style Guide zeigt jede Farbe, jede Schriftgröße und jede Komponente des Prototyps so, wie sie im echten CSS gerendert wird. Der Umschalter oben rechts zeigt alles im Hell- und im Dunkelmodus. Er dient der Planung des Umzugs nach Bricks: Was lässt sich importieren, was wird Theme Style, Global Class oder Component, was bleibt Custom CSS.</p>
+  <p>Die Badges an jeder Komponente sind ein Vorschlag, kein Beschluss. Die Tabelle am Ende ist die Arbeitsliste.</p>
+  <div class="sg-legend">
+    <span class="sg-badge import">Import</span>
+    <span class="sg-badge theme">Theme Style</span>
+    <span class="sg-badge class">Global Class</span>
+    <span class="sg-badge component">Component</span>
+    <span class="sg-badge native">Element nativ</span>
+    <span class="sg-badge css">Custom CSS</span>
+    <span class="sg-badge open">Entscheidung offen</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ FARBEN ═══════════════════════════ -->
+<section class="sg-section" id="farben">
+  <h2>Farben <small>Quelle: design-system/colors_and_type.css · Import in den Bricks Color Manager mit Hell- und Dunkelwert je Farbe</small></h2>
+  <div class="sg-meta"><span class="sg-badge import">Import</span><span>Datei <code>handoff/export/bricks-color-palette-tokens.json</code> · Dunkelwerte werden in Bricks unter <code>:root[data-brx-theme="dark"]</code> ausgegeben</span></div>
+  <p class="sg-note">Die Kacheln zeigen die Farbe des aktiven Modus. Darunter stehen beide Werte. <strong>Teal</strong> ist die Markenfarbe (fix, #305b75), <strong>Sand</strong> der warme Akzent für Eyebrows auf dunklen Flächen, Labels und Zähler, <strong>Plum</strong> ist im Design System angelegt, im Prototyp aber nicht eingesetzt.</p>
+  {{COLORS}}
+</section>
+
+<!-- ═══════════════════════════ TYPOGRAFIE ═══════════════════════════ -->
+<section class="sg-section" id="typografie">
+  <h2>Typografie <small>Manrope (Fließtext, selbst gehostet, variabel 400–800) · Jost (Logo-Schrift, Google Fonts, 400–700) · Georgia (Zitate)</small></h2>
+  <div class="sg-meta"><span class="sg-badge theme">Theme Style</span><span class="sg-badge import">Import</span><span>Größen als Bricks-Variablen (<code>bricks-variables.json</code>), Zuordnung zu H1–H6 und Body in den Theme Styles</span></div>
+  <p class="sg-note"><strong>Grundsatz:</strong> Überschriften tragen wenig Gewicht, die Differenzierung kommt aus Größe und Farbe. Die H1 nutzt Schriftstärke 400, der betonte Satzteil steht in Teal. Alle Größen sind flüssig (clamp), deshalb gibt es keine festen Pixelwerte je Breakpoint.</p>
+
+  <div class="sg-demo pad">
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H1 · Hero</b>clamp(30px, 3.9vw, 52px) · 400 · 1.14 · -0.02em<br><code>.hero h1</code>, <code>.lp-hero h1</code> · Betonung: <code>strong</code> in Teal</div>
+      <div class="hero" style="background:none;padding:0;text-align:left;overflow:visible"><h1 style="margin:0;max-width:none">Ihre Digitalagentur in Hamburg und Rostock. <strong>Damit alles Digitale läuft.</strong></h1></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H1 · Design System</b>var(--da-text-xl) = clamp(30px, 4vw, 44px) · 800 · 1.15<br>Basisstil, im Prototyp nicht verwendet</div>
+      <div class="h1">Ihre Digitalagentur in Hamburg und Rostock.</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H2 · Abschnitt</b>clamp(28px, 3.4vw, 44px) · 700 · 1.1 · -0.03em<br><code>.section-head h2</code>, <code>.check h2</code></div>
+      <div class="section-head" style="margin:0;max-width:none"><h2 style="margin:0">Drei Bereiche. Ein Ansprechpartner.</h2></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H2 · Design System</b>var(--da-text-lg) = clamp(22px, 3vw, 30px) · 700<br>Dialog, Concierge, Feature nutzen eigene Größen (26–38px)</div>
+      <div class="h2">Drei Bereiche. Ein Ansprechpartner.</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H3 · Karte / Kachel</b>clamp(20px, 1.8vw, 24px) · 700 · 1.2 · -0.02em<br><code>.tile h3</code>, <code>.step h3</code> (19–22px), <code>.audience h3</code> (24–34px)</div>
+      <div class="tile" style="padding:0;min-height:0;border:0;background:none"><h3 style="margin:0">Gefunden werden. Und überzeugen.</h3></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H3 · Design System</b>var(--da-text-h3) = clamp(18px, 2vw, 21px) · 700 · 1.35</div>
+      <div class="h3">Gefunden werden. Und überzeugen.</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H4</b>var(--da-text-md) = clamp(17px, 1.4vw, 18px) · 600 · 1.35<br>Footer-Spalten nutzen H4 als Versal-Label (12px, 0.12em)</div>
+      <div class="h4">Ein Ansprechpartner für Marketing und Technik</div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>H5 / H6</b><span class="sg-badge open">Entscheidung offen</span><br>Im Design System nicht definiert, im Prototyp nicht verwendet. Vorschlag: H5 = Base 16px · 700, H6 = Label-Stil (12px Versalien, 0.12em)</div>
+      <div><div style="font-size:var(--da-text-base);font-weight:700">H5 Vorschlag: Base, fett</div><div style="font-size:var(--da-text-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--da-muted);margin-top:8px">H6 Vorschlag: Label in Versalien</div></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Lead / Lede</b>clamp(17px, 1.4vw, 20px) · 400 · 1.55 · Muted<br><code>.hero .lead</code>, <code>.lp-hero .lead</code>; in Karten var(--da-text-md)</div>
+      <p class="lead" style="font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--da-muted)">Website, Telefonanlage, Terminbuchung, Google-Profil und E-Mail aus einer Hand: Wir sind die externe Digitalabteilung für Praxen, Kanzleien und Mittelstand.</p>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Copy / Body</b>var(--da-text-base) = clamp(15px, 1.1vw, 16px) · 400 · 1.65<br>Absätze standardmäßig in Muted, Listentexte in Text</div>
+      <p>Kein Projekt, das nach dem Launch endet. Wir bleiben Ihr Ansprechpartner, solange Sie uns brauchen. Sie schreiben uns, wenn sich etwas ändert. Wir melden uns, bevor etwas ausläuft.</p>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Copy · klein</b>var(--da-text-sm) = clamp(13px, 1vw, 14px) · 1.6<br>Kacheltexte, Referenzen, Schritte, Fußzeilen</div>
+      <p style="font-size:var(--da-text-sm);line-height:1.6">Cloud-Telefonie mit Placetel, Terminbuchung mit Doctolib, Hosting und E-Mail bei Partnern wie IONOS und Netleaders. Alles verbunden, alles gewartet.</p>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Fußnote</b>var(--da-text-xs) = clamp(11px, 0.8vw, 12px)<br>Formular-Hinweise, Copyright, Check-Note</div>
+      <small style="font-size:var(--da-text-xs);color:var(--da-muted)">Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Kontaktaufnahme speichern.</small>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Zitat</b>Georgia italic · clamp(20px, 1.8vw, 28px) · 1.3<br><code>.quote blockquote</code>; Pain-Karten 18–21px</div>
+      <blockquote style="margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(20px,1.8vw,28px);line-height:1.3">„Montags um acht steht das Telefon nicht still, und die Hälfte will nur ein Rezept.“</blockquote>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Navigation</b>Jost · 13px · 500 · 0.14em · Versalien<br>Aktiv: Teal, 600. Mobil 17–22px</div>
+      <div class="nav-menu" style="display:flex;gap:24px"><a href="#" style="font-family:var(--da-font-logo);font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--da-text)">Leistungen</a><a href="#" style="font-family:var(--da-font-logo);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--da-teal)">Für Praxen</a></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Eyebrow</b>Jost · 12px · 500 · 0.18em · Versalien · Teal-Text<br>Auf dunklen Flächen in Sand</div>
+      <span class="da-eyebrow">Für Praxen, Kanzleien und Mittelstand</span>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Label</b>Manrope · 10–12px · 700 · 0.1–0.12em · Versalien<br><code>.tile-num</code>, <code>.sc-label</code>, <code>.ref-kind</code> in Sand-Text; <code>.partners-label</code>, <code>.hero-trust</code> in Muted</div>
+      <div class="sg-row"><span class="tile-num">01 · Sichtbarkeit &amp; Marke</span><span class="partners-label">Partner, mit denen wir arbeiten</span></div>
+    </div>
+    <div class="sg-spec">
+      <div class="sg-spec-key"><b>Zahl</b>clamp(26px, 2.6vw, 34px) · 800 · Teal · -0.03em<br><code>.fact .num</code></div>
+      <span class="num" style="font-size:clamp(26px,2.6vw,34px);font-weight:800;color:var(--da-teal);letter-spacing:-0.03em">30</span>
+    </div>
+  </div>
+
+  <div class="sg-table-wrap" style="margin-top:var(--da-sp-8)">
+  <table class="sg-table">
+    <thead><tr><th>Token</th><th>Wert</th><th>Gewichte</th><th>Verwendung</th></tr></thead>
+    <tbody>
+      <tr><td><code>--da-font</code></td><td>'Manrope', system-ui</td><td>400 · 500 · 600 · 700 · 800</td><td>Alles außer Navigation, Eyebrow, Chips</td></tr>
+      <tr><td><code>--da-font-logo</code></td><td>'Jost', system-ui</td><td>400 · 500 · 600 · 700</td><td>Navigation, Eyebrows, Mosaik-Chips (Logo-Schrift)</td></tr>
+      <tr><td>Serif</td><td>Georgia, 'Times New Roman'</td><td>400 italic</td><td>Zitate, Pain-Karten, Wortmarke „Urlaub bei Jana“</td></tr>
+      <tr><td><code>--da-text-2xs</code></td><td>clamp(10px, 0.7vw, 11px)</td><td></td><td>Chip, kleinste Labels</td></tr>
+      <tr><td><code>--da-text-xs</code></td><td>clamp(11px, 0.8vw, 12px)</td><td></td><td>Labels, Fußnoten, Trust-Zeile</td></tr>
+      <tr><td><code>--da-text-sm</code></td><td>clamp(13px, 1vw, 14px)</td><td></td><td>Karten-Copy, Textlinks, Tabs</td></tr>
+      <tr><td><code>--da-text-base</code></td><td>clamp(15px, 1.1vw, 16px)</td><td></td><td>Body, Formularfelder</td></tr>
+      <tr><td><code>--da-text-md</code></td><td>clamp(17px, 1.4vw, 18px)</td><td></td><td>Lead in Karten, H4, Referenz-Titel</td></tr>
+      <tr><td><code>--da-text-lg</code></td><td>clamp(22px, 3vw, 30px)</td><td></td><td>H2 Basis (Design System)</td></tr>
+      <tr><td><code>--da-text-xl</code></td><td>clamp(30px, 4vw, 44px)</td><td></td><td>H1 Basis (Design System)</td></tr>
+      <tr><td><code>--da-text-h3</code></td><td>clamp(18px, 2vw, 21px)</td><td></td><td>H3 Basis (Design System)</td></tr>
+      <tr><td><code>--da-leading-*</code></td><td>tight 1.15 · snug 1.35 · normal 1.65</td><td></td><td>Prototyp nutzt zusätzlich 1.1 (H2), 1.14 (H1), 1.55 (Lead)</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ABSTÄNDE ═══════════════════════════ -->
+<section class="sg-section" id="abstaende">
+  <h2>Abstände, Radien, Schatten <small>Alle Werte als Bricks-Variablen importierbar</small></h2>
+  <div class="sg-meta"><span class="sg-badge import">Import</span><span><code>bricks-variables.json</code> · Kategorien Spacing, Border Radius, Box Shadow, Transitions</span></div>
+  <div class="sg-demo pad">
+    <span class="sg-label">Spacing (flüssig, min–max)</span>
+    <div class="sg-stack" style="gap:6px">
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-2 6–8</code><div class="sg-space" style="width:8px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-4 12–16</code><div class="sg-space" style="width:16px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-6 18–24</code><div class="sg-space" style="width:24px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-8 24–32</code><div class="sg-space" style="width:32px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-12 36–48</code><div class="sg-space" style="width:48px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-16 48–64</code><div class="sg-space" style="width:64px"></div></div>
+      <div class="sg-sample-bar"><code style="width:110px;font-size:11px">--da-sp-20 60–80</code><div class="sg-space" style="width:80px"></div></div>
+    </div>
+    <p class="sg-note" style="margin-top:var(--da-sp-4)">Abschnitte: <code>.section</code> = sp-20 oben und unten, <code>.section-sm</code> = sp-16. Inhaltsbreite <code>--wrap</code> = 1240px, Seitenrand sp-6. Kartenraster-Lücke sp-5, Mosaik sp-4.</p>
+
+    <span class="sg-label" style="margin-top:var(--da-sp-6)">Radien</span>
+    <div class="sg-row">
+      <div><div class="sg-radius" style="border-radius:var(--da-r-xs)"></div><code style="font-size:11px">xs 4</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-sm)"></div><code style="font-size:11px">sm 6 · Burger, Tag</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-md)"></div><code style="font-size:11px">md 10 · Button, Feld, Fakt</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-lg)"></div><code style="font-size:11px">lg 16 · Karten, Kacheln</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-xl)"></div><code style="font-size:11px">xl 24 · Hero-Bild, Check, Dialog</code></div>
+      <div><div class="sg-radius" style="border-radius:var(--da-r-pill)"></div><code style="font-size:11px">pill · Tabs, Chips</code></div>
+    </div>
+
+    <span class="sg-label" style="margin-top:var(--da-sp-6)">Schatten (im Dunkelmodus kräftiger)</span>
+    <div class="sg-row" style="gap:var(--da-sp-8)">
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-sm)"></div><code style="font-size:11px">shadow-sm · Tabs, Light-Button</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-md)"></div><code style="font-size:11px">shadow-md · Mosaik, Service-Karte</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-lg)"></div><code style="font-size:11px">shadow-lg · Bilder, Dialog</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-card-shadow)"></div><code style="font-size:11px">card-shadow · Schritte</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-card-hover)"></div><code style="font-size:11px">card-hover · Kachel/Referenz hover</code></div>
+      <div><div class="sg-shadow" style="box-shadow:var(--da-shadow-teal);background:var(--da-teal-fill)"></div><code style="font-size:11px">shadow-teal · Primär-Button</code></div>
+    </div>
+    <p class="sg-note" style="margin-top:var(--da-sp-4)">Bewegung: <code>--da-t</code> für Hover (Farbe, Schatten, 1–3px Hebung), Bilder zoomen in 0.6–0.7s auf 1.03. Reveal beim Scrollen: von 55 % Deckkraft und 12px Versatz in 0.6s. Bei <code>prefers-reduced-motion</code> alles aus.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ICONS ═══════════════════════════ -->
+<section class="sg-section" id="icons">
+  <h2>Icons <small>Eigenes Set, 16px-Raster, Strich 1.5–1.6px, currentColor · als Sprite im Prototyp, in Bricks als eigenes Icon-Set (SVG-Upload)</small></h2>
+  <div class="sg-meta"><span class="sg-badge native">Element nativ</span><span>Einzeldateien in <code>handoff/export/icons/</code> · Bricks 2.4 verwaltet SVG-Uploads in eigenen Icon-Sets</span></div>
+  <div class="sg-icons">{{ICONS}}</div>
+</section>
+
+<!-- ═══════════════════════════ BILDER ═══════════════════════════ -->
+<section class="sg-section" id="bilder">
+  <h2>Bildwelt <small>Fotorealistisch, ruhige europäische Menschen, natürliches Licht, gedeckte Farben · 33 Motive, keines doppelt</small></h2>
+  <div class="sg-meta"><span class="sg-badge native">Element nativ</span><span>Bilder in Bricks als Medien hochladen; Zuschnitt und Fokuspunkt über <code>object-fit: cover</code> und <code>object-position</code> je Motiv</span></div>
+  <p class="sg-note">Regeln: Bilder liegen immer in einem Container mit Radius lg oder xl, <code>overflow: hidden</code> und transparentem Hintergrund, das Bild erbt den Radius (verhindert Haarlinien an den Ecken). Über Fotos liegt entweder ein Verlauf nach Teal-Deeper (Mosaik) oder eine Service-Karte. Fremdlogos brauchen für den Dunkelmodus eine eigene helle Variante.</p>
+  <div class="sg-img-grid">
+    <figure><img src="img/m01-praxis-inhaberin-fenster.jpg" alt=""><figcaption>m01 · Mosaik Praxis</figcaption></figure>
+    <figure><img src="img/m32-anwalt-portrait-wand.jpg" alt=""><figcaption>m32 · Mosaik Kanzlei</figcaption></figure>
+    <figure><img src="img/m33-unternehmerin-portrait-wand.jpg" alt=""><figcaption>m33 · Mosaik Mittelstand</figcaption></figure>
+    <figure><img src="img/m09-arzt-sprechzimmer-lachend.jpg" alt=""><figcaption>m09 · Hero Praxen</figcaption></figure>
+    <figure><img src="img/m13-anwaeltin-fenster.jpg" alt=""><figcaption>m13 · Hero Kanzleien</figcaption></figure>
+    <figure><img src="img/m27-unternehmer-buero-portrait.jpg" alt=""><figcaption>m27 · Hero Mittelstand</figcaption></figure>
+    <figure><img src="img/m22-aerztin-patient.jpg" alt=""><figcaption>m22 · Zielgruppe Praxis</figcaption></figure>
+    <figure><img src="img/m07-hamburg-hafen-morgen.jpg" alt=""><figcaption>m07 · Stimmung Hamburg</figcaption></figure>
+  </div>
+  <p class="sg-note" style="margin-top:var(--da-sp-4)">Vollständige Liste mit Einsatzort in <code>BRIEFING.md</code>, Quellen in <code>prototype/img/sources.json</code>.</p>
+</section>
+
+<!-- ═══════════════════════════ ELEMENTE ═══════════════════════════ -->
+<section class="sg-section" id="elemente">
+  <h2>Elemente <small>Kleine, überall wiederverwendete Bausteine</small></h2>
+
+  <div class="sg-item" id="el-eyebrow">
+    <h3>Eyebrow</h3>
+    <div class="sg-meta"><code>.da-eyebrow</code><span>Vor jeder H1/H2, im Dialog, in Concierge und Check</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Linie plus Versalien in Jost, keine Pill. Zentriert (Hero, zentrierte Abschnittsköpfe) bekommt sie eine zweite Linie rechts. Auf dunklen Flächen wechselt die Farbe auf Sand.</p>
+    <div class="sg-demo pad">
+      <div class="sg-stack">
+        <div><span class="sg-label">Standard, linksbündig</span><span class="da-eyebrow">Was wir übernehmen</span></div>
+        <div class="section-head center" style="margin:0;max-width:none"><span class="sg-label">Zentriert mit zwei Linien</span><span class="da-eyebrow">Häufige Fragen</span></div>
+        <div class="on-dark" style="background:var(--da-teal-deeper);padding:20px;border-radius:var(--da-r-md)"><span class="sg-label" style="color:#fff;opacity:.6">Auf dunkler Fläche</span><span class="da-eyebrow">Digital-Concierge</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="el-buttons">
+    <h3>Buttons und Textlinks</h3>
+    <div class="sg-meta"><code>.da-btn-primary</code> <code>.da-btn-ghost</code> <code>.da-btn-sand</code> <code>.da-btn-light</code> <code>.da-btn-sm</code> <code>.textlink</code><span class="sg-badge theme">Theme Style</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Manrope 15px · 700, Padding 13/26, Radius md. Primär ist die einzige Variante mit Schatten (Teal, beim Hover kräftiger und 1px Hebung). Die Füllfarbe ist <code>--da-teal-fill</code>, damit Weiß auch im Dunkelmodus lesbar bleibt. Ghost auf dunklen Flächen bekommt <code>.on-dark</code>. Primärer CTA ist immer „Digital-Check anfragen“.</p>
+    <div class="sg-demo pad">
+      <div class="sg-stack">
+        <div class="sg-row">
+          <a href="#" class="da-btn-primary">Digital-Check anfragen</a>
+          <a href="#" class="da-btn-ghost">So arbeiten wir</a>
+          <a href="#" class="da-btn-sand">Sand-Variante</a>
+          <a href="#" class="da-btn-primary da-btn-sm">Klein (Navigation)</a>
+        </div>
+        <div class="sg-row" style="background:var(--da-teal-fill);padding:20px;border-radius:var(--da-r-md)">
+          <a href="#" class="da-btn-light">Digital-Check anfragen</a>
+          <a href="#" class="da-btn-ghost on-dark">Mehr erfahren</a>
+          <span class="check-note">Kostenlos und unverbindlich.</span>
+        </div>
+        <div class="sg-row">
+          <a href="#" class="textlink">Mehr für Praxen <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a href="#" class="textlink" style="color:var(--da-sand-text)">Referenzen ansehen <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="el-labels">
+    <h3>Labels, Chips, Tags, Zähler</h3>
+    <div class="sg-meta"><code>.tile-num</code> <code>.sc-label</code> <code>.sc-status</code> <code>.ref-kind</code> <code>.mosaic-chip</code> <code>.placeholder-tag</code> <code>.step-num</code> <code>.hero-trust</code><span class="sg-badge class">Global Class</span></div>
+    <div class="sg-demo pad">
+      <div class="sg-stack">
+        <div class="sg-row">
+          <span class="tile-num">01 · Sichtbarkeit &amp; Marke</span>
+          <span class="ref-kind">Facharztpraxis · Hamburg</span>
+          <span class="sc-status" style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--da-success)"><svg class="icon"><use href="#i-check"/></svg>erledigt</span>
+        </div>
+        <div class="sg-row">
+          <span class="mosaic-chip" style="position:static">Arztpraxen</span>
+          <span class="placeholder-tag">[Kundenstimme]</span>
+          <span class="step-num">1</span>
+          <span class="step-num">2</span>
+        </div>
+        <ul class="hero-trust" style="margin:0;justify-content:flex-start">
+          <li><svg class="icon"><use href="#i-check"/></svg>Ein Ansprechpartner</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Marketing und IT aus einer Hand</li>
+        </ul>
+        <ul class="checks" style="margin:0">
+          <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Weniger Anrufe am Tresen:</strong> Online-Termine und klare Telefonansagen entlasten Ihr Team.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="el-toggle">
+    <h3>Mode-Umschalter</h3>
+    <div class="sg-meta"><code>.brxe-toggle-mode</code><span>Navigation, Style Guide</span><span class="sg-badge native">Element nativ</span></div>
+    <p class="sg-note">Markup wie das Bricks-Element „Toggle – Mode“: ein Button mit <code>.toggle.light</code> (Mond) und <code>.toggle.dark</code> (Sonne). Bricks setzt <code>data-brx-theme</code> auf <code>&lt;html&gt;</code> und speichert die Wahl unter <code>brx_mode</code>. Rund, 40px, Kontur in Border-Farbe, Hover in Teal.</p>
+    <div class="sg-demo pad"><button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus umschalten" data-toggle-mode><span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span><span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span></button></div>
+  </div>
+
+  <div class="sg-item" id="el-tabs">
+    <h3>Tabs</h3>
+    <div class="sg-meta"><code>.tabs</code><span>Zielgruppen-Umschalter Startseite</span><span class="sg-badge native">Element nativ</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Pill-Gruppe auf Kartenhintergrund, aktiver Tab in Teal-Fill mit weißem Text. Auf Mobil scrollbar. In Bricks: Element „Tabs“ (Nestable) mit diesem CSS, Pfeiltasten-Navigation bringt Bricks mit.</p>
+    <div class="sg-demo pad"><div class="tabs" role="tablist"><button role="tab" aria-selected="true">Arztpraxen</button><button role="tab" aria-selected="false">Kanzleien</button><button role="tab" aria-selected="false">Mittelstand</button></div></div>
+  </div>
+
+  <div class="sg-item" id="el-form">
+    <h3>Formularfelder</h3>
+    <div class="sg-meta"><code>.field</code> <code>.segmented</code> <code>.form-foot</code><span>Digital-Check-Dialog</span><span class="sg-badge native">Element nativ</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Label 12px Versalien in Muted, Feld 48px hoch, Hintergrund = Seitenhintergrund, Radius md, Fokus mit 3px Teal-Ring. Fehlerzustand: Rahmen und Hinweistext in Error. Segmented Control als Radio-Gruppe für die Zielgruppe. In Bricks: Element „Form“, Klassen über Custom CSS.</p>
+    <div class="sg-demo pad">
+      <div class="form" style="margin:0;max-width:640px">
+        <div class="field full"><label>Ich führe</label><div class="segmented"><input type="radio" name="sg-aud" id="sg-a1" checked><label for="sg-a1">eine Praxis</label><input type="radio" name="sg-aud" id="sg-a2"><label for="sg-a2">eine Kanzlei</label><input type="radio" name="sg-aud" id="sg-a3"><label for="sg-a3">ein Unternehmen</label></div></div>
+        <div class="field half"><label for="sg-f1">Ihr Name</label><input id="sg-f1" type="text" value="Nils Rudolph"></div>
+        <div class="field half invalid"><label for="sg-f2">E-Mail oder Telefon</label><input id="sg-f2" type="text" value="post@"><span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span></div>
+        <div class="field full"><label for="sg-f3">Was beschäftigt Sie gerade? (optional)</label><textarea id="sg-f3" placeholder="Zum Beispiel: Die Telefonanlage ist alt, die Website auch."></textarea></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ KOMPONENTEN ═══════════════════════════ -->
+<section class="sg-section" id="komponenten">
+  <h2>Komponenten <small>Live aus dem Prototyp gerendert, gleiche Quelle wie die Seiten</small></h2>
+
+  <div class="sg-item" id="c-nav">
+    <h3>Navigation und Drawer</h3>
+    <div class="sg-meta"><code>.nav</code> <code>.nav-menu</code> <code>.nav-actions</code> <code>.nav-drawer</code><span>Alle Seiten</span><span class="sg-badge component">Component</span><span class="sg-badge native">Header-Template</span></div>
+    <p class="sg-note">Sticky, 72px, Hintergrund = Seitenfarbe zu 82 % mit Blur, beim Scrollen Linie und Schatten. Logo wechselt im Dunkelmodus auf Weiß. Menü in Jost-Versalien ohne Unterstreichung, aktiv in Teal. Rechts Mode-Umschalter und kleiner Primär-Button. Unter 960px: Burger und Drawer (Vollfläche, Menü groß, CTA, Kontakt). Der Drawer liegt als Geschwister neben dem Header, weil <code>backdrop-filter</code> sonst das Fixed-Element einfängt.</p>
+    <div class="sg-demo">{{NAV}}</div>
+  </div>
+
+  <div class="sg-item" id="c-hero">
+    <h3>Hero (Startseite, zentriert)</h3>
+    <div class="sg-meta"><code>.hero</code> <code>.hero-ctas</code> <code>.hero-trust</code><span>Startseite</span><span class="sg-badge native">Section</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Verlauf Hero-from nach Hero-to, darüber zwei radiale Glanzflächen (Sand rechts oben, Teal links; im Dunkelmodus auf 14 % reduziert). Eyebrow, H1 mit Teal-Betonung, Lead, zwei Buttons, Trust-Zeile.</p>
+    <div class="sg-demo">{{SEC:index:0}}</div>
+  </div>
+
+  <div class="sg-item" id="c-mosaic">
+    <h3>Mosaik (Zielgruppen)</h3>
+    <div class="sg-meta"><code>.mosaic</code> <code>.mosaic-tile</code> <code>.mosaic-card</code> <code>.mosaic-chip</code><span>Startseite, direkt unter dem Hero</span><span class="sg-badge component">Component</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Vier Spalten 4 / 3 / 2.4 / 2.4, Zeilenhöhe 500px, bei 1080px zwei Spalten, bei 640px eine. Drei Foto-Kacheln (Praxis, Kanzlei, Mittelstand) mit Chip oben und Service-Karte unten, dazwischen eine Textkarte „Diese Woche“. Fotos zoomen beim Hover auf 1.03, Kachel hebt sich 3px. In Bricks als Component mit vier Slots; das Grid wird Custom CSS.</p>
+    <div class="sg-demo">{{SEC:index:1}}</div>
+  </div>
+
+  <div class="sg-item" id="c-service-card">
+    <h3>Service-Karte</h3>
+    <div class="sg-meta"><code>.service-card</code> <code>.service-card.sand</code><span>Mosaik, Landingpage-Heros, Concierge</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Glas-Karte auf Fotos: Weiß zu 92 % mit Blur und heller Kontur, im Dunkelmodus Kartenfarbe zu 90 %. Kopfzeile aus Label (Sand-Text) und Status (Erfolgsgrün mit Haken), Titel, optional Liste mit Teal-Haken. Erzählt in einer Zeile, was „ohne Ihr Zutun“ passiert ist.</p>
+    <div class="sg-demo pad alt">
+      <div class="sg-row" style="align-items:flex-start">
+        <div class="service-card" style="max-width:360px">
+          <div class="sc-head"><span class="sc-label">Urlaubs-Service</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>erledigt</span></div>
+          <div class="sc-title">Praxis geschlossen vom 14. bis 28. Juli</div>
+          <ul><li><svg class="icon"><use href="#i-check"/></svg>Website, Google-Profil und Telefonansage umgestellt</li><li><svg class="icon"><use href="#i-check"/></svg>Rückstellung am 29. Juli, ohne Ihr Zutun</li></ul>
+        </div>
+        <div class="service-card sand" style="max-width:360px">
+          <div class="sc-head"><span class="sc-label">Nachricht an Digital Avenue</span></div>
+          <div class="sc-title">„Wir sind vom 14. bis 28. Juli im Urlaub, Vertretung macht Dr. [Name].“</div>
+          <ul><li><svg class="icon"><use href="#i-check"/></svg>Das ist alles, was Sie schreiben müssen.</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sg-item" id="c-partners">
+    <h3>Partnerzeile</h3>
+    <div class="sg-meta"><code>.partners</code> <code>.wordmark</code><span>Startseite</span><span class="sg-badge native">Section</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Wortmarken statt Logos, Muted zu 60 %, beim Hover Teal. Varianten: <code>.serif</code>, <code>.wide</code> (gesperrt). Echte Partnerlogos später als Bild mit Graustufen-Filter, im Dunkelmodus invertiert.</p>
+    <div class="sg-demo">{{SEC:index:2}}</div>
+  </div>
+
+  <div class="sg-item" id="c-audience">
+    <h3>Zielgruppen-Umschalter</h3>
+    <div class="sg-meta"><code>.tabs</code> <code>.audience</code> <code>.checks</code><span>Startseite</span><span class="sg-badge native">Tabs (Nestable)</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Zentrierter Abschnittskopf, Tabs, darunter je Zielgruppe ein zweispaltiges Panel: Bild 4:3 mit Radius xl links, rechts H3, Lead, drei Haken-Punkte mit fettem Auftakt und Textlink. Panelwechsel blendet in 0.35s ein.</p>
+    <div class="sg-demo">{{SEC:index:3}}</div>
+  </div>
+
+  <div class="sg-item" id="c-tiles">
+    <h3>Kachelraster (Leistungen)</h3>
+    <div class="sg-meta"><code>.tiles</code> <code>.tile</code> <code>.tile-photo</code> <code>.tile-cream</code> <code>.tile-teal</code> <code>.tile-deep</code> <code>.tile-sand</code><span>Startseite, alle Landingpages</span><span class="sg-badge component">Component</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Vier Spalten, Mindesthöhe 300px, Lücke sp-5. Textkacheln: Label (Sand-Text), H3, Copy klein, unten Textlink. Fünf Varianten: Cream (Karte), Teal (Fill, weißer Text, Sand-Label), Deep (Teal-Deeper, im Dunkelmodus mit Kontur), Sand (Sand-Subtle mit Sand-Kontur) und Foto. Fotos und Textkacheln wechseln sich ab, damit kein Block entsteht.</p>
+    <div class="sg-demo">{{SEC:index:4}}</div>
+  </div>
+
+  <div class="sg-item" id="c-steps">
+    <h3>Schritte</h3>
+    <div class="sg-meta"><code>.steps</code> <code>.step</code> <code>.step-num</code><span>Startseite</span><span class="sg-badge component">Component</span></div>
+    <div class="sg-demo">{{SEC:index:5}}</div>
+  </div>
+
+  <div class="sg-item" id="c-refs">
+    <h3>Referenzen und Kundenstimmen</h3>
+    <div class="sg-meta"><code>.refs</code> <code>.ref</code> <code>.quotes</code> <code>.quote</code> <code>.quote.featured</code><span>Startseite, Landingpages (Referenz)</span><span class="sg-badge component">Component</span><span class="sg-badge native">Query Loop</span></div>
+    <p class="sg-note">Referenzkarten: Logo-Zeile 32px, Art (Label), H3, Copy klein, Hover hebt. In Bricks sinnvoll als Query Loop über einen Post-Type „Referenzen“. Kundenstimmen: gestrichelte Kontur als Platzhalter-Signal, Zitat in Georgia, Featured in Teal-Fill. Die Tags <code>[Kundenstimme]</code> verschwinden mit echten Zitaten.</p>
+    <div class="sg-demo">{{SEC:index:6}}</div>
+  </div>
+
+  <div class="sg-item" id="c-about">
+    <h3>Leitbild mit Fakten</h3>
+    <div class="sg-meta"><code>.about</code> <code>.about-facts</code> <code>.fact</code><span>Startseite</span><span class="sg-badge native">Section</span><span class="sg-badge class">Global Class</span></div>
+    <div class="sg-demo">{{SEC:index:7}}</div>
+  </div>
+
+  <div class="sg-item" id="c-lp-hero">
+    <h3>Hero (Landingpage, zweispaltig)</h3>
+    <div class="sg-meta"><code>.lp-hero</code> <code>.lp-hero-ctas</code><span>Praxen, Kanzleien, Mittelstand</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Links Eyebrow, H1, Lead, zwei Buttons; rechts Bild 4:5 (max. 520px) mit Service-Karte unten. Verlauf 165° mit Sand-Glanz rechts oben. Unter 880px einspaltig, Bild 4:3.</p>
+    <div class="sg-demo">{{SEC:praxen:0}}</div>
+  </div>
+
+  <div class="sg-item" id="c-pains">
+    <h3>Kennen Sie das? (Pain-Karten)</h3>
+    <div class="sg-meta"><code>.pains</code> <code>.pain</code><span>Alle Landingpages</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Drei Karten, oben ein Zitat aus dem Alltag in Georgia, darunter die Antwort in Copy klein. Der Textkontrast zwischen Serif und Manrope ist gewollt.</p>
+    <div class="sg-demo">{{SEC:praxen:1}}</div>
+  </div>
+
+  <div class="sg-item" id="c-feature">
+    <h3>Feature mit Bild</h3>
+    <div class="sg-meta"><code>.feature</code> <code>.feature.flip</code><span>Kanzleien (Diskretion), Mittelstand (Bericht)</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Zweispaltig, Bild 4:3 mit Radius xl und Schatten lg. <code>.flip</code> stellt das Bild nach links.</p>
+    <div class="sg-demo">{{SEC:kanzleien:3}}</div>
+  </div>
+
+  <div class="sg-item" id="c-concierge">
+    <h3>Concierge-Block</h3>
+    <div class="sg-meta"><code>.concierge</code> <code>.timeline</code><span>Praxen</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Dunkle Fläche (Teal-Deeper, Radius xl), links Text mit Sand-Eyebrow und Zeitleiste (Sand-Punkte, Trennlinien Weiß zu 12 %), rechts Foto mit Service-Karte. Im Dunkelmodus mit Kontur, damit sich der Block vom Hintergrund löst.</p>
+    <div class="sg-demo">{{SEC:praxen:3}}</div>
+  </div>
+
+  <div class="sg-item" id="c-faq">
+    <h3>FAQ</h3>
+    <div class="sg-meta"><code>.faq</code><span>Praxen</span><span class="sg-badge native">Accordion</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Native <code>details</code>-Elemente, 760px breit, Karte mit Radius md, geöffnet Teal-Kontur, Chevron dreht. In Bricks: Element „Accordion“ (Nestable) mit diesem CSS; FAQ-Schema für SEO nicht vergessen.</p>
+    <div class="sg-demo">{{SEC:praxen:5}}</div>
+  </div>
+
+  <div class="sg-item" id="c-check">
+    <h3>Digital-Check-Block (CTA)</h3>
+    <div class="sg-meta"><code>.check</code> <code>.check-list</code> <code>.check-aside</code><span>Alle Seiten, vor dem Footer</span><span class="sg-badge component">Component</span></div>
+    <p class="sg-note">Teal-Fill, Radius xl, Sand-Glanz rechts unten. Links Eyebrow (Sand), H2, Copy, fünf Prüfpunkte mit Sand-Haken, Light-Button mit Hinweis. Rechts Glas-Box „So läuft es ab“ mit drei nummerierten Schritten (Sand-Kreise). Einmal bauen, überall einsetzen.</p>
+    <div class="sg-demo">{{CHECK_SECTION}}</div>
+  </div>
+
+  <div class="sg-item" id="c-dialog">
+    <h3>Dialog und Formular</h3>
+    <div class="sg-meta"><code>dialog.check-dialog</code> <code>.form</code> <code>.form-success</code><span>Alle Seiten, geöffnet über jeden Primär-Button</span><span class="sg-badge native">Popup + Form</span><span class="sg-badge css">Custom CSS</span></div>
+    <p class="sg-note">Modal 640px, Radius xl, Hintergrund abgedunkelt (Teal-Deeper zu 70 %) und weichgezeichnet. Kopf mit Eyebrow, H2, Hinweis, runder Schließen-Button. Formular zweispaltig, Pflichtfelder Name und Kontakt, Validierung im Browser, Erfolgszustand mit grünem Kreis. In Bricks: Element „Popup“ (Template) mit Element „Form“, Ziel-Vorbelegung über Button-Attribut <code>data-audience</code>.</p>
+    <div class="sg-demo pad alt">{{DIALOG_DEMO}}</div>
+  </div>
+
+  <div class="sg-item" id="c-footer">
+    <h3>Footer</h3>
+    <div class="sg-meta"><code>.footer</code> <code>.footer-grid</code> <code>.footer-contact</code> <code>.footer-bottom</code><span>Alle Seiten</span><span class="sg-badge native">Footer-Template</span><span class="sg-badge class">Global Class</span></div>
+    <p class="sg-note">Nav-Blau (im Dunkelmodus noch dunkler), vier Spalten 2 / 1 / 1 / 1.2, weißes Logo, Spaltentitel als Versal-Label, Links in Nav-Muted mit Sand-Hover, Kontakt mit Sand-Icons, Fußzeile mit Trennlinie. Adresse ist noch Platzhalter.</p>
+    <div class="sg-demo">{{FOOTER}}</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ INVENTAR ═══════════════════════════ -->
+<section class="sg-section" id="inventar">
+  <h2>Inventar und Arbeitsliste <small>Vorschlag für die Umsetzung in Bricks 2.4 · Status wird von uns gepflegt</small></h2>
+  <p class="sg-note"><strong>Import</strong> = kommt als Datei in Bricks (Color Manager, Variablen). <strong>Theme Style</strong> = globale Bricks-Einstellung (Typografie, Buttons, Links). <strong>Global Class</strong> = wiederverwendbare Klasse mit Custom CSS, ab 2.4 per CSS Sync auch in den Style-Controls sichtbar. <strong>Component</strong> = Bricks-Komponente mit Eigenschaften (Text, Bild, Link), einmal gebaut, überall eingesetzt. <strong>Element nativ</strong> = Bricks-Element ohne eigenen Bau. Kein Element des Prototyps ist ein Slider; die Zielgruppen laufen über Tabs.</p>
+  <div class="sg-table-wrap">
+  <table class="sg-table">
+    <thead><tr><th>Nr.</th><th>Baustein</th><th>Prototyp</th><th>Vorkommen</th><th>Bricks-Ansatz</th><th>Eigenschaften (Component)</th><th>Erledigt</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td>Farbpalette hell/dunkel</td><td><code>--da-*</code></td><td>global</td><td>Import Color Manager</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>02</td><td>Variablen (Abstände, Radien, Schatten, Schriftgrößen)</td><td><code>--da-*</code></td><td>global</td><td>Import Variablen-Manager</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>03</td><td>Schriften Manrope, Jost</td><td><code>--da-font*</code></td><td>global</td><td>Theme Style, Custom Fonts (Manrope-Datei hochladen)</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>04</td><td>H1–H4, Body, Lead, Small</td><td>Typografie</td><td>global</td><td>Theme Style Typography</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>05</td><td>H5, H6</td><td>nicht definiert</td><td></td><td>Entscheidung offen</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>06</td><td>Buttons (primär, ghost, sand, light, klein)</td><td><code>.da-btn-*</code></td><td>überall</td><td>Theme Style Buttons + Global Classes je Variante</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>07</td><td>Textlink mit Pfeil</td><td><code>.textlink</code></td><td>Kacheln, Panels</td><td>Global Class</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>08</td><td>Eyebrow (links, zentriert, auf dunkel)</td><td><code>.da-eyebrow</code></td><td>überall</td><td>Global Class + Modifier</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>09</td><td>Labels, Chips, Tags, Zähler</td><td><code>.tile-num</code> u. a.</td><td>Karten</td><td>Global Classes</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>10</td><td>Icon-Set (14 Icons)</td><td>Sprite</td><td>überall</td><td>Eigenes Icon-Set (SVG-Upload)</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>11</td><td>Mode-Umschalter</td><td><code>.brxe-toggle-mode</code></td><td>Header</td><td>Element „Toggle – Mode“</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>12</td><td>Header + Drawer</td><td><code>.nav</code></td><td>alle Seiten</td><td>Header-Template, Nav-Menu (Nestable), Offcanvas</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>13</td><td>Footer</td><td><code>.footer</code></td><td>alle Seiten</td><td>Footer-Template</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>14</td><td>Hero zentriert</td><td><code>.hero</code></td><td>Start</td><td>Section + Global Classes</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>15</td><td>Hero Landingpage</td><td><code>.lp-hero</code></td><td>3 Landingpages</td><td>Component</td><td>Eyebrow, H1, Betonung, Lead, Button-Text, Bild, Fokus, Service-Karte</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>16</td><td>Service-Karte</td><td><code>.service-card</code></td><td>7×</td><td>Component</td><td>Label, Status, Titel, Liste, Variante sand</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>17</td><td>Mosaik</td><td><code>.mosaic</code></td><td>Start</td><td>Component (Grid als Custom CSS)</td><td>3 Bilder, 3 Chips, 3 Service-Karten, Textkarte</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>18</td><td>Partnerzeile</td><td><code>.partners</code></td><td>Start</td><td>Section + Global Class</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>19</td><td>Zielgruppen-Tabs mit Panel</td><td><code>.tabs</code> <code>.audience</code></td><td>Start</td><td>Tabs (Nestable) + Custom CSS</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>20</td><td>Kachel (5 Varianten)</td><td><code>.tile</code></td><td>4 Seiten, 32×</td><td>Component</td><td>Variante, Label, H3, Copy, Link, Bild</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>21</td><td>Schritt</td><td><code>.step</code></td><td>Start</td><td>Component</td><td>Nummer, H3, Copy</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>22</td><td>Referenzkarte</td><td><code>.ref</code></td><td>Start, Landingpages</td><td>Component oder Query Loop (Post-Type Referenzen)</td><td>Logo, Art, Titel, Copy</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>23</td><td>Kundenstimme (Standard, featured)</td><td><code>.quote</code></td><td>Start</td><td>Component oder Query Loop</td><td>Zitat, Name, Variante</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>24</td><td>Leitbild mit Fakten</td><td><code>.about</code> <code>.fact</code></td><td>Start</td><td>Section + Global Classes</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>25</td><td>Pain-Karte</td><td><code>.pain</code></td><td>3 Landingpages</td><td>Component</td><td>Zitat, Antwort</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>26</td><td>Feature mit Bild</td><td><code>.feature</code></td><td>Kanzleien, Mittelstand</td><td>Component</td><td>Seite (flip), Eyebrow, H2, Lead, Liste, Bild</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>27</td><td>Concierge-Block</td><td><code>.concierge</code></td><td>Praxen</td><td>Component</td><td>Eyebrow, H2, Copy, Zeitleiste, Bild, Service-Karte</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>28</td><td>FAQ</td><td><code>.faq</code></td><td>Praxen</td><td>Accordion (Nestable) + Custom CSS</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>29</td><td>Digital-Check-Block</td><td><code>.check</code></td><td>alle Seiten</td><td>Component</td><td>Zielgruppe (Button-Attribut)</td><td><span class="sg-check"></span></td></tr>
+      <tr><td>30</td><td>Dialog mit Formular</td><td><code>.check-dialog</code></td><td>alle Seiten</td><td>Popup-Template + Form</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>31</td><td>Reveal beim Scrollen</td><td><code>.reveal</code></td><td>überall</td><td>Bricks Interactions (Enter Viewport) oder Custom CSS + JS</td><td></td><td><span class="sg-check"></span></td></tr>
+      <tr><td>32</td><td>Dunkelmodus</td><td><code>[data-brx-theme]</code></td><td>global</td><td>Color Manager Dunkelwerte + Custom CSS für Sonderfälle</td><td></td><td><span class="sg-check"></span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ BRICKS 2.4 ═══════════════════════════ -->
+<section class="sg-section sg-bricks" id="bricks24">
+  <h2>Bricks 2.4: Was sich für den Umzug ändert <small>Stand RC (September 2026), Quellen: Bricks-Changelog 2.4-beta bis rc, Bricks Academy, BricksExtras, Bricksfusion</small></h2>
+  <ul>
+    <li><strong>AI Abilities und nativer MCP-Server.</strong> Bricks stellt Builder-Aktionen über die WordPress Abilities API und MCP bereit. Claude Code, Cursor oder Copilot verbinden sich unter <code>/wp-json/bricks-mcp/v1/mcp</code> mit einem WordPress-Anwendungspasswort. Abilities: Seite, Element, Template, Component, Global Data, Design System, Dynamic Data, Query Loop, Navigationsmenü, WooCommerce, Remote Templates, Import/Export und HTML-zu-Bricks. Pro Ability schaltbar unter Bricks › AI. <em>Folge für uns:</em> Der Handoff muss keine JSON-Dateien mehr von Hand einspielen. Claude Code kann Templates, Global Classes und Components direkt in Staging anlegen, sofern die Staging-Domain aus dieser Umgebung erreichbar ist. Das Anwendungspasswort bleibt in der MCP-Konfiguration des Clients, nie in URLs oder im Repository.</li>
+    <li><strong>HTML-zu-Bricks.</strong> Eine der Abilities wandelt HTML in Bricks-Elemente um. Damit lässt sich der Prototyp Abschnitt für Abschnitt übertragen, statt jede Section neu zu klicken. Die Qualität der Umwandlung prüfen wir am ersten Abschnitt (Hero), bevor wir es breit einsetzen.</li>
+    <li><strong>CSS Sync (bidirektional).</strong> Custom CSS an Elementen und Global Classes wird mit den Style-Controls synchron gehalten: unterstützte Deklarationen erscheinen in den Controls, Änderungen an Controls schreiben ins CSS zurück, Unbekanntes bleibt stehen. Custom CSS hat bei Konflikten Vorrang. Breakpoint und Pseudoklasse werden berücksichtigt. <em>Folge:</em> Wir können das Prototyp-CSS je Klasse einfügen und Bricks macht daraus bearbeitbare Controls. Das entschärft die Frage „Global Class oder Custom CSS“ erheblich.</li>
+    <li><strong>Globaler Import/Export.</strong> Ein vereinheitlichtes System überträgt komplette Design Systems samt Builder-Konfiguration zwischen Installationen. Components lassen sich im Component Manager aus einer anderen Bricks-Installation importieren, inklusive verschachtelter Abhängigkeiten, Global Classes, Variablen, Paletten und optional Bildern. <em>Folge:</em> Wir bauen das Design System einmal auf einer Werkstatt-Installation und ziehen es dann in das Digital-Avenue-Staging. Dasselbe Set lässt sich später für Kundenprojekte wiederverwenden.</li>
+    <li><strong>Bricks Browser.</strong> Zentrale Übersicht für Seiten, Templates, Components und Post-Types im Builder, mit Medien-Workflow. Ersetzt das Springen zwischen WP-Admin und Builder.</li>
+    <li><strong>Builder-Layouts und Interface-Profile.</strong> Die Oberfläche lässt sich anpassen und als Profil speichern. Profile wandern mit dem globalen Export.</li>
+    <li><strong>Stile kopieren und verschieben.</strong> Alle Stile inklusive Breakpoints, Selektoren und Pseudoklassen kopieren, oder nur den aktiven Breakpoint; beim Einfügen wählen, ob der ursprüngliche Breakpoint erhalten bleibt. Stile zwischen Breakpoints verschieben, zusammenführen oder überschreiben. Verschachtelte Media Queries in Custom CSS werden den responsiven Controls zugeordnet.</li>
+    <li><strong>Kleinere Punkte mit Relevanz:</strong> Offcanvas-Richtung je Breakpoint (mobiler Drawer von rechts, Desktop anders möglich); Reihenfolge der Global-Class-Ausgabe folgt dem Class Manager (wichtig für Modifier wie <code>.on-dark</code>); Farbpaletten im Variablen-Manager und Sync mit Gutenberg; SVG-Uploads in eigenen Icon-Sets besser verwaltet; Cloudflare Turnstile im Formular wird verzögert geladen; neuer Admin-Bereich mit Suche und Speicherleiste.</li>
+    <li><strong>Was seit 2.2 schon da ist und wir nutzen:</strong> Color Manager mit Hell- und Dunkelwert je Farbe, Element „Toggle – Mode“, Attribut <code>data-brx-theme</code> auf <code>html</code>, Speicherung unter <code>brx_mode</code>.</li>
+    <li><strong>Vorbehalt.</strong> Die Bricks-Seiten sind aus dieser Umgebung gesperrt, die Angaben stammen aus Suchergebnissen und Sekundärquellen. Details wie die genauen Ability-Namen und das Verhalten von HTML-zu-Bricks prüfen wir am Staging, sobald 2.4 final ist.</li>
+  </ul>
+</section>
+
+</main>
+</div>

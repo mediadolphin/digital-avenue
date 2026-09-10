@@ -11,6 +11,8 @@ Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md).
 | 4 Templates & Seiten | offen | Header, Footer, Startseite, drei Landingpages. |
 | 5 Abgleich, Redirects, Launch | offen | Checkliste in `references/launch-checklist.md`. |
 
+Bricks-Version: Ziel ist 2.4 (RC2, wir warten auf das Final). Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
+
 ## Nächste Schritte
 
 1. Dunkel-Logos (Digital Avenue vorhanden, Referenzlogos fehlen) beschaffen.

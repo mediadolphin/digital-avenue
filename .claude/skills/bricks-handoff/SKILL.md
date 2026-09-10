@@ -29,7 +29,10 @@ sie nicht aus dem Projekt hervorgehen (CLAUDE.md, BRIEFING.md, README):
    `design-system/colors_and_type.css`) und welches Präfix tragen die
    Variablen (z. B. `--da-`).
 3. **Zielinstallation**: Staging-URL, Bricks-Version, vorhandene
-   Global Classes oder Templates, die erhalten bleiben müssen.
+   Global Classes oder Templates, die erhalten bleiben müssen. Ab Bricks 2.4
+   zusätzlich: Ist der native MCP-Endpunkt aktiviert und die Staging-Domain
+   aus der Umgebung erreichbar? Dann laufen Phase 3 bis 5 direkt über MCP
+   statt über Importdateien. Siehe `references/bricks-2-4.md`.
 
 Lege dann `handoff/handoff.config.json` an (Vorlage in
 `references/config-example.json`). Die Skripte lesen daraus, welche Tokens

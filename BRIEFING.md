@@ -212,3 +212,15 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 - Neue Tokens: `--da-teal-fill` / `--da-teal-fill-hover` für gefüllte Flächen mit weißem Text (Buttons, Digital-Check-Block, aktive Tabs, Kundenstimme). Im Dunkelmodus heller als das Text-Teal, damit Weiß darauf lesbar bleibt (Kontrast 5,4:1). Dunkel-Werte ergänzt für `--da-teal-dark`, `--da-teal-deeper`, `--da-nav-bg`, `--da-nav-border`, Schatten sowie Erfolg/Warnung/Fehler.
 - Dunkelmodus-Regeln im Layout: Logo wechselt auf die weiße Variante; Chips und Service-Karten auf Fotos werden dunkles Glas; Hero-Glanz auf Sand reduziert; Concierge- und Deep-Kacheln bekommen eine Kontur; Fremdlogos (DIGIZT) werden per Filter invertiert. Für Bricks werden echte Dunkel-Logos gebraucht.
 - Vorschau-Schalter: `?dark` und `?light` an jeder Prototyp-URL.
+
+## Style Guide (10.09.2026)
+
+- Lebende Übersicht aller Farben, Schriften, Elemente und Komponenten: `prototype/styleguide.html` (Mehrdatei) und `prototype/dist/styleguide.html` (Einzeldatei), gebaut aus `prototype/src/styleguide.html` durch `build.mjs`. Komponenten werden aus den Seitenquellen extrahiert, Farbtabelle aus der Token-Datei erzeugt. Beides bleibt damit automatisch mit dem Prototyp synchron.
+- Zweck: Planung des Umzugs nach Bricks. Jede Komponente trägt einen Vorschlag (Import, Theme Style, Global Class, Component, Element nativ, Custom CSS) und die Arbeitsliste am Ende hat 32 Einträge mit Erledigt-Spalte.
+- Offene Entscheidung aus dem Guide: H5 und H6 sind im Design System nicht definiert (Vorschlag: H5 = Base fett, H6 = Label in Versalien). Kein Element ist ein Slider; die Zielgruppen laufen über Tabs.
+
+## Bricks 2.4 (Entscheidung 10.09.2026)
+
+- Wir warten auf Bricks 2.4 (derzeit RC2) und bauen erst dann in Bricks.
+- Relevante Neuerungen: nativer MCP-Server mit AI Abilities (Claude Code kann Seiten, Templates, Components, Global Classes, Design System direkt anlegen; Endpunkt `/wp-json/bricks-mcp/v1/mcp`, Anwendungspasswort), HTML-zu-Bricks, bidirektionaler CSS Sync zwischen Custom CSS und Style-Controls, globaler Import/Export für Design Systems und Components, Bricks Browser, Stile zwischen Breakpoints kopieren. Details in `.claude/skills/bricks-handoff/references/bricks-2-4.md` und im Style Guide, Abschnitt „Bricks 2.4“.
+- Folge für den Handoff: Statt JSON-Importe von Hand einzuspielen, kann Claude Code über MCP direkt in Staging arbeiten, sofern die Staging-Domain aus der Umgebung erreichbar ist. Das Anwendungspasswort bleibt beim Client, nie im Repository.
