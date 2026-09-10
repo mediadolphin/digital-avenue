@@ -13,7 +13,7 @@ const cssPath = resolve(root, '..', cfg.tokensCss);
 const out = resolve(args.out || resolve(root, 'export'));
 mkdirSync(out, { recursive: true });
 
-// ── CSS lesen: :root-Blöcke (hell) und [data-theme="dark"]-Block ──
+// ── CSS lesen: :root-Blöcke (hell) und Dunkel-Block (Bricks Native: :root[data-brx-theme="dark"], ältere Exporte: [data-theme="dark"]) ──
 const css = readFileSync(cssPath, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
 const grab = (selectorRe) => {
   const vars = {};
@@ -28,7 +28,8 @@ const grab = (selectorRe) => {
   return vars;
 };
 const light = grab(':root');
-const dark = grab('\\[data-theme="dark"\\]');
+const darkSelector = cfg.darkSelector || ':root[data-brx-theme="dark"]';
+const dark = { ...grab('\\[data-theme="dark"\\]'), ...grab(darkSelector.replace(/[[\]]/g, '\\$&')) };
 const prefix = `--${cfg.prefix}-`;
 const own = Object.keys(light).filter((k) => k.startsWith(prefix));
 if (!own.length) { console.error(`Keine Variablen mit Präfix ${prefix} in ${cssPath}`); process.exit(1); }
@@ -101,7 +102,7 @@ const block = (vars, keys) => keys.map((k) => `  ${k}: ${vars[k]};`).join('\n');
 const darkKeys = own.filter((k) => dark[k]);
 writeFileSync(resolve(out, 'global-tokens.css'),
   `/* ${cfg.palette.name}: Design-Tokens, erzeugt aus ${cfg.tokensCss}. Nicht von Hand ändern. */\n:root {\n${block(light, own)}\n}\n` +
-  (darkKeys.length ? `[data-theme="dark"] {\n${block(dark, darkKeys)}\n}\n` : ''));
+  (darkKeys.length ? `${darkSelector} {\n${block(dark, darkKeys)}\n}\n` : ''));
 
 // ── 5) Report ──
 const unassigned = own.filter((k) => !isColor(light[k]) && !used.has(k));

@@ -2,7 +2,8 @@
   "project": "Digital Avenue",
   "tokensCss": "design-system/colors_and_type.css",
   "prefix": "da",
-  "framework": "advanced-themer",
+  "framework": "bricks-native",
+  "darkSelector": ":root[data-brx-theme=\"dark\"]",
   "palette": {
     "name": "Digital Avenue",
     "atPrefix": "at-",

@@ -36,9 +36,30 @@ Zielinstallation prüfen, ob die Menüpunkte noch so heißen.
 - Farbwähler: Palette wie bei Bricks ohne Framework importieren.
 - Variablen als Core-Framework-Variablen anlegen oder über das CSS lassen.
 
-## Bricks ohne Framework
+## Bricks Native (ohne Framework, Standard bei Digital Avenue)
 
 - Farbpalette: Farbwähler, Zahnrad, Import (`bricks-color-palette-tokens.json`).
+  Im Color Manager (ab Bricks 2.2) bekommt jede Farbe einen Hell- und einen
+  Dunkel-Wert; die Dunkel-Werte stehen im Export unter `rawValue.dark`.
 - Variablen: Variablen-Manager, Import (`bricks-variables.json`).
 - `global-tokens.css` unter Bricks, Settings, Custom Code, Head, in
   `<style>`-Tags, oder als Datei im Child-Theme einbinden.
+
+### Dunkelmodus in Bricks Native
+
+Bricks schaltet den Dunkelmodus rein per CSS-Attribut, ohne Klassen-Toggle:
+
+- Attribut `data-brx-theme="dark"` (bzw. `"light"`) auf `<html>`.
+  Dunkel-Werte gehören deshalb in einen Block `:root[data-brx-theme="dark"] { … }`.
+  Der Token-Export schreibt genau diesen Selektor (Config-Schlüssel `darkSelector`).
+- Umschalter: Element "Toggle – Mode" (`toggle-mode`). Es rendert einen Button
+  mit zwei Icon-Spans `.toggle.light` und `.toggle.dark`; CSS blendet je nach
+  Modus das passende ein. Ohne Dunkel-Werte im Color Manager erscheint der
+  Umschalter nicht.
+- Speicherung: localStorage-Schlüssel `brx_mode`; Systemeinstellung
+  (`prefers-color-scheme`) kann in den Bricks-Einstellungen als Vorgabe
+  aktiviert werden.
+- Prototyp-Regel: Alle Dark-Mode-Regeln im Prototyp hängen an
+  `:root[data-brx-theme="dark"]`, damit sie unverändert als Custom CSS nach
+  Bricks wandern. Logos brauchen eine echte Dunkel-Variante (im Prototyp
+  wird das Fremdlogo nur per `filter: invert()` angenähert).

@@ -6,6 +6,19 @@
 <title>Digitale Entlastung für Ihre Praxis – Digital Avenue</title>
 <meta name="description" content="Doctolib, Telefonanlage, Website und Google-Profil für Arztpraxen aus einer Hand. Persönlich betreut, damit Ihr Team weniger am Telefon hängt.">
 <link rel="icon" type="image/svg+xml" href="../design-system/assets/favicon.svg">
+<script>
+/* Bricks-Logik: gespeicherte Wahl (localStorage "brx_mode") vor dem ersten Rendern anwenden,
+   sonst Systemeinstellung. ?dark / ?light dienen nur der Vorschau. */
+(function () {
+  try {
+    var m = null, q = location.search;
+    if (/[?&]dark\b/.test(q)) m = 'dark'; else if (/[?&]light\b/.test(q)) m = 'light';
+    if (!m) m = localStorage.getItem('brx_mode');
+    if (!m && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) m = 'dark';
+    document.documentElement.setAttribute('data-brx-theme', m === 'dark' ? 'dark' : 'light');
+  } catch (e) { document.documentElement.setAttribute('data-brx-theme', 'light'); }
+})();
+</script>
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body data-page="praxen">
@@ -21,10 +34,11 @@
   <symbol id="i-x" viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
   <symbol id="i-chev" viewBox="0 0 16 16" fill="none"><path d="M3.5 6l4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-sun" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5v1.8M8 12.7v1.8M1.5 8h1.8M12.7 8h1.8M3.4 3.4l1.3 1.3M11.3 11.3l1.3 1.3M3.4 12.6l1.3-1.3M11.3 4.7l1.3-1.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 16 16" fill="none"><path d="M13.5 9.6A5.5 5.5 0 0 1 6.4 2.5a5.5 5.5 0 1 0 7.1 7.1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
 </svg>
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Digital Avenue – Startseite"><img src="../design-system/assets/logo-digital-avenue.svg" alt="Digital Avenue"></a>
+    <a class="nav-logo" href="index.html" aria-label="Digital Avenue – Startseite"><img class="logo-light" src="../design-system/assets/logo-digital-avenue.svg" alt="Digital Avenue"><img class="logo-dark" src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue"></a>
     <nav class="nav-menu" aria-label="Hauptnavigation">
       <a href="index.html#leistungen">Leistungen</a>
       <a href="praxen.html" data-page="praxen">Für Praxen</a>
@@ -33,6 +47,10 @@
       <a href="index.html#ueber-uns">Über uns</a>
     </nav>
     <div class="nav-actions">
+      <button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus einschalten" aria-pressed="false" data-toggle-mode>
+        <span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span>
+        <span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span>
+      </button>
       <a href="#digital-check" class="da-btn-primary da-btn-sm" data-open-check>Digital-Check anfragen</a>
       <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg class="icon icon-20"><use href="#i-menu"/></svg></button>
     </div>

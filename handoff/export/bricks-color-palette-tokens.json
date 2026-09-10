@@ -28,7 +28,7 @@
    "raw": "#1b3a4a",
    "rawValue": {
     "light": "#1b3a4a",
-    "dark": "#1b3a4a"
+    "dark": "#24485a"
    }
   },
   {
@@ -37,7 +37,7 @@
    "raw": "#132a37",
    "rawValue": {
     "light": "#132a37",
-    "dark": "#132a37"
+    "dark": "#0f2129"
    }
   },
   {
@@ -47,6 +47,24 @@
    "rawValue": {
     "light": "#e7eff3",
     "dark": "#1d3c4a"
+   }
+  },
+  {
+   "id": "da_teal-fill",
+   "name": "teal-fill",
+   "raw": "#305b75",
+   "rawValue": {
+    "light": "#305b75",
+    "dark": "#3a7189"
+   }
+  },
+  {
+   "id": "da_teal-fill-hover",
+   "name": "teal-fill-hover",
+   "raw": "#264a60",
+   "rawValue": {
+    "light": "#264a60",
+    "dark": "#45819a"
    }
   },
   {
@@ -199,7 +217,7 @@
    "raw": "#1b3a4a",
    "rawValue": {
     "light": "#1b3a4a",
-    "dark": "#1b3a4a"
+    "dark": "#10202a"
    }
   },
   {
@@ -226,7 +244,7 @@
    "raw": "#264350",
    "rawValue": {
     "light": "#264350",
-    "dark": "#264350"
+    "dark": "#1f3742"
    }
   },
   {
@@ -262,7 +280,7 @@
    "raw": "oklch(58% 0.140 145)",
    "rawValue": {
     "light": "oklch(58% 0.140 145)",
-    "dark": "oklch(58% 0.140 145)"
+    "dark": "oklch(72% 0.140 145)"
    }
   },
   {
@@ -271,7 +289,7 @@
    "raw": "oklch(94% 0.030 145)",
    "rawValue": {
     "light": "oklch(94% 0.030 145)",
-    "dark": "oklch(94% 0.030 145)"
+    "dark": "oklch(30% 0.050 145)"
    }
   },
   {
@@ -280,7 +298,7 @@
    "raw": "oklch(70% 0.150 65)",
    "rawValue": {
     "light": "oklch(70% 0.150 65)",
-    "dark": "oklch(70% 0.150 65)"
+    "dark": "oklch(78% 0.150 65)"
    }
   },
   {
@@ -289,7 +307,7 @@
    "raw": "oklch(96% 0.030 65)",
    "rawValue": {
     "light": "oklch(96% 0.030 65)",
-    "dark": "oklch(96% 0.030 65)"
+    "dark": "oklch(32% 0.050 65)"
    }
   },
   {
@@ -298,7 +316,7 @@
    "raw": "oklch(56% 0.180 25)",
    "rawValue": {
     "light": "oklch(56% 0.180 25)",
-    "dark": "oklch(56% 0.180 25)"
+    "dark": "oklch(70% 0.160 25)"
    }
   },
   {
@@ -307,7 +325,7 @@
    "raw": "oklch(95% 0.030 25)",
    "rawValue": {
     "light": "oklch(95% 0.030 25)",
-    "dark": "oklch(95% 0.030 25)"
+    "dark": "oklch(30% 0.060 25)"
    }
   }
  ]

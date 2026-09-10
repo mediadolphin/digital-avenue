@@ -20,9 +20,11 @@ im Projekt fest, damit eine spätere Session dort weitermachen kann.
 Drei Entscheidungen bestimmen alle Ausgabeformate. Frag den Nutzer, wenn
 sie nicht aus dem Projekt hervorgehen (CLAUDE.md, BRIEFING.md, README):
 
-1. **CSS-Framework in Bricks**: Advanced Themer (AT), Automatic.css (ACSS)
-   oder Core Framework. Davon hängt ab, wie Farben und Variablen importiert
-   werden. Siehe `references/frameworks.md`.
+1. **CSS-Framework in Bricks**: Bricks Native (Standard bei Digital Avenue,
+   `"framework": "bricks-native"`), sonst Advanced Themer (AT), Automatic.css
+   (ACSS) oder Core Framework. Davon hängt ab, wie Farben und Variablen
+   importiert werden und welcher Selektor den Dunkelmodus trägt (Bricks
+   Native: `:root[data-brx-theme="dark"]`). Siehe `references/frameworks.md`.
 2. **Token-Quelle**: Welche Datei ist maßgeblich (z. B.
    `design-system/colors_and_type.css`) und welches Präfix tragen die
    Variablen (z. B. `--da-`).

@@ -201,4 +201,14 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 
 - Skill `bricks-handoff` in `.claude/skills/bricks-handoff/` angelegt: fünf Phasen (Klären, Tokens exportieren, Schriften/Icons, Komponenten als Global Classes, Templates/Seiten, Abgleich/Launch) plus Skripte `export-tokens.mjs` und `split-icons.mjs`.
 - Erster Export liegt in `handoff/export/` (Advanced-Themer-Palette, Bricks-Variablen, globales CSS, Icons, Token-Report). Stand der Phasen in `handoff/STATUS.md`.
-- Offen: Framework-Entscheidung (AT / ACSS / Core Framework), Staging-Zugang, Bricks-Template-Export als Referenz für das Template-JSON-Format.
+- Entscheidung (Nils, 10.09.2026): **Bricks Native**, kein Advanced Themer. Config und Skill entsprechend umgestellt; die AT-Palette wird nur noch als Nebenprodukt erzeugt.
+- Offen: Staging-Zugang, Bricks-Template-Export als Referenz für das Template-JSON-Format.
+
+## Dark Mode (Ergänzung 10.09.2026)
+
+- Anforderung: Als Digitalagentur soll die Seite einen Dunkelmodus haben. Umsetzung nach der CSS-Logik von Bricks Native, damit alles eins zu eins übernommen werden kann.
+- Mechanik: Attribut `data-brx-theme="dark"` auf `<html>`; alle Dunkel-Werte stehen in `design-system/colors_and_type.css` im Block `:root[data-brx-theme="dark"]`, Layout-Sonderfälle in `prototype/css/site.css` unter demselben Selektor. Wahl wird in localStorage `brx_mode` gespeichert, ohne Wahl gilt die Systemeinstellung. Ein Inline-Skript im Head setzt das Attribut vor dem ersten Rendern (kein Aufblitzen).
+- Umschalter: Button in der Navigation mit dem Markup des Bricks-Elements "Toggle – Mode" (`.toggle.light` / `.toggle.dark`), Mond im Hellmodus, Sonne im Dunkelmodus. Auch mobil sichtbar.
+- Neue Tokens: `--da-teal-fill` / `--da-teal-fill-hover` für gefüllte Flächen mit weißem Text (Buttons, Digital-Check-Block, aktive Tabs, Kundenstimme). Im Dunkelmodus heller als das Text-Teal, damit Weiß darauf lesbar bleibt (Kontrast 5,4:1). Dunkel-Werte ergänzt für `--da-teal-dark`, `--da-teal-deeper`, `--da-nav-bg`, `--da-nav-border`, Schatten sowie Erfolg/Warnung/Fehler.
+- Dunkelmodus-Regeln im Layout: Logo wechselt auf die weiße Variante; Chips und Service-Karten auf Fotos werden dunkles Glas; Hero-Glanz auf Sand reduziert; Concierge- und Deep-Kacheln bekommen eine Kontur; Fremdlogos (DIGIZT) werden per Filter invertiert. Für Bricks werden echte Dunkel-Logos gebraucht.
+- Vorschau-Schalter: `?dark` und `?light` an jeder Prototyp-URL.

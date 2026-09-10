@@ -31,6 +31,25 @@
     if (/drawer/.test(location.search)) burger.click();
   }
 
+  /* Hell/Dunkel: entspricht dem Bricks-Element "Toggle – Mode" (Attribut data-brx-theme auf <html>, localStorage "brx_mode") */
+  var root = document.documentElement;
+  function syncModeButtons() {
+    var dark = root.getAttribute('data-brx-theme') === 'dark';
+    document.querySelectorAll('[data-toggle-mode]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(dark));
+      b.setAttribute('aria-label', dark ? 'Hellmodus einschalten' : 'Dunkelmodus einschalten');
+    });
+  }
+  document.querySelectorAll('[data-toggle-mode]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var next = root.getAttribute('data-brx-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-brx-theme', next);
+      try { localStorage.setItem('brx_mode', next); } catch (e) {}
+      syncModeButtons();
+    });
+  });
+  syncModeButtons();
+
   /* Zielgruppen-Umschalter (Startseite) */
   document.querySelectorAll('[data-tabs]').forEach(function (root) {
     var tabs = root.querySelectorAll('[role="tab"]');
@@ -79,6 +98,7 @@
     });
     dialog.querySelectorAll('[data-close-check]').forEach(function (btn) { btn.addEventListener('click', closeDialog); });
     dialog.addEventListener('click', function (e) { if (e.target === dialog) closeDialog(); });
+    if (/[?&]check\b/.test(location.search)) openDialog(null);
 
     function setInvalid(input, invalid) {
       var field = input.closest('.field');
