@@ -39,6 +39,9 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
 
 - Design-System-Dateien und Entwürfe aus Claude Design abwarten und als maßgebliche
   Grundlage lesen, bevor Layout und Typografie festgelegt werden.
+  Share-Link: https://claude.ai/design/p/019ddea1-f8fe-7a97-bba0-f6d090a4b241?via=share
+  (aus Claude Code Web nicht abrufbar: Cloudflare-Bot-Prüfung, kein Login;
+  Übergabe per "Send to Claude Code Web", Export in Drive/Repo oder Screenshots im Chat).
 - Inhalt des "Digital-Check" mit Nils abstimmen (Umfang, Dauer, was der Kunde bekommt).
 - Echte Kundenstimmen nachliefern.
 - Placetel-Logo und Partnerstatus prüfen (fehlt auf der Live-Site, steht im Konzept).
