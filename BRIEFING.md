@@ -17,8 +17,8 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
   USP: Sichtbarkeit (Webdesign, PR, Marketing) plus Infrastruktur
   (Placetel-Telefonie, Hosting, Doctolib-/HubSpot-Anbindung) aus einer Hand,
   proaktiver Service (Beispiel: Urlaubs-Service).
-- Das eigentliche Design System und die Entwürfe liegen in Claude Design
-  (claude.ai/design). Übergabe per "Send to Claude Code Web".
+- Das Design System und die Entwürfe aus Claude Design liegen seit dem
+  10.09.2026 unverändert unter `design-system/` im Repo (ZIP-Export).
 
 ## Entscheidungen
 
@@ -37,11 +37,8 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
 
 ## Offene Punkte
 
-- Design-System-Dateien und Entwürfe aus Claude Design abwarten und als maßgebliche
-  Grundlage lesen, bevor Layout und Typografie festgelegt werden.
-  Share-Link: https://claude.ai/design/p/019ddea1-f8fe-7a97-bba0-f6d090a4b241?via=share
-  (aus Claude Code Web nicht abrufbar: Cloudflare-Bot-Prüfung, kein Login;
-  Übergabe per "Send to Claude Code Web", Export in Drive/Repo oder Screenshots im Chat).
+- Claude-Design-Projekt (Quelle des Exports):
+  https://claude.ai/design/p/019ddea1-f8fe-7a97-bba0-f6d090a4b241
 - Inhalt des "Digital-Check" mit Nils abstimmen (Umfang, Dauer, was der Kunde bekommt).
 - Echte Kundenstimmen nachliefern.
 - Placetel-Logo und Partnerstatus prüfen (fehlt auf der Live-Site, steht im Konzept).
@@ -92,3 +89,65 @@ Was bewusst anders wird:
 - Keine App-Screens. Die schwebenden Karten zeigen Service-Momente aus dem
   Alltag der Inhaber.
 - Nachtblau-Kacheln sparsam einsetzen, damit es dezent bleibt.
+
+## Design System (Stand des Exports vom 10.09.2026)
+
+Quelle: `design-system/` (Claude-Design-Projekt "Digital Avenue Design System").
+Maßgeblich sind `colors_and_type.css` und `digital-avenue.css`; die Preview-Karten
+unter `preview/` zeigen Farben, Typo, Spacing, Buttons, Cards, Chips, Nav, Footer,
+Logo und Icons. Die Entwürfe liegen in `pages/_homepage.html` und
+`pages/_portfolio.html` (responsiv; die Dateien `homepage-*.html` und
+`portfolio-*.html` sind nur Geräterahmen darum herum).
+
+Tokens, die für den Prototyp gelten:
+
+| Token | Wert |
+|---|---|
+| Teal (Primär) | `#305b75`, Hover `#264a60`, Dark `#1b3a4a`, Deeper `#132a37`, Subtle `#e7eff3`, Text `#234c5f` |
+| Sand (Akzent) | `#d7c9aa`, Hover `#c4b393`, Subtle `#f6f2ea`, Text `#7a6845` |
+| Plum (Akzent 2) | `#42253b`, Hover `#351b30`, Subtle `#f0e8ee`, Light `#8a5c7e` |
+| Flächen | Body `#f9f8f6` (warmes Off-White), Alt `#f2efe9`, Card `#ffffff`, Border `#d9e3e8` |
+| Text | `#19242b`, Muted `#5a6e77` |
+| Nav/Footer | Hintergrund `#1b3a4a`, Text `#ede9e0`, Muted `#7796a6` |
+| Dark Mode | über `data-theme="dark"` auf `<html>`; Body `#182a33`, Card `#1d3340` |
+| Schrift | Manrope (Fließtext, selbst gehostet, 200 bis 800), Jost (Logo). Hanken Grotesk ist abgelöst. |
+| Typo-Skala | fluid per `clamp()`: base 15 bis 16 px, lg 22 bis 30 px, xl 30 bis 44 px; Hero-H1 38 bis 76 px, Gewicht 800, Tracking -0.03em |
+| Radien | 4 / 6 / 10 / 16 / 24 px, Pill 100 px |
+| Spacing | fluid `--da-sp-1` bis `--da-sp-20` (3 bis 80 px), Content-Breite 1240 px |
+| Buttons | Primär Teal, Sand, Plum, Ghost; 13 px × 26 px, Radius 10 px, Teal-Schatten |
+| Motion | 0.2 s ease, Hover-Lift 1 bis 2 px |
+
+Aufbau des Homepage-Entwurfs: helle Glas-Navigation (sticky), Hero zweispaltig mit
+Headline links und Kachel-Collage rechts, Kennzahlen, Trust-Bar mit Partnernamen,
+sechs Leistungs-Cards, Cases-Teaser, Team, Testimonials, Magazin, Kontakt-CTA,
+dunkler vierspaltiger Footer. Hamburger-Drawer auf Mobil, Theme-Toggle.
+
+### Abweichungen zwischen Entwurf und Entscheidungen
+
+Der Entwurf ist als Design-Vorlage wertvoll, sein Inhalt ist aber überwiegend
+Platzhalter und teils erfunden. Vor der Umsetzung gilt:
+
+- **Erfundene Inhalte nicht übernehmen**: MVZ Eppendorf, Brandt & Partner,
+  Holzwerk Nord, Gut Ostsee usw. sind fiktive Cases; das achtköpfige Team
+  (Jana Schiller, Marek Kowalski, ...), "gegründet 2012", "12+ Jahre",
+  "80+ Projekte", "94 % Kundenbindung", die Testimonials und "8 Awards" sind
+  erfunden. Kontaktdaten im Entwurf (hallo@digital-avenue.de,
+  +49 40 12 34 56 78) sind Platzhalter; echt sind post@digital-avenue.de und
+  +49 (40) 41343870.
+- **Struktur an die Entscheidungen anpassen**: drei Säulen statt sechs
+  Leistungs-Cards, Zielgruppen-Einstiege (Praxen, Kanzleien, Mittelstand),
+  Haupt-CTA "Digital-Check anfragen" statt "Erstgespräch buchen", keine
+  Team-Sektion, Kundenstimmen nur als markierte Platzhalter, echte Partner
+  (Doctolib, Placetel, Netleaders) und echte Referenzen (DIGIZT, Lungenpraxis
+  am Tibarg, Urlaub bei Jana) in der Trust-Bar. Das Magazin nur, wenn Nils
+  es ausdrücklich will.
+- **Bildwelt**: Der Entwurf hat keine Fotografie (Kacheln mit Verläufen).
+  Die Higgsfield-Bildwelt ersetzt die Hero-Collage und die Cases-Kacheln
+  gemäß Layout-Inspiration (Bildband mit Service-Karten, Foto-Kacheln im
+  Raster).
+- **Technik-Hinweise**: `digital-avenue.css` lädt Manrope und Jost über
+  Google Fonts, `colors_and_type.css` nutzt die selbst gehostete Manrope.
+  Für den Prototyp die selbst gehostete Variante verwenden. Die Geräterahmen
+  in `pages/frames/` laden React über unpkg und sind reine Präsentation.
+  Die README enthält auch Angaben zum Kundenprojekt Digizt (Blau `#2563eb`);
+  diese gelten nicht für Digital Avenue.
