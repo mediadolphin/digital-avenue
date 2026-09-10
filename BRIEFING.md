@@ -181,3 +181,15 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
   optimieren (Search Console der Live-Site, Keyword-Planer). Die Landingpages
   sind die SEO-Träger; ihre H1 sollen dann die konkreten Begriffe tragen
   (z. B. "Website, Telefonanlage und Terminbuchung für Ihre Arztpraxis").
+
+## Recruiting (Ergänzung 10.09.2026)
+
+- Für alle Kunden außer Ferienvermietung ein Kernthema: SEO-optimierte
+  Karriereseite mit Online-Bewerbung (Stellen als Google-Jobs, Bewerbung vom
+  Handy ohne Hürden). Referenzen: Dialyse Güstrow und DIGIZT GmbH, dort wurden
+  Stellen trotz Fachkräftemangel besetzt.
+- Im Prototyp: Recruiting-Kachel auf der Startseite (ersetzt die Digital-Check-
+  Kachel, der Check bleibt als CTA-Block), dritter Punkt in jedem Zielgruppen-Tab,
+  je eine Recruiting-Kachel und ein "Kennen Sie das?"-Satz auf den drei
+  Landingpages, Dialyse Güstrow als vierte Referenz, Karriereseite als Punkt
+  im Digital-Check. Details zu den Referenzen sind noch Platzhalter.

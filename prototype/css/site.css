@@ -284,7 +284,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 @media (max-width: 880px) { .steps { grid-template-columns: 1fr; } }
 
 /* ── Referenzen ────────────────────────────────────────────── */
-.refs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--da-sp-5); }
+.refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--da-sp-5); }
 .ref { display: flex; flex-direction: column; gap: var(--da-sp-3); padding: var(--da-sp-8); border-radius: var(--da-r-lg); background: var(--da-card-bg); border: 1px solid var(--da-border); transition: transform var(--da-t), box-shadow var(--da-t); }
 .ref:hover { transform: translateY(-3px); box-shadow: var(--da-card-hover); }
 .ref-logo { height: 32px; display: flex; align-items: center; }
@@ -293,7 +293,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .ref-kind { font-size: var(--da-text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--da-sand-text); }
 .ref h3 { font-size: var(--da-text-md); letter-spacing: -0.015em; }
 .ref p { font-size: var(--da-text-sm); color: var(--da-muted); line-height: 1.6; }
-@media (max-width: 880px) { .refs { grid-template-columns: 1fr; } }
+@media (max-width: 880px) { .refs { grid-template-columns: 1fr !important; } }
 
 /* ── Kundenstimmen (Platzhalter) ───────────────────────────── */
 .quotes { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--da-sp-5); }
