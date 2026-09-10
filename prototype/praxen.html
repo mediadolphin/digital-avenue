@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digitale Entlastung für Ihre Praxis – Digital Avenue</title>
+<meta name="description" content="Doctolib, Telefonanlage, Website und Google-Profil für Arztpraxen aus einer Hand. Persönlich betreut, damit Ihr Team weniger am Telefon hängt.">
+<link rel="icon" type="image/svg+xml" href="../design-system/assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="praxen">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 16 16" fill="none"><path d="M3.5 2h2.2l1.1 3-1.5 1a8 8 0 0 0 4.7 4.7l1-1.5 3 1.1v2.2A1.5 1.5 0 0 1 12.5 14 11 11 0 0 1 2 3.5 1.5 1.5 0 0 1 3.5 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 16 16" fill="none"><rect x="2" y="3.5" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 4.5 8 8.5l5.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 16 16" fill="none"><path d="M8 14s-5-3.8-5-7.5A5 5 0 0 1 13 6.5C13 10.2 8 14 8 14z" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="6.5" r="1.6" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3.5l2 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 16 16" fill="none"><path d="M8 1.8 13 3.6v4.1c0 3-2.1 5.4-5 6.5-2.9-1.1-5-3.5-5-6.5V3.6L8 1.8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 16 16" fill="none"><path d="M3.5 6l4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5v1.8M8 12.7v1.8M1.5 8h1.8M12.7 8h1.8M3.4 3.4l1.3 1.3M11.3 11.3l1.3 1.3M3.4 12.6l1.3-1.3M11.3 4.7l1.3-1.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+</svg>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Digital Avenue – Startseite"><img src="../design-system/assets/logo-digital-avenue.svg" alt="Digital Avenue"></a>
+    <nav class="nav-menu" aria-label="Hauptnavigation">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="praxen.html" data-page="praxen">Für Praxen</a>
+      <a href="kanzleien.html" data-page="kanzleien">Für Kanzleien</a>
+      <a href="mittelstand.html" data-page="mittelstand">Für den Mittelstand</a>
+      <a href="index.html#ueber-uns">Über uns</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#digital-check" class="da-btn-primary da-btn-sm" data-open-check>Digital-Check anfragen</a>
+      <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg class="icon icon-20"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <div class="nav-drawer" id="drawer">
+    <nav aria-label="Mobile Navigation">
+      <a href="index.html" data-page="start">Start</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="praxen.html" data-page="praxen">Für Praxen</a>
+      <a href="kanzleien.html" data-page="kanzleien">Für Kanzleien</a>
+      <a href="mittelstand.html" data-page="mittelstand">Für den Mittelstand</a>
+      <a href="index.html#ueber-uns">Über uns</a>
+      <a href="#digital-check" class="da-btn-primary" data-open-check>Digital-Check anfragen</a>
+    </nav>
+    <div class="nav-drawer-contact">
+      <span>+49 (40) 41343870</span>
+      <span>post@digital-avenue.de</span>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+  <section class="lp-hero">
+    <div class="wrap">
+      <div>
+        <span class="da-eyebrow">Für Arztpraxen</span>
+        <h1>Weniger Telefon am Tresen. <strong>Mehr Zeit für Patienten.</strong></h1>
+        <p class="lead">Online-Terminbuchung, eine Telefonanlage, die Rezeptwünsche vorsortiert, und eine Website, die Sie nicht pflegen müssen. Wir richten alles ein, verbinden es und halten es am Laufen. Sie behandeln.</p>
+        <div class="lp-hero-ctas">
+          <button type="button" class="da-btn-primary" data-open-check data-audience="praxis">Digital-Check für Ihre Praxis</button>
+          <a href="#praxis-leistungen" class="da-btn-ghost">Was wir übernehmen</a>
+        </div>
+      </div>
+      <figure class="reveal" style="aspect-ratio:4/3">
+        <img style="object-position:74% 45%" src="img/m09-arzt-sprechzimmer-lachend.jpg" alt="Ein Hausarzt sitzt entspannt auf der Kante seines Schreibtischs und lacht.">
+        <div class="service-card">
+          <div class="sc-head"><span class="sc-label">Montag, 8:02 Uhr</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>läuft</span></div>
+          <div class="sc-title">14 Termine über Nacht online gebucht, 0 Anrufe dafür.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Kennen Sie das?</span>
+        <h2>Drei Sätze, die wir in Praxen oft hören.</h2>
+      </div>
+      <div class="pains">
+        <div class="pain reveal"><blockquote>„Montags um acht steht das Telefon nicht still, und die Hälfte will nur ein Rezept.“</blockquote><p>Eine Telefonanlage mit Ansagemenü nimmt Rezept- und Überweisungswünsche auf, bevor jemand abhebt. Ihr Team telefoniert mit denen, die es wirklich brauchen.</p></div>
+        <div class="pain reveal"><blockquote>„Unsere Website ist von 2016. Ich weiß nicht mal mehr, wer da rankommt.“</blockquote><p>Wir übernehmen die Seite, bringen sie auf den aktuellen Stand und pflegen sie weiter: Sprechzeiten, Team, Leistungen, Datenschutz. Sie schicken uns eine Nachricht, wir machen den Rest.</p></div>
+        <div class="pain reveal"><blockquote>„Vor dem Urlaub muss ich an zehn Stellen denken. Und danach wieder.“</blockquote><p>Das ist unser Urlaubs-Service. Eine Nachricht, und wir stellen Website, Google-Profil und Telefonansage um. Nach Ihrer Rückkehr stellen wir alles wieder zurück.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="praxis-leistungen" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Was wir für Ihre Praxis übernehmen</span>
+        <h2>Vom ersten Klick bis zur Telefonansage.</h2>
+      </div>
+      <div class="tiles">
+        <div class="tile tile-photo reveal"><img src="img/m22-aerztin-patient.jpg" alt="Eine Ärztin hört einem älteren Patienten im Sprechzimmer aufmerksam zu."></div>
+        <article class="tile tile-cream reveal">
+          <div><span class="tile-num">Sichtbarkeit</span><h3>Website und Google-Profil, die neue Patienten überzeugen.</h3><p>Sprechzeiten, Leistungen, Team und Anfahrt, aktuell und gut auffindbar. Bewertungen im Blick, Bilder, die zu Ihrer Praxis passen.</p></div>
+        </article>
+        <article class="tile tile-teal reveal">
+          <div><span class="tile-num">Termine</span><h3>Doctolib, sauber angebunden.</h3><p>Online-Termine auf Website und Google-Profil, Erinnerungen an Patienten, weniger Ausfälle. Wir sind Doctolib-Partner und richten es mit Ihnen ein.</p></div>
+        </article>
+        <div class="tile tile-photo reveal"><img src="img/m11-praxis-empfang-telefon.jpg" alt="Eine Empfangsmitarbeiterin telefoniert mit Headset."></div>
+        <article class="tile tile-deep reveal">
+          <div><span class="tile-num">Telefonie</span><h3>Eine Anlage, die vorsortiert.</h3><p>Cloud-Telefonie mit Placetel: Ansagemenü für Rezepte und Überweisungen, Weiterleitung, Mailbox mit Text per E-Mail, Ansagen für Urlaub und Notdienst.</p></div>
+        </article>
+        <div class="tile tile-photo reveal"><img src="img/m21-praxis-inhaberin-kalender.jpg" alt="Eine Praxisinhaberin blättert mit einem Kaffee in einem Kalender."></div>
+        <div class="tile tile-photo reveal"><img src="img/m12-arzt-feierabend.jpg" alt="Ein Arzt schließt am Abend die Glastür seiner Praxis hinter sich."></div>
+        <article class="tile tile-sand reveal">
+          <div><span class="tile-num">Technik &amp; Datenschutz</span><h3>Hosting und E-Mail in Deutschland.</h3><p>DSGVO-konformes Hosting, verschlüsselte Postfächer, geprüfte Backups, Updates ohne Ihr Zutun. Damit Sie beim Datenschutz ruhig schlafen.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="concierge reveal">
+        <div class="concierge-text">
+          <span class="da-eyebrow">Digital-Concierge</span>
+          <h2>Der Urlaubs-Service. Unser bestes Beispiel.</h2>
+          <p>Sie schreiben uns Ihre Urlaubszeiten. Alles Weitere passiert, ohne dass Sie daran denken müssen.</p>
+          <ul class="timeline">
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Zwei Wochen vorher:</strong> Hinweis auf der Website, Vertretungspraxis verlinkt, Öffnungszeiten im Google-Profil eingetragen.</span></li>
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Am letzten Praxistag:</strong> Telefonansage mit Vertretung und Notdienst geschaltet, Doctolib-Zeiten gesperrt.</span></li>
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Am Tag Ihrer Rückkehr:</strong> Alles zurückgestellt. Sie merken davon nichts, Ihre Patienten auch nicht.</span></li>
+          </ul>
+        </div>
+        <div class="concierge-visual">
+          <img src="img/m01-praxis-inhaberin-fenster.jpg" alt="Eine Praxisinhaberin steht mit einem Kaffee am Fenster ihrer Praxis und blickt hinaus.">
+          <div class="service-card">
+            <div class="sc-head"><span class="sc-label">Nachricht an Digital Avenue</span></div>
+            <div class="sc-title">„Wir sind vom 14. bis 28. Juli im Urlaub, Vertretung macht Dr. [Name].“</div>
+            <ul><li><svg class="icon"><use href="#i-check"/></svg>Das ist alles, was Sie schreiben müssen.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Referenz</span>
+        <h2>Lungenpraxis am Tibarg, Hamburg.</h2>
+      </div>
+      <div class="refs" style="grid-template-columns:1fr">
+        <article class="ref reveal" style="max-width:720px">
+          <span class="ref-kind">Facharztpraxis · Hamburg</span>
+          <h3>Website und digitale Erreichbarkeit für eine Facharztpraxis</h3>
+          <p>[Kurzbeschreibung: Ausgangslage, was Digital Avenue übernommen hat, was sich für Praxis und Patienten verändert hat.]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="da-eyebrow">Häufige Fragen</span>
+        <h2>Was Praxen uns vorab fragen.</h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>Müssen wir unsere bestehende Website aufgeben?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Nein. Wir schauen im Digital-Check, was Ihre Seite kann und was ihr fehlt. Oft reicht es, sie zu übernehmen, zu aktualisieren und ab dann zu pflegen. Ein Neubau ist nur dann sinnvoll, wenn er sich für Sie rechnet.</p></details>
+        <details><summary>Wir nutzen bereits Doctolib. Was ändert sich?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Dann verbinden wir es sauber mit Website, Google-Profil und Telefonansage, sodass alle Wege zum gleichen Kalender führen. Und wir kümmern uns um Urlaubssperren und Änderungen, damit Sie das nicht selbst tun müssen.</p></details>
+        <details><summary>Wie sieht es mit Datenschutz und Schweigepflicht aus?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Hosting, E-Mail und Telefonie laufen auf Servern in Deutschland. Wir schließen mit Ihnen einen Vertrag zur Auftragsverarbeitung und dokumentieren, wer worauf Zugriff hat. [Details mit Nils abstimmen]</p></details>
+        <details><summary>Was kostet die laufende Betreuung?<svg class="icon"><use href="#i-chev"/></svg></summary><p>[Preismodell ergänzen: z. B. monatliche Pauschale nach Umfang, ohne lange Laufzeit.] Im Digital-Check sagen wir Ihnen, welches Paket zu Ihrer Praxis passt.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-check-info">
+  <div class="wrap">
+    <div class="check reveal">
+      <div>
+        <span class="da-eyebrow">Der Digital-Check</span>
+        <h2>20 Minuten, nach denen Sie wissen, wo Sie stehen.</h2>
+        <p>Wir schauen uns an, was Ihre Kunden, Patienten oder Mandanten heute erleben, wenn sie Sie erreichen wollen. Sie bekommen eine ehrliche Einschätzung in Klartext. Ob daraus mehr wird, entscheiden Sie.</p>
+        <ul class="check-list">
+          <li><svg class="icon"><use href="#i-check"/></svg>Website: Eindruck, Erreichbarkeit, Aktualität</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Telefonanlage: Warteschleife, Ansagen, Weiterleitung</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Google-Unternehmensprofil: Zeiten, Bewertungen, Bilder</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>E-Mail &amp; Hosting: Sicherheit, Zustellung, Backups</li>
+        </ul>
+        <div class="check-ctas">
+          <button type="button" class="da-btn-light" data-open-check>Digital-Check anfragen</button>
+          <span class="check-note">Kostenlos und unverbindlich. [Konditionen bestätigen]</span>
+        </div>
+      </div>
+      <aside class="check-aside">
+        <h3>So läuft es ab</h3>
+        <ol>
+          <li><div><strong>Sie fragen an.</strong> Name, Kontakt, fertig. Wir melden uns innerhalb eines Werktags.</div></li>
+          <li><div><strong>Wir schauen vorab hin.</strong> Website, Telefon und Google-Profil prüfen wir schon vor dem Gespräch.</div></li>
+          <li><div><strong>20 Minuten Gespräch.</strong> Sie bekommen drei konkrete Punkte, die sich sofort lohnen.</div></li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+</main><footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue">
+        <p>Ihre externe Digitalabteilung aus Hamburg und Rostock. Website, Telefonie, Termine und E-Mail aus einer Hand, persönlich betreut.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="index.html#leistungen">Sichtbarkeit &amp; Marke</a></li>
+          <li><a href="index.html#leistungen">Infrastruktur &amp; Prozesse</a></li>
+          <li><a href="index.html#leistungen">Digital-Concierge</a></li>
+          <li><a href="#digital-check" data-open-check>Digital-Check</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Für wen</h4>
+        <ul>
+          <li><a href="praxen.html">Arztpraxen</a></li>
+          <li><a href="kanzleien.html">Kanzleien</a></li>
+          <li><a href="mittelstand.html">Mittelstand</a></li>
+          <li><a href="index.html#ueber-uns">Über uns</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul class="footer-contact">
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+494041343870">+49 (40) 41343870</a></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:post@digital-avenue.de">post@digital-avenue.de</a></li>
+          <li><svg class="icon"><use href="#i-pin"/></svg><span>Digital Avenue UG (haftungsbeschränkt)<br>[ADRESSE], Hamburg · Rostock</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Digital Avenue UG (haftungsbeschränkt)</span>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="proto-note" aria-hidden="true">Prototyp · Entwurf</div>
+<dialog class="check-dialog" id="check-dialog" aria-labelledby="check-title">
+  <div class="dialog-inner">
+    <div class="dialog-head">
+      <div>
+        <span class="da-eyebrow">Digital-Check</span>
+        <h2 id="check-title">Sagen Sie uns kurz, wer Sie sind. Den Rest übernehmen wir.</h2>
+        <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Der Check dauert 20 Minuten, am Telefon oder per Video.</p>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Schließen" data-close-check><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <form class="form" novalidate>
+      <div class="field full">
+        <label>Ich führe</label>
+        <div class="segmented">
+          <input type="radio" name="audience" id="aud-praxis" value="praxis" checked><label for="aud-praxis">eine Praxis</label>
+          <input type="radio" name="audience" id="aud-kanzlei" value="kanzlei"><label for="aud-kanzlei">eine Kanzlei</label>
+          <input type="radio" name="audience" id="aud-unternehmen" value="unternehmen"><label for="aud-unternehmen">ein Unternehmen</label>
+        </div>
+      </div>
+      <div class="field half">
+        <label for="f-name">Ihr Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <span class="error">Bitte nennen Sie uns Ihren Namen.</span>
+      </div>
+      <div class="field half">
+        <label for="f-contact">E-Mail oder Telefon</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email" inputmode="email" required>
+        <span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span>
+      </div>
+      <div class="field full">
+        <label for="f-site">Ihre Website (optional)</label>
+        <input id="f-site" name="website" type="url" inputmode="url" placeholder="www.">
+      </div>
+      <div class="field full">
+        <label for="f-msg">Was beschäftigt Sie gerade? (optional)</label>
+        <textarea id="f-msg" name="message" placeholder="Zum Beispiel: Die Telefonanlage ist alt, die Website auch, und niemand kümmert sich."></textarea>
+      </div>
+      <div class="form-foot">
+        <small>Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Kontaktaufnahme speichern. [Datenschutzhinweis ergänzen]</small>
+        <button type="submit" class="da-btn-primary">Digital-Check anfragen</button>
+      </div>
+    </form>
+    <div class="form-success" aria-live="polite">
+      <div class="ok"><svg class="icon icon-20"><use href="#i-check"/></svg></div>
+      <h3>Danke, Ihre Anfrage ist angekommen.</h3>
+      <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Bis dahin müssen Sie nichts weiter tun.</p>
+      <p style="margin-top:24px"><button type="button" class="da-btn-primary" data-close-check>Schließen</button></p>
+    </div>
+  </div>
+</dialog>
+<script src="js/site.js"></script>
+</body>
+</html>
