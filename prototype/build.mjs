@@ -77,6 +77,7 @@ const router = `
 </script>`;
 
 const bundle = `<title>Digital Avenue Prototyp</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap">
 <style>${tokensCss}\n${siteCss}\n.route[hidden]{display:none}\n:root{color-scheme:light}</style>
 ${sprite}
 ${rewriteLinks(partial('nav'))}

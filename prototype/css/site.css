@@ -63,19 +63,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav.scrolled { border-color: var(--da-border); box-shadow: 0 6px 24px rgb(0 0 0 / 0.04); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--da-sp-6); height: var(--nav-h); }
 .nav-logo img { height: 28px; }
-.nav-menu {
-  display: flex; align-items: center; gap: 2px;
-  padding: 4px; border-radius: var(--da-r-pill);
-  background: var(--da-card-bg); border: 1px solid var(--da-border);
-  box-shadow: var(--da-shadow-sm);
-}
+.nav-menu { display: flex; align-items: center; gap: var(--da-sp-6); }
 .nav-menu a {
-  display: inline-block; padding: 8px 14px; border-radius: var(--da-r-pill);
-  font-size: var(--da-text-sm); font-weight: 600; color: var(--da-text);
-  transition: background var(--da-t), color var(--da-t);
+  display: inline-block; padding: 10px 0; position: relative;
+  font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--da-text); transition: color var(--da-t);
 }
-.nav-menu a:hover { background: var(--da-teal-subtle); color: var(--da-teal-text); }
-.nav-menu a[aria-current="page"] { background: var(--da-teal); color: #fff; }
+.nav-menu a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 1.5px;
+  background: var(--da-teal); transform: scaleX(0); transform-origin: left; transition: transform var(--da-t);
+}
+.nav-menu a:hover { color: var(--da-teal); }
+.nav-menu a:hover::after, .nav-menu a[aria-current="page"]::after { transform: scaleX(1); }
+.nav-menu a[aria-current="page"] { color: var(--da-teal); font-weight: 600; }
 .nav-actions { display: flex; align-items: center; gap: var(--da-sp-3); }
 .nav-burger {
   display: none; width: 44px; height: 44px; border-radius: var(--da-r-sm);
@@ -91,7 +92,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav-drawer.open { transform: translateX(0); }
 .nav-drawer a:not(.da-btn-primary) {
   display: block; padding: var(--da-sp-4) 0; border-bottom: 1px solid var(--da-border);
-  font-size: clamp(20px, 5vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--da-text);
+  font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;
+  font-size: clamp(17px, 4.5vw, 22px); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--da-text);
 }
 .nav-drawer a[aria-current="page"] { color: var(--da-teal); }
 .nav-drawer .da-btn-primary { margin-top: var(--da-sp-8); justify-content: center; width: 100%; }
