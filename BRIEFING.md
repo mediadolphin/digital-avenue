@@ -196,3 +196,9 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
   je eine Recruiting-Kachel und ein "Kennen Sie das?"-Satz auf den drei
   Landingpages, Dialyse Güstrow als vierte Referenz, Karriereseite als Punkt
   im Digital-Check. Details zu den Referenzen sind noch Platzhalter.
+
+## Umzug nach WordPress / Bricks (Stand 2026-09-10)
+
+- Skill `bricks-handoff` in `.claude/skills/bricks-handoff/` angelegt: fünf Phasen (Klären, Tokens exportieren, Schriften/Icons, Komponenten als Global Classes, Templates/Seiten, Abgleich/Launch) plus Skripte `export-tokens.mjs` und `split-icons.mjs`.
+- Erster Export liegt in `handoff/export/` (Advanced-Themer-Palette, Bricks-Variablen, globales CSS, Icons, Token-Report). Stand der Phasen in `handoff/STATUS.md`.
+- Offen: Framework-Entscheidung (AT / ACSS / Core Framework), Staging-Zugang, Bricks-Template-Export als Referenz für das Template-JSON-Format.

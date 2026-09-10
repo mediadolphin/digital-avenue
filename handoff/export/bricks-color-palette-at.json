@@ -1,0 +1,1296 @@
+{
+ "id": "at_framework_palette",
+ "name": "AT Framework",
+ "at_framework": true,
+ "at_version": "1.0.0",
+ "status": "enabled",
+ "prefix": "at-",
+ "defaultExpanded": true,
+ "default": "true",
+ "colors": [
+  {
+   "id": "at_primary",
+   "name": "primary",
+   "raw": "var(--at-primary)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,32.35%,1)",
+    "dark": "hsla(195.9,35.02%,46.47%,1)"
+   },
+   "complementaryChildren": [],
+   "shadeChildren": [
+    "at_primary-l-1",
+    "at_primary-l-2",
+    "at_primary-l-3",
+    "at_primary-l-4",
+    "at_primary-l-5",
+    "at_primary-l-6",
+    "at_primary-d-1",
+    "at_primary-d-2",
+    "at_primary-d-3",
+    "at_primary-d-4",
+    "at_primary-d-5",
+    "at_primary-d-6",
+    "at_primary-t-1",
+    "at_primary-t-2",
+    "at_primary-t-3",
+    "at_primary-t-4",
+    "at_primary-t-5",
+    "at_primary-t-6"
+   ],
+   "isExpanded": false,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-l-1",
+   "name": "primary-l-1",
+   "raw": "var(--at-primary-l-1)",
+   "rawValue": {
+    "light": "hsla(202.61,28.02%,43.29%,1)",
+    "dark": "hsla(202.61,28.02%,56.71%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_primary",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-l-2",
+   "name": "primary-l-2",
+   "raw": "var(--at-primary-l-2)",
+   "rawValue": {
+    "light": "hsla(202.61,28.02%,54.23%,1)",
+    "dark": "hsla(202.61,28.02%,45.77%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_primary",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-l-3",
+   "name": "primary-l-3",
+   "raw": "var(--at-primary-l-3)",
+   "rawValue": {
+    "light": "hsla(202.61,28.02%,65.18%,1)",
+    "dark": "hsla(202.61,28.02%,34.82%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_primary",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-l-4",
+   "name": "primary-l-4",
+   "raw": "var(--at-primary-l-4)",
+   "rawValue": {
+    "light": "hsla(202.61,28.02%,76.12%,1)",
+    "dark": "hsla(202.61,28.02%,23.88%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_primary",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-l-5",
+   "name": "primary-l-5",
+   "raw": "var(--at-primary-l-5)",
+   "rawValue": {
+    "light": "hsla(202.61,28.02%,87.06%,1)",
+    "dark": "hsla(202.61,28.02%,12.94%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_primary",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-l-6",
+   "name": "primary-l-6",
+   "raw": "var(--at-primary-l-6)",
+   "rawValue": {
+    "light": "hsla(202.61,37.64%,98%,1)",
+    "dark": "hsla(202.61,37.64%,2%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_primary",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-d-1",
+   "name": "primary-d-1",
+   "raw": "var(--at-primary-d-1)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,27.73%,1)",
+    "dark": "hsla(202.61,41.82%,72.27%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_primary",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-d-2",
+   "name": "primary-d-2",
+   "raw": "var(--at-primary-d-2)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,23.11%,1)",
+    "dark": "hsla(202.61,41.82%,76.89%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_primary",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-d-3",
+   "name": "primary-d-3",
+   "raw": "var(--at-primary-d-3)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,18.49%,1)",
+    "dark": "hsla(202.61,41.82%,81.51%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_primary",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-d-4",
+   "name": "primary-d-4",
+   "raw": "var(--at-primary-d-4)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,13.86%,1)",
+    "dark": "hsla(202.61,41.82%,86.14%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_primary",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-d-5",
+   "name": "primary-d-5",
+   "raw": "var(--at-primary-d-5)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,9.24%,1)",
+    "dark": "hsla(202.61,41.82%,90.76%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_primary",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-d-6",
+   "name": "primary-d-6",
+   "raw": "var(--at-primary-d-6)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,4.62%,1)",
+    "dark": "hsla(202.61,41.82%,95.38%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_primary",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-t-1",
+   "name": "primary-t-1",
+   "raw": "var(--at-primary-t-1)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,32.35%,0.84)",
+    "dark": "hsla(202.61,41.82%,67.65%,0.84)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_primary",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-t-2",
+   "name": "primary-t-2",
+   "raw": "var(--at-primary-t-2)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,32.35%,0.68)",
+    "dark": "hsla(202.61,41.82%,67.65%,0.68)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_primary",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-t-3",
+   "name": "primary-t-3",
+   "raw": "var(--at-primary-t-3)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,32.35%,0.53)",
+    "dark": "hsla(202.61,41.82%,67.65%,0.53)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_primary",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-t-4",
+   "name": "primary-t-4",
+   "raw": "var(--at-primary-t-4)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,32.35%,0.37)",
+    "dark": "hsla(202.61,41.82%,67.65%,0.37)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_primary",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-t-5",
+   "name": "primary-t-5",
+   "raw": "var(--at-primary-t-5)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,32.35%,0.21)",
+    "dark": "hsla(202.61,41.82%,67.65%,0.21)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_primary",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_primary-t-6",
+   "name": "primary-t-6",
+   "raw": "var(--at-primary-t-6)",
+   "rawValue": {
+    "light": "hsla(202.61,41.82%,32.35%,0.05)",
+    "dark": "hsla(202.61,41.82%,67.65%,0.05)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_primary",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary",
+   "name": "secondary",
+   "raw": "var(--at-secondary)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,75.49%,1)",
+    "dark": "hsla(39.18,29.34%,67.25%,1)"
+   },
+   "complementaryChildren": [],
+   "shadeChildren": [
+    "at_secondary-l-1",
+    "at_secondary-l-2",
+    "at_secondary-l-3",
+    "at_secondary-l-4",
+    "at_secondary-l-5",
+    "at_secondary-l-6",
+    "at_secondary-d-1",
+    "at_secondary-d-2",
+    "at_secondary-d-3",
+    "at_secondary-d-4",
+    "at_secondary-d-5",
+    "at_secondary-d-6",
+    "at_secondary-t-1",
+    "at_secondary-t-2",
+    "at_secondary-t-3",
+    "at_secondary-t-4",
+    "at_secondary-t-5",
+    "at_secondary-t-6"
+   ],
+   "isExpanded": false,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-l-1",
+   "name": "secondary-l-1",
+   "raw": "var(--at-secondary-l-1)",
+   "rawValue": {
+    "light": "hsla(41.33,24.12%,79.24%,1)",
+    "dark": "hsla(41.33,24.12%,20.76%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-l-2",
+   "name": "secondary-l-2",
+   "raw": "var(--at-secondary-l-2)",
+   "rawValue": {
+    "light": "hsla(41.33,24.12%,82.99%,1)",
+    "dark": "hsla(41.33,24.12%,17.01%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-l-3",
+   "name": "secondary-l-3",
+   "raw": "var(--at-secondary-l-3)",
+   "rawValue": {
+    "light": "hsla(41.33,24.12%,86.75%,1)",
+    "dark": "hsla(41.33,24.12%,13.25%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-l-4",
+   "name": "secondary-l-4",
+   "raw": "var(--at-secondary-l-4)",
+   "rawValue": {
+    "light": "hsla(41.33,24.12%,90.5%,1)",
+    "dark": "hsla(41.33,24.12%,9.5%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-l-5",
+   "name": "secondary-l-5",
+   "raw": "var(--at-secondary-l-5)",
+   "rawValue": {
+    "light": "hsla(41.33,24.12%,94.25%,1)",
+    "dark": "hsla(41.33,24.12%,5.75%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-l-6",
+   "name": "secondary-l-6",
+   "raw": "var(--at-secondary-l-6)",
+   "rawValue": {
+    "light": "hsla(41.33,32.4%,98%,1)",
+    "dark": "hsla(41.33,32.4%,2%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-d-1",
+   "name": "secondary-d-1",
+   "raw": "var(--at-secondary-d-1)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,64.71%,1)",
+    "dark": "hsla(41.33,36%,35.29%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-d-2",
+   "name": "secondary-d-2",
+   "raw": "var(--at-secondary-d-2)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,53.92%,1)",
+    "dark": "hsla(41.33,36%,46.08%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-d-3",
+   "name": "secondary-d-3",
+   "raw": "var(--at-secondary-d-3)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,43.14%,1)",
+    "dark": "hsla(41.33,36%,56.86%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-d-4",
+   "name": "secondary-d-4",
+   "raw": "var(--at-secondary-d-4)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,32.35%,1)",
+    "dark": "hsla(41.33,36%,67.65%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-d-5",
+   "name": "secondary-d-5",
+   "raw": "var(--at-secondary-d-5)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,21.57%,1)",
+    "dark": "hsla(41.33,36%,78.43%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-d-6",
+   "name": "secondary-d-6",
+   "raw": "var(--at-secondary-d-6)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,10.78%,1)",
+    "dark": "hsla(41.33,36%,89.22%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-t-1",
+   "name": "secondary-t-1",
+   "raw": "var(--at-secondary-t-1)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,75.49%,0.84)",
+    "dark": "hsla(41.33,36%,24.51%,0.84)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-t-2",
+   "name": "secondary-t-2",
+   "raw": "var(--at-secondary-t-2)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,75.49%,0.68)",
+    "dark": "hsla(41.33,36%,24.51%,0.68)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-t-3",
+   "name": "secondary-t-3",
+   "raw": "var(--at-secondary-t-3)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,75.49%,0.53)",
+    "dark": "hsla(41.33,36%,24.51%,0.53)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-t-4",
+   "name": "secondary-t-4",
+   "raw": "var(--at-secondary-t-4)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,75.49%,0.37)",
+    "dark": "hsla(41.33,36%,24.51%,0.37)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-t-5",
+   "name": "secondary-t-5",
+   "raw": "var(--at-secondary-t-5)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,75.49%,0.21)",
+    "dark": "hsla(41.33,36%,24.51%,0.21)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_secondary-t-6",
+   "name": "secondary-t-6",
+   "raw": "var(--at-secondary-t-6)",
+   "rawValue": {
+    "light": "hsla(41.33,36%,75.49%,0.05)",
+    "dark": "hsla(41.33,36%,24.51%,0.05)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_secondary",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent",
+   "name": "accent",
+   "raw": "var(--at-accent)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,20.2%,1)",
+    "dark": "hsla(315.65,20%,45.1%,1)"
+   },
+   "complementaryChildren": [],
+   "shadeChildren": [
+    "at_accent-l-1",
+    "at_accent-l-2",
+    "at_accent-l-3",
+    "at_accent-l-4",
+    "at_accent-l-5",
+    "at_accent-l-6",
+    "at_accent-d-1",
+    "at_accent-d-2",
+    "at_accent-d-3",
+    "at_accent-d-4",
+    "at_accent-d-5",
+    "at_accent-d-6",
+    "at_accent-t-1",
+    "at_accent-t-2",
+    "at_accent-t-3",
+    "at_accent-t-4",
+    "at_accent-t-5",
+    "at_accent-t-6"
+   ],
+   "isExpanded": false,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-l-1",
+   "name": "accent-l-1",
+   "raw": "var(--at-accent-l-1)",
+   "rawValue": {
+    "light": "hsla(314.48,18.87%,33.17%,1)",
+    "dark": "hsla(314.48,18.87%,66.83%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_accent",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-l-2",
+   "name": "accent-l-2",
+   "raw": "var(--at-accent-l-2)",
+   "rawValue": {
+    "light": "hsla(314.48,18.87%,46.13%,1)",
+    "dark": "hsla(314.48,18.87%,53.87%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_accent",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-l-3",
+   "name": "accent-l-3",
+   "raw": "var(--at-accent-l-3)",
+   "rawValue": {
+    "light": "hsla(314.48,18.87%,59.1%,1)",
+    "dark": "hsla(314.48,18.87%,40.9%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_accent",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-l-4",
+   "name": "accent-l-4",
+   "raw": "var(--at-accent-l-4)",
+   "rawValue": {
+    "light": "hsla(314.48,18.87%,72.07%,1)",
+    "dark": "hsla(314.48,18.87%,27.93%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_accent",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-l-5",
+   "name": "accent-l-5",
+   "raw": "var(--at-accent-l-5)",
+   "rawValue": {
+    "light": "hsla(314.48,18.87%,85.03%,1)",
+    "dark": "hsla(314.48,18.87%,14.97%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_accent",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-l-6",
+   "name": "accent-l-6",
+   "raw": "var(--at-accent-l-6)",
+   "rawValue": {
+    "light": "hsla(314.48,25.34%,98%,1)",
+    "dark": "hsla(314.48,25.34%,2%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_accent",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-d-1",
+   "name": "accent-d-1",
+   "raw": "var(--at-accent-d-1)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,17.31%,1)",
+    "dark": "hsla(314.48,28.16%,82.69%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_accent",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-d-2",
+   "name": "accent-d-2",
+   "raw": "var(--at-accent-d-2)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,14.43%,1)",
+    "dark": "hsla(314.48,28.16%,85.57%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_accent",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-d-3",
+   "name": "accent-d-3",
+   "raw": "var(--at-accent-d-3)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,11.54%,1)",
+    "dark": "hsla(314.48,28.16%,88.46%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_accent",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-d-4",
+   "name": "accent-d-4",
+   "raw": "var(--at-accent-d-4)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,8.66%,1)",
+    "dark": "hsla(314.48,28.16%,91.34%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_accent",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-d-5",
+   "name": "accent-d-5",
+   "raw": "var(--at-accent-d-5)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,5.77%,1)",
+    "dark": "hsla(314.48,28.16%,94.23%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_accent",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-d-6",
+   "name": "accent-d-6",
+   "raw": "var(--at-accent-d-6)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,2.89%,1)",
+    "dark": "hsla(314.48,28.16%,97.11%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_accent",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-t-1",
+   "name": "accent-t-1",
+   "raw": "var(--at-accent-t-1)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,20.2%,0.84)",
+    "dark": "hsla(314.48,28.16%,79.8%,0.84)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_accent",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-t-2",
+   "name": "accent-t-2",
+   "raw": "var(--at-accent-t-2)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,20.2%,0.68)",
+    "dark": "hsla(314.48,28.16%,79.8%,0.68)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_accent",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-t-3",
+   "name": "accent-t-3",
+   "raw": "var(--at-accent-t-3)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,20.2%,0.53)",
+    "dark": "hsla(314.48,28.16%,79.8%,0.53)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_accent",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-t-4",
+   "name": "accent-t-4",
+   "raw": "var(--at-accent-t-4)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,20.2%,0.37)",
+    "dark": "hsla(314.48,28.16%,79.8%,0.37)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_accent",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-t-5",
+   "name": "accent-t-5",
+   "raw": "var(--at-accent-t-5)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,20.2%,0.21)",
+    "dark": "hsla(314.48,28.16%,79.8%,0.21)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_accent",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_accent-t-6",
+   "name": "accent-t-6",
+   "raw": "var(--at-accent-t-6)",
+   "rawValue": {
+    "light": "hsla(314.48,28.16%,20.2%,0.05)",
+    "dark": "hsla(314.48,28.16%,79.8%,0.05)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_accent",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral",
+   "name": "neutral",
+   "raw": "var(--at-neutral)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,40.98%,1)",
+    "dark": "hsla(200.43,20.89%,55.88%,1)"
+   },
+   "complementaryChildren": [],
+   "shadeChildren": [
+    "at_neutral-l-1",
+    "at_neutral-l-2",
+    "at_neutral-l-3",
+    "at_neutral-l-4",
+    "at_neutral-l-5",
+    "at_neutral-l-6",
+    "at_neutral-d-1",
+    "at_neutral-d-2",
+    "at_neutral-d-3",
+    "at_neutral-d-4",
+    "at_neutral-d-5",
+    "at_neutral-d-6",
+    "at_neutral-t-1",
+    "at_neutral-t-2",
+    "at_neutral-t-3",
+    "at_neutral-t-4",
+    "at_neutral-t-5",
+    "at_neutral-t-6"
+   ],
+   "isExpanded": false,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-l-1",
+   "name": "neutral-l-1",
+   "raw": "var(--at-neutral-l-1)",
+   "rawValue": {
+    "light": "hsla(198.62,9.3%,50.48%,1)",
+    "dark": "hsla(198.62,9.3%,49.52%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-l-2",
+   "name": "neutral-l-2",
+   "raw": "var(--at-neutral-l-2)",
+   "rawValue": {
+    "light": "hsla(198.62,9.3%,59.99%,1)",
+    "dark": "hsla(198.62,9.3%,40.01%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-l-3",
+   "name": "neutral-l-3",
+   "raw": "var(--at-neutral-l-3)",
+   "rawValue": {
+    "light": "hsla(198.62,9.3%,69.49%,1)",
+    "dark": "hsla(198.62,9.3%,30.51%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-l-4",
+   "name": "neutral-l-4",
+   "raw": "var(--at-neutral-l-4)",
+   "rawValue": {
+    "light": "hsla(198.62,9.3%,78.99%,1)",
+    "dark": "hsla(198.62,9.3%,21.01%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-l-5",
+   "name": "neutral-l-5",
+   "raw": "var(--at-neutral-l-5)",
+   "rawValue": {
+    "light": "hsla(198.62,9.3%,88.5%,1)",
+    "dark": "hsla(198.62,9.3%,11.5%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-l-6",
+   "name": "neutral-l-6",
+   "raw": "var(--at-neutral-l-6)",
+   "rawValue": {
+    "light": "hsla(198.62,12.49%,98%,1)",
+    "dark": "hsla(198.62,12.49%,2%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Light",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-d-1",
+   "name": "neutral-d-1",
+   "raw": "var(--at-neutral-d-1)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,35.13%,1)",
+    "dark": "hsla(198.62,13.88%,64.87%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-d-2",
+   "name": "neutral-d-2",
+   "raw": "var(--at-neutral-d-2)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,29.27%,1)",
+    "dark": "hsla(198.62,13.88%,70.73%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-d-3",
+   "name": "neutral-d-3",
+   "raw": "var(--at-neutral-d-3)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,23.42%,1)",
+    "dark": "hsla(198.62,13.88%,76.58%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-d-4",
+   "name": "neutral-d-4",
+   "raw": "var(--at-neutral-d-4)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,17.56%,1)",
+    "dark": "hsla(198.62,13.88%,82.44%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-d-5",
+   "name": "neutral-d-5",
+   "raw": "var(--at-neutral-d-5)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,11.71%,1)",
+    "dark": "hsla(198.62,13.88%,88.29%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-d-6",
+   "name": "neutral-d-6",
+   "raw": "var(--at-neutral-d-6)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,5.85%,1)",
+    "dark": "hsla(198.62,13.88%,94.15%,1)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Dark",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-t-1",
+   "name": "neutral-t-1",
+   "raw": "var(--at-neutral-t-1)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,40.98%,0.84)",
+    "dark": "hsla(198.62,13.88%,59.02%,0.84)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 0,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-t-2",
+   "name": "neutral-t-2",
+   "raw": "var(--at-neutral-t-2)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,40.98%,0.68)",
+    "dark": "hsla(198.62,13.88%,59.02%,0.68)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 1,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-t-3",
+   "name": "neutral-t-3",
+   "raw": "var(--at-neutral-t-3)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,40.98%,0.53)",
+    "dark": "hsla(198.62,13.88%,59.02%,0.53)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 2,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-t-4",
+   "name": "neutral-t-4",
+   "raw": "var(--at-neutral-t-4)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,40.98%,0.37)",
+    "dark": "hsla(198.62,13.88%,59.02%,0.37)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 3,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-t-5",
+   "name": "neutral-t-5",
+   "raw": "var(--at-neutral-t-5)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,40.98%,0.21)",
+    "dark": "hsla(198.62,13.88%,59.02%,0.21)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 4,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  },
+  {
+   "id": "at_neutral-t-6",
+   "name": "neutral-t-6",
+   "raw": "var(--at-neutral-t-6)",
+   "rawValue": {
+    "light": "hsla(198.62,13.88%,40.98%,0.05)",
+    "dark": "hsla(198.62,13.88%,59.02%,0.05)"
+   },
+   "isShade": true,
+   "shadeMode": "auto",
+   "shadeType": "Transparent",
+   "shadeParent": "at_neutral",
+   "shadeOrder": 5,
+   "at_framework": true,
+   "at_version": "1.0.0"
+  }
+ ]
+}

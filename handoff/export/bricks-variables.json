@@ -1,0 +1,374 @@
+{
+ "variables": [
+  {
+   "id": "da_da-sp-1",
+   "name": "da-sp-1",
+   "value": "clamp(3px,  0.3vw, 4px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-2",
+   "name": "da-sp-2",
+   "value": "clamp(6px,  0.6vw, 8px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-3",
+   "name": "da-sp-3",
+   "value": "clamp(9px,  0.9vw, 12px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-4",
+   "name": "da-sp-4",
+   "value": "clamp(12px, 1.2vw, 16px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-5",
+   "name": "da-sp-5",
+   "value": "clamp(15px, 1.5vw, 20px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-6",
+   "name": "da-sp-6",
+   "value": "clamp(18px, 1.8vw, 24px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-8",
+   "name": "da-sp-8",
+   "value": "clamp(24px, 2.4vw, 32px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-10",
+   "name": "da-sp-10",
+   "value": "clamp(30px, 3vw,   40px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-12",
+   "name": "da-sp-12",
+   "value": "clamp(36px, 3.6vw, 48px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-16",
+   "name": "da-sp-16",
+   "value": "clamp(48px, 4.8vw, 64px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-sp-20",
+   "name": "da-sp-20",
+   "value": "clamp(60px, 6vw,   80px)",
+   "category": "da_spacing",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-2xs",
+   "name": "da-text-2xs",
+   "value": "clamp(10px, 0.7vw, 11px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-xs",
+   "name": "da-text-xs",
+   "value": "clamp(11px, 0.8vw, 12px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-sm",
+   "name": "da-text-sm",
+   "value": "clamp(13px, 1vw, 14px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-base",
+   "name": "da-text-base",
+   "value": "clamp(15px, 1.1vw, 16px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-md",
+   "name": "da-text-md",
+   "value": "clamp(17px, 1.4vw, 18px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-lg",
+   "name": "da-text-lg",
+   "value": "clamp(22px, 3vw, 30px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-xl",
+   "name": "da-text-xl",
+   "value": "clamp(30px, 4vw, 44px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-text-h3",
+   "name": "da-text-h3",
+   "value": "clamp(18px, 2vw, 21px)",
+   "category": "da_typography",
+   "type": "static"
+  },
+  {
+   "id": "da_da-r-xs",
+   "name": "da-r-xs",
+   "value": "4px",
+   "category": "da_radius",
+   "type": "static"
+  },
+  {
+   "id": "da_da-r-sm",
+   "name": "da-r-sm",
+   "value": "6px",
+   "category": "da_radius",
+   "type": "static"
+  },
+  {
+   "id": "da_da-r-md",
+   "name": "da-r-md",
+   "value": "10px",
+   "category": "da_radius",
+   "type": "static"
+  },
+  {
+   "id": "da_da-r-lg",
+   "name": "da-r-lg",
+   "value": "16px",
+   "category": "da_radius",
+   "type": "static"
+  },
+  {
+   "id": "da_da-r-xl",
+   "name": "da-r-xl",
+   "value": "24px",
+   "category": "da_radius",
+   "type": "static"
+  },
+  {
+   "id": "da_da-r-pill",
+   "name": "da-r-pill",
+   "value": "100px",
+   "category": "da_radius",
+   "type": "static"
+  },
+  {
+   "id": "da_da-card-shadow",
+   "name": "da-card-shadow",
+   "value": "0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-card-hover",
+   "name": "da-card-hover",
+   "value": "0 2px 8px rgb(0 0 0 / 0.08), 0 8px 28px rgb(0 0 0 / 0.10)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-shadow-sm",
+   "name": "da-shadow-sm",
+   "value": "0 1px 3px rgb(0 0 0 / 0.04), 0 2px 8px rgb(0 0 0 / 0.04)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-shadow-md",
+   "name": "da-shadow-md",
+   "value": "0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-shadow-lg",
+   "name": "da-shadow-lg",
+   "value": "0 4px 16px rgb(0 0 0 / 0.08), 0 12px 40px rgb(0 0 0 / 0.10)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-shadow-teal",
+   "name": "da-shadow-teal",
+   "value": "0 2px 12px color-mix(in srgb, #305b75 35%, transparent)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-shadow-teal-hover",
+   "name": "da-shadow-teal-hover",
+   "value": "0 4px 20px color-mix(in srgb, #305b75 45%, transparent)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-font",
+   "name": "da-font",
+   "value": "'Manrope', system-ui, sans-serif",
+   "category": "da_fonts",
+   "type": "static"
+  },
+  {
+   "id": "da_da-font-logo",
+   "name": "da-font-logo",
+   "value": "'Jost', system-ui, sans-serif",
+   "category": "da_fonts",
+   "type": "static"
+  },
+  {
+   "id": "da_da-w-normal",
+   "name": "da-w-normal",
+   "value": "400",
+   "category": "da_weights",
+   "type": "static"
+  },
+  {
+   "id": "da_da-w-medium",
+   "name": "da-w-medium",
+   "value": "500",
+   "category": "da_weights",
+   "type": "static"
+  },
+  {
+   "id": "da_da-w-semi",
+   "name": "da-w-semi",
+   "value": "600",
+   "category": "da_weights",
+   "type": "static"
+  },
+  {
+   "id": "da_da-w-bold",
+   "name": "da-w-bold",
+   "value": "700",
+   "category": "da_weights",
+   "type": "static"
+  },
+  {
+   "id": "da_da-w-black",
+   "name": "da-w-black",
+   "value": "800",
+   "category": "da_weights",
+   "type": "static"
+  },
+  {
+   "id": "da_da-leading-tight",
+   "name": "da-leading-tight",
+   "value": "1.15",
+   "category": "da_leading",
+   "type": "static"
+  },
+  {
+   "id": "da_da-leading-snug",
+   "name": "da-leading-snug",
+   "value": "1.35",
+   "category": "da_leading",
+   "type": "static"
+  },
+  {
+   "id": "da_da-leading-normal",
+   "name": "da-leading-normal",
+   "value": "1.65",
+   "category": "da_leading",
+   "type": "static"
+  },
+  {
+   "id": "da_da-tracking-tight",
+   "name": "da-tracking-tight",
+   "value": "-0.025em",
+   "category": "da_leading",
+   "type": "static"
+  },
+  {
+   "id": "da_da-tracking-normal",
+   "name": "da-tracking-normal",
+   "value": "0",
+   "category": "da_leading",
+   "type": "static"
+  },
+  {
+   "id": "da_da-tracking-wide",
+   "name": "da-tracking-wide",
+   "value": "0.05em",
+   "category": "da_leading",
+   "type": "static"
+  },
+  {
+   "id": "da_da-tracking-wider",
+   "name": "da-tracking-wider",
+   "value": "0.12em",
+   "category": "da_leading",
+   "type": "static"
+  },
+  {
+   "id": "da_da-t",
+   "name": "da-t",
+   "value": "0.2s ease",
+   "category": "da_motion",
+   "type": "static"
+  },
+  {
+   "id": "da_da-t-slow",
+   "name": "da-t-slow",
+   "value": "0.3s ease",
+   "category": "da_motion",
+   "type": "static"
+  }
+ ],
+ "categories": [
+  {
+   "id": "da_spacing",
+   "name": "Spacing"
+  },
+  {
+   "id": "da_typography",
+   "name": "Typography"
+  },
+  {
+   "id": "da_radius",
+   "name": "Border Radius"
+  },
+  {
+   "id": "da_shadow",
+   "name": "Box Shadow"
+  },
+  {
+   "id": "da_fonts",
+   "name": "Fonts"
+  },
+  {
+   "id": "da_weights",
+   "name": "Font Weights"
+  },
+  {
+   "id": "da_leading",
+   "name": "Leading & Tracking"
+  },
+  {
+   "id": "da_motion",
+   "name": "Transitions"
+  }
+ ]
+}

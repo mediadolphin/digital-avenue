@@ -1,0 +1,26 @@
+{
+  "project": "Digital Avenue",
+  "tokensCss": "design-system/colors_and_type.css",
+  "prefix": "da",
+  "framework": "advanced-themer",
+  "palette": {
+    "name": "Digital Avenue",
+    "atPrefix": "at-",
+    "base": {
+      "primary":   { "token": "--da-teal",  "dark": "--da-teal" },
+      "secondary": { "token": "--da-sand",  "dark": "--da-sand" },
+      "accent":    { "token": "--da-plum",  "dark": "--da-plum" },
+      "neutral":   { "token": "--da-muted", "dark": "--da-muted" }
+    }
+  },
+  "variables": {
+    "spacing":    { "match": "^--da-sp-",       "name": "Spacing" },
+    "typography": { "match": "^--da-text-",     "name": "Typography" },
+    "radius":     { "match": "^--da-r-",        "name": "Border Radius" },
+    "shadow":     { "match": "^--da-(shadow-|card-shadow|card-hover)", "name": "Box Shadow" },
+    "fonts":      { "match": "^--da-font",      "name": "Fonts" },
+    "weights":    { "match": "^--da-w-",        "name": "Font Weights" },
+    "leading":    { "match": "^--da-(leading|tracking)-", "name": "Leading & Tracking" },
+    "motion":     { "match": "^--da-t",         "name": "Transitions" }
+  }
+}
