@@ -14,7 +14,7 @@
   function closeDrawer() {
     if (!drawer) return;
     drawer.classList.remove('open');
-    if (burger) burger.setAttribute('aria-expanded', 'false');
+    if (burger) { burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Menü öffnen'); var u = burger.querySelector('use'); if (u) u.setAttribute('href', '#i-menu'); }
     document.body.style.overflow = '';
   }
   if (burger && drawer) {
@@ -22,6 +22,8 @@
       var open = !drawer.classList.contains('open');
       drawer.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      var use = burger.querySelector('use'); if (use) use.setAttribute('href', open ? '#i-x' : '#i-menu');
       document.body.style.overflow = open ? 'hidden' : '';
     });
     drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
