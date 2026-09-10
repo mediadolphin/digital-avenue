@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Spacing" name="Radius & Shadows" subtitle="6 radii (xs–pill) + teal/sand shadow system" viewport="700x240" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:100 900; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:20px 24px; background:#f9f8f6; display:flex; flex-direction:column; gap:20px; }
+.t { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7796a6; }
+.row { display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; }
+.ri { display:flex; flex-direction:column; align-items:center; gap:6px; }
+.rs { width:64px; height:40px; background:#305b75; display:flex; align-items:center; justify-content:center; }
+.rl { font-size:10px; font-weight:600; color:#5a6e77; text-align:center; }
+.sc { width:120px; height:50px; background:#fff; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#5a6e77; }
+</style></head><body>
+<div class="t">Border Radius</div>
+<div class="row">
+  <div class="ri"><div class="rs" style="border-radius:4px"></div><div class="rl">xs / 4px</div></div>
+  <div class="ri"><div class="rs" style="border-radius:6px"></div><div class="rl">sm / 6px</div></div>
+  <div class="ri"><div class="rs" style="border-radius:10px"></div><div class="rl">md / 10px</div></div>
+  <div class="ri"><div class="rs" style="border-radius:16px"></div><div class="rl">lg / 16px</div></div>
+  <div class="ri"><div class="rs" style="border-radius:24px"></div><div class="rl">xl / 24px</div></div>
+  <div class="ri"><div class="rs" style="border-radius:100px;width:80px"></div><div class="rl">pill</div></div>
+</div>
+<div class="t">Shadow Scale</div>
+<div class="row">
+  <div class="ri"><div class="sc" style="box-shadow:0 1px 3px rgb(0 0 0/.04),0 2px 8px rgb(0 0 0/.04)">sm</div></div>
+  <div class="ri"><div class="sc" style="box-shadow:0 1px 4px rgb(0 0 0/.05),0 4px 16px rgb(0 0 0/.06)">md</div></div>
+  <div class="ri"><div class="sc" style="box-shadow:0 4px 16px rgb(0 0 0/.08),0 12px 40px rgb(0 0 0/.10)">lg</div></div>
+  <div class="ri"><div class="sc" style="box-shadow:0 2px 12px color-mix(in srgb,#305b75 35%,transparent)">teal</div></div>
+  <div class="ri"><div class="sc" style="box-shadow:0 2px 12px color-mix(in srgb,#d7c9aa 50%,transparent)">sand</div></div>
+</div>
+</body></html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Navigation" subtitle="Dark sticky nav with wordmark logo, links, CTA" viewport="700x64" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:100 900; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:0; background:#f9f8f6; }
+nav { background:#1b3a4a; border-bottom:1px solid #264350; }
+.inner { max-width:700px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:62px; }
+.logo { display:flex; flex-direction:column; gap:1px; text-decoration:none; }
+.logo-top { display:flex; align-items:center; gap:6px; }
+.logo-name { font-weight:800; font-size:16px; color:#ede9e0; letter-spacing:2px; }
+.logo-divider { display:flex; align-items:center; gap:2px; }
+.logo-divider span { font-size:16px; font-weight:800; color:#d7c9aa; letter-spacing:-1px; }
+.logo-sub { font-size:9px; font-weight:500; color:#7796a6; letter-spacing:3px; text-transform:uppercase; }
+.nav-links { display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0; }
+.nav-links a { color:#7796a6; text-decoration:none; font-size:13px; font-weight:500; padding:6px 12px; border-radius:5px; }
+.nav-cta { background:#305b75; color:#fff !important; padding:8px 16px !important; border-radius:6px !important; font-weight:700 !important; font-size:13px !important; text-decoration:none; }
+</style></head><body>
+<nav>
+  <div class="inner">
+    <a href="#" class="logo">
+      <img src="../assets/logo-digital-avenue-white.svg" alt="Digital Avenue" style="height:26px;display:block">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Über uns</a></li>
+      <li><a href="#">Kontakt</a></li>
+      <li><a href="#" class="nav-cta">Jetzt informieren</a></li>
+    </ul>
+  </div>
+</nav>
+</body></html>

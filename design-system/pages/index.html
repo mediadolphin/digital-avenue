@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Pages · Übersicht" subtitle="6 Ansichten in einer Übersicht" -->
+<html lang="de"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beispielseiten · Übersicht · Digital Avenue</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; background: var(--da-bg-alt); }
+  .hd {
+    padding: var(--da-sp-12) var(--da-sp-10) var(--da-sp-8);
+    max-width: 1200px; margin: 0 auto;
+  }
+  .hd h1 { font-size: clamp(32px, 4vw, 56px); margin: var(--da-sp-3) 0 var(--da-sp-4); letter-spacing: -0.025em; }
+  .hd p { font-size: var(--da-text-md); max-width: 60ch; margin: 0; }
+  .grid {
+    display: grid; gap: var(--da-sp-6);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding: 0 var(--da-sp-10) var(--da-sp-16);
+    max-width: 1400px; margin: 0 auto;
+  }
+  .card {
+    background: var(--da-card-bg);
+    border: 1px solid var(--da-border);
+    border-radius: var(--da-r-lg);
+    overflow: hidden;
+    text-decoration: none; color: var(--da-text);
+    box-shadow: var(--da-card-shadow);
+    display: flex; flex-direction: column;
+    transition: transform var(--da-t), box-shadow var(--da-t);
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--da-card-hover); }
+  .preview {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(170deg, var(--da-hero-from) 0%, var(--da-hero-to) 70%);
+    display: grid; place-items: center;
+    padding: var(--da-sp-6);
+    position: relative; overflow: hidden;
+  }
+  .preview iframe {
+    border: none; background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    pointer-events: none;
+  }
+  .info { padding: var(--da-sp-5) var(--da-sp-6) var(--da-sp-6); }
+  .meta {
+    display: flex; gap: 8px; align-items: center;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--da-sand-text);
+  }
+  .meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--da-teal); }
+  .info h3 { margin: 8px 0 4px; font-size: var(--da-text-md); letter-spacing: -0.015em; }
+  .info p { margin: 0; font-size: var(--da-text-sm); color: var(--da-muted); }
+</style></head><body>
+
+<header class="hd">
+  <span class="da-eyebrow">Beispielseiten</span>
+  <h1>Homepage &amp; Portfolio – Desktop, Tablet, Mobile.</h1>
+  <p>Sechs Ansichten der gleichen zwei Seiten, jeweils im passenden Geräte­rahmen. Alle Inhalte werden aus den responsiven Quell-HTMLs <code>_homepage.html</code> und <code>_portfolio.html</code> live geladen.</p>
+</header>
+
+<div class="grid">
+  <a class="card" href="homepage-desktop.html" target="_blank">
+    <div class="preview"><iframe src="_homepage.html" style="width:1440px;height:1080px;transform:scale(0.18);transform-origin:top left;"></iframe></div>
+    <div class="info"><div class="meta"><span class="dot"></span>Homepage · Desktop</div><h3>Browser-Chrome · 1440 × 900</h3><p>Hero, 6 Leistungen, Cases-Teaser, Team, Testimonials, Magazin, Kontakt-CTA.</p></div>
+  </a>
+  <a class="card" href="homepage-tablet.html" target="_blank">
+    <div class="preview"><iframe src="_homepage.html" style="width:820px;height:1230px;transform:scale(0.32);transform-origin:top left;"></iframe></div>
+    <div class="info"><div class="meta"><span class="dot"></span>Homepage · Tablet</div><h3>iPad-Bezel · 820 × 1180</h3><p>Zwei-spaltige Layouts, Trust-Bar reflowed, Touch-Targets vergrößert.</p></div>
+  </a>
+  <a class="card" href="homepage-mobile.html" target="_blank">
+    <div class="preview"><iframe src="_homepage.html" style="width:390px;height:1300px;transform:scale(0.55);transform-origin:top left;"></iframe></div>
+    <div class="info"><div class="meta"><span class="dot"></span>Homepage · Mobile</div><h3>iPhone-Bezel · 390 × 844</h3><p>Hamburger-Menü, einspaltig, Hero-Collage stapelt unter der Headline.</p></div>
+  </a>
+
+  <a class="card" href="portfolio-desktop.html" target="_blank">
+    <div class="preview"><iframe src="_portfolio.html" style="width:1440px;height:1080px;transform:scale(0.18);transform-origin:top left;"></iframe></div>
+    <div class="info"><div class="meta"><span class="dot"></span>Portfolio · Desktop</div><h3>Browser-Chrome · 1440 × 900</h3><p>Featured Case oben, 12-spaltiges Magazin-Raster, gemischte Tile-Größen.</p></div>
+  </a>
+  <a class="card" href="portfolio-tablet.html" target="_blank">
+    <div class="preview"><iframe src="_portfolio.html" style="width:820px;height:1230px;transform:scale(0.32);transform-origin:top left;"></iframe></div>
+    <div class="info"><div class="meta"><span class="dot"></span>Portfolio · Tablet</div><h3>iPad-Bezel · 820 × 1180</h3><p>Magazin reduziert auf 6/12-Tiles, Filter-Bar bleibt sticky.</p></div>
+  </a>
+  <a class="card" href="portfolio-mobile.html" target="_blank">
+    <div class="preview"><iframe src="_portfolio.html" style="width:390px;height:1300px;transform:scale(0.55);transform-origin:top left;"></iframe></div>
+    <div class="info"><div class="meta"><span class="dot"></span>Portfolio · Mobile</div><h3>iPhone-Bezel · 390 × 844</h3><p>Einspaltige Cases, Filter-Bar horizontal scrollbar, Featured Case stapelt.</p></div>
+  </a>
+</div>
+
+</body></html>

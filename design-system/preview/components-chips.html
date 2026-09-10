@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Chips & Pills" subtitle="Eyebrow pills (teal + sand), service chips, tags" viewport="700x200" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:100 900; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:20px 24px; background:#f9f8f6; display:flex; flex-direction:column; gap:14px; }
+.t { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7796a6; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.eyebrow { display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 12px; border-radius:100px; }
+.ey-teal { color:#234c5f; background:#e7eff3; border:1px solid color-mix(in srgb,#305b75 25%,transparent); }
+.ey-sand { color:#7a6845; background:#f6f2ea; border:1px solid color-mix(in srgb,#d7c9aa 50%,transparent); }
+.chip { display:inline-flex; align-items:center; padding:6px 14px; background:#fff; border:1px solid #d9e3e8; border-radius:100px; font-size:13px; font-weight:600; color:#19242b; box-shadow:0 1px 3px rgb(0 0 0/.04); }
+.chip-active { border-color:#305b75; color:#234c5f; background:#e7eff3; }
+.tag { display:inline-flex; align-items:center; gap:5px; padding:4px 10px; background:#e7eff3; border-radius:6px; font-size:12px; font-weight:600; color:#305b75; }
+</style></head><body>
+<div class="t">Eyebrow Pills</div>
+<div class="row">
+  <div class="eyebrow ey-teal"><span style="width:6px;height:6px;border-radius:50%;background:#305b75;opacity:.7"></span>Portfolio</div>
+  <div class="eyebrow ey-teal">Für wen wir arbeiten</div>
+  <div class="eyebrow ey-sand">Über uns</div>
+  <div class="eyebrow ey-sand">Partner</div>
+</div>
+<div class="t">Service Chips</div>
+<div class="row">
+  <div class="chip">Konzept</div>
+  <div class="chip chip-active">Web &amp; Design</div>
+  <div class="chip">Content Creation</div>
+  <div class="chip">Performance Marketing</div>
+  <div class="chip">Kommunikation</div>
+  <div class="chip">Hosting &amp; E-Mail</div>
+</div>
+<div class="t">Tags</div>
+<div class="row">
+  <div class="tag">Praxen</div>
+  <div class="tag">Kanzleien</div>
+  <div class="tag">KMU</div>
+  <div class="tag" style="background:#f6f2ea;color:#7a6845">Ehrenamt</div>
+  <div class="tag" style="background:#f6f2ea;color:#7a6845">Hamburg</div>
+  <div class="tag" style="background:#f6f2ea;color:#7a6845">Rostock</div>
+</div>
+</body></html>

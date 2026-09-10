@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Avenue – CSS Komponenten-Referenz</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="stylesheet" href="digital-avenue.css" />
+<style>
+  /* nur Seiten-Layout für diese Referenz, keine Komponenten */
+  body { margin: 0; }
+  .ref-head { padding: var(--da-sp-12) var(--da-sp-10) var(--da-sp-8); border-bottom: 1px solid var(--da-border); display: flex; align-items: flex-end; justify-content: space-between; gap: var(--da-sp-6); flex-wrap: wrap; }
+  .ref-head h1 { margin: var(--da-sp-3) 0 0; }
+  .ref-sec { padding: var(--da-sp-10); border-bottom: 1px solid var(--da-border); max-width: 1100px; }
+  .ref-label { font-size: var(--da-text-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--da-muted); margin: 0 0 var(--da-sp-5); }
+  .ref-row { display: flex; gap: var(--da-sp-3); align-items: center; flex-wrap: wrap; margin-bottom: var(--da-sp-4); }
+  .ref-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--da-sp-4); }
+  .swatch { border-radius: var(--da-r-md); padding: var(--da-sp-5); height: 84px; display: flex; align-items: flex-end; font-size: 11px; font-weight: 600; border: 1px solid var(--da-border); }
+</style>
+</head>
+<body>
+
+<header class="ref-head">
+  <div>
+    <span class="da-eyebrow">Single-File CSS · digital-avenue.css</span>
+    <h1>Komponenten-Referenz</h1>
+  </div>
+  <button class="da-btn-ghost da-btn-sm" id="theme-toggle">Dark / Light</button>
+</header>
+
+<!-- TYPOGRAFIE -->
+<section class="ref-sec">
+  <p class="ref-label">Typografie</p>
+  <h1>H1 · Digital Agentur anders gedacht</h1>
+  <h2>H2 · Was wir für Sie tun</h2>
+  <h3>H3 · Web &amp; Design</h3>
+  <h4>H4 · Wir halten Ihnen den Rücken frei</h4>
+  <p style="max-width:60ch;">Body · Wir verstehen Ihre Website als das Herzstück Ihrer Kommunikation, das Marketing, PR und die dahinterliegende Technik vereint.</p>
+  <p class="da-logo-text" style="color:var(--da-teal);font-size:20px;">Digital Avenue · Logo (Jost)</p>
+</section>
+
+<!-- FARBEN -->
+<section class="ref-sec">
+  <p class="ref-label">Brand-Farben</p>
+  <div class="ref-grid">
+    <div class="swatch" style="background:var(--da-teal);color:#fff;">Teal #305b75</div>
+    <div class="swatch" style="background:var(--da-teal-dark);color:#fff;">Teal Dark</div>
+    <div class="swatch" style="background:var(--da-sand);color:var(--da-teal-dark);">Sand #d7c9aa</div>
+    <div class="swatch" style="background:var(--da-plum);color:#fff;">Plum #42253b</div>
+  </div>
+</section>
+
+<!-- EYEBROWS -->
+<section class="ref-sec">
+  <p class="ref-label">Eyebrow Pills</p>
+  <div class="ref-row">
+    <span class="da-eyebrow">Portfolio</span>
+    <span class="da-eyebrow da-eyebrow-sand">Über uns</span>
+  </div>
+</section>
+
+<!-- BUTTONS -->
+<section class="ref-sec">
+  <p class="ref-label">Buttons</p>
+  <div class="ref-row">
+    <a class="da-btn-primary">Jetzt informieren</a>
+    <a class="da-btn-sand">Kontakt aufnehmen</a>
+    <a class="da-btn-plum">Ehrenamt</a>
+    <a class="da-btn-ghost">Mehr erfahren</a>
+    <button class="da-btn-primary da-btn-disabled">Nicht verfügbar</button>
+  </div>
+  <div class="ref-row">
+    <a class="da-btn-primary da-btn-sm">Klein</a>
+    <a class="da-btn-ghost da-btn-sm">Klein Ghost</a>
+  </div>
+</section>
+
+<!-- CHIPS -->
+<section class="ref-sec">
+  <p class="ref-label">Chips &amp; Tags</p>
+  <div class="ref-row">
+    <span class="da-chip">Konzept</span>
+    <span class="da-chip da-chip-active">Web &amp; Design</span>
+    <span class="da-chip">Performance</span>
+  </div>
+  <div class="ref-row">
+    <span class="da-tag">Praxen</span>
+    <span class="da-tag">Kanzleien</span>
+    <span class="da-tag da-tag-sand">Hamburg</span>
+    <span class="da-tag da-tag-sand">Rostock</span>
+  </div>
+</section>
+
+<!-- CARDS -->
+<section class="ref-sec">
+  <p class="ref-label">Cards</p>
+  <div class="ref-grid">
+    <div class="da-card">
+      <div class="da-card-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+      <div class="da-card-title">Konzept</div>
+      <div class="da-card-body">Gute Planung legt die Grundlage für erfolgreiche Projekte.</div>
+      <a class="da-card-link">Weiterlesen →</a>
+    </div>
+    <div class="da-card da-card-sand">
+      <div class="da-card-icon" style="background:#d7c9aa33;color:var(--da-sand-text);"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.6 3.5L8 10l-3.1 1.5.6-3.5L3 5.5 6.5 5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+      <div class="da-card-title">Performance Marketing</div>
+      <div class="da-card-body">Messbar und direkt zu den Kund:innen.</div>
+      <a class="da-card-link" style="color:var(--da-sand-text);">Weiterlesen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<section class="ref-sec">
+  <p class="ref-label">Navigation</p>
+  <nav class="da-nav da-rounded-md" style="overflow:hidden;">
+    <div class="da-nav-inner" style="padding-inline:var(--da-sp-5);">
+      <a class="da-nav-logo"><img src="assets/logo-digital-avenue-white.svg" alt="Digital Avenue" /></a>
+      <ul class="da-nav-links">
+        <li><a>Home</a></li>
+        <li><a>Portfolio</a></li>
+        <li><a>Über uns</a></li>
+        <li><a class="da-nav-cta">Jetzt informieren</a></li>
+      </ul>
+    </div>
+  </nav>
+</section>
+
+<!-- FOOTER -->
+<footer class="da-footer">
+  <div class="da-wrap">
+    <div class="da-footer-grid">
+      <div class="da-footer-brand">
+        <img src="assets/logo-digital-avenue-white.svg" alt="Digital Avenue" />
+        <p>Digitale Agentur aus Hamburg und Rostock. Persönlich und vorausschauend.</p>
+      </div>
+      <div class="da-footer-col"><h4>Leistungen</h4><ul><li><a>Strategie</a></li><li><a>Web &amp; Design</a></li><li><a>Hosting</a></li></ul></div>
+      <div class="da-footer-col"><h4>Avenue</h4><ul><li><a>Über uns</a></li><li><a>Cases</a></li><li><a>Magazin</a></li></ul></div>
+      <div class="da-footer-col"><h4>Kontakt</h4><ul><li><a>hallo@digital-avenue.de</a></li><li><a>+49 40 12 34 56 78</a></li></ul></div>
+    </div>
+    <div class="da-footer-bottom">
+      <span>© 2026 Digital Avenue UG (haftungsbeschränkt)</span>
+      <span>Impressum · Datenschutz</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    root.setAttribute('data-theme', root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+</script>
+</body>
+</html>

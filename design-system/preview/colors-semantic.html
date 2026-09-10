@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Semantic Colors" subtitle="Status: success, warning, error, info + pills" viewport="700x160" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:100 900; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:16px; background:#f9f8f6; display:flex; flex-direction:column; gap:12px; }
+.t { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7796a6; margin:2px 0 2px; }
+.row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.pill { display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:100px; font-size:12px; font-weight:600; }
+.dot { width:7px; height:7px; border-radius:50%; }
+.swatch { flex:1; border-radius:8px; overflow:hidden; }
+.sc { height:50px; }
+.sl { padding:6px 8px; background:#fff; border:1px solid #d9e3e8; border-top:none; border-radius:0 0 8px 8px; }
+.sn { font-size:11px; font-weight:700; color:#19242b; }
+.sv { font-size:10px; color:#5a6e77; }
+</style></head><body>
+<div class="t">Status Colors</div>
+<div class="row">
+  <div class="swatch"><div class="sc" style="background:oklch(58% 0.140 145)"></div><div class="sl"><div class="sn">Success</div><div class="sv">oklch(58% .14 145)</div></div></div>
+  <div class="swatch"><div class="sc" style="background:oklch(70% 0.150 65)"></div><div class="sl"><div class="sn">Warning</div><div class="sv">oklch(70% .15 65)</div></div></div>
+  <div class="swatch"><div class="sc" style="background:oklch(56% 0.180 25)"></div><div class="sl"><div class="sn">Error</div><div class="sv">oklch(56% .18 25)</div></div></div>
+  <div class="swatch"><div class="sc" style="background:#305b75"></div><div class="sl"><div class="sn">Info</div><div class="sv">#305b75</div></div></div>
+</div>
+<div class="t">Status Pills</div>
+<div class="row">
+  <div class="pill" style="background:oklch(94% .030 145);color:oklch(35% .110 145)"><div class="dot" style="background:currentColor"></div>Aktiv</div>
+  <div class="pill" style="background:oklch(96% .030 65);color:oklch(48% .130 65)"><div class="dot" style="background:currentColor"></div>Ausstehend</div>
+  <div class="pill" style="background:oklch(95% .030 25);color:oklch(40% .160 25)"><div class="dot" style="background:currentColor"></div>Abgelehnt</div>
+  <div class="pill" style="background:#e7eff3;color:#234c5f"><div class="dot" style="background:currentColor"></div>In Bearbeitung</div>
+  <div class="pill" style="background:#f6f2ea;color:#7a6845"><div class="dot" style="background:currentColor"></div>Entwurf</div>
+</div>
+</body></html>

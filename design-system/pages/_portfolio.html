@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cases – Digital Avenue</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body { margin: 0; min-height: 100vh; }
+  img, svg { display: block; max-width: 100%; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .wrap { width: min(100% - 2 * var(--da-sp-6), 1320px); margin-inline: auto; }
+  .section { padding-block: var(--da-sp-16); }
+
+  /* ── NAV (same chrome as homepage) ── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: color-mix(in srgb, var(--da-bg) 80%, transparent);
+    border-bottom: 1px solid var(--da-border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--da-sp-6);
+    padding-block: var(--da-sp-4);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--da-text); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; }
+  .nav-logo img { height: 30px; display: block; }
+  .nav-menu { display: flex; align-items: center; gap: var(--da-sp-6); list-style: none; margin: 0; padding: 0; }
+  .nav-menu a { text-decoration: none; color: var(--da-text); font-weight: 500; font-size: var(--da-text-sm); padding: 8px 4px; position: relative; transition: color var(--da-t); }
+  .nav-menu a::after { content: ''; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 2px; background: var(--da-teal); transform: scaleX(0); transform-origin: left; transition: transform var(--da-t); }
+  .nav-menu a:hover { color: var(--da-teal); }
+  .nav-menu a:hover::after, .nav-menu a.active::after { transform: scaleX(1); }
+  .nav-menu a.active { color: var(--da-teal); }
+  .nav-actions { display: flex; align-items: center; gap: var(--da-sp-3); }
+  .nav-toggle-btn { background: transparent; border: 1px solid var(--da-border); width: 38px; height: 38px; border-radius: var(--da-r-sm); display: grid; place-items: center; color: var(--da-text); transition: border-color var(--da-t), color var(--da-t); }
+  .nav-toggle-btn:hover { border-color: var(--da-teal); color: var(--da-teal); }
+  .nav-burger { display: none; background: transparent; border: 1px solid var(--da-border); width: 40px; height: 40px; border-radius: var(--da-r-sm); place-items: center; color: var(--da-text); }
+  .nav-burger svg { transition: transform var(--da-t); }
+  .nav-burger[aria-expanded="true"] svg { transform: rotate(90deg); }
+  .nav-drawer { position: fixed; inset: 64px 0 0 0; z-index: 40; background: var(--da-bg); padding: var(--da-sp-8) var(--da-sp-6); transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+  .nav-drawer.open { transform: translateX(0); }
+  .nav-drawer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .nav-drawer a { display: block; padding: var(--da-sp-4) 0; text-decoration: none; color: var(--da-text); font-size: clamp(20px, 4vw, 26px); font-weight: 700; letter-spacing: -0.02em; border-bottom: 1px solid var(--da-border); }
+  .nav-drawer-cta { margin-top: var(--da-sp-8); }
+  @media (max-width: 880px) {
+    .nav-menu, .nav-actions .da-btn-primary { display: none; }
+    .nav-burger { display: grid; }
+  }
+
+  /* ── INTRO HEADER ── */
+  .intro {
+    padding-block: var(--da-sp-16) var(--da-sp-12);
+    background: linear-gradient(170deg, var(--da-hero-from) 0%, var(--da-hero-to) 60%);
+    position: relative; overflow: hidden;
+  }
+  .intro::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(700px 400px at 95% 100%, color-mix(in srgb, var(--da-sand) 28%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+  .intro-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    gap: var(--da-sp-12); align-items: end;
+    position: relative;
+  }
+  @media (max-width: 880px) { .intro-grid { grid-template-columns: 1fr; gap: var(--da-sp-6); } }
+  .intro h1 {
+    font-size: clamp(40px, 7vw, 96px);
+    font-weight: 800; line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: var(--da-sp-5) 0 0;
+    text-wrap: balance;
+  }
+  .intro h1 .outline {
+    -webkit-text-stroke: 2px var(--da-teal);
+    color: transparent; font-style: italic;
+  }
+  .intro-meta {
+    font-size: var(--da-text-md);
+    line-height: 1.5; color: var(--da-muted);
+    max-width: 42ch;
+    padding-bottom: var(--da-sp-4);
+  }
+
+  .intro-stats {
+    display: flex; gap: var(--da-sp-10);
+    margin-top: var(--da-sp-12);
+    padding-top: var(--da-sp-8);
+    border-top: 1px solid var(--da-border);
+    flex-wrap: wrap;
+  }
+  .intro-stat .num {
+    display: block;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 800; color: var(--da-teal);
+    letter-spacing: -0.025em; line-height: 1;
+  }
+  .intro-stat .label {
+    margin-top: 6px; font-size: var(--da-text-xs);
+    font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--da-muted);
+  }
+
+  /* ── FILTER BAR (decorative chips) ── */
+  .filter-bar {
+    background: var(--da-bg-alt);
+    border-block: 1px solid var(--da-border);
+    padding-block: var(--da-sp-5);
+    position: sticky; top: 65px; z-index: 20;
+    backdrop-filter: blur(12px) saturate(160%);
+  }
+  .filter-inner { display: flex; gap: var(--da-sp-3); align-items: center; flex-wrap: wrap; }
+  .filter-label {
+    font-size: var(--da-text-xs); font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--da-muted);
+    margin-right: var(--da-sp-3);
+  }
+  .filter-chip {
+    background: var(--da-card-bg);
+    border: 1px solid var(--da-border);
+    border-radius: var(--da-r-pill);
+    padding: 7px 14px;
+    font-size: var(--da-text-sm); font-weight: 600;
+    color: var(--da-text);
+    cursor: pointer;
+    transition: all var(--da-t);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .filter-chip:hover { border-color: var(--da-teal); color: var(--da-teal); }
+  .filter-chip.active {
+    background: var(--da-teal); color: #fff; border-color: var(--da-teal);
+  }
+  .filter-chip .count {
+    font-size: 10px; opacity: 0.7;
+    padding: 1px 5px; border-radius: 10px;
+    background: color-mix(in srgb, currentColor 16%, transparent);
+  }
+
+  /* ── FEATURED CASE ── */
+  .featured-case {
+    margin-top: var(--da-sp-12);
+    border-radius: var(--da-r-xl);
+    overflow: hidden;
+    background: var(--da-teal-deeper);
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    box-shadow: var(--da-shadow-lg);
+    position: relative;
+    text-decoration: none;
+    transition: transform var(--da-t), box-shadow var(--da-t);
+  }
+  .featured-case:hover { transform: translateY(-4px); }
+  @media (max-width: 880px) { .featured-case { grid-template-columns: 1fr; } }
+  .featured-cover {
+    aspect-ratio: 5 / 3;
+    background:
+      radial-gradient(800px 500px at 30% 30%, color-mix(in srgb, var(--da-sand) 25%, transparent), transparent 60%),
+      linear-gradient(140deg, #305b75 0%, #1b3a4a 50%, #42253b 100%);
+    display: flex; align-items: flex-end; justify-content: space-between;
+    padding: var(--da-sp-8);
+    position: relative;
+  }
+  .featured-cover-tag {
+    position: absolute; top: var(--da-sp-6); left: var(--da-sp-6);
+    background: color-mix(in srgb, #fff 18%, transparent);
+    backdrop-filter: blur(10px);
+    border: 1px solid color-mix(in srgb, #fff 25%, transparent);
+    border-radius: var(--da-r-pill);
+    padding: 6px 14px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #fff;
+  }
+  .featured-cover-num {
+    font-size: clamp(80px, 10vw, 160px);
+    font-weight: 800; letter-spacing: -0.06em;
+    color: color-mix(in srgb, var(--da-sand) 90%, transparent);
+    line-height: 0.85;
+    align-self: flex-end;
+    font-style: italic;
+  }
+  .featured-content {
+    padding: clamp(28px, 4vw, 60px);
+    display: flex; flex-direction: column; justify-content: center;
+    gap: var(--da-sp-5);
+  }
+  .featured-eyebrow {
+    font-size: var(--da-text-xs); font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--da-sand);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .featured-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--da-sand); }
+  .featured-title {
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: #fff; margin: 0;
+    text-wrap: balance;
+  }
+  .featured-snippet {
+    font-size: var(--da-text-md);
+    color: color-mix(in srgb, #fff 75%, transparent);
+    line-height: 1.55; margin: 0;
+    max-width: 50ch;
+  }
+  .featured-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .featured-tag {
+    font-size: 11px; font-weight: 600;
+    color: #fff;
+    background: color-mix(in srgb, #fff 12%, transparent);
+    padding: 5px 12px; border-radius: var(--da-r-pill);
+    border: 1px solid color-mix(in srgb, #fff 18%, transparent);
+  }
+  .featured-arrow {
+    margin-top: var(--da-sp-3);
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: var(--da-text-sm); font-weight: 700;
+    color: var(--da-sand);
+  }
+  .featured-arrow svg {
+    transition: transform var(--da-t);
+  }
+  .featured-case:hover .featured-arrow svg { transform: translateX(4px); }
+
+  /* ── MAGAZINE GRID ── */
+  .grid-section { padding-block: var(--da-sp-16); }
+  .grid-head {
+    display: flex; align-items: end; justify-content: space-between;
+    gap: var(--da-sp-6);
+    margin-bottom: var(--da-sp-10);
+  }
+  .grid-head h2 {
+    margin: var(--da-sp-3) 0 0;
+    font-size: clamp(28px, 3vw, 40px);
+  }
+  .grid-head .count {
+    font-size: var(--da-text-sm);
+    color: var(--da-muted);
+    font-weight: 500;
+  }
+
+  .magazine {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--da-sp-5);
+  }
+  .case {
+    grid-column: span 4;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform var(--da-t);
+  }
+  .case:hover { transform: translateY(-3px); }
+  .case.wide { grid-column: span 6; }
+  .case.full { grid-column: span 12; }
+  .case.tall .case-cover { aspect-ratio: 3 / 4; }
+  @media (max-width: 980px) {
+    .case { grid-column: span 6; }
+    .case.wide, .case.full { grid-column: span 12; }
+  }
+  @media (max-width: 600px) {
+    .case, .case.wide, .case.full { grid-column: span 12; }
+  }
+
+  .case-cover {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--da-r-lg);
+    overflow: hidden;
+    position: relative;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: var(--da-sp-5);
+    color: #fff;
+    transition: box-shadow var(--da-t);
+  }
+  .case:hover .case-cover { box-shadow: var(--da-shadow-md); }
+  .case.wide .case-cover { aspect-ratio: 16 / 9; }
+  .case.full .case-cover { aspect-ratio: 21 / 9; }
+
+  /* gradient palette per case (cycled by nth-child class) */
+  .case.g-teal .case-cover    { background: linear-gradient(140deg, #305b75 0%, #1b3a4a 100%); }
+  .case.g-sand .case-cover    { background: linear-gradient(135deg, #d7c9aa 0%, #a89470 100%); color: var(--da-teal-dark); }
+  .case.g-plum .case-cover    { background: linear-gradient(140deg, #42253b 0%, #8a5c7e 100%); }
+  .case.g-deep .case-cover    { background: linear-gradient(135deg, #1b3a4a 0%, #132a37 100%); }
+  .case.g-mix .case-cover     { background: linear-gradient(135deg, #305b75 0%, #42253b 100%); }
+  .case.g-warm .case-cover    { background: linear-gradient(135deg, #a89470 0%, #7a6845 100%); }
+  .case.g-cool .case-cover    { background: linear-gradient(135deg, #4d8aa0 0%, #264a60 100%); }
+  .case.g-cream .case-cover   { background: linear-gradient(135deg, #f6f2ea 0%, #d7c9aa 100%); color: var(--da-teal-dark); }
+
+  .case-tag {
+    align-self: flex-start;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: color-mix(in srgb, currentColor 14%, transparent);
+    color: inherit;
+    padding: 5px 11px;
+    border-radius: var(--da-r-pill);
+    backdrop-filter: blur(8px);
+  }
+  .case.g-sand .case-tag, .case.g-cream .case-tag {
+    background: color-mix(in srgb, var(--da-teal-dark) 12%, transparent);
+  }
+  .case-num {
+    align-self: flex-end;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-style: italic;
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 800; letter-spacing: -0.05em;
+    line-height: 0.85;
+    opacity: 0.85;
+  }
+  .case-info {
+    padding: var(--da-sp-5) 0 0;
+  }
+  .case-meta {
+    font-size: var(--da-text-xs); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--da-sand-text);
+    margin-bottom: 6px;
+  }
+  .case-title {
+    font-size: clamp(18px, 1.5vw, 24px);
+    font-weight: 700; line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--da-sp-2);
+    color: var(--da-text);
+    text-wrap: balance;
+  }
+  .case.wide .case-title, .case.full .case-title { font-size: clamp(22px, 2vw, 32px); }
+  .case-snippet {
+    font-size: var(--da-text-sm);
+    line-height: 1.55; color: var(--da-muted);
+    margin: 0;
+    max-width: 56ch;
+  }
+  .case:hover .case-title { color: var(--da-teal); }
+
+  /* ── CONTACT CTA (smaller variant) ── */
+  .cta-section { padding-block: var(--da-sp-16); }
+  .cta-card {
+    background: var(--da-teal);
+    color: #fff;
+    border-radius: var(--da-r-xl);
+    padding: clamp(40px, 5vw, 72px);
+    display: grid; grid-template-columns: 1fr auto;
+    gap: var(--da-sp-10); align-items: center;
+    position: relative; overflow: hidden;
+    box-shadow: var(--da-shadow-lg);
+  }
+  .cta-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(500px 300px at 100% 0%, color-mix(in srgb, var(--da-sand) 30%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-card > * { position: relative; }
+  .cta-card h2 { color: #fff; font-size: clamp(26px, 3vw, 44px); margin: var(--da-sp-3) 0 var(--da-sp-3); line-height: 1.1; }
+  .cta-card p { color: color-mix(in srgb, #fff 78%, transparent); margin: 0; max-width: 48ch; }
+  .cta-card .da-eyebrow { background: color-mix(in srgb, #fff 16%, transparent); color: #fff; border-color: color-mix(in srgb, #fff 25%, transparent); }
+  .cta-actions { display: flex; flex-direction: column; gap: var(--da-sp-3); flex-shrink: 0; }
+  .cta-actions .da-btn-primary { background: var(--da-sand); color: var(--da-teal-dark) !important; box-shadow: 0 4px 18px color-mix(in srgb, var(--da-sand) 30%, transparent); }
+  .cta-actions .da-btn-primary:hover { background: var(--da-sand-hover); }
+  @media (max-width: 720px) { .cta-card { grid-template-columns: 1fr; } }
+
+  /* ── FOOTER ── */
+  footer.site { background: var(--da-nav-bg); color: var(--da-nav-text); padding-block: var(--da-sp-16) var(--da-sp-8); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--da-sp-10); }
+  @media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--da-sp-8); } .footer-brand { grid-column: span 2; } }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } .footer-brand { grid-column: span 1; } }
+  .footer-brand .nav-logo { color: var(--da-nav-text); }
+  .footer-brand p { margin: var(--da-sp-4) 0 0; font-size: var(--da-text-sm); color: var(--da-nav-muted); max-width: 36ch; line-height: 1.6; }
+  .footer-col h4 { font-size: var(--da-text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--da-nav-text); margin: 0 0 var(--da-sp-4); }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--da-sp-3); }
+  .footer-col a { text-decoration: none; color: var(--da-nav-muted); font-size: var(--da-text-sm); transition: color var(--da-t); }
+  .footer-col a:hover { color: var(--da-sand); }
+  .footer-bottom { margin-top: var(--da-sp-12); padding-top: var(--da-sp-6); border-top: 1px solid var(--da-nav-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--da-sp-4); font-size: var(--da-text-xs); color: var(--da-nav-muted); }
+  .footer-bottom-links { display: flex; gap: var(--da-sp-5); flex-wrap: wrap; }
+  .footer-bottom-links a { color: var(--da-nav-muted); text-decoration: none; }
+  .footer-bottom-links a:hover { color: var(--da-sand); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────── NAV ─────────── -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="_homepage.html" class="nav-logo" aria-label="Digital Avenue">
+      <img src="../assets/logo-digital-avenue.svg" alt="Digital Avenue">
+    </a>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="_homepage.html#services">Leistungen</a></li>
+        <li><a href="#" class="active">Cases</a></li>
+        <li><a href="_homepage.html#about">Über uns</a></li>
+        <li><a href="_homepage.html#blog">Magazin</a></li>
+        <li><a href="_homepage.html#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-toggle-btn" id="theme-toggle" aria-label="Theme umschalten" title="Theme umschalten">
+        <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+      </button>
+      <a href="_homepage.html#contact" class="da-btn-primary da-btn-sm">Termin vereinbaren</a>
+      <button class="nav-burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<aside class="nav-drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="_homepage.html#services">Leistungen</a></li>
+    <li><a href="#">Cases</a></li>
+    <li><a href="_homepage.html#about">Über uns</a></li>
+    <li><a href="_homepage.html#blog">Magazin</a></li>
+    <li><a href="_homepage.html#contact">Kontakt</a></li>
+  </ul>
+  <div class="nav-drawer-cta">
+    <a href="_homepage.html#contact" class="da-btn-primary">Termin vereinbaren</a>
+  </div>
+</aside>
+
+<main>
+
+  <!-- ─────────── INTRO ─────────── -->
+  <section class="intro">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="da-eyebrow">Cases &amp; Portfolio</span>
+        <h1>
+          Arbeiten,<br/>
+          die <span class="outline">bleiben.</span>
+        </h1>
+      </div>
+      <p class="intro-meta">
+        Eine Auswahl unserer Projekte aus den letzten 18 Monaten – von Markenrelaunches über Buchungs­strecken bis zu Performance-Setups. Jeder Case mit Kontext, Ergebnis und ehrlichen Lessons.
+      </p>
+    </div>
+    <div class="wrap">
+      <div class="intro-stats">
+        <div class="intro-stat"><span class="num">42</span><span class="label">Aktive Cases</span></div>
+        <div class="intro-stat"><span class="num">12+</span><span class="label">Branchen</span></div>
+        <div class="intro-stat"><span class="num">8</span><span class="label">Awards seit 2018</span></div>
+        <div class="intro-stat"><span class="num">94 %</span><span class="label">Kundenbindung</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── FILTER BAR ─────────── -->
+  <section class="filter-bar">
+    <div class="wrap filter-inner">
+      <span class="filter-label">Filter</span>
+      <button class="filter-chip active">Alle <span class="count">42</span></button>
+      <button class="filter-chip">Praxis &amp; Klinik <span class="count">14</span></button>
+      <button class="filter-chip">Kanzlei <span class="count">8</span></button>
+      <button class="filter-chip">Mittelstand <span class="count">12</span></button>
+      <button class="filter-chip">E-Commerce <span class="count">5</span></button>
+      <button class="filter-chip">Service-Buchung <span class="count">3</span></button>
+    </div>
+  </section>
+
+  <!-- ─────────── FEATURED CASE ─────────── -->
+  <section class="section">
+    <div class="wrap">
+      <a href="#" class="featured-case">
+        <div class="featured-cover">
+          <span class="featured-cover-tag">Featured Case · 2026</span>
+          <span class="featured-cover-num">01</span>
+        </div>
+        <div class="featured-content">
+          <div class="featured-eyebrow">B2C · Service · Bundesweit</div>
+          <h2 class="featured-title">Digizt Haushaltsgeräte – ein Reparatur­service in 14 Städten.</h2>
+          <p class="featured-snippet">
+            Brand-Refresh, technikergeführte Buchungs­strecke und Performance-Setup. Heute kommen 4 von 5 Anfragen direkt online rein – mit faire Festpreisen und Soforttermin in unter 60 Sekunden.
+          </p>
+          <div class="featured-tags">
+            <span class="featured-tag">Brand</span>
+            <span class="featured-tag">UX / UI</span>
+            <span class="featured-tag">WordPress · Bricks</span>
+            <span class="featured-tag">SEA &amp; SEO</span>
+            <span class="featured-tag">DSGVO-Hosting</span>
+          </div>
+          <span class="featured-arrow">
+            Case lesen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─────────── MAGAZINE GRID ─────────── -->
+  <section class="grid-section">
+    <div class="wrap">
+      <div class="grid-head">
+        <div>
+          <span class="da-eyebrow da-eyebrow-sand">Weitere Cases</span>
+          <h2>Eine Auswahl, kein Sortiment.</h2>
+        </div>
+        <span class="count">12 von 42 sichtbar</span>
+      </div>
+
+      <div class="magazine">
+        <a href="#" class="case wide g-sand">
+          <div class="case-cover">
+            <span class="case-tag">E-Commerce · Hamburg</span>
+            <span class="case-num">02</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2026 · Shopify Plus · UX</div>
+            <h3 class="case-title">Holzwerk Nord – ein handwerklicher Online-Shop für Massivholzmöbel.</h3>
+            <p class="case-snippet">Konfigurator für Maßanfertigungen, Showroom-Booking und ein Markenauftritt, der Material und Ehrlichkeit in den Mittelpunkt stellt.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-plum">
+          <div class="case-cover">
+            <span class="case-tag">Kanzlei · Rostock</span>
+            <span class="case-num">03</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2025 · Webflow · CRM</div>
+            <h3 class="case-title">Brandt &amp; Partner Rechtsanwälte</h3>
+            <p class="case-snippet">Markenrelaunch und Mandantenbereich mit Datenraum.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-teal tall">
+          <div class="case-cover">
+            <span class="case-tag">MVZ · Hamburg</span>
+            <span class="case-num">04</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2025 · WordPress · Doctolib</div>
+            <h3 class="case-title">MVZ Eppendorf – Patientenportal mit Befund-Upload.</h3>
+            <p class="case-snippet">Online-Termin, sicherer Befund-Upload und ein Tonfall, der Vertrauen schafft.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-cream">
+          <div class="case-cover">
+            <span class="case-tag">B2B · Schleswig-Holstein</span>
+            <span class="case-num">05</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2025 · Strategie · Brand</div>
+            <h3 class="case-title">Marwedel &amp; Söhne – Markenkern­arbeit für ein 4. Generation Familienunternehmen.</h3>
+            <p class="case-snippet">Werte, Tonalität und neue visuelle Identität – ohne die Wurzeln zu verlieren.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-cool">
+          <div class="case-cover">
+            <span class="case-tag">Klinik · Lübeck</span>
+            <span class="case-num">06</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2025 · Performance · SEA</div>
+            <h3 class="case-title">Augenklinik Travemünde – Patient:innen­gewinnung über Google Ads.</h3>
+            <p class="case-snippet">CPL um 38 % gesenkt bei gleichzeitig steigender Anfragequalität.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case full g-mix">
+          <div class="case-cover">
+            <span class="case-tag">Hospitality · Mecklenburg-Vorpommern</span>
+            <span class="case-num">07</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2024 · Brand · UX · Webflow</div>
+            <h3 class="case-title">Gut Ostsee – ein Boutique-Hotel zwischen Wald und Wasser.</h3>
+            <p class="case-snippet">Komplettrelaunch mit Buchungsstrecke, redaktionellem Magazin und einer Bildsprache, die das Gut so zeigt, wie es sich anfühlt – ruhig, klar, eigen.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-warm">
+          <div class="case-cover">
+            <span class="case-tag">Handwerk · Hamburg</span>
+            <span class="case-num">08</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2024 · WordPress · Lokal-SEO</div>
+            <h3 class="case-title">Tischlerei Eilbek</h3>
+            <p class="case-snippet">Lokale Sichtbarkeit für einen 70-jährigen Familienbetrieb.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-deep">
+          <div class="case-cover">
+            <span class="case-tag">Bildung · Berlin</span>
+            <span class="case-num">09</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2024 · LMS · Branding</div>
+            <h3 class="case-title">Krix Academy – Lernplattform für Servicetechniker.</h3>
+            <p class="case-snippet">Modulare Kurse, Zertifikate und ein Markenauftritt für die Hands-on-Welt.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case wide g-teal">
+          <div class="case-cover">
+            <span class="case-tag">Praxis-Verbund · Norddeutschland</span>
+            <span class="case-num">10</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2024 · Multi-Site · Headless</div>
+            <h3 class="case-title">Nordlicht Praxen – ein Verbund, eine Marke, sieben lokale Auftritte.</h3>
+            <p class="case-snippet">Headless-CMS mit zentraler Steuerung und lokalen Inhalten – inklusive Termin-API und Patienten­kommunikation.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-sand">
+          <div class="case-cover">
+            <span class="case-tag">Verein · Hamburg</span>
+            <span class="case-num">11</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2023 · Pro bono · Brand</div>
+            <h3 class="case-title">Hafenkinder e.V.</h3>
+            <p class="case-snippet">Pro-bono-Relaunch für einen Hamburger Bildungs­verein.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case g-plum">
+          <div class="case-cover">
+            <span class="case-tag">Steuerberatung · Rostock</span>
+            <span class="case-num">12</span>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">2023 · UX · Self-Service</div>
+            <h3 class="case-title">Kanzlei Wiegand &amp; Partner</h3>
+            <p class="case-snippet">Mandanten-Self-Service mit DATEV-Anbindung und Upload-Portal.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── CONTACT CTA ─────────── -->
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="cta-card">
+        <div>
+          <span class="da-eyebrow">Ihr Vorhaben?</span>
+          <h2>Keinen passenden Case gefunden? Sprechen wir.</h2>
+          <p>Jedes Projekt fängt mit einem Gespräch an. 30 Minuten, unverbindlich, persönlich – Sie skizzieren, wir hören zu und sortieren mit.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="mailto:hallo@digital-avenue.de" class="da-btn-primary">
+            Erstgespräch buchen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a href="tel:+494012345678" class="da-btn-primary da-btn-ghost" style="color:#fff !important; border-color: color-mix(in srgb, #fff 40%, transparent);">+49 40 12 34 56 78</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─────────── FOOTER ─────────── -->
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="_homepage.html" class="nav-logo" aria-label="Digital Avenue">
+          <img src="../assets/logo-digital-avenue-white.svg" alt="Digital Avenue">
+        </a>
+        <p>Digitale Agentur aus Hamburg und Rostock. Wir machen Websites, Marken und Marketing – persönlich und vorausschauend.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="_homepage.html#services">Strategie</a></li>
+          <li><a href="_homepage.html#services">Web &amp; Design</a></li>
+          <li><a href="_homepage.html#services">Content</a></li>
+          <li><a href="_homepage.html#services">Performance</a></li>
+          <li><a href="_homepage.html#services">Hosting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Avenue</h4>
+        <ul>
+          <li><a href="_homepage.html#about">Über uns</a></li>
+          <li><a href="#">Cases</a></li>
+          <li><a href="_homepage.html#blog">Magazin</a></li>
+          <li><a href="#">Karriere</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:hallo@digital-avenue.de">hallo@digital-avenue.de</a></li>
+          <li><a href="tel:+494012345678">+49 40 12 34 56 78</a></li>
+          <li><a href="#">Hamburg · Rostock</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Digital Avenue UG (haftungsbeschränkt)</span>
+      <div class="footer-bottom-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Theme toggle ──
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const STORAGE_KEY = 'da-theme';
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    try { localStorage.setItem(STORAGE_KEY, t); } catch(e) {}
+    themeIcon.innerHTML = t === 'dark'
+      ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>'
+      : '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>';
+  }
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) setTheme(saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+  } catch(e) {}
+  themeBtn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme') || 'light';
+    setTheme(cur === 'dark' ? 'light' : 'dark');
+  });
+
+  // ── Mobile drawer ──
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  function setDrawer(open) {
+    drawer.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', () => setDrawer(!drawer.classList.contains('open')));
+  drawer.addEventListener('click', e => { if (e.target.closest('a')) setDrawer(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('open')) setDrawer(false); });
+
+  // ── Filter chips (decorative; visually toggle active) ──
+  document.querySelectorAll('.filter-chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

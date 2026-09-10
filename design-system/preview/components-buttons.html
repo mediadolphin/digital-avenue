@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Buttons" subtitle="Primary teal, sand, plum, ghost, disabled variants" viewport="700x280" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:100 900; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:20px 24px; background:#f9f8f6; display:flex; flex-direction:column; gap:16px; }
+.t { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7796a6; }
+.row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:8px; font-family:'Manrope',sans-serif; font-weight:700; border:none; cursor:pointer; text-decoration:none; letter-spacing:.01em; line-height:1; }
+.btn-lg { font-size:15px; padding:13px 26px; border-radius:10px; }
+.btn-sm { font-size:13px; padding:9px 16px; border-radius:6px; }
+.btn-primary { background:#305b75; color:#fff; box-shadow:0 2px 12px color-mix(in srgb,#305b75 35%,transparent); }
+.btn-sand { background:#d7c9aa; color:#1b3a4a; }
+.btn-ghost { background:transparent; color:#305b75; border:1.5px solid #305b75; }
+.btn-disabled { background:#f2efe9; color:#c4b393; cursor:not-allowed; }
+.nav-row { background:#1b3a4a; padding:12px 16px; border-radius:10px; display:flex; align-items:center; gap:8px; }
+.btn-nav { background:#305b75; color:#fff; font-family:'Manrope',sans-serif; font-size:13px; font-weight:700; padding:8px 16px; border-radius:6px; border:none; cursor:pointer; }
+.btn-nav-ghost { background:transparent; color:#ede9e0; font-family:'Manrope',sans-serif; font-size:13px; font-weight:500; padding:8px 14px; border-radius:6px; border:none; cursor:pointer; }
+</style></head><body>
+<div class="t">Primary — Teal</div>
+<div class="row">
+  <a class="btn btn-lg btn-primary">Jetzt informieren</a>
+  <a class="btn btn-sm btn-primary">Informieren</a>
+  <a class="btn btn-lg btn-disabled">Nicht verfügbar</a>
+</div>
+<div class="t">Accent — Sand</div>
+<div class="row">
+  <a class="btn btn-lg btn-sand">Kontakt aufnehmen</a>
+  <a class="btn btn-sm btn-sand">Kontakt</a>
+</div>
+<div class="t">Accent 2 — Plum</div>
+<div class="row">
+  <a class="btn btn-lg" style="background:#42253b;color:#fff;box-shadow:0 2px 12px color-mix(in srgb,#42253b 35%,transparent)">Ehrenamtliche Projekte</a>
+  <a class="btn btn-sm" style="background:#42253b;color:#fff">Plum Klein</a>
+  <a class="btn btn-lg" style="background:transparent;color:#42253b;border:1.5px solid #42253b">Plum Ghost</a>
+</div>
+<div class="row">
+  <a class="btn btn-lg btn-ghost">Mehr erfahren</a>
+  <a class="btn btn-sm btn-ghost">Weiterlesen</a>
+</div>
+<div class="t">Nav Context</div>
+<div class="nav-row">
+  <button class="btn-nav-ghost">Über uns</button>
+  <button class="btn-nav-ghost">Portfolio</button>
+  <button class="btn-nav-ghost">Kontakt</button>
+  <button class="btn-nav">Jetzt informieren</button>
+</div>
+</body></html>

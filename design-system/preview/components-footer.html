@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Footer" subtitle="4-column dark footer with logo, links, CTA" viewport="700x300" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:200 800; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:0; background:#f9f8f6; }
+footer { background:#1b3a4a; border-top:1px solid #264350; }
+.main { max-width:700px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:36px; padding:48px 24px 36px; }
+.logo-top { display:flex; align-items:center; gap:5px; margin-bottom:4px; }
+.logo-name { font-weight:800; font-size:14px; color:#ede9e0; letter-spacing:2px; }
+.logo-div { font-size:14px; font-weight:800; color:#d7c9aa; letter-spacing:-1px; }
+.logo-sub { font-size:9px; color:#7796a6; font-weight:500; letter-spacing:3px; text-transform:uppercase; margin-bottom:14px; }
+.tagline { font-size:13px; color:#7796a6; line-height:1.7; margin-bottom:18px; max-width:240px; }
+.cta { display:inline-flex; align-items:center; gap:6px; background:#305b75; color:#fff; font-family:'Manrope',sans-serif; font-size:12px; font-weight:700; padding:8px 14px; border-radius:6px; text-decoration:none; }
+.col-title { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#ede9e0; margin-bottom:14px; }
+.col-links { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+.col-links a { font-size:13px; color:#7796a6; text-decoration:none; font-weight:500; }
+.bottom { border-top:1px solid #264350; padding:16px 24px; max-width:700px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+.copy { font-size:11px; color:#4a6a72; }
+.legal { display:flex; gap:16px; list-style:none; padding:0; margin:0; }
+.legal a { font-size:11px; color:#4a6a72; text-decoration:none; }
+</style></head><body>
+<footer>
+  <div class="main">
+    <div>
+      <img src="../assets/logo-digital-avenue-white.svg" alt="Digital Avenue" style="height:30px;display:block;margin-bottom:14px">
+      <p class="tagline">Ihre externe Digitalabteilung für Praxen, Kanzleien und KMU — persönlich, vorausschauend, effektiv.</p>
+      <a href="#" class="cta">Jetzt informieren</a>
+    </div>
+    <div>
+      <div class="col-title">Portfolio</div>
+      <ul class="col-links"><li><a href="#">Konzept</a></li><li><a href="#">Web & Design</a></li><li><a href="#">Content Creation</a></li><li><a href="#">Performance Marketing</a></li><li><a href="#">Hosting & E-Mail</a></li></ul>
+    </div>
+    <div>
+      <div class="col-title">Partner</div>
+      <ul class="col-links"><li><a href="#">Netleaders</a></li><li><a href="#">Doctolib</a></li><li><a href="#">Motopress</a></li></ul>
+      <div class="col-title" style="margin-top:18px">Ehrenamt</div>
+      <ul class="col-links"><li><a href="#">Schwimmlexikon</a></li><li><a href="#">Elternfibel</a></li><li><a href="#">Rostock Masters</a></li></ul>
+    </div>
+    <div>
+      <div class="col-title">Kontakt</div>
+      <ul class="col-links"><li><a href="#">+49 (40) 41343870</a></li><li><a href="#">post@digital-avenue.de</a></li><li><a href="#">Hamburg</a></li><li><a href="#">Rostock</a></li></ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span class="copy">© Digital Avenue UG (haftungsbeschränkt)</span>
+    <ul class="legal"><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li></ul>
+  </div>
+</footer>
+</body></html>

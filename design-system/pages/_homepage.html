@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Avenue – Digital Agentur, anders gedacht</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body { margin: 0; min-height: 100vh; }
+  img, svg { display: block; max-width: 100%; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* ─────── LAYOUT PRIMITIVES ─────── */
+  .wrap { width: min(100% - 2 * var(--da-sp-6), 1240px); margin-inline: auto; }
+  .section { padding-block: var(--da-sp-20); }
+  .section-tight { padding-block: var(--da-sp-16); }
+
+  /* ─────── NAV ─────── */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: color-mix(in srgb, var(--da-bg) 80%, transparent);
+    border-bottom: 1px solid var(--da-border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--da-sp-6);
+    padding-block: var(--da-sp-4);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--da-text);
+    font-weight: 800; font-size: 18px; letter-spacing: -0.02em;
+  }
+  .nav-logo img { height: 30px; display: block; }
+  .footer-brand .nav-logo img { height: 30px; }
+  .nav-menu {
+    display: flex; align-items: center; gap: var(--da-sp-6);
+    list-style: none; margin: 0; padding: 0;
+  }
+  .nav-menu a {
+    text-decoration: none; color: var(--da-text);
+    font-weight: 500; font-size: var(--da-text-sm);
+    padding: 8px 4px;
+    position: relative;
+    transition: color var(--da-t);
+  }
+  .nav-menu a::after {
+    content: ''; position: absolute; left: 4px; right: 4px; bottom: 2px;
+    height: 2px; background: var(--da-teal);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform var(--da-t);
+  }
+  .nav-menu a:hover { color: var(--da-teal); }
+  .nav-menu a:hover::after { transform: scaleX(1); }
+  .nav-actions { display: flex; align-items: center; gap: var(--da-sp-3); }
+  .nav-toggle-btn {
+    background: transparent; border: 1px solid var(--da-border);
+    width: 38px; height: 38px; border-radius: var(--da-r-sm);
+    display: grid; place-items: center;
+    color: var(--da-text);
+    transition: border-color var(--da-t), background var(--da-t);
+  }
+  .nav-toggle-btn:hover { border-color: var(--da-teal); color: var(--da-teal); }
+  .nav-burger {
+    display: none;
+    background: transparent; border: 1px solid var(--da-border);
+    width: 40px; height: 40px; border-radius: var(--da-r-sm);
+    place-items: center; color: var(--da-text);
+  }
+  .nav-burger svg { transition: transform var(--da-t); }
+  .nav-burger[aria-expanded="true"] svg { transform: rotate(90deg); }
+
+  /* Mobile drawer */
+  .nav-drawer {
+    position: fixed; inset: 64px 0 0 0; z-index: 40;
+    background: var(--da-bg);
+    padding: var(--da-sp-8) var(--da-sp-6);
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+  .nav-drawer.open { transform: translateX(0); }
+  .nav-drawer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+  .nav-drawer a {
+    display: block; padding: var(--da-sp-4) 0;
+    text-decoration: none; color: var(--da-text);
+    font-size: clamp(20px, 4vw, 26px); font-weight: 700;
+    letter-spacing: -0.02em;
+    border-bottom: 1px solid var(--da-border);
+  }
+  .nav-drawer-cta { margin-top: var(--da-sp-8); }
+
+  @media (max-width: 880px) {
+    .nav-menu, .nav-actions .da-btn-primary { display: none; }
+    .nav-burger { display: grid; }
+  }
+
+  /* ─────── HERO ─────── */
+  .hero {
+    background: linear-gradient(165deg, var(--da-hero-from) 0%, var(--da-hero-to) 65%);
+    padding-block: var(--da-sp-20) var(--da-sp-16);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(800px 500px at 90% 10%, color-mix(in srgb, var(--da-sand) 40%, transparent), transparent 60%),
+      radial-gradient(600px 400px at 5% 90%, color-mix(in srgb, var(--da-teal) 18%, transparent), transparent 55%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--da-sp-16);
+    align-items: center;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 6vw, 76px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: var(--da-sp-5) 0 var(--da-sp-6);
+  }
+  .hero h1 .outline {
+    -webkit-text-stroke: 1.5px var(--da-teal);
+    color: transparent;
+    font-style: italic;
+  }
+  .hero h1 .accent { color: var(--da-teal); }
+  .hero p.lead {
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.55;
+    color: var(--da-muted);
+    max-width: 52ch;
+    margin: 0 0 var(--da-sp-8);
+  }
+  .hero-ctas { display: flex; gap: var(--da-sp-3); flex-wrap: wrap; }
+  .hero-meta {
+    display: flex; gap: var(--da-sp-8);
+    margin-top: var(--da-sp-10);
+    flex-wrap: wrap;
+  }
+  .hero-meta-item .num {
+    display: block;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800; color: var(--da-teal);
+    letter-spacing: -0.025em; line-height: 1;
+  }
+  .hero-meta-item .label {
+    display: block; margin-top: 6px;
+    font-size: var(--da-text-xs); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--da-muted);
+  }
+
+  /* Hero visual collage */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 5 / 6;
+    max-width: 520px; justify-self: end; width: 100%;
+  }
+  .hero-tile {
+    position: absolute; border-radius: var(--da-r-lg);
+    overflow: hidden; box-shadow: var(--da-shadow-lg);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: var(--da-sp-5);
+    color: #fff;
+  }
+  .hero-tile-eyebrow {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .hero-tile-title {
+    font-size: clamp(15px, 1.3vw, 18px); font-weight: 700;
+    margin-top: 4px;
+  }
+  .hero-tile-1 {
+    inset: 0 30% 35% 0;
+    background: linear-gradient(135deg, #305b75 0%, #1b3a4a 100%);
+  }
+  .hero-tile-2 {
+    inset: 12% 0 50% 55%;
+    background: linear-gradient(135deg, #d7c9aa 0%, #a89470 100%);
+    color: var(--da-teal-dark);
+  }
+  .hero-tile-3 {
+    inset: 55% 40% 0 8%;
+    background: linear-gradient(135deg, #42253b 0%, #1c0f1a 100%);
+  }
+  .hero-tile-4 {
+    inset: 60% 0 5% 50%;
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--da-teal) 80%, #000) 0%, var(--da-teal-deeper) 100%),
+      var(--da-card-bg);
+  }
+
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; gap: var(--da-sp-12); }
+    .hero-visual { aspect-ratio: 4 / 4; max-width: 480px; justify-self: stretch; }
+    .hero { padding-block: var(--da-sp-12) var(--da-sp-10); }
+  }
+
+  /* ─────── TRUST BAR ─────── */
+  .trust {
+    border-block: 1px solid var(--da-border);
+    background: var(--da-bg-alt);
+    padding-block: var(--da-sp-8);
+  }
+  .trust-inner {
+    display: flex; align-items: center; gap: var(--da-sp-8);
+    flex-wrap: wrap;
+  }
+  .trust-label {
+    font-size: var(--da-text-xs); font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--da-muted);
+    flex-shrink: 0;
+  }
+  .trust-logos {
+    display: flex; gap: var(--da-sp-10);
+    align-items: center; flex-wrap: wrap;
+    flex: 1;
+  }
+  .trust-logo {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 700; font-size: clamp(14px, 1.2vw, 17px);
+    color: var(--da-muted);
+    letter-spacing: -0.02em;
+    opacity: 0.65;
+    transition: opacity var(--da-t), color var(--da-t);
+  }
+  .trust-logo:hover { opacity: 1; color: var(--da-teal); }
+  .trust-logo.italic { font-style: italic; }
+  .trust-logo.serif { font-family: Georgia, serif; }
+
+  /* ─────── SERVICES GRID ─────── */
+  .section-head {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: var(--da-sp-12); align-items: end;
+    margin-bottom: var(--da-sp-12);
+  }
+  .section-head h2 { margin: var(--da-sp-4) 0 0; max-width: 18ch; }
+  .section-head p { margin: 0; font-size: var(--da-text-md); max-width: 52ch; }
+  @media (max-width: 720px) {
+    .section-head { grid-template-columns: 1fr; gap: var(--da-sp-5); }
+  }
+
+  .services {
+    display: grid; gap: var(--da-sp-5);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .service-card {
+    background: var(--da-card-bg);
+    border: 1px solid var(--da-border);
+    border-radius: var(--da-r-lg);
+    padding: var(--da-sp-8);
+    box-shadow: var(--da-card-shadow);
+    transition: transform var(--da-t), box-shadow var(--da-t), border-color var(--da-t);
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--da-card-hover);
+    border-color: color-mix(in srgb, var(--da-teal) 40%, var(--da-border));
+  }
+  .service-num {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: var(--da-text-xs); font-weight: 700;
+    letter-spacing: 0.1em; color: var(--da-sand-text);
+  }
+  .service-card h3 {
+    margin: var(--da-sp-3) 0 var(--da-sp-3);
+    font-size: clamp(20px, 1.8vw, 26px);
+    line-height: 1.2;
+  }
+  .service-card p {
+    margin: 0 0 var(--da-sp-4);
+    font-size: var(--da-text-sm);
+    line-height: 1.6;
+  }
+  .service-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: var(--da-sp-5);
+    padding-top: var(--da-sp-4);
+    border-top: 1px solid var(--da-border);
+  }
+  .service-tag {
+    font-size: 11px; font-weight: 600;
+    color: var(--da-teal-text);
+    background: var(--da-teal-subtle);
+    padding: 4px 10px; border-radius: var(--da-r-pill);
+  }
+
+  /* ─────── CASE STUDIES TEASER ─────── */
+  .cases-section { background: var(--da-teal-deeper); color: #fff; }
+  .cases-section h2, .cases-section .section-head p { color: #fff; }
+  .cases-section .da-eyebrow {
+    background: color-mix(in srgb, var(--da-sand) 18%, transparent);
+    color: var(--da-sand);
+    border-color: color-mix(in srgb, var(--da-sand) 35%, transparent);
+  }
+  .cases-section .section-head p { color: color-mix(in srgb, #fff 75%, transparent); }
+
+  .cases {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--da-sp-6);
+  }
+  .case-card {
+    border-radius: var(--da-r-lg);
+    overflow: hidden;
+    background: var(--da-teal-dark);
+    position: relative;
+    display: flex; flex-direction: column;
+    min-height: 320px;
+    text-decoration: none;
+    transition: transform var(--da-t), box-shadow var(--da-t);
+  }
+  .case-card:hover { transform: translateY(-3px); }
+  .case-card.featured { grid-row: span 2; min-height: 100%; }
+  .case-cover {
+    flex: 1;
+    background-size: cover; background-position: center;
+    display: flex; align-items: flex-end;
+    padding: var(--da-sp-6);
+    min-height: 200px;
+  }
+  .case-card.c1 .case-cover { background: linear-gradient(140deg, #305b75 0%, #1b3a4a 60%, #42253b 100%); }
+  .case-card.c2 .case-cover { background: linear-gradient(135deg, #d7c9aa 0%, #a89470 100%); }
+  .case-card.c3 .case-cover { background: linear-gradient(135deg, #42253b 0%, #8a5c7e 100%); }
+  .case-meta {
+    padding: var(--da-sp-5) var(--da-sp-6);
+    background: color-mix(in srgb, #000 30%, transparent);
+    border-top: 1px solid color-mix(in srgb, #fff 10%, transparent);
+  }
+  .case-eyebrow {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--da-sand);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .case-eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--da-sand);
+  }
+  .case-title {
+    font-size: clamp(20px, 1.6vw, 24px);
+    font-weight: 700;
+    margin: 8px 0 4px;
+    color: #fff;
+    letter-spacing: -0.02em; line-height: 1.2;
+  }
+  .case-card.featured .case-title { font-size: clamp(26px, 2.2vw, 36px); }
+  .case-snippet {
+    font-size: var(--da-text-sm);
+    color: color-mix(in srgb, #fff 70%, transparent);
+    line-height: 1.5;
+    margin: 0;
+  }
+  @media (max-width: 880px) {
+    .cases { grid-template-columns: 1fr; }
+    .case-card.featured { grid-row: auto; }
+  }
+
+  .cases-cta {
+    margin-top: var(--da-sp-10);
+    display: flex; justify-content: center;
+  }
+  .cases-cta a {
+    color: #fff !important;
+    border-color: color-mix(in srgb, var(--da-sand) 60%, transparent);
+  }
+  .cases-cta a:hover { background: color-mix(in srgb, var(--da-sand) 12%, transparent); }
+
+  /* ─────── ABOUT / TEAM ─────── */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: var(--da-sp-16); align-items: start;
+  }
+  @media (max-width: 880px) {
+    .about-grid { grid-template-columns: 1fr; gap: var(--da-sp-10); }
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: var(--da-sp-3);
+    margin-top: var(--da-sp-8);
+  }
+  .about-stat {
+    background: var(--da-card-bg); border: 1px solid var(--da-border);
+    border-radius: var(--da-r-md);
+    padding: var(--da-sp-5);
+  }
+  .about-stat .num {
+    display: block;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 800; line-height: 1;
+    color: var(--da-teal);
+    letter-spacing: -0.025em;
+  }
+  .about-stat .label {
+    display: block;
+    margin-top: 8px;
+    font-size: var(--da-text-sm);
+    color: var(--da-muted);
+    line-height: 1.45;
+  }
+  .team {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: var(--da-sp-3);
+  }
+  .team-member {
+    background: var(--da-card-bg);
+    border: 1px solid var(--da-border);
+    border-radius: var(--da-r-lg);
+    overflow: hidden;
+    transition: transform var(--da-t), box-shadow var(--da-t);
+  }
+  .team-member:hover {
+    transform: translateY(-2px); box-shadow: var(--da-shadow-md);
+  }
+  .team-portrait {
+    aspect-ratio: 3 / 4;
+    display: flex; align-items: flex-end;
+    padding: var(--da-sp-3);
+    color: #fff;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .team-member:nth-child(1) .team-portrait { background: linear-gradient(160deg, #305b75 0%, #1b3a4a 100%); }
+  .team-member:nth-child(2) .team-portrait { background: linear-gradient(160deg, #d7c9aa 0%, #a89470 100%); color: var(--da-teal-dark); }
+  .team-member:nth-child(3) .team-portrait { background: linear-gradient(160deg, #42253b 0%, #8a5c7e 100%); }
+  .team-member:nth-child(4) .team-portrait { background: linear-gradient(160deg, #1b3a4a 0%, #42253b 100%); }
+  .team-info { padding: var(--da-sp-4); }
+  .team-info .name {
+    font-weight: 700; font-size: var(--da-text-base);
+    color: var(--da-text);
+  }
+  .team-info .role {
+    font-size: var(--da-text-xs); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--da-sand-text);
+    margin-top: 4px;
+  }
+
+  /* ─────── TESTIMONIALS ─────── */
+  .testimonials-section { background: var(--da-bg-alt); }
+  .testimonials {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--da-sp-5);
+    align-items: stretch;
+  }
+  @media (max-width: 980px) { .testimonials { grid-template-columns: 1fr 1fr; } .testimonial.featured { grid-column: span 2; } }
+  @media (max-width: 640px) { .testimonials { grid-template-columns: 1fr; } .testimonial.featured { grid-column: span 1; } }
+
+  .testimonial {
+    background: var(--da-card-bg);
+    border: 1px solid var(--da-border);
+    border-radius: var(--da-r-lg);
+    padding: var(--da-sp-8);
+    display: flex; flex-direction: column;
+    box-shadow: var(--da-card-shadow);
+  }
+  .testimonial.featured {
+    background: var(--da-teal);
+    color: #fff;
+    border-color: var(--da-teal);
+  }
+  .testimonial-quote {
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 2vw, 32px);
+    font-weight: 400; font-style: italic;
+    line-height: 1.3; letter-spacing: -0.01em;
+    margin: 0 0 var(--da-sp-6);
+    flex: 1;
+  }
+  .testimonial:not(.featured) .testimonial-quote { color: var(--da-text); }
+  .testimonial.featured .testimonial-quote { color: #fff; }
+  .testimonial.compact .testimonial-quote {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: var(--da-text-base);
+    font-style: normal; font-weight: 500;
+    line-height: 1.55;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: var(--da-sp-3);
+    padding-top: var(--da-sp-4);
+    border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  }
+  .testimonial-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--da-sand) 0%, var(--da-sand-hover) 100%);
+    flex-shrink: 0;
+    display: grid; place-items: center;
+    font-weight: 700; color: var(--da-teal-dark);
+    font-size: var(--da-text-sm);
+    letter-spacing: 0.04em;
+  }
+  .testimonial.featured .testimonial-avatar {
+    background: var(--da-sand); color: var(--da-teal-dark);
+  }
+  .testimonial-author .name { font-weight: 700; font-size: var(--da-text-sm); }
+  .testimonial-author .role {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+
+  /* ─────── BLOG / NEWS ─────── */
+  .blog {
+    display: grid; gap: var(--da-sp-5);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .blog-card {
+    background: var(--da-card-bg);
+    border: 1px solid var(--da-border);
+    border-radius: var(--da-r-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--da-text);
+    display: flex; flex-direction: column;
+    transition: transform var(--da-t), box-shadow var(--da-t);
+  }
+  .blog-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--da-card-hover);
+  }
+  .blog-cover {
+    aspect-ratio: 16 / 10;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: var(--da-sp-5);
+    color: #fff;
+  }
+  .blog-card:nth-child(1) .blog-cover { background: linear-gradient(135deg, #305b75 0%, #1b3a4a 100%); }
+  .blog-card:nth-child(2) .blog-cover { background: linear-gradient(135deg, #42253b 0%, #8a5c7e 100%); }
+  .blog-card:nth-child(3) .blog-cover { background: linear-gradient(135deg, #d7c9aa 0%, #a89470 100%); color: var(--da-teal-dark); }
+  .blog-cat {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    align-self: flex-start;
+    background: color-mix(in srgb, #fff 18%, transparent);
+    padding: 4px 10px; border-radius: var(--da-r-pill);
+    backdrop-filter: blur(10px);
+  }
+  .blog-card:nth-child(3) .blog-cat {
+    background: color-mix(in srgb, var(--da-teal-dark) 15%, transparent);
+    color: var(--da-teal-dark);
+  }
+  .blog-cover-num {
+    font-size: clamp(48px, 5vw, 80px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    opacity: 0.85;
+    align-self: flex-end;
+  }
+  .blog-body { padding: var(--da-sp-5); flex: 1; display: flex; flex-direction: column; }
+  .blog-meta {
+    font-size: var(--da-text-xs); font-weight: 600;
+    color: var(--da-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: var(--da-sp-3);
+  }
+  .blog-title {
+    font-size: clamp(17px, 1.4vw, 21px);
+    font-weight: 700; line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--da-sp-3);
+    color: var(--da-text);
+  }
+  .blog-card:hover .blog-title { color: var(--da-teal); }
+  .blog-snippet {
+    font-size: var(--da-text-sm);
+    color: var(--da-muted);
+    line-height: 1.55;
+    margin: 0; flex: 1;
+  }
+  .blog-readmore {
+    margin-top: var(--da-sp-4);
+    font-size: var(--da-text-sm); font-weight: 700;
+    color: var(--da-teal);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+
+  /* ─────── CONTACT CTA ─────── */
+  .contact-cta {
+    border-radius: var(--da-r-xl);
+    background: var(--da-teal);
+    color: #fff;
+    padding: clamp(40px, 6vw, 80px);
+    display: grid; grid-template-columns: 1fr auto;
+    gap: var(--da-sp-10); align-items: center;
+    position: relative; overflow: hidden;
+    box-shadow: var(--da-shadow-lg);
+  }
+  .contact-cta::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(500px 300px at 100% 0%, color-mix(in srgb, var(--da-sand) 25%, transparent), transparent 60%),
+      radial-gradient(400px 250px at 0% 100%, color-mix(in srgb, var(--da-plum) 30%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+  .contact-cta > * { position: relative; }
+  .contact-cta h2 {
+    color: #fff;
+    font-size: clamp(28px, 4vw, 56px);
+    margin: var(--da-sp-3) 0 var(--da-sp-4);
+    line-height: 1.05;
+  }
+  .contact-cta p {
+    color: color-mix(in srgb, #fff 80%, transparent);
+    margin: 0;
+    font-size: var(--da-text-md);
+    max-width: 48ch;
+  }
+  .contact-cta .da-eyebrow {
+    background: color-mix(in srgb, #fff 16%, transparent);
+    color: #fff;
+    border-color: color-mix(in srgb, #fff 25%, transparent);
+  }
+  .contact-cta-actions {
+    display: flex; flex-direction: column; gap: var(--da-sp-3);
+    flex-shrink: 0;
+  }
+  .contact-cta-actions .da-btn-primary {
+    background: var(--da-sand); color: var(--da-teal-dark) !important;
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--da-sand) 30%, transparent);
+  }
+  .contact-cta-actions .da-btn-primary:hover { background: var(--da-sand-hover); }
+  .contact-cta-actions .da-btn-ghost {
+    color: #fff !important;
+    border-color: color-mix(in srgb, #fff 40%, transparent);
+  }
+  .contact-cta-actions .da-btn-ghost:hover {
+    background: color-mix(in srgb, #fff 12%, transparent);
+  }
+
+  @media (max-width: 720px) {
+    .contact-cta { grid-template-columns: 1fr; gap: var(--da-sp-8); }
+  }
+
+  /* ─────── FOOTER ─────── */
+  footer.site {
+    background: var(--da-nav-bg);
+    color: var(--da-nav-text);
+    padding-block: var(--da-sp-16) var(--da-sp-8);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--da-sp-10);
+  }
+  @media (max-width: 880px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--da-sp-8); }
+    .footer-brand { grid-column: span 2; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+  }
+  .footer-brand .nav-logo { color: var(--da-nav-text); }
+  .footer-brand p {
+    margin: var(--da-sp-4) 0 0;
+    font-size: var(--da-text-sm);
+    color: var(--da-nav-muted);
+    max-width: 36ch;
+    line-height: 1.6;
+  }
+  .footer-col h4 {
+    font-size: var(--da-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--da-nav-text);
+    margin: 0 0 var(--da-sp-4);
+  }
+  .footer-col ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: var(--da-sp-3);
+  }
+  .footer-col a {
+    text-decoration: none;
+    color: var(--da-nav-muted);
+    font-size: var(--da-text-sm);
+    transition: color var(--da-t);
+  }
+  .footer-col a:hover { color: var(--da-sand); }
+  .footer-bottom {
+    margin-top: var(--da-sp-12);
+    padding-top: var(--da-sp-6);
+    border-top: 1px solid var(--da-nav-border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: var(--da-sp-4);
+    font-size: var(--da-text-xs);
+    color: var(--da-nav-muted);
+  }
+  .footer-bottom-links { display: flex; gap: var(--da-sp-5); flex-wrap: wrap; }
+  .footer-bottom-links a { color: var(--da-nav-muted); text-decoration: none; }
+  .footer-bottom-links a:hover { color: var(--da-sand); }
+
+  /* ─────── REDUCED MOTION ─────── */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────── NAV ─────────── -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Digital Avenue">
+      <img src="../assets/logo-digital-avenue.svg" alt="Digital Avenue">
+    </a>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#cases">Cases</a></li>
+        <li><a href="#about">Über uns</a></li>
+        <li><a href="#blog">Magazin</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-toggle-btn" id="theme-toggle" aria-label="Theme umschalten" title="Theme umschalten">
+        <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+      </button>
+      <a href="#contact" class="da-btn-primary da-btn-sm">Termin vereinbaren</a>
+      <button class="nav-burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<aside class="nav-drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="#services">Leistungen</a></li>
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#about">Über uns</a></li>
+    <li><a href="#blog">Magazin</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <div class="nav-drawer-cta">
+    <a href="#contact" class="da-btn-primary">Termin vereinbaren</a>
+  </div>
+</aside>
+
+<main id="top">
+
+  <!-- ─────────── HERO ─────────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="da-eyebrow">Hamburg · Rostock · Bundesweit</span>
+        <h1>
+          Digital&nbsp;Agentur<br/>
+          <span class="outline">anders</span> <span class="accent">gedacht.</span>
+        </h1>
+        <p class="lead">
+          Wir verstehen Ihre Website als das Herzstück Ihrer Kommunikation – das Marketing, PR und die dahinterliegende Technik vereint. Persönlich. Vorausschauend. Verlässlich.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="da-btn-primary">
+            Erstgespräch buchen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a href="#cases" class="da-btn-primary da-btn-ghost">Cases ansehen</a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="num">12+</span>
+            <span class="label">Jahre Erfahrung</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="num">80+</span>
+            <span class="label">Projekte umgesetzt</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="num">2</span>
+            <span class="label">Standorte in DE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-tile hero-tile-1">
+          <span class="hero-tile-eyebrow">Case · Digizt</span>
+          <span class="hero-tile-title">14 Städte. Ein Service.</span>
+        </div>
+        <div class="hero-tile hero-tile-2">
+          <span class="hero-tile-eyebrow">Web &amp; Design</span>
+          <span class="hero-tile-title">Von Konzept bis Launch</span>
+        </div>
+        <div class="hero-tile hero-tile-3">
+          <span class="hero-tile-eyebrow">Performance</span>
+          <span class="hero-tile-title">Mehr Anfragen,<br/>weniger Streuverlust</span>
+        </div>
+        <div class="hero-tile hero-tile-4">
+          <span class="hero-tile-eyebrow">Kommunikation</span>
+          <span class="hero-tile-title">Klar. Konsistent. Wirksam.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── TRUST BAR ─────────── -->
+  <section class="trust">
+    <div class="wrap trust-inner">
+      <div class="trust-label">Vertrauen von</div>
+      <div class="trust-logos">
+        <span class="trust-logo">Digizt®</span>
+        <span class="trust-logo serif">Miesen &amp; Cie.</span>
+        <span class="trust-logo italic">Krix Academy</span>
+        <span class="trust-logo">REPARTLY</span>
+        <span class="trust-logo serif">Elesco Europe</span>
+        <span class="trust-logo">ASWO</span>
+        <span class="trust-logo italic">BOSCH Service</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SERVICES ─────────── -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="da-eyebrow da-eyebrow-sand">Leistungen</span>
+          <h2>Sechs Disziplinen, ein Team, das sich abstimmt.</h2>
+        </div>
+        <p>Wir halten Ihnen den Rücken frei – ob Content-Service, Performance-Kampagne oder IT-Anbindung. Sie haben einen Ansprechpartner, der das große Ganze im Blick behält.</p>
+      </div>
+
+      <div class="services">
+        <article class="service-card">
+          <span class="service-num">01 / Konzept</span>
+          <h3>Strategie &amp; Konzept</h3>
+          <p>Wir analysieren Ihren Markt, schärfen Ihre Positionierung und übersetzen Geschäftsziele in eine digitale Roadmap.</p>
+          <div class="service-tags">
+            <span class="service-tag">Markenstrategie</span>
+            <span class="service-tag">Personas</span>
+            <span class="service-tag">Roadmap</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <span class="service-num">02 / Web &amp; Design</span>
+          <h3>Web &amp; Design</h3>
+          <p>UX, UI und Frontend in einer Hand. Von der Skizze bis zur barrierearmen, performanten Website.</p>
+          <div class="service-tags">
+            <span class="service-tag">UX / UI</span>
+            <span class="service-tag">Webflow</span>
+            <span class="service-tag">WordPress</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <span class="service-num">03 / Content</span>
+          <h3>Content Creation</h3>
+          <p>Texte, Foto und Video, die Ihre Markenstimme treffen – produziert von einem festen Redaktionsteam.</p>
+          <div class="service-tags">
+            <span class="service-tag">Redaktion</span>
+            <span class="service-tag">Foto</span>
+            <span class="service-tag">Video</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <span class="service-num">04 / Performance</span>
+          <h3>Performance Marketing</h3>
+          <p>Google Ads, Meta &amp; SEO – datenbasiert geführt, transparent berichtet, monatlich optimiert.</p>
+          <div class="service-tags">
+            <span class="service-tag">SEA</span>
+            <span class="service-tag">SEO</span>
+            <span class="service-tag">Analytics</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <span class="service-num">05 / Kommunikation</span>
+          <h3>Kommunikation &amp; PR</h3>
+          <p>Konsistente Markensprache über alle Kanäle – Newsletter, Social, Pressekontakte, interne Kommunikation.</p>
+          <div class="service-tags">
+            <span class="service-tag">PR</span>
+            <span class="service-tag">Social Media</span>
+            <span class="service-tag">Newsletter</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <span class="service-num">06 / Hosting</span>
+          <h3>Hosting &amp; E-Mail</h3>
+          <p>DSGVO-konformes Hosting in Deutschland, Wartung, Backups und ein E-Mail-Setup, das einfach läuft.</p>
+          <div class="service-tags">
+            <span class="service-tag">DE-Hosting</span>
+            <span class="service-tag">Wartung</span>
+            <span class="service-tag">DSGVO</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── CASE STUDIES ─────────── -->
+  <section class="section cases-section" id="cases">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="da-eyebrow">Cases</span>
+          <h2>Arbeiten, auf die wir stolz sind.</h2>
+        </div>
+        <p>Vom regionalen Handwerksbetrieb bis zum bundesweit agierenden Service-Anbieter – ein Auszug unserer Projekte aus den letzten 18 Monaten.</p>
+      </div>
+
+      <div class="cases">
+        <a href="#" class="case-card featured c1">
+          <div class="case-cover">
+            <div>
+              <div class="case-eyebrow">B2C · Service · Bundesweit</div>
+              <div class="case-title">Digizt Haushaltsgeräte – ein Reparaturservice in 14 Städten</div>
+            </div>
+          </div>
+          <div class="case-meta">
+            <p class="case-snippet">Brand-Refresh, Buchungs­strecke und Performance-Setup. Soforttermin in unter 60 Sekunden, faire Festpreise, technikergeführte Routenplanung.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case-card c2">
+          <div class="case-cover"></div>
+          <div class="case-meta">
+            <div class="case-eyebrow">Praxis · Hamburg</div>
+            <div class="case-title">MVZ Eppendorf</div>
+            <p class="case-snippet">Patientenportal mit Online-Termin und Befund-Upload.</p>
+          </div>
+        </a>
+
+        <a href="#" class="case-card c3">
+          <div class="case-cover"></div>
+          <div class="case-meta">
+            <div class="case-eyebrow">Kanzlei · Rostock</div>
+            <div class="case-title">Brandt &amp; Partner Rechtsanwälte</div>
+            <p class="case-snippet">Markenrelaunch, Mandantenbereich und CRM-Integration.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="cases-cta">
+        <a href="portfolio.html" class="da-btn-primary da-btn-ghost">
+          Alle Cases ansehen
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── ABOUT / TEAM ─────────── -->
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="da-eyebrow da-eyebrow-sand">Über uns</span>
+        <h2 style="margin-top: var(--da-sp-4);">Persönlich. Vorausschauend. Aus Hamburg &amp; Rostock.</h2>
+        <p style="margin-top: var(--da-sp-5);">Digital Avenue ist ein achtköpfiges Team aus Strateginnen, Designern, Entwicklern und Redakteurinnen. Wir arbeiten mit Arztpraxen, Kanzleien und mittelständischen Unternehmen zusammen, die Wert auf Verlässlichkeit legen – und auf einen Ansprechpartner, der den Hörer abnimmt.</p>
+
+        <div class="about-stats">
+          <div class="about-stat"><span class="num">2012</span><span class="label">Gegründet in Hamburg</span></div>
+          <div class="about-stat"><span class="num">8</span><span class="label">Festes Kernteam</span></div>
+          <div class="about-stat"><span class="num">94 %</span><span class="label">Kundenbindung &gt;3 Jahre</span></div>
+          <div class="about-stat"><span class="num">DSGVO</span><span class="label">Hosting in Deutschland</span></div>
+        </div>
+      </div>
+
+      <div class="team">
+        <div class="team-member">
+          <div class="team-portrait">JS</div>
+          <div class="team-info">
+            <div class="name">Jana Schiller</div>
+            <div class="role">Strategie</div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-portrait">MK</div>
+          <div class="team-info">
+            <div class="name">Marek Kowalski</div>
+            <div class="role">Lead Design</div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-portrait">LH</div>
+          <div class="team-info">
+            <div class="name">Lara Hofmann</div>
+            <div class="role">Frontend</div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-portrait">TB</div>
+          <div class="team-info">
+            <div class="name">Tobias Brandt</div>
+            <div class="role">Performance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── TESTIMONIALS ─────────── -->
+  <section class="section testimonials-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="da-eyebrow">Stimmen</span>
+          <h2>Was Kund:innen sagen.</h2>
+        </div>
+        <p>Langfristige Beziehungen sind uns wichtiger als Einmal-Projekte. Hier ein paar Worte aus über zehn Jahren Zusammenarbeit.</p>
+      </div>
+
+      <div class="testimonials">
+        <article class="testimonial featured">
+          <p class="testimonial-quote">„Digital Avenue hat unsere Buchungs­strecke neu gedacht – heute kommen 4 von 5 Anfragen direkt online rein. Wir wurden nie alleingelassen, und das macht den Unterschied.“</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DR</div>
+            <div>
+              <div class="name">Dr. Robert Mendel</div>
+              <div class="role">Geschäftsführer, Digizt Haushaltsgeräte</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial compact">
+          <p class="testimonial-quote">„Endlich eine Agentur, die Termine einhält und nachbohrt, wenn etwas nicht stimmt.“</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CB</div>
+            <div>
+              <div class="name">Christina Brandt</div>
+              <div class="role">Brandt &amp; Partner Rechtsanwälte</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial compact">
+          <p class="testimonial-quote">„Strategisch klar, persönlich verlässlich. Wir empfehlen Digital Avenue ohne Zögern weiter.“</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SH</div>
+            <div>
+              <div class="name">Dr. Sabine Hoffmann</div>
+              <div class="role">MVZ Eppendorf</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── BLOG / NEWS ─────────── -->
+  <section class="section" id="blog">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="da-eyebrow da-eyebrow-sand">Magazin</span>
+          <h2>Notizen aus der Avenue.</h2>
+        </div>
+        <p>Beobachtungen aus Strategie, Design und Performance – für alle, die ihr digitales Geschäft mit Plan weiterentwickeln wollen.</p>
+      </div>
+
+      <div class="blog">
+        <a href="#" class="blog-card">
+          <div class="blog-cover">
+            <span class="blog-cat">Strategie</span>
+            <span class="blog-cover-num">01</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">12.04.2026 · 6 Min. Lesezeit</div>
+            <h3 class="blog-title">Warum Ihre Website kein Produkt ist – sondern ein Versprechen.</h3>
+            <p class="blog-snippet">Drei Prinzipien, mit denen wir Brand und Funktion in Einklang bringen, ohne den Launch zu verzögern.</p>
+            <span class="blog-readmore">Weiterlesen →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-cover">
+            <span class="blog-cat">Performance</span>
+            <span class="blog-cover-num">02</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">28.03.2026 · 4 Min. Lesezeit</div>
+            <h3 class="blog-title">Google Ads für Praxen: Was 2026 wirklich noch funktioniert.</h3>
+            <p class="blog-snippet">Wir haben 18 Praxis-Konten in den letzten 12 Monaten ausgewertet – die Ergebnisse haben uns überrascht.</p>
+            <span class="blog-readmore">Weiterlesen →</span>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-cover">
+            <span class="blog-cat">Aus der Avenue</span>
+            <span class="blog-cover-num">03</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">15.03.2026 · 3 Min. Lesezeit</div>
+            <h3 class="blog-title">Neuer Standort in Rostock – warum eine zweite Stadt?</h3>
+            <p class="blog-snippet">Ein offener Brief an unsere Kund:innen darüber, was sich ändert (und vor allem: was nicht).</p>
+            <span class="blog-readmore">Weiterlesen →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── CONTACT CTA ─────────── -->
+  <section class="section-tight" id="contact">
+    <div class="wrap">
+      <div class="contact-cta">
+        <div>
+          <span class="da-eyebrow">30 Min. unverbindlich</span>
+          <h2>Erzählen Sie uns von Ihrem Vorhaben.</h2>
+          <p>Wir hören zu, sortieren die Optionen und melden uns innerhalb eines Werktags. Kein Sales-Pitch – nur ein ehrliches Erstgespräch.</p>
+        </div>
+        <div class="contact-cta-actions">
+          <a href="mailto:hallo@digital-avenue.de" class="da-btn-primary">
+            Erstgespräch buchen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a href="tel:+494012345678" class="da-btn-primary da-btn-ghost">+49 40 12 34 56 78</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─────────── FOOTER ─────────── -->
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="nav-logo" aria-label="Digital Avenue">
+          <img src="../assets/logo-digital-avenue-white.svg" alt="Digital Avenue">
+        </a>
+        <p>Digitale Agentur aus Hamburg und Rostock. Wir machen Websites, Marken und Marketing – persönlich und vorausschauend.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#services">Strategie</a></li>
+          <li><a href="#services">Web &amp; Design</a></li>
+          <li><a href="#services">Content</a></li>
+          <li><a href="#services">Performance</a></li>
+          <li><a href="#services">Hosting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Avenue</h4>
+        <ul>
+          <li><a href="#about">Über uns</a></li>
+          <li><a href="portfolio.html">Cases</a></li>
+          <li><a href="#blog">Magazin</a></li>
+          <li><a href="#">Karriere</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:hallo@digital-avenue.de">hallo@digital-avenue.de</a></li>
+          <li><a href="tel:+494012345678">+49 40 12 34 56 78</a></li>
+          <li><a href="#">Hamburg · Rostock</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Digital Avenue UG (haftungsbeschränkt)</span>
+      <div class="footer-bottom-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─────────── Theme toggle ───────────
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const STORAGE_KEY = 'da-theme';
+
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    try { localStorage.setItem(STORAGE_KEY, t); } catch(e) {}
+    themeIcon.innerHTML = t === 'dark'
+      ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>'
+      : '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>';
+  }
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) setTheme(saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+  } catch(e) {}
+  themeBtn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme') || 'light';
+    setTheme(cur === 'dark' ? 'light' : 'dark');
+  });
+
+  // ─────────── Mobile drawer ───────────
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  function setDrawer(open) {
+    drawer.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', () => {
+    setDrawer(!drawer.classList.contains('open'));
+  });
+  // Close drawer when a link inside is clicked
+  drawer.addEventListener('click', e => {
+    if (e.target.closest('a')) setDrawer(false);
+  });
+  // Close on escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) setDrawer(false);
+  });
+</script>
+
+</body>
+</html>

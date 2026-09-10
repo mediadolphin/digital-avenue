@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<!-- @dsCard group="UI Kit — Website" name="Digital Avenue Website UI Kit" subtitle="Full agency site — nav, hero, services, about, contact, footer" viewport="1280x900" -->
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Avenue — Website UI Kit</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Manrope';
+  src: url('../../fonts/Manrope-VariableFont_wght.woff2') format('woff2');
+  font-weight: 200 800; font-style: normal; font-display: swap;
+}
+:root {
+  --teal:        #305b75;
+  --teal-hover:  #264a60;
+  --teal-dark:   #1b3a4a;
+  --teal-deeper: #132a37;
+  --teal-subtle: #e7eff3;
+  --teal-text:   #234c5f;
+  --sand:        #d7c9aa;
+  --sand-hover:  #c4b393;
+  --sand-subtle: #f6f2ea;
+  --sand-text:   #7a6845;
+  --plum:        #42253b;
+  --plum-hover:  #351b30;
+  --plum-subtle: #f0e8ee;
+  --plum-text:   #42253b;
+  --plum-light:  #8a5c7e;
+  --bg:          #f9f8f6;
+  --bg-alt:      #f2efe9;
+  --text:        #19242b;
+  --muted:       #5a6e77;
+  --border:      #d9e3e8;
+  --nav-bg:      #1b3a4a;
+  --nav-text:    #ede9e0;
+  --nav-muted:   #7796a6;
+  --nav-border:  #264350;
+  --card-bg:     #ffffff;
+  --card-shadow: 0 1px 4px rgb(0 0 0/.05), 0 4px 16px rgb(0 0 0/.06);
+  --card-hover:  0 2px 8px rgb(0 0 0/.08), 0 8px 28px rgb(0 0 0/.10);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-pill: 100px;
+  --font: 'Manrope', system-ui, sans-serif;
+  --font-logo: 'Jost', system-ui, sans-serif;
+  --t: 0.2s ease;
+
+  /* Fluid spacing */
+  --sp-sm:  clamp(16px, 2vw, 24px);
+  --sp-md:  clamp(32px, 4vw, 48px);
+  --sp-lg:  clamp(56px, 7vw, 88px);
+  --gap-sm: clamp(12px, 1.5vw, 16px);
+  --gap-md: clamp(16px, 2vw, 24px);
+  --gap-lg: clamp(24px, 3vw, 48px);
+}
+[data-theme="dark"] {
+  --bg:          #182a33;
+  --bg-alt:      #1e333e;
+  --text:        #ede9e0;
+  --muted:       #7796a6;
+  --border:      #294653;
+  --card-bg:     #1d3340;
+  --card-shadow: 0 1px 3px rgb(0 0 0/.4), 0 4px 16px rgb(0 0 0/.3);
+  --card-hover:  0 2px 8px rgb(0 0 0/.5), 0 8px 28px rgb(0 0 0/.4);
+  --teal:        #4d8aa0;
+  --teal-hover:  #5e9cb3;
+  --teal-subtle: #1d3c4a;
+  --teal-text:   #82c2d2;
+  --sand:        #c4b393;
+  --sand-subtle: #2a2318;
+  --sand-text:   #d7c9aa;
+  --plum:        #8a5c7e;
+  --plum-hover:  #9e6e92;
+  --plum-subtle: #2a1a26;
+  --plum-text:   #c49ab8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.65; transition: background .3s, color .3s; text-wrap: pretty; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel">
+
+/* ── ICONS ── */
+const ArrowRight = () => <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+const Moon = () => <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13 10.5a6 6 0 0 1-7.5-7.5 6 6 0 1 0 7.5 7.5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg>;
+const Sun = () => <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" strokeWidth="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M11.54 4.46l-1.41 1.41M4.46 11.54l-1.41 1.41" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>;
+const Phone = () => <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 2h3l1.5 3.5-2 1.2c.8 1.6 2 2.8 3.5 3.5l1.2-2L14.5 9v3A1.5 1.5 0 0 1 13 13.5C6.7 13 2 8.3 2.5 3A1.5 1.5 0 0 1 4 2z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>;
+const Mail = () => <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><path d="M2 7l6 4.5L14 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>;
+const ChevronDown = () => <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+const Check = () => <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+
+/* ── LOGO ── */
+function Logo({ light }) {
+  const src = light
+    ? '../../assets/logo-digital-avenue-white.svg'
+    : '../../assets/logo-digital-avenue.svg';
+  return (
+    <a href="#" style={{ textDecoration:'none', display:'flex', alignItems:'center' }}>
+      <img src={src} alt="Digital Avenue" style={{ height:32, display:'block' }} />
+    </a>
+  );
+}
+
+/* ── NAV ── */
+const SERVICES = ['Konzept','Web & Design','Content Creation','Performance Marketing','Kommunikation','Hosting & E-Mail'];
+
+function Nav({ dark, onToggle }) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <nav style={{ background:'var(--nav-bg)', borderBottom:'1px solid var(--nav-border)', position:'sticky', top:0, zIndex:100 }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 32px', height:64 }}>
+        <Logo light />
+        <ul style={{ display:'flex', alignItems:'center', gap:2, listStyle:'none' }}>
+          {['Home','Über uns','Impressum'].map(l => (
+            <li key={l}><a href="#" style={{ color:'var(--nav-muted)', textDecoration:'none', fontSize:13, fontWeight:500, padding:'6px 12px', borderRadius:5, display:'block' }}>{l}</a></li>
+          ))}
+          <li style={{ position:'relative' }}>
+            <button onClick={() => setOpen(!open)} style={{ color:'var(--nav-muted)', background:'none', border:'none', fontSize:13, fontWeight:500, padding:'6px 12px', borderRadius:5, cursor:'pointer', display:'flex', alignItems:'center', gap:5 }}>
+              Portfolio <ChevronDown />
+            </button>
+            {open && (
+              <div style={{ position:'absolute', top:'calc(100% + 8px)', left:0, background:'var(--teal-dark)', border:'1px solid var(--nav-border)', borderRadius:10, padding:8, minWidth:220, boxShadow:'0 8px 32px rgb(0 0 0/.3)', zIndex:200 }}>
+                {SERVICES.map(s => (
+                  <a key={s} href="#" onClick={() => setOpen(false)} style={{ display:'block', padding:'8px 14px', color:'var(--nav-muted)', textDecoration:'none', fontSize:13, fontWeight:500, borderRadius:6 }}>{s}</a>
+                ))}
+              </div>
+            )}
+          </li>
+          <li><a href="#contact" style={{ color:'var(--nav-muted)', textDecoration:'none', fontSize:13, fontWeight:500, padding:'6px 12px', borderRadius:5 }}>Kontakt</a></li>
+          <li>
+            <a href="#contact" style={{ background:'var(--teal)', color:'#fff', fontFamily:'var(--font)', fontSize:13, fontWeight:700, padding:'8px 18px', borderRadius:6, textDecoration:'none', display:'inline-block' }}>
+              Jetzt informieren
+            </a>
+          </li>
+          <li>
+            <button onClick={onToggle} style={{ background:'none', border:'1px solid var(--nav-border)', borderRadius:5, width:32, height:32, display:'flex', alignItems:'center', justifyContent:'center', cursor:'pointer', color:'var(--nav-muted)', marginLeft:4 }}>
+              {dark ? <Sun /> : <Moon />}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
+/* ── HERO ── */
+function Hero() {
+  return (
+    <section style={{ background:'linear-gradient(160deg, var(--teal-subtle) 0%, var(--bg) 60%)', padding:'var(--sp-lg) 32px', borderBottom:'1px solid var(--border)' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'var(--gap-lg)', alignItems:'center' }}>
+        <div>
+          <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'var(--teal-subtle)', color:'var(--teal-text)', fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', padding:'4px 12px', borderRadius:100, border:'1px solid color-mix(in srgb,#305b75 25%,transparent)', marginBottom:28 }}>
+            <span style={{ width:6, height:6, borderRadius:'50%', background:'var(--teal)', opacity:.7, display:'inline-block' }}></span>
+            Digitalagentur Hamburg + Rostock
+          </div>
+          <h1 style={{ fontSize:'clamp(32px,4vw,48px)', fontWeight:800, lineHeight:1.1, letterSpacing:'-0.025em', color:'var(--text)', marginBottom:20, textWrap:'balance' }}>
+            Digital Agentur<br />anders gedacht
+          </h1>
+          <p style={{ fontSize:'clamp(15px,1.5vw,18px)', color:'var(--muted)', maxWidth:480, lineHeight:1.7, marginBottom:36 }}>
+            Wir verstehen Ihre Website als das Herzstück Ihrer Kommunikation. Persönlich und vorausschauend – für Praxen, Kanzleien und KMU.
+          </p>
+          <div style={{ display:'flex', gap:12, flexWrap:'wrap', alignItems:'center' }}>
+            <a href="#contact" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'var(--teal)', color:'#fff', fontFamily:'var(--font)', fontSize:15, fontWeight:700, padding:'13px 26px', borderRadius:10, textDecoration:'none', boxShadow:'0 2px 12px color-mix(in srgb,#305b75 35%,transparent)' }}>
+              Jetzt informieren <ArrowRight />
+            </a>
+            <a href="#portfolio" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'transparent', color:'var(--teal)', fontFamily:'var(--font)', fontSize:15, fontWeight:600, padding:'13px 26px', borderRadius:10, textDecoration:'none', border:'1.5px solid var(--teal)' }}>
+              Portfolio ansehen
+            </a>
+          </div>
+          <div style={{ display:'flex', gap:24, marginTop:40, flexWrap:'wrap' }}>
+            {[['30+','Jahre Erfahrung'],['Praxen','Kanzleien & KMU'],['Hamburg','& Rostock']].map(([n,l]) => (
+              <div key={n} style={{ display:'flex', flexDirection:'column', gap:2 }}>
+                <span style={{ fontWeight:800, fontSize:20, color:'var(--teal)', letterSpacing:'-0.02em' }}>{n}</span>
+                <span style={{ fontSize:12, color:'var(--muted)', fontWeight:500 }}>{l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ background:'linear-gradient(135deg, var(--teal-subtle) 0%, var(--sand-subtle) 100%)', borderRadius:16, aspectRatio:'4/3', display:'flex', alignItems:'center', justifyContent:'center', border:'1px solid var(--border)', position:'relative', overflow:'hidden' }}>
+          <div style={{ position:'absolute', top:24, left:24, right:24, bottom:24, display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+            <div style={{ background:'var(--card-bg)', borderRadius:10, padding:'16px 20px', boxShadow:'var(--card-shadow)', border:'1px solid var(--border)' }}>
+              <div style={{ fontSize:11, fontWeight:700, color:'var(--teal)', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:6 }}>Ihr Ansprechpartner</div>
+              <div style={{ fontWeight:700, fontSize:15, color:'var(--text)' }}>Nils Rudolph</div>
+              <div style={{ fontSize:12, color:'var(--muted)', fontWeight:500 }}>Geschäftsführer, Digital Avenue</div>
+            </div>
+            <div style={{ display:'flex', gap:8 }}>
+              {['Konzept','Web & Design','Content'].map(s => (
+                <div key={s} style={{ background:'var(--card-bg)', borderRadius:6, padding:'8px 12px', fontSize:11, fontWeight:600, color:'var(--text)', border:'1px solid var(--border)', flex:1, textAlign:'center' }}>{s}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── SERVICES ── */
+const SERVICE_ITEMS = [
+  { title:'Konzept', desc:'Gute Planung legt die Grundlage für erfolgreiche Projekte.', icon: <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg> },
+  { title:'Web & Design', desc:'Kommunikatives Design mit dem Kunden im Fokus.', icon: <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><path d="M5 13v1.5M11 13v1.5M3 15h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg> },
+  { title:'Content Creation', desc:'Content is King und wir sind die Königsmacher.', icon: <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M3 7h8M3 10h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg> },
+  { title:'Performance Marketing', desc:'Messbar und direkt zu den Kund:innen.', icon: <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M2 12l3.5-4 3 2.5 3-5 2.5 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg> },
+  { title:'Kommunikation', desc:'Chatbot, Messenger und Cloud — Kanäle, die funktionieren.', icon: <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M2 3h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H5l-3 2V4a1 1 0 0 1 1-1z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg> },
+  { title:'Hosting & E-Mail', desc:'Individuell, persönlich und schnell.', icon: <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.5"/><path d="M2 7l6 4.5L14 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg> },
+];
+
+function Services() {
+  const [hovered, setHovered] = React.useState(null);
+  return (
+    <section style={{ padding:'var(--sp-lg) 32px', background:'var(--bg)' }} id="portfolio">
+      <div style={{ maxWidth:1200, margin:'0 auto' }}>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'var(--teal-subtle)', color:'var(--teal-text)', fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', padding:'4px 12px', borderRadius:100, border:'1px solid color-mix(in srgb,#305b75 25%,transparent)', marginBottom:16 }}>Portfolio</div>
+        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:'var(--sp-md)', flexWrap:'wrap', gap:'var(--gap-md)' }}>
+          <h2 style={{ fontSize:'clamp(24px,3vw,36px)', fontWeight:800, letterSpacing:'-0.025em', color:'var(--text)', lineHeight:1.1 }}>Was wir für Sie tun</h2>
+          <p style={{ fontSize:16, color:'var(--muted)', maxWidth:400, lineHeight:1.65 }}>Wir entwickeln, planen, kreieren und pflegen Ihre digitale Kommunikation.</p>
+        </div>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'var(--gap-sm)' }}>
+          {SERVICE_ITEMS.map((s, i) => (
+            <div key={s.title}
+              style={{ background:'var(--card-bg)', border:'1px solid var(--border)', borderRadius:10, padding:'clamp(18px,2.5vw,28px)', boxShadow: hovered===i ? 'var(--card-hover)' : 'var(--card-shadow)', transform: hovered===i ? 'translateY(-2px)' : 'none', transition:'box-shadow .2s,transform .2s', cursor:'default' }}
+              onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}
+            >
+              <div style={{ width:44, height:44, background:'var(--teal-subtle)', borderRadius:9, display:'flex', alignItems:'center', justifyContent:'center', color:'var(--teal)', marginBottom:16 }}>{s.icon}</div>
+              <div style={{ fontWeight:700, fontSize:13, color:'var(--text)', marginBottom:8, letterSpacing:'.10em', textTransform:'uppercase' }}>{s.title}</div>
+              <div style={{ fontSize:14, color:'var(--muted)', lineHeight:1.65, marginBottom:16 }}>{s.desc}</div>
+              <a href="#" style={{ fontSize:13, fontWeight:600, color:'var(--teal)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:5 }}>Weiterlesen <ArrowRight /></a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── ABOUT ── */
+function About() {
+  return (
+    <section style={{ padding:'var(--sp-lg) 32px', background:'var(--bg-alt)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'var(--gap-lg)', alignItems:'center' }}>
+        <div>
+          <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'var(--plum-subtle)', color:'var(--plum-text)', fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', padding:'4px 12px', borderRadius:100, border:'1px solid color-mix(in srgb,#42253b 20%,transparent)', marginBottom:20 }}>Über uns</div>
+          <h2 style={{ fontSize:'clamp(24px,3vw,34px)', fontWeight:800, letterSpacing:'-0.025em', color:'var(--text)', lineHeight:1.15, marginBottom:20 }}>Wir halten Ihnen den Rücken frei</h2>
+          <p style={{ fontSize:16, color:'var(--muted)', lineHeight:1.7, marginBottom:16 }}>
+            Wir sind Ihre externe Digitalabteilung. Als persönlicher Partner für Praxen, Kanzleien und KMU nehmen wir Ihnen die Komplexität ab – von der kreativen PR bis zur technischen Infrastruktur.
+          </p>
+          <p style={{ fontSize:16, color:'var(--muted)', lineHeight:1.7, marginBottom:36 }}>
+            Die Digital Avenue ist das Ergebnis aus 30 Jahren Erfahrung im Content- und Internetbusiness.
+          </p>
+          <div style={{ display:'flex', gap:12 }}>
+            {['Praxen','Kanzleien','KMU','Ehrenamt'].map(t => (
+              <span key={t} style={{ display:'inline-flex', alignItems:'center', padding:'6px 14px', background:'var(--card-bg)', border:'1px solid var(--border)', borderRadius:100, fontSize:12, fontWeight:600, color:'var(--text)' }}>{t}</span>
+            ))}
+          </div>
+        </div>
+        <div style={{ display:'flex', flexDirection:'column', gap:16 }}>
+          <div style={{ background:'var(--card-bg)', border:'1px solid var(--border)', borderRadius:10, padding:'24px 28px', boxShadow:'var(--card-shadow)' }}>
+            <div style={{ fontWeight:700, fontSize:12, color:'var(--text)', letterSpacing:'.10em', textTransform:'uppercase', marginBottom:8 }}>Nils Rudolph</div>
+            <div style={{ fontSize:13, color:'var(--muted)', marginBottom:12 }}>Geschäftsführer — Digital Avenue UG</div>
+            <div style={{ fontSize:14, color:'var(--muted)', lineHeight:1.65 }}>
+              "Wir möchten eine Brücke schlagen, die auf der einen Seite die klassische Werbeagentur und auf der anderen den Internetdienstleister verbindet."
+            </div>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12 }}>
+            {[['Hamburg','Hauptstandort'],['Rostock','Zweiter Standort'],['Netleaders','Partner'],['Doctolib','Partner']].map(([n,l]) => (
+              <div key={n} style={{ background:'var(--card-bg)', border:'1px solid var(--border)', borderRadius:8, padding:'14px 16px', boxShadow:'var(--card-shadow)' }}>
+                <div style={{ fontWeight:700, fontSize:12, color:'var(--text)', letterSpacing:'.08em', textTransform:'uppercase' }}>{n}</div>
+                <div style={{ fontSize:11, color:'var(--muted)', fontWeight:500, marginTop:2 }}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── CONTACT ── */
+function Contact() {
+  const [sent, setSent] = React.useState(false);
+  return (
+    <section style={{ padding:'var(--sp-lg) 32px' }} id="contact">
+      <div style={{ maxWidth:700, margin:'0 auto', textAlign:'center', padding:'0 var(--sp-sm)' }}>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'var(--teal-subtle)', color:'var(--teal-text)', fontSize:11, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', padding:'4px 12px', borderRadius:100, border:'1px solid color-mix(in srgb,#305b75 25%,transparent)', marginBottom:20 }}>Kontakt</div>
+        <h2 style={{ fontSize:'clamp(24px,3vw,36px)', fontWeight:800, letterSpacing:'-0.025em', color:'var(--text)', lineHeight:1.1, marginBottom:16 }}>Wir beraten Sie gern</h2>
+        <p style={{ fontSize:16, color:'var(--muted)', lineHeight:1.7, marginBottom:48 }}>Kein Projekt ist wie das andere. Wir beraten Sie individuell und unverbindlich in einem ersten Informationsgespräch.</p>
+        <div style={{ display:'flex', justifyContent:'center', gap:'var(--gap-lg)', marginBottom:'var(--sp-md)', flexWrap:'wrap' }}>
+          <a href="tel:+494041343870" style={{ display:'flex', alignItems:'center', gap:10, textDecoration:'none', color:'var(--text)', fontWeight:600, fontSize:15 }}>
+            <span style={{ width:40, height:40, background:'var(--teal-subtle)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--teal)' }}><Phone /></span>
+            +49 (40) 41343870
+          </a>
+          <a href="mailto:post@digital-avenue.de" style={{ display:'flex', alignItems:'center', gap:10, textDecoration:'none', color:'var(--text)', fontWeight:600, fontSize:15 }}>
+            <span style={{ width:40, height:40, background:'var(--teal-subtle)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', color:'var(--teal)' }}><Mail /></span>
+            post@digital-avenue.de
+          </a>
+        </div>
+        {sent ? (
+          <div style={{ background:'var(--teal-subtle)', border:'1px solid color-mix(in srgb,#305b75 25%,transparent)', borderRadius:10, padding:'24px 32px', color:'var(--teal-text)', fontWeight:600, display:'flex', alignItems:'center', justifyContent:'center', gap:10 }}>
+            <Check /> Ihre Nachricht wurde gesendet — wir melden uns in Kürze!
+          </div>
+        ) : (
+          <div style={{ background:'var(--card-bg)', border:'1px solid var(--border)', borderRadius:12, padding:'32px', boxShadow:'var(--card-shadow)', textAlign:'left' }}>
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginBottom:16 }}>
+              {[['Name','Max Mustermann'],['E-Mail','max@praxis.de'],['Telefon','+49 …'],['Unternehmen','Ihre Praxis']].map(([l,p]) => (
+                <div key={l}>
+                  <label style={{ fontSize:12, fontWeight:600, color:'var(--muted)', display:'block', marginBottom:6 }}>{l}</label>
+                  <input placeholder={p} style={{ width:'100%', padding:'10px 14px', border:'1px solid var(--border)', borderRadius:7, background:'var(--bg)', color:'var(--text)', fontFamily:'var(--font)', fontSize:14, outline:'none' }} />
+                </div>
+              ))}
+            </div>
+            <div style={{ marginBottom:20 }}>
+              <label style={{ fontSize:12, fontWeight:600, color:'var(--muted)', display:'block', marginBottom:6 }}>Nachricht</label>
+              <textarea rows={3} placeholder="Erzählen Sie uns kurz von Ihrem Projekt…" style={{ width:'100%', padding:'10px 14px', border:'1px solid var(--border)', borderRadius:7, background:'var(--bg)', color:'var(--text)', fontFamily:'var(--font)', fontSize:14, outline:'none', resize:'vertical' }} />
+            </div>
+            <button onClick={() => setSent(true)} style={{ width:'100%', padding:'13px', background:'var(--teal)', color:'#fff', border:'none', borderRadius:8, fontFamily:'var(--font)', fontSize:15, fontWeight:700, cursor:'pointer', boxShadow:'0 2px 12px color-mix(in srgb,#305b75 35%,transparent)' }}>
+              Anfrage senden
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/* ── FOOTER ── */
+function Footer() {
+  return (
+    <footer style={{ background:'var(--nav-bg)', borderTop:'1px solid var(--nav-border)' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'2fr 1fr 1fr 1fr', gap:'var(--gap-lg)', padding:'var(--sp-md) 32px' }}>
+        <div>
+          <div style={{ marginBottom:16 }}>
+            <img src="../../assets/logo-digital-avenue-white.svg" alt="Digital Avenue" style={{ height:30, display:'block' }} />
+          </div>
+          <p style={{ fontSize:13, color:'var(--nav-muted)', lineHeight:1.7, maxWidth:260, marginBottom:20 }}>
+            Ihre externe Digitalabteilung für Praxen, Kanzleien und KMU — persönlich und vorausschauend.
+          </p>
+          <a href="#contact" style={{ display:'inline-flex', alignItems:'center', gap:7, background:'var(--teal)', color:'#fff', fontFamily:'var(--font)', fontSize:13, fontWeight:700, padding:'9px 16px', borderRadius:6, textDecoration:'none' }}>
+            Jetzt informieren
+          </a>
+        </div>
+        {[
+          { title:'Portfolio', links:['Konzept','Web & Design','Content Creation','Performance Marketing','Kommunikation','Hosting & E-Mail'] },
+          { title:'Partner', links:['Netleaders','Doctolib','Motopress','Schwimmlexikon','Elternfibel','Rostock Masters'] },
+          { title:'Kontakt', links:['Digital Avenue UG','+49 (40) 41343870','post@digital-avenue.de','Hamburg','Rostock'] },
+        ].map(col => (
+          <div key={col.title}>
+            <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.12em', textTransform:'uppercase', color:'var(--nav-text)', marginBottom:16 }}>{col.title}</div>
+            <ul style={{ listStyle:'none', display:'flex', flexDirection:'column', gap:9 }}>
+              {col.links.map(l => <li key={l}><a href="#" style={{ fontSize:13, color:'var(--nav-muted)', textDecoration:'none', fontWeight:500 }}>{l}</a></li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div style={{ borderTop:'1px solid var(--nav-border)', padding:'16px 32px' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+          <span style={{ fontSize:11, color:'#4a6a72' }}>Copyright © Digital Avenue UG (haftungsbeschränkt)</span>
+          <ul style={{ display:'flex', gap:20, listStyle:'none' }}>
+            {['Impressum','Datenschutz'].map(l => <li key={l}><a href="#" style={{ fontSize:11, color:'#4a6a72', textDecoration:'none' }}>{l}</a></li>)}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ── APP ── */
+function App() {
+  const [dark, setDark] = React.useState(false);
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.setAttribute('data-theme', next ? 'dark' : 'light');
+  };
+  return (
+    <>
+      <Nav dark={dark} onToggle={toggle} />
+      <Hero />
+      <Services />
+      <About />
+      <Contact />
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

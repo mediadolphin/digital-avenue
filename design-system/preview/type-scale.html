@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Type" name="Type Scale" subtitle="H1–H4, body, label, caption with Manrope" viewport="700x340" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:100 900; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:20px 24px; background:#f9f8f6; display:flex; flex-direction:column; gap:0; }
+.row { display:flex; align-items:baseline; gap:16px; padding:11px 0; border-bottom:1px solid #d9e3e8; }
+.row:last-child { border-bottom:none; }
+.meta { width:160px; flex-shrink:0; }
+.mn { font-size:10px; font-weight:700; color:#7796a6; letter-spacing:.08em; text-transform:uppercase; }
+.mv { font-size:10px; color:#c4b393; font-family:ui-monospace,'SF Mono',Menlo,monospace; }
+</style></head><body>
+<div class="row">
+  <div class="meta"><div class="mn">H1 · xl / 800</div><div class="mv">clamp(30px, 4vw, 44px)</div></div>
+  <div style="font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-0.025em;color:#19242b;line-height:1.15">Digital Agentur anders gedacht</div>
+</div>
+<div class="row">
+  <div class="meta"><div class="mn">H2 · lg / 700</div><div class="mv">clamp(22px, 3vw, 30px)</div></div>
+  <div style="font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-0.025em;color:#19242b;line-height:1.15">Was wir für Sie tun</div>
+</div>
+<div class="row">
+  <div class="meta"><div class="mn">H3 · h3 / 700</div><div class="mv">clamp(18px, 2vw, 21px)</div></div>
+  <div style="font-size:clamp(18px,2vw,21px);font-weight:700;letter-spacing:-0.015em;color:#19242b;line-height:1.35">Web &amp; Design</div>
+</div>
+<div class="row">
+  <div class="meta"><div class="mn">H4 · md / 600</div><div class="mv">clamp(17px, 1.4vw, 18px)</div></div>
+  <div style="font-size:clamp(17px,1.4vw,18px);font-weight:600;color:#19242b;line-height:1.35">Wir halten Ihnen den Rücken frei</div>
+</div>
+<div class="row">
+  <div class="meta"><div class="mn">Body · base / 400</div><div class="mv">clamp(15px, 1.1vw, 16px) · 1.65</div></div>
+  <div style="font-size:clamp(15px,1.1vw,16px);font-weight:400;line-height:1.65;color:#5a6e77;max-width:520px">Wir verstehen Ihre Website als das Herzstück Ihrer Kommunikation, das Marketing, PR und die dahinterliegende Technik vereint.</div>
+</div>
+<div class="row">
+  <div class="meta"><div class="mn">Body SM · sm / 400</div><div class="mv">clamp(13px, 1vw, 14px) · 1.65</div></div>
+  <div style="font-size:clamp(13px,1vw,14px);font-weight:400;line-height:1.65;color:#5a6e77">Ob Content-Service oder IT-Anbindung: Wir begleiten Sie persönlich und vorausschauend.</div>
+</div>
+<div class="row">
+  <div class="meta"><div class="mn">Label · xs / 700</div><div class="mv">clamp(11px, 0.8vw, 12px) · +0.12em</div></div>
+  <div style="font-size:clamp(11px,0.8vw,12px);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#305b75">Portfolio</div>
+</div>
+<div class="row">
+  <div class="meta"><div class="mn">Caption · 2xs / 500</div><div class="mv">clamp(10px, 0.7vw, 11px)</div></div>
+  <div style="font-size:clamp(10px,0.7vw,11px);font-weight:500;color:#7796a6">© Digital Avenue UG (haftungsbeschränkt)</div>
+</div>
+</body></html>

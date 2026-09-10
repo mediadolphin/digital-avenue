@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Cards" subtitle="Service cards — default, sand tint variants" viewport="700x280" --><html lang="de"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family:'Manrope'; src:url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2'); font-weight:100 900; font-display:swap; }
+body { font-family:'Manrope',sans-serif; margin:0; padding:20px 24px; background:#f9f8f6; display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; }
+.t { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7796a6; width:100%; margin-bottom:4px; }
+.card { background:#fff; border:1px solid #d9e3e8; border-radius:10px; padding:24px; box-shadow:0 1px 4px rgb(0 0 0/.05),0 4px 16px rgb(0 0 0/.06); width:210px; }
+.card-icon { width:40px; height:40px; background:#e7eff3; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; color:#305b75; }
+.card-title { font-size:15px; font-weight:700; color:#19242b; margin-bottom:6px; letter-spacing:-.01em; }
+.card-body { font-size:13px; color:#5a6e77; line-height:1.6; }
+.card-link { font-size:13px; font-weight:600; color:#305b75; text-decoration:none; margin-top:12px; display:inline-flex; align-items:center; gap:4px; }
+.card-sand { background:#f6f2ea; border-color:#d7c9aa; }
+.card-dark { background:#1b3a4a; border-color:#264350; }
+</style></head><body>
+<div class="t">Service Card — Default</div>
+<div class="card">
+  <div class="card-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg></div>
+  <div class="card-title">Konzept</div>
+  <div class="card-body">Gute Planung legt die Grundlage für erfolgreiche Projekte.</div>
+  <a class="card-link">Weiterlesen →</a>
+</div>
+<div class="card">
+  <div class="card-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 13v1.5M11 13v1.5M3 15h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+  <div class="card-title">Web &amp; Design</div>
+  <div class="card-body">Kommunikatives Design mit dem Kunden im Fokus.</div>
+  <a class="card-link">Weiterlesen →</a>
+</div>
+<div class="t">Service Card — Sand Tint</div>
+<div class="card card-sand">
+  <div class="card-icon" style="background:#d7c9aa22;color:#7a6845"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.6 3.5L8 10l-3.1 1.5.6-3.5L3 5.5 6.5 5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+  <div class="card-title">Performance Marketing</div>
+  <div class="card-body">Messbar und direkt zu den Kund:innen.</div>
+  <a class="card-link" style="color:#7a6845">Weiterlesen →</a>
+</div>
+</body></html>
