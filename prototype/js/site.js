@@ -26,6 +26,7 @@
     });
     drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
     window.addEventListener('resize', function () { if (window.innerWidth > 960) closeDrawer(); });
+    if (/drawer/.test(location.search)) burger.click();
   }
 
   /* Zielgruppen-Umschalter (Startseite) */

@@ -821,7 +821,8 @@ dialog.check-dialog.sent .form-success { display: block; }
       <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg class="icon icon-20"><use href="#i-menu"/></svg></button>
     </div>
   </div>
-  <div class="nav-drawer" id="drawer">
+</header>
+<div class="nav-drawer" id="drawer">
     <nav aria-label="Mobile Navigation">
       <a href="#start" data-page="start">Start</a>
       <a href="#start/leistungen">Leistungen</a>
@@ -836,7 +837,6 @@ dialog.check-dialog.sent .form-success { display: block; }
       <span>post@digital-avenue.de</span>
     </div>
   </div>
-</header>
 
 <div class="route" data-route="start" data-title="Digitalagentur Hamburg & Rostock für Praxen, Kanzleien, Mittelstand" hidden><main id="main">
 
@@ -1695,6 +1695,7 @@ dialog.check-dialog.sent .form-success { display: block; }
     });
     drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
     window.addEventListener('resize', function () { if (window.innerWidth > 960) closeDrawer(); });
+    if (/drawer/.test(location.search)) burger.click();
   }
 
   /* Zielgruppen-Umschalter (Startseite) */
