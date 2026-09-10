@@ -1,0 +1,143 @@
+{
+ "note": "Higgsfield-Motive (Soul 2.0) für den Prototyp. fetch.py lädt und verkleinert sie per GitHub Actions.",
+ "images": [
+  {
+   "name": "m01-praxis-inhaberin-fenster",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091010_8d25d345-ff7b-489c-880b-5c0614a934b3.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m02-praxis-inhaberin-tresen",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_6c33d002-526b-4aff-be15-a874e75a7d8a.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m03-anwalt-schreibtisch",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_fb92d6ac-783a-44a6-a0a5-13e7a7dddb13.png",
+   "width": 1200,
+   "quality": 80
+  },
+  {
+   "name": "m04-anwalt-fenster",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_0f23763d-3a10-4c9f-b352-426f35862daa.png",
+   "width": 1200,
+   "quality": 80
+  },
+  {
+   "name": "m05-unternehmerin-halle-gehend",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_85d2b04f-9ab0-45e9-99c2-e20f3fa754cb.png",
+   "width": 1200,
+   "quality": 80
+  },
+  {
+   "name": "m06-unternehmerin-halle-stehend",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_119a9fe0-5b3d-4951-8e62-fd2367cf4378.png",
+   "width": 1200,
+   "quality": 80
+  },
+  {
+   "name": "m07-hamburg-hafen-morgen",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_298a8f15-f86c-4dae-9eba-589432fdcaa2.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m08-ostsee-warnemuende",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_146d5aae-efa6-4879-a226-56d93ac4d9b7.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m09-arzt-sprechzimmer-lachend",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_5adca145-7a16-4b4c-a048-fbf84655bb9d.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m10-aerztin-sprechzimmer-fenster",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_58ff129d-4765-4670-9138-b05b6573b62c.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m11-praxis-empfang-telefon",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_00a0a671-0999-43f2-aa45-7e60e12dfdfb.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m12-arzt-feierabend",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_090555_2e0038e1-fff2-4d91-b03d-fd8e86cb78ca.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m13-anwaeltin-fenster",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091011_c28d17c6-3fbd-45b0-b828-4ae8df98a953.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m14-anwaeltin-tisch",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091011_57a87d19-7811-4087-a4ab-40557ee0b4ac.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m15-kanzlei-partner-gespraech",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091138_afa3a351-268f-4f92-90c1-cecb7f01b186.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m16-kanzlei-fueller-detail",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091138_c870fd80-8786-4c91-a122-b169643ba36e.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m17-unternehmer-vor-firma",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091010_989b0038-63cc-4fa2-b12f-5e5666a22699.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m18-unternehmer-ladetor",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091139_740ad578-22b4-4a04-8cd7-a0965eccbe53.png",
+   "width": 1800,
+   "quality": 80
+  },
+  {
+   "name": "m19-mittelstand-teammeeting",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091139_ac0459b8-88d9-472a-b6a6-6e76e8b0ee25.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m20-unternehmerin-telefon",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091533_d0f5f139-43ca-4c17-994e-dbdef7939cbd.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m21-praxis-inhaberin-kalender",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091534_2ea46dcc-3b45-44e5-9b35-0672200e7ff3.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m22-aerztin-patient",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091534_4aa8d54c-971d-447b-a89f-b88d18443b42.png",
+   "width": 1400,
+   "quality": 80
+  },
+  {
+   "name": "m23-anwalt-mandantin-flur",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_091533_9cf77f11-7d9a-4c7e-b14d-cc31127da21a.png",
+   "width": 1400,
+   "quality": 80
+  }
+ ]
+}
