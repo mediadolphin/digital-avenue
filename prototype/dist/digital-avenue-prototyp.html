@@ -491,12 +491,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .mosaic-tile {
   position: relative; border-radius: var(--da-r-lg); overflow: hidden;
-  background: var(--da-teal-dark); color: inherit; text-decoration: none;
+  background: transparent; color: inherit; text-decoration: none;
   box-shadow: var(--da-shadow-md); display: flex; flex-direction: column; justify-content: flex-end;
   transition: transform var(--da-t), box-shadow var(--da-t);
 }
 a.mosaic-tile:hover { transform: translateY(-3px); box-shadow: var(--da-shadow-lg); }
-.mosaic-tile img { position: absolute; inset: -1px; width: calc(100% + 2px); height: calc(100% + 2px); object-fit: cover; transition: transform 0.7s ease; }
+.mosaic-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; transition: transform 0.7s ease; }
 a.mosaic-tile:hover img { transform: scale(1.03); }
 .mosaic-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--da-teal-deeper) 55%, transparent) 100%); pointer-events: none; }
 .mosaic-tile .service-card, .mosaic-tile .mosaic-chip { position: relative; z-index: 2; }
@@ -588,8 +588,8 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
   animation: fade 0.35s ease both;
 }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-.audience figure { margin: 0; border-radius: var(--da-r-xl); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--da-shadow-lg); background: var(--da-teal-dark); }
-.audience figure img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.01); }
+.audience figure { margin: 0; border-radius: var(--da-r-xl); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--da-shadow-lg); background: transparent; }
+.audience figure img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 .audience h3 { font-size: clamp(24px, 2.6vw, 34px); letter-spacing: -0.025em; line-height: 1.15; }
 .audience .lead { margin-top: var(--da-sp-4); color: var(--da-muted); font-size: var(--da-text-md); }
 .checks { margin-top: var(--da-sp-6); display: flex; flex-direction: column; gap: var(--da-sp-3); }
@@ -608,8 +608,8 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
   transition: transform var(--da-t), box-shadow var(--da-t);
 }
 .tile:hover { transform: translateY(-3px); box-shadow: var(--da-card-hover); }
-.tile-photo { padding: 0; border: 0; background: var(--da-teal-dark); }
-.tile-photo img { width: calc(100% + 2px); height: calc(100% + 2px); object-fit: cover; position: absolute; inset: -1px; transition: transform 0.6s ease; }
+.tile-photo { padding: 0; border: 0 !important; background: transparent !important; box-shadow: none; }
+.tile-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; border-radius: inherit; transition: transform 0.6s ease; }
 .tile-photo:hover img { transform: scale(1.03); }
 .tile-num { font-size: var(--da-text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--da-sand-text); }
 .tile h3 { font-size: clamp(20px, 1.8vw, 24px); letter-spacing: -0.02em; line-height: 1.2; margin-top: 10px; }
@@ -679,8 +679,8 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .lp-hero h1 strong { font-weight: inherit; color: var(--da-teal); }
 .lp-hero .lead { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: var(--da-muted); max-width: 52ch; margin-bottom: var(--da-sp-8); }
 .lp-hero-ctas { display: flex; gap: var(--da-sp-3); flex-wrap: wrap; }
-.lp-hero figure { margin: 0; position: relative; border-radius: var(--da-r-xl); overflow: hidden; aspect-ratio: 4 / 5; max-width: 520px; justify-self: end; width: 100%; box-shadow: var(--da-shadow-lg); background: var(--da-teal-dark); }
-.lp-hero figure img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.01); }
+.lp-hero figure { margin: 0; position: relative; border-radius: var(--da-r-xl); overflow: hidden; aspect-ratio: 4 / 5; max-width: 520px; justify-self: end; width: 100%; box-shadow: var(--da-shadow-lg); background: transparent; }
+.lp-hero figure img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 .lp-hero figure .service-card { position: absolute; left: var(--da-sp-5); right: var(--da-sp-5); bottom: var(--da-sp-5); }
 @media (max-width: 880px) { .lp-hero .wrap { grid-template-columns: 1fr; gap: var(--da-sp-10); } .lp-hero figure { justify-self: stretch; max-width: none; aspect-ratio: 4 / 3; } }
 
@@ -694,8 +694,8 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 /* ── Feature-Liste zweispaltig mit Bild ────────────────────── */
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: var(--da-sp-16); align-items: center; }
 .feature.flip figure { order: -1; }
-.feature figure { margin: 0; border-radius: var(--da-r-xl); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--da-shadow-lg); background: var(--da-teal-dark); }
-.feature figure img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.01); }
+.feature figure { margin: 0; border-radius: var(--da-r-xl); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--da-shadow-lg); background: transparent; }
+.feature figure img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 .feature h2 { margin-top: var(--da-sp-4); font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.03em; line-height: 1.1; }
 .feature .lead { margin-top: var(--da-sp-4); font-size: var(--da-text-md); color: var(--da-muted); }
 @media (max-width: 880px) { .feature { grid-template-columns: 1fr; gap: var(--da-sp-8); } .feature.flip figure { order: 0; } }
@@ -707,7 +707,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .concierge h2 { margin-top: var(--da-sp-4); color: #fff; font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.03em; line-height: 1.1; }
 .concierge p { margin-top: var(--da-sp-4); color: color-mix(in srgb, #fff 78%, transparent); font-size: var(--da-text-md); line-height: 1.6; }
 .concierge-visual { position: relative; min-height: 360px; }
-.concierge-visual img { position: absolute; inset: -1px; width: calc(100% + 2px); height: calc(100% + 2px); object-fit: cover; }
+.concierge-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .concierge-visual .service-card { position: absolute; left: var(--da-sp-6); right: var(--da-sp-6); bottom: var(--da-sp-6); }
 .timeline { margin-top: var(--da-sp-8); display: flex; flex-direction: column; gap: 0; }
 .timeline li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; padding-block: 12px; border-top: 1px solid color-mix(in srgb, #fff 12%, transparent); font-size: var(--da-text-sm); color: color-mix(in srgb, #fff 80%, transparent); line-height: 1.5; }
