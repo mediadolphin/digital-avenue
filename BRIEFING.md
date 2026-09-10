@@ -166,3 +166,14 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 - Offen im Prototyp, als Platzhalter markiert: Adresse im Footer, Konditionen des
   Digital-Checks, Referenz-Beschreibungen, Kanzlei-Referenz, Kundenstimmen,
   Preismodell und Reaktionszeiten in den FAQ, Datenschutzhinweis im Formular.
+
+## H1 und SEO (Entscheidung 10.09.2026)
+
+- Startseiten-H1 nach Variante 3 (Hybrid): "Ihre Digitalagentur in Hamburg und
+  Rostock. Damit alles Digitale läuft und Sie den Kopf frei haben." Eyebrow
+  "Für Praxen, Kanzleien und Mittelstand". Title-Tag "Digitalagentur Hamburg &
+  Rostock für Praxen, Kanzleien, Mittelstand".
+- Vor dem Launch: alle Keywords auf Basis einer echten Keyword-Recherche
+  optimieren (Search Console der Live-Site, Keyword-Planer). Die Landingpages
+  sind die SEO-Träger; ihre H1 sollen dann die konkreten Begriffe tragen
+  (z. B. "Website, Telefonanlage und Terminbuchung für Ihre Arztpraxis").

@@ -114,8 +114,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero .wrap { position: relative; }
 .hero h1 {
   margin: var(--da-sp-5) auto var(--da-sp-6);
-  max-width: 16ch;
-  font-size: clamp(38px, 6vw, 76px); font-weight: 600; line-height: 1.04; letter-spacing: -0.035em;
+  max-width: 24ch;
+  font-size: clamp(32px, 4.6vw, 60px); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em;
 }
 .hero h1 strong { font-weight: 800; color: var(--da-teal); }
 .hero .lead { max-width: 58ch; margin: 0 auto var(--da-sp-8); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: var(--da-muted); }
