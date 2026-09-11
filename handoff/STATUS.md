@@ -13,11 +13,10 @@ Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45
 
 Bricks-Version: Ziel ist 2.4 (RC2, wir warten auf das Final). Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
 
-Betriebskonzept (MCP, Meta Box, CPTs): `handoff/BETRIEBSKONZEPT-MCP.md`. Datenmodell als Plugin: `wordpress/plugins/da-content-model/` (v0.1.0, noch nicht am Staging aktiviert).
+Betriebskonzept (MCP, Meta Box, CPTs): `handoff/BETRIEBSKONZEPT-MCP.md`. Datenmodell (CPTs, Felder) am 11.09.2026 zurückgestellt: erst Grundparameter, Theme Style, Icons und Components, dann Felder aus den fertigen Templates ableiten.
 
 ## Nächste Schritte
 
-0. Plugin `da-content-model` am Staging aktivieren, Beispiel-Einträge anlegen, Dynamic-Data-Tags auslesen.
 0. MCP-Verbindung lokal testen („Liste die verfügbaren Bricks-Abilities“). Das kompromittierte Anwendungspasswort vorher widerrufen. Die Cloud-Umgebung braucht zusätzlich die Freigabe der Staging-Domain in der Netzwerkrichtlinie.
 1. Dunkel-Logos (Digital Avenue vorhanden, Referenzlogos fehlen) beschaffen.
 2. Palette und Variablen in eine Staging-Installation importieren, Ergebnis mit `export/tokens-report.md` vergleichen.

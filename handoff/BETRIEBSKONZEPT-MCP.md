@@ -168,11 +168,20 @@ Paket in die Produktion importiert (`inspect-transfer-package` vor
 5. Offen: Dynamic-Data-Form für die Meta-Box-Settings-Page am Staging
    verifizieren.
 
-## 7. Nächste Schritte
+## 7. Änderung 11.09.2026: Datenmodell zurückgestellt
 
-1. Plugin `wordpress/plugins/da-content-model/` (fertig, v0.1.0) am
-   Staging hochladen und aktivieren; Post-Typen für Bricks freischalten.
-2. Beispiel-Einträge anlegen, `list-dynamic-data-tags` auslesen, Tags in
-   `handoff/STATUS.md` festhalten.
-3. Aufbau nach Abschnitt 4 starten, Hero als erste Probe für den
-   HTML-Import.
+Das Plugin `da-content-model` wurde wieder entfernt (in der Git-Historie
+abrufbar). Grund: Felder müssen sich nach dem Template richten, ein Feld je
+Stelle, an der Bricks ein Element setzt. Deshalb entstehen zuerst
+Grundparameter, Theme Style, Icons und Components; die Felder je Post-Typ
+werden danach aus den fertigen Templates abgeleitet. Die Entscheidungen zu
+CPTs in Abschnitt 3 bleiben als Richtung bestehen.
+
+## 8. Nächste Schritte
+
+1. Grundparameter: Farben (hell/dunkel), Schriften, Variablen, Klassen
+   für Text, Abstände, Radien, Formulare.
+2. Icons in den Icon-Manager.
+3. Theme Style als Basis.
+4. Components für wiederkehrende Elemente.
+5. Templates bauen, daraus Felder ableiten, Datenmodell neu anlegen.
