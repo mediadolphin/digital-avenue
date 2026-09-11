@@ -23,3 +23,5 @@ Merkregeln zum Nachschlagen: `handoff/MERKREGELN.md`. Importdaten für den Aufba
 1. Dunkel-Logos (Digital Avenue vorhanden, Referenzlogos fehlen) beschaffen.
 2. Palette und Variablen in eine Staging-Installation importieren, Ergebnis mit `export/tokens-report.md` vergleichen.
 3. Erste Global Classes anlegen (Buttons, Eyebrow, Karten) und gegen den Prototyp prüfen.
+
+Nachtrag 11.09.2026 (abends): Startseite um die Section „Für wen“ mit Bricks-Tabs (Klasse `tabs`), Abschnittskopf (`section-head center`) und Component „Zielgruppen-Panel“ (`28c728`) ergänzt. Glas-Deckkraft auf 0.84/0.86 mit stärkerem Blur eingependelt.

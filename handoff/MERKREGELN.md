@@ -103,8 +103,21 @@ Container.
 
 **Nestable-Kinder tragen ihre Rolle in `_hidden._cssClasses`.**
 (11.09.2026) Accordion: `accordion-title-wrapper` und
-`accordion-content-wrapper`; Dropdown: `brx-dropdown-content`. Ohne diese
-Klassen läuft das Bricks-Skript nicht.
+`accordion-content-wrapper`; Dropdown: `brx-dropdown-content`; Tabs:
+`tab-menu`, `tab-title`, `tab-content`, `tab-pane`. Ohne diese Klassen
+läuft das Bricks-Skript nicht.
+
+**Controls mit Bricks-Vorgabewerten am Element setzen, nicht in der Klasse.**
+(11.09.2026) Tabs und Accordion bringen Vorgaben mit (Padding 20px,
+Aktiv-Hintergrund, Content-Rahmen), die Bricks mit ID-Selektor ausgibt.
+Eine Klasse kann sie nicht überschreiben. Deshalb genau diese Controls am
+Element auf die gewünschten Werte setzen und alles Übrige in der Klasse
+lassen (Beispiel: `tabs` auf dem Zielgruppen-Umschalter).
+
+**Component-Instanzen liegen im Nestable-Kind, sind nicht selbst das Kind.**
+(11.09.2026) Ein `tab-pane` bleibt ein einfacher Block, die Component
+(z. B. Zielgruppen-Panel) steckt darin. So kollidiert das `display` der
+Component nicht mit dem Ein- und Ausblenden von Bricks.
 
 **Media-Queries in Klassen brauchen die Element-Klasse im Selektor.**
 (11.09.2026) Bricks erzeugt aus den Controls eine Regel wie

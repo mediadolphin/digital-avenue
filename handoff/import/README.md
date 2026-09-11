@@ -404,6 +404,42 @@ Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den
 Components (Mosaik, Kacheln, Schritte, Referenzen, Kundenstimmen,
 Digital-Check), Popup Digital-Check mit Formular.
 
+## Schritt 10: Zielgruppen-Umschalter (Tabs) auf der Startseite
+
+Stand 11.09.2026: Section „Für wen“ (`#fuer-wen`, Klasse `section`) ›
+Container › Abschnittskopf (Div mit `section-head` `dasecti02` + neuem
+Modifier `center` `centr1`: Eyebrow, H2, Copy) › Bricks-Element
+**Tabs (Nestable)** `fwtabs` mit Klasse `tabs` (`tabs01`).
+
+Aufbau des Tabs-Elements (Bricks-Konvention, Rollen in
+`_hidden._cssClasses`): Block `tab-menu` › drei Divs `tab-title` (je ein
+Text-Span) und Block `tab-content` › drei Blocks `tab-pane` (mit `_cssId`
+`tab-praxen`, `tab-kanzleien`, `tab-mittelstand`). Bricks setzt `brx-open`
+auf Titel und Panel, `openTab: "0"` öffnet das erste Panel.
+
+Die Steuerungen mit Bricks-Vorgabewerten (`titlePadding`, `contentPadding`,
+`contentBorder`, `titleActiveBackgroundColor`, `titleActiveTypography`)
+stehen bewusst am Element, weil Bricks die Vorgaben mit ID-Selektor
+ausgibt und Klassen sie sonst nicht überschreiben könnten. Alles Übrige
+(Pillen-Optik, Hover, Aktivfarbe, Mobil-Verhalten) liegt in der Klasse
+`tabs` mit Selektoren `.tabs.brxe-tabs-nested > .tab-menu …`.
+
+Jedes Panel enthält eine Instanz der neuen Component **Zielgruppen-Panel**
+(`28c728`, Kategorie Abschnitte, Root-Klasse `audience` `audnc1`):
+Figure mit Bild, rechts H3, Lead (`.lead`), `ul.checks` (Slot `fc3fdf`
+mit Service-Punkt-Instanzen, Text darf `<strong>` enthalten) und
+Textlink. Properties: Bild, Alt-Text, Titel, Lead, Linktext, Link.
+Bilder: Praxen 77 (m22), Kanzleien 76 (m23), Mittelstand 79 (m20).
+
+Das Panel ist absichtlich nicht selbst der `tab-pane`, sondern liegt
+darin: So bleibt `display: grid` der Component von Bricks' Ein-/Aus-
+blenden (`.tab-pane.brx-open`) unberührt; die Einblend-Animation hängt an
+`.tab-pane.brx-open > .audience`.
+
+`add-element` nimmt einen ganzen verschachtelten Teilbaum inklusive
+Component-Instanzen mit `slotChildren: {slotId: [Kinder]}` an, eigene
+6-stellige IDs werden übernommen.
+
 ## Danach
 
 Header und Footer als Templates, dann Seiten per
