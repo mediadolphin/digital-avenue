@@ -390,9 +390,11 @@ Label und Wortmarken (`wordmark`, `wide`, `serif`). Bilder für Partner-
 Logos später einfach als Image statt Wortmarke.
 
 Nachjustiert (11.09.2026): Glas-Effekt war zu deckend. Paletten-
-farben `da_glass` (hell 0.72, dunkel 0.72), `da_glass_border` (hell 0.55)
-und `da_glass_sand` (hell 0.78, dunkel 0.78) per `bricks/update-color`
-gesenkt; Tokens in `design-system/colors_and_type.css` gleich. Service-
+farben `da_glass` (hell 0.84, dunkel 0.84), `da_glass_border` (hell 0.55)
+und `da_glass_sand` (hell 0.86, dunkel 0.86) per `bricks/update-color`
+gesenkt (0.72 war zu durchsichtig für den Lesbarkeitstest), dafür
+Blur der Service-Karte auf `blur(24px) saturate(1.4)` erhöht; Tokens in
+`design-system/colors_and_type.css` gleich. Service-
 Karte: Selektor `.sc-title` hat jetzt `line-height: 1.3` (vorher erbte
 der Titel die Absatz-Zeilenhöhe).
 

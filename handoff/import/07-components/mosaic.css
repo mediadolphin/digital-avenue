@@ -211,8 +211,8 @@ a.mosaic-tile:hover img {
 
 .service-card {
   background: var(--da-glass);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
   border: 1px solid var(--da-glass-border);
   border-radius: var(--da-r-lg);
   padding: var(--da-sp-5);
@@ -249,6 +249,7 @@ a.mosaic-tile:hover img {
   font-size: var(--da-text-base);
   font-weight: 700;
   letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .service-card ul {

@@ -41,9 +41,9 @@ Halbtransparente Werte (rgb mit Alpha) sind Schatten- und Glasfarben; sie schalt
 | `var(--da-teal-glow)` | `rgb(48 91 117 / 0.35)` | `rgb(77 138 160 / 0.30)` |  |
 | `var(--da-teal-glow-strong)` | `rgb(48 91 117 / 0.45)` | `rgb(77 138 160 / 0.40)` |  |
 | `var(--da-nav-shadow)` | `rgb(0 0 0 / 0.04)` | `rgb(0 0 0 / 0.35)` |  |
-| `var(--da-glass)` | `rgb(255 255 255 / 0.72)` | `rgb(29 51 64 / 0.72)` |  |
+| `var(--da-glass)` | `rgb(255 255 255 / 0.84)` | `rgb(29 51 64 / 0.84)` |  |
 | `var(--da-glass-border)` | `rgb(255 255 255 / 0.55)` | `rgb(41 70 83 / 0.70)` |  |
-| `var(--da-glass-sand)` | `rgb(246 242 234 / 0.78)` | `rgb(42 35 24 / 0.78)` |  |
+| `var(--da-glass-sand)` | `rgb(246 242 234 / 0.86)` | `rgb(42 35 24 / 0.86)` |  |
 | `var(--da-chip-bg)` | `rgb(255 255 255 / 0.88)` | `rgb(29 51 64 / 0.84)` |  |
 | `var(--da-chip-text)` | `#1b3a4a` | `#ede9e0` |  |
 | `var(--da-step-bg)` | `#e7eff3` | `rgb(77 138 160 / 0.24)` |  |

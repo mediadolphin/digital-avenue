@@ -257,8 +257,8 @@
     {
       "id": "da_glass",
       "raw": "var(--da-glass)",
-      "light": "rgb(255 255 255 / 0.72)",
-      "dark": "rgb(29 51 64 / 0.72)",
+      "light": "rgb(255 255 255 / 0.84)",
+      "dark": "rgb(29 51 64 / 0.84)",
       "darkModeEnabled": true
     },
     {
@@ -271,8 +271,8 @@
     {
       "id": "da_glass_sand",
       "raw": "var(--da-glass-sand)",
-      "light": "rgb(246 242 234 / 0.78)",
-      "dark": "rgb(42 35 24 / 0.78)",
+      "light": "rgb(246 242 234 / 0.86)",
+      "dark": "rgb(42 35 24 / 0.86)",
       "darkModeEnabled": true
     },
     {

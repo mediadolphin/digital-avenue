@@ -219,7 +219,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 /* Service-Karte (auf Fotos, in Hero-Figuren) */
 .service-card {
   background: var(--da-glass);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4);
   border: 1px solid var(--da-glass-border);
   border-radius: var(--da-r-lg); padding: var(--da-sp-5);
   box-shadow: var(--da-shadow-md); color: var(--da-text);
