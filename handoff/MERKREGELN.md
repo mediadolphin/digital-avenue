@@ -104,6 +104,6 @@ Unterseiten in der Plesk-404, während `?rest_route=` und `?p=` weiter
 gehen. Abhilfe: Standard-`.htaccess` von WordPress anlegen (Block
 `# BEGIN WordPress` mit den Rewrite-Regeln), dann Permalinks einmal
 speichern. Erkennungszeichen: eine HTML-Fehlerseite des Hosters statt einer
-JSON-Antwort von WordPress. Die MCP-Adresse in `.mcp.json` bleibt bei
-`index.php?rest_route=`, weil sie unabhängig von Rewrite-Regeln
-funktioniert.
+JSON-Antwort von WordPress. Die MCP-Adresse in `.mcp.json` ist die dokumentierte Form
+`/wp-json/mcp/mcp-adapter-default-server`; sie setzt funktionierende
+Rewrite-Regeln voraus.

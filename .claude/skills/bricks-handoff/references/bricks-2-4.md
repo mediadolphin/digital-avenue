@@ -9,7 +9,9 @@ ersten Einsatz am Staging verifizieren.
 
 - Bricks stellt Builder-Aktionen über die WordPress Abilities API und den
   WordPress MCP Adapter bereit. Endpunkt (am Staging bestätigt):
-  `https://<site>/index.php?rest_route=/mcp/mcp-adapter-default-server`.
+  `https://<site>/wp-json/mcp/mcp-adapter-default-server` (setzt
+  funktionierende Permalinks voraus; `index.php?rest_route=` ist nur eine
+  Notlösung und kann die Brücke verwirren).
   Der Client spricht ihn nicht direkt an, sondern über die stdio-Brücke
   `@automattic/mcp-wordpress-remote` (npx), die Benutzer und Passwort aus der
   Prozessumgebung liest (`WP_API_URL`, `WP_API_USERNAME`, `WP_API_PASSWORD`).
@@ -40,7 +42,7 @@ Desktop-App), Vorlage in `.mcp.json` im Projekt:
       "command": "npx",
       "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
       "env": {
-        "WP_API_URL": "https://<site>/index.php?rest_route=/mcp/mcp-adapter-default-server",
+        "WP_API_URL": "https://<site>/wp-json/mcp/mcp-adapter-default-server",
         "WP_API_USERNAME": "${WP_API_USERNAME}",
         "WP_API_PASSWORD": "${WP_API_PASSWORD}"
       }
