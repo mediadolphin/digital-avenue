@@ -1,0 +1,130 @@
+.mosaic-tile .service-card {
+  position: relative;
+  z-index: 2;
+  margin: var(--da-sp-4);
+}
+
+.mosaic-card-head .sc-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--da-sand-text);
+}
+
+.mosaic-card-head .sc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--da-teal);
+}
+
+.mosaic-kanzlei .service-card {
+  padding: var(--da-sp-4);
+  margin: var(--da-sp-3);
+}
+
+.mosaic-mittelstand .service-card {
+  padding: var(--da-sp-4);
+  margin: var(--da-sp-3);
+}
+
+.mosaic-kanzlei .sc-title {
+  font-size: var(--da-text-sm);
+}
+
+.mosaic-mittelstand .sc-title {
+  font-size: var(--da-text-sm);
+}
+
+.service-card {
+  background: color-mix(in srgb, #fff 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, #fff 60%, transparent);
+  border-radius: var(--da-r-lg);
+  padding: var(--da-sp-5);
+  box-shadow: var(--da-shadow-md);
+  color: var(--da-text);
+}
+
+.service-card .sc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.service-card .sc-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--da-sand-text);
+}
+
+.service-card .sc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--da-success);
+}
+
+.service-card .sc-title {
+  font-size: var(--da-text-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.service-card ul {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-card li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: var(--da-text-sm);
+  color: var(--da-muted);
+  line-height: 1.4;
+}
+
+.service-card li .icon {
+  margin-top: 2px;
+  color: var(--da-teal);
+}
+
+.service-card.sand {
+  background: color-mix(in srgb, var(--da-sand-subtle) 94%, transparent);
+}
+
+:root[data-brx-theme="dark"] .service-card {
+  background: color-mix(in srgb, var(--da-card-bg) 90%, transparent);
+  border-color: color-mix(in srgb, var(--da-border) 70%, transparent);
+}
+
+:root[data-brx-theme="dark"] .service-card.sand {
+  background: color-mix(in srgb, var(--da-sand-subtle) 92%, transparent);
+}
+
+.lp-hero figure .service-card {
+  position: absolute;
+  left: var(--da-sp-5);
+  right: var(--da-sp-5);
+  bottom: var(--da-sp-5);
+}
+
+.concierge-visual .service-card {
+  position: absolute;
+  left: var(--da-sp-6);
+  right: var(--da-sp-6);
+  bottom: var(--da-sp-6);
+}

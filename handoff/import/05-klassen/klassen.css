@@ -1,0 +1,365 @@
+/* ── section: Section-Innenabstand groß ── */
+.section {
+  padding-block: var(--da-sp-20);
+}
+
+/* ── section-sm: Section-Innenabstand klein ── */
+.section-sm {
+  padding-block: var(--da-sp-16);
+}
+
+/* ── section-head: Abschnittskopf mit Eyebrow, H2, Lead; Modifier center ── */
+.section-head {
+  max-width: 62ch;
+  margin-bottom: var(--da-sp-12);
+}
+
+.section-head h2 {
+  margin-top: var(--da-sp-4);
+  font-size: clamp(28px, 3.4vw, 44px);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.section-head p {
+  margin-top: var(--da-sp-5);
+  font-size: var(--da-text-md);
+  color: var(--da-muted);
+}
+
+/* ── split: Zweispaltiges Grid, mobil einspaltig ── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--da-sp-16);
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: var(--da-sp-10);
+  }
+}
+
+/* ── da-eyebrow: Eyebrow mit Linie, Versalien, Jost ── */
+.da-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--da-teal-text);
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;
+}
+
+.da-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.on-dark .da-eyebrow {
+  color: var(--da-sand);
+}
+
+/* ── on-dark: Modifier: Eyebrow und Ghost-Button auf dunklem Grund ── */
+.da-btn-ghost.on-dark {
+  color: #fff !important;
+  border-color: color-mix(in srgb, #fff 45%, transparent);
+}
+
+.da-btn-ghost.on-dark:hover {
+  background: color-mix(in srgb, #fff 10%, transparent);
+}
+
+/* ── textlink: Textlink mit Pfeil-Icon ── */
+.textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: var(--da-text-sm);
+  color: var(--da-teal);
+}
+
+.textlink .icon {
+  transition: transform var(--da-t);
+}
+
+.textlink:hover .icon {
+  transform: translateX(3px);
+}
+
+/* ── placeholder-tag: Kleines Label (Tag) in Karten ── */
+.placeholder-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: var(--da-r-sm);
+  background: var(--da-sand-subtle);
+  color: var(--da-sand-text);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── da-btn: Basis aller Buttons: Padding, Radius, Schrift ── */
+.da-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-family: var(--da-font);
+  font-size: 15px;
+  font-weight: var(--da-w-bold);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  padding: 13px 26px;
+  border-radius: var(--da-r-md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--da-t), transform var(--da-t), box-shadow var(--da-t), color var(--da-t);
+}
+
+/* ── da-btn-primary: Gefüllt teal, weißer Text ── */
+.da-btn-primary {
+  background: var(--da-teal-fill);
+  color: #fff !important;
+  transition: background var(--da-t), transform var(--da-t), box-shadow var(--da-t);
+  box-shadow: var(--da-shadow-teal);
+}
+
+.da-btn-primary:hover {
+  background: var(--da-teal-fill-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--da-shadow-teal-hover);
+}
+
+/* ── da-btn-ghost: Umrandet teal; mit on-dark weiß ── */
+.da-btn-ghost {
+  background: transparent;
+  color: var(--da-teal) !important;
+  border: 1.5px solid var(--da-teal);
+  box-shadow: none;
+  padding: 11.5px 24.5px;
+}
+
+.da-btn-ghost:hover {
+  background: var(--da-teal-subtle);
+  transform: translateY(-1px);
+}
+
+/* ── da-btn-light: Weiß auf dunklen Flächen ── */
+.da-btn-light {
+  background: #fff;
+  color: var(--da-teal-dark) !important;
+  box-shadow: var(--da-shadow-sm);
+}
+
+.da-btn-light:hover {
+  background: var(--da-sand-subtle);
+  transform: translateY(-1px);
+}
+
+/* ── da-btn-sand: Sand-Variante ── */
+.da-btn-sand {
+  background: var(--da-sand);
+  color: var(--da-teal-dark) !important;
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--da-sand) 40%, transparent);
+}
+
+.da-btn-sand:hover {
+  background: var(--da-sand-hover);
+}
+
+/* ── icon: Icon 16px ── */
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ── icon-20: Icon 20px ── */
+.icon-20 {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── form: Zweispaltiges Formular-Grid, mobil einspaltig ── */
+.form {
+  margin-top: var(--da-sp-6);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--da-sp-4);
+}
+
+@media (max-width: 560px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── field: Feld mit Label, Input, Fehlertext; Modifier full, half, invalid ── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: var(--da-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--da-muted);
+}
+
+.field input {
+  font: inherit;
+  font-size: var(--da-text-base);
+  color: var(--da-text);
+  background: var(--da-bg);
+  border: 1px solid var(--da-border);
+  border-radius: var(--da-r-md);
+  padding: 12px 14px;
+  min-height: 48px;
+  transition: border-color var(--da-t), box-shadow var(--da-t);
+}
+
+.field select {
+  font: inherit;
+  font-size: var(--da-text-base);
+  color: var(--da-text);
+  background: var(--da-bg);
+  border: 1px solid var(--da-border);
+  border-radius: var(--da-r-md);
+  padding: 12px 14px;
+  min-height: 48px;
+  transition: border-color var(--da-t), box-shadow var(--da-t);
+}
+
+.field textarea {
+  font: inherit;
+  font-size: var(--da-text-base);
+  color: var(--da-text);
+  background: var(--da-bg);
+  border: 1px solid var(--da-border);
+  border-radius: var(--da-r-md);
+  padding: 12px 14px;
+  min-height: 96px;
+  transition: border-color var(--da-t), box-shadow var(--da-t);
+  resize: vertical;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--da-teal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);
+}
+
+.field select:focus {
+  outline: none;
+  border-color: var(--da-teal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);
+}
+
+.field textarea:focus {
+  outline: none;
+  border-color: var(--da-teal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);
+}
+
+/* ── segmented: Segment-Auswahl (Radio als Buttons) ── */
+.segmented {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.segmented label {
+  flex: 1;
+  text-align: center;
+  padding: 11px 12px;
+  border: 1px solid var(--da-border);
+  border-radius: var(--da-r-md);
+  font-size: var(--da-text-sm);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--da-text);
+  cursor: pointer;
+  min-height: 48px;
+  display: grid;
+  place-items: center;
+}
+
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented input:checked + label {
+  background: var(--da-teal-fill);
+  border-color: var(--da-teal-fill);
+  color: #fff;
+}
+
+/* ── form-foot: Formularfuß mit Hinweis und Button ── */
+.form-foot {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--da-sp-4);
+  flex-wrap: wrap;
+  margin-top: var(--da-sp-2);
+}
+
+.form-foot small {
+  font-size: var(--da-text-xs);
+  color: var(--da-muted);
+  max-width: 42ch;
+  line-height: 1.4;
+}
+
+/* ── form-success: Erfolgsmeldung nach dem Absenden ── */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: var(--da-sp-8) 0 var(--da-sp-4);
+}
+
+.form-success h3 {
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -0.025em;
+}
+
+.form-success p {
+  margin-top: var(--da-sp-3);
+  color: var(--da-muted);
+}
+
+/* ── sr-only: Nur für Screenreader ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

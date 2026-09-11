@@ -1,0 +1,47 @@
+{
+  "customFonts": [
+    {
+      "family": "Manrope",
+      "file": "design-system/fonts/Manrope-VariableFont_wght.woff2",
+      "hinweis": "Variable Schrift, Achse wght 200 bis 800. Erst fontFaces-Schlüssel \"200 800\" versuchen. Lehnt Bricks den Bereich ab, jede Stufe einzeln auf dieselbe attachmentId zeigen lassen.",
+      "fontFacesVariable": {
+        "200 800": {
+          "woff2": "<attachmentId>"
+        }
+      },
+      "fontFacesFallback": {
+        "400": {
+          "woff2": "<attachmentId>"
+        },
+        "500": {
+          "woff2": "<attachmentId>"
+        },
+        "600": {
+          "woff2": "<attachmentId>"
+        },
+        "700": {
+          "woff2": "<attachmentId>"
+        },
+        "800": {
+          "woff2": "<attachmentId>"
+        }
+      }
+    }
+  ],
+  "googleFonts": [
+    {
+      "family": "Jost",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "verwendung": "Navigation, Eyebrow, Chips (Logo-Schrift)"
+    }
+  ],
+  "fallbacks": {
+    "Manrope": "system-ui, sans-serif",
+    "Jost": "'Futura', system-ui, sans-serif"
+  }
+}

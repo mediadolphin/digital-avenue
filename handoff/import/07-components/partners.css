@@ -1,0 +1,88 @@
+.wrap {
+  width: min(100% - 2 * var(--da-sp-6), var(--wrap));
+  margin-inline: auto;
+}
+
+.hero .wrap {
+  position: relative;
+}
+
+.partners {
+  padding-block: var(--da-sp-10);
+}
+
+.partners-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--da-sp-6) var(--da-sp-12);
+}
+
+.partners-label {
+  font-size: var(--da-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--da-muted);
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: clamp(15px, 1.3vw, 19px);
+  letter-spacing: -0.02em;
+  color: var(--da-muted);
+  opacity: 0.6;
+  transition: opacity var(--da-t), color var(--da-t);
+}
+
+.wordmark:hover {
+  opacity: 1;
+  color: var(--da-teal);
+}
+
+.wordmark.serif {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.wordmark.wide {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: clamp(13px, 1.1vw, 15px);
+}
+
+.wordmark img {
+  height: 22px;
+  opacity: 0.75;
+  filter: grayscale(1);
+}
+
+:root[data-brx-theme="dark"] .wordmark img {
+  filter: grayscale(1) invert(1);
+}
+
+.ref-logo .wordmark {
+  opacity: 0.9;
+  color: var(--da-teal-dark);
+}
+
+:root[data-brx-theme="dark"] .ref-logo .wordmark {
+  color: var(--da-teal-text);
+}
+
+.lp-hero .wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--da-sp-16);
+  align-items: center;
+}
+
+@media (max-width: 880px) {
+  .lp-hero .wrap {
+    grid-template-columns: 1fr;
+    gap: var(--da-sp-10);
+  }
+}

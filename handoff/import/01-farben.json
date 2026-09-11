@@ -1,0 +1,402 @@
+{
+  "palette": "Digital Avenue",
+  "hinweis": "Je Farbe ein create-color mit raw, light und dark. Keine Shades generieren: Hover- und Subtle-Stufen sind bereits eigene Tokens. oklch-Werte sind nach Hex umgerechnet (source zeigt das Original).",
+  "colors": [
+    {
+      "raw": "var(--da-teal)",
+      "light": "#305b75",
+      "dark": "#4d8aa0",
+      "darkDiffers": true,
+      "source": {
+        "light": "#305b75",
+        "dark": "#4d8aa0"
+      },
+      "usage": "Primärfarbe: Links, Icons, Akzente"
+    },
+    {
+      "raw": "var(--da-teal-hover)",
+      "light": "#264a60",
+      "dark": "#5e9cb3",
+      "darkDiffers": true,
+      "source": {
+        "light": "#264a60",
+        "dark": "#5e9cb3"
+      },
+      "usage": "Hover der Primärfarbe"
+    },
+    {
+      "raw": "var(--da-teal-dark)",
+      "light": "#1b3a4a",
+      "dark": "#24485a",
+      "darkDiffers": true,
+      "source": {
+        "light": "#1b3a4a",
+        "dark": "#24485a"
+      },
+      "usage": "Navigation, Footer, dunkle Kacheln"
+    },
+    {
+      "raw": "var(--da-teal-deeper)",
+      "light": "#132a37",
+      "dark": "#0f2129",
+      "darkDiffers": true,
+      "source": {
+        "light": "#132a37",
+        "dark": "#0f2129"
+      },
+      "usage": "Tiefste dunkle Fläche (Concierge, Digital-Check)"
+    },
+    {
+      "raw": "var(--da-teal-subtle)",
+      "light": "#e7eff3",
+      "dark": "#1d3c4a",
+      "darkDiffers": true,
+      "source": {
+        "light": "#e7eff3",
+        "dark": "#1d3c4a"
+      },
+      "usage": "Helle Teal-Tönung als Hintergrund"
+    },
+    {
+      "raw": "var(--da-teal-fill)",
+      "light": "#305b75",
+      "dark": "#3a7189",
+      "darkDiffers": true,
+      "source": {
+        "light": "#305b75",
+        "dark": "#3a7189"
+      },
+      "usage": "Gefüllte Flächen mit weißem Text (Buttons, Tabs, Kachel teal)"
+    },
+    {
+      "raw": "var(--da-teal-fill-hover)",
+      "light": "#264a60",
+      "dark": "#45819a",
+      "darkDiffers": true,
+      "source": {
+        "light": "#264a60",
+        "dark": "#45819a"
+      },
+      "usage": "Hover gefüllter Flächen"
+    },
+    {
+      "raw": "var(--da-teal-text)",
+      "light": "#234c5f",
+      "dark": "#82c2d2",
+      "darkDiffers": true,
+      "source": {
+        "light": "#234c5f",
+        "dark": "#82c2d2"
+      },
+      "usage": "Dunkles Teal als Text (Eyebrow)"
+    },
+    {
+      "raw": "var(--da-plum)",
+      "light": "#42253b",
+      "dark": "#8a5c7e",
+      "darkDiffers": true,
+      "source": {
+        "light": "#42253b",
+        "dark": "#8a5c7e"
+      },
+      "usage": "Zweiter Akzent"
+    },
+    {
+      "raw": "var(--da-plum-hover)",
+      "light": "#351b30",
+      "dark": "#9e6e92",
+      "darkDiffers": true,
+      "source": {
+        "light": "#351b30",
+        "dark": "#9e6e92"
+      },
+      "usage": "Hover Plum"
+    },
+    {
+      "raw": "var(--da-plum-subtle)",
+      "light": "#f0e8ee",
+      "dark": "#2a1a26",
+      "darkDiffers": true,
+      "source": {
+        "light": "#f0e8ee",
+        "dark": "#2a1a26"
+      },
+      "usage": "Helle Plum-Tönung"
+    },
+    {
+      "raw": "var(--da-plum-text)",
+      "light": "#42253b",
+      "dark": "#c49ab8",
+      "darkDiffers": true,
+      "source": {
+        "light": "#42253b",
+        "dark": "#c49ab8"
+      },
+      "usage": "Plum als Text"
+    },
+    {
+      "raw": "var(--da-plum-light)",
+      "light": "#8a5c7e",
+      "dark": "#c49ab8",
+      "darkDiffers": true,
+      "source": {
+        "light": "#8a5c7e",
+        "dark": "#c49ab8"
+      },
+      "usage": "Helles Plum auf dunklem Grund"
+    },
+    {
+      "raw": "var(--da-sand)",
+      "light": "#d7c9aa",
+      "dark": "#c4b393",
+      "darkDiffers": true,
+      "source": {
+        "light": "#d7c9aa",
+        "dark": "#c4b393"
+      },
+      "usage": "Akzent Sand: Eyebrow auf dunkel, Kachel sand"
+    },
+    {
+      "raw": "var(--da-sand-hover)",
+      "light": "#c4b393",
+      "dark": "#d7c9aa",
+      "darkDiffers": true,
+      "source": {
+        "light": "#c4b393",
+        "dark": "#d7c9aa"
+      },
+      "usage": "Hover Sand"
+    },
+    {
+      "raw": "var(--da-sand-subtle)",
+      "light": "#f6f2ea",
+      "dark": "#2a2318",
+      "darkDiffers": true,
+      "source": {
+        "light": "#f6f2ea",
+        "dark": "#2a2318"
+      },
+      "usage": "Helle Sand-Tönung (Tags, Kachel cream)"
+    },
+    {
+      "raw": "var(--da-sand-text)",
+      "light": "#7a6845",
+      "dark": "#d7c9aa",
+      "darkDiffers": true,
+      "source": {
+        "light": "#7a6845",
+        "dark": "#d7c9aa"
+      },
+      "usage": "Sand als Text (Tags)"
+    },
+    {
+      "raw": "var(--da-sand-dark)",
+      "light": "#a89470",
+      "dark": "#a89470",
+      "darkDiffers": false,
+      "source": {
+        "light": "#a89470",
+        "dark": "#a89470"
+      },
+      "usage": "Gedämpftes Sand auf dunkel"
+    },
+    {
+      "raw": "var(--da-bg)",
+      "light": "#f9f8f6",
+      "dark": "#182a33",
+      "darkDiffers": true,
+      "source": {
+        "light": "#f9f8f6",
+        "dark": "#182a33"
+      },
+      "usage": "Seitenhintergrund"
+    },
+    {
+      "raw": "var(--da-bg-alt)",
+      "light": "#f2efe9",
+      "dark": "#1e333e",
+      "darkDiffers": true,
+      "source": {
+        "light": "#f2efe9",
+        "dark": "#1e333e"
+      },
+      "usage": "Alternativer Abschnittshintergrund"
+    },
+    {
+      "raw": "var(--da-text)",
+      "light": "#19242b",
+      "dark": "#ede9e0",
+      "darkDiffers": true,
+      "source": {
+        "light": "#19242b",
+        "dark": "#ede9e0"
+      },
+      "usage": "Fließtext"
+    },
+    {
+      "raw": "var(--da-muted)",
+      "light": "#5a6e77",
+      "dark": "#7796a6",
+      "darkDiffers": true,
+      "source": {
+        "light": "#5a6e77",
+        "dark": "#7796a6"
+      },
+      "usage": "Gedämpfter Text, Copy in Karten"
+    },
+    {
+      "raw": "var(--da-border)",
+      "light": "#d9e3e8",
+      "dark": "#294653",
+      "darkDiffers": true,
+      "source": {
+        "light": "#d9e3e8",
+        "dark": "#294653"
+      },
+      "usage": "Linien und Rahmen"
+    },
+    {
+      "raw": "var(--da-nav-bg)",
+      "light": "#1b3a4a",
+      "dark": "#10202a",
+      "darkDiffers": true,
+      "source": {
+        "light": "#1b3a4a",
+        "dark": "#10202a"
+      },
+      "usage": "Navigation und Footer Hintergrund"
+    },
+    {
+      "raw": "var(--da-nav-text)",
+      "light": "#ede9e0",
+      "dark": "#ede9e0",
+      "darkDiffers": false,
+      "source": {
+        "light": "#ede9e0",
+        "dark": "#ede9e0"
+      },
+      "usage": "Text auf Navigation und Footer"
+    },
+    {
+      "raw": "var(--da-nav-muted)",
+      "light": "#7796a6",
+      "dark": "#7796a6",
+      "darkDiffers": false,
+      "source": {
+        "light": "#7796a6",
+        "dark": "#7796a6"
+      },
+      "usage": "Gedämpfter Text auf dunkel"
+    },
+    {
+      "raw": "var(--da-nav-border)",
+      "light": "#264350",
+      "dark": "#1f3742",
+      "darkDiffers": true,
+      "source": {
+        "light": "#264350",
+        "dark": "#1f3742"
+      },
+      "usage": "Linien auf dunkel"
+    },
+    {
+      "raw": "var(--da-hero-from)",
+      "light": "#e7eff3",
+      "dark": "#1e333e",
+      "darkDiffers": true,
+      "source": {
+        "light": "#e7eff3",
+        "dark": "#1e333e"
+      },
+      "usage": "Hero-Verlauf Start"
+    },
+    {
+      "raw": "var(--da-hero-to)",
+      "light": "#f9f8f6",
+      "dark": "#182a33",
+      "darkDiffers": true,
+      "source": {
+        "light": "#f9f8f6",
+        "dark": "#182a33"
+      },
+      "usage": "Hero-Verlauf Ende"
+    },
+    {
+      "raw": "var(--da-card-bg)",
+      "light": "#ffffff",
+      "dark": "#1d3340",
+      "darkDiffers": true,
+      "source": {
+        "light": "#ffffff",
+        "dark": "#1d3340"
+      },
+      "usage": "Kartenhintergrund"
+    },
+    {
+      "raw": "var(--da-success)",
+      "light": "#3a8f42",
+      "dark": "#67bb6b",
+      "darkDiffers": true,
+      "source": {
+        "light": "oklch(58% 0.140 145)",
+        "dark": "oklch(72% 0.140 145)"
+      },
+      "usage": "Status Erfolg"
+    },
+    {
+      "raw": "var(--da-success-subtle)",
+      "light": "#dff1df",
+      "dark": "#1d341e",
+      "darkDiffers": true,
+      "source": {
+        "light": "oklch(94% 0.030 145)",
+        "dark": "oklch(30% 0.050 145)"
+      },
+      "usage": "Status Erfolg Hintergrund"
+    },
+    {
+      "raw": "var(--da-warning)",
+      "light": "#dd881b",
+      "dark": "#f8a13f",
+      "darkDiffers": true,
+      "source": {
+        "light": "oklch(70% 0.150 65)",
+        "dark": "oklch(78% 0.150 65)"
+      },
+      "usage": "Status Warnung"
+    },
+    {
+      "raw": "var(--da-warning-subtle)",
+      "light": "#ffeedd",
+      "dark": "#442d15",
+      "darkDiffers": true,
+      "source": {
+        "light": "oklch(96% 0.030 65)",
+        "dark": "oklch(32% 0.050 65)"
+      },
+      "usage": "Status Warnung Hintergrund"
+    },
+    {
+      "raw": "var(--da-error)",
+      "light": "#c8393a",
+      "dark": "#f2716a",
+      "darkDiffers": true,
+      "source": {
+        "light": "oklch(56% 0.180 25)",
+        "dark": "oklch(70% 0.160 25)"
+      },
+      "usage": "Status Fehler"
+    },
+    {
+      "raw": "var(--da-error-subtle)",
+      "light": "#ffe7e4",
+      "dark": "#47211e",
+      "darkDiffers": true,
+      "source": {
+        "light": "oklch(95% 0.030 25)",
+        "dark": "oklch(30% 0.060 25)"
+      },
+      "usage": "Status Fehler Hintergrund"
+    }
+  ]
+}

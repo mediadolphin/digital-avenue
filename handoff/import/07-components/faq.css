@@ -1,0 +1,51 @@
+.faq {
+  max-width: 760px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--da-sp-3);
+}
+
+.faq details {
+  border: 1px solid var(--da-border);
+  border-radius: var(--da-r-md);
+  background: var(--da-card-bg);
+  padding: 0 var(--da-sp-6);
+  transition: border-color var(--da-t);
+}
+
+.faq details[open] {
+  border-color: color-mix(in srgb, var(--da-teal) 40%, var(--da-border));
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--da-sp-4);
+  padding-block: var(--da-sp-5);
+  font-weight: 700;
+  font-size: var(--da-text-base);
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary .icon {
+  color: var(--da-teal);
+  transition: transform var(--da-t);
+}
+
+.faq details[open] summary .icon {
+  transform: rotate(180deg);
+}
+
+.faq details p {
+  padding-bottom: var(--da-sp-5);
+  color: var(--da-muted);
+  font-size: var(--da-text-sm);
+  line-height: 1.65;
+}

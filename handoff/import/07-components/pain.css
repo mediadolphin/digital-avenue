@@ -1,0 +1,22 @@
+.pain {
+  padding: var(--da-sp-8);
+  border-radius: var(--da-r-lg);
+  background: var(--da-card-bg);
+  border: 1px solid var(--da-border);
+}
+
+.pain blockquote {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.35;
+  color: var(--da-text);
+}
+
+.pain p {
+  margin-top: var(--da-sp-4);
+  font-size: var(--da-text-sm);
+  color: var(--da-muted);
+  line-height: 1.6;
+}

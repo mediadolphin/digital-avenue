@@ -1,0 +1,50 @@
+<dialog class="check-dialog" id="check-dialog" aria-labelledby="check-title">
+  <div class="dialog-inner">
+    <div class="dialog-head">
+      <div>
+        <span class="da-eyebrow">Digital-Check</span>
+        <h2 id="check-title">Sagen Sie uns kurz, wer Sie sind. Den Rest übernehmen wir.</h2>
+        <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Der Check dauert 20 Minuten, am Telefon oder per Video.</p>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Schließen"><svg class="icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+    <form class="form" novalidate>
+      <div class="field full">
+        <label>Ich führe</label>
+        <div class="segmented">
+          <input type="radio" name="audience" id="aud-praxis" value="praxis" checked><label for="aud-praxis">eine Praxis</label>
+          <input type="radio" name="audience" id="aud-kanzlei" value="kanzlei"><label for="aud-kanzlei">eine Kanzlei</label>
+          <input type="radio" name="audience" id="aud-unternehmen" value="unternehmen"><label for="aud-unternehmen">ein Unternehmen</label>
+        </div>
+      </div>
+      <div class="field half">
+        <label for="f-name">Ihr Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <span class="error">Bitte nennen Sie uns Ihren Namen.</span>
+      </div>
+      <div class="field half">
+        <label for="f-contact">E-Mail oder Telefon</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email" inputmode="email" required>
+        <span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span>
+      </div>
+      <div class="field full">
+        <label for="f-site">Ihre Website (optional)</label>
+        <input id="f-site" name="website" type="url" inputmode="url" placeholder="www.">
+      </div>
+      <div class="field full">
+        <label for="f-msg">Was beschäftigt Sie gerade? (optional)</label>
+        <textarea id="f-msg" name="message" placeholder="Zum Beispiel: Die Telefonanlage ist alt, die Website auch, und niemand kümmert sich."></textarea>
+      </div>
+      <div class="form-foot">
+        <small>Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Kontaktaufnahme speichern. [Datenschutzhinweis ergänzen]</small>
+        <button type="submit" class="da-btn-primary">Digital-Check anfragen</button>
+      </div>
+    </form>
+    <div class="form-success" aria-live="polite">
+      <div class="ok"><svg class="icon icon-20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>Danke, Ihre Anfrage ist angekommen.</h3>
+      <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Bis dahin müssen Sie nichts weiter tun.</p>
+      <p style="margin-top:24px"><button type="button" class="da-btn-primary">Schließen</button></p>
+    </div>
+  </div>
+</dialog>

@@ -1,0 +1,339 @@
+{
+  "hinweis": "Je Eintrag: HTML und CSS mit convert-html-css-to-bricks-data umwandeln (Globals aus 05 sind dann schon vorhanden), Baum prüfen, mit create-component speichern; properties an die Text-, Bild- und Link-Controls binden. Einträge ohne properties sind Abschnitte für den Seitenimport, keine Components.",
+  "components": [
+    {
+      "label": "Service-Karte",
+      "category": "Karten",
+      "desc": "Leistungskarte mit Label, Status-Zeile, Titel, Stichpunkten; Variante sand.",
+      "html": "service-card.html",
+      "css": "service-card.css",
+      "rootClass": "service-card",
+      "sourcePage": "prototype/index.html",
+      "properties": [
+        "Label",
+        "Status",
+        "Titel",
+        "Liste",
+        "Variante"
+      ],
+      "usesGlobalClasses": [
+        "icon"
+      ],
+      "images": []
+    },
+    {
+      "label": "Kachel",
+      "category": "Karten",
+      "desc": "Kachel in fünf Varianten (teal, sand, cream, deep, photo) mit Label, H3, Copy, Link, Bild.",
+      "html": "tile.html",
+      "css": "tile.css",
+      "rootClass": "tile",
+      "sourcePage": "prototype/index.html",
+      "properties": [
+        "Variante",
+        "Label",
+        "Titel",
+        "Copy",
+        "Link-Text",
+        "Link",
+        "Bild"
+      ],
+      "variants": [
+        "tile-teal",
+        "tile-sand",
+        "tile-cream",
+        "tile-deep",
+        "tile-photo"
+      ],
+      "usesGlobalClasses": [],
+      "images": [
+        "img/m25-anwalt-kanzlei-portrait.jpg"
+      ]
+    },
+    {
+      "label": "Schritt",
+      "category": "Karten",
+      "desc": "Prozessschritt mit Nummer, H3 und Copy.",
+      "html": "step.html",
+      "css": "step.css",
+      "rootClass": "step",
+      "sourcePage": "prototype/index.html",
+      "properties": [
+        "Nummer",
+        "Titel",
+        "Copy"
+      ],
+      "usesGlobalClasses": [],
+      "images": []
+    },
+    {
+      "label": "Referenzkarte",
+      "category": "Karten",
+      "desc": "Referenz mit Logo, Art, Titel, Copy und Link. Später Query Loop über Referenzen.",
+      "html": "ref.html",
+      "css": "ref.css",
+      "rootClass": "ref",
+      "sourcePage": "prototype/index.html",
+      "properties": [
+        "Logo",
+        "Art",
+        "Titel",
+        "Copy",
+        "Link"
+      ],
+      "usesGlobalClasses": [],
+      "images": [
+        "../design-system/assets/logo-digizt.svg"
+      ]
+    },
+    {
+      "label": "Kundenstimme",
+      "category": "Karten",
+      "desc": "Zitat mit Name, Rolle und Tag; Variante featured auf teal.",
+      "html": "quote.html",
+      "css": "quote.css",
+      "rootClass": "quote",
+      "sourcePage": "prototype/index.html",
+      "properties": [
+        "Zitat",
+        "Name",
+        "Rolle",
+        "Tag",
+        "Variante"
+      ],
+      "usesGlobalClasses": [
+        "placeholder-tag"
+      ],
+      "images": []
+    },
+    {
+      "label": "Pain-Karte",
+      "category": "Karten",
+      "desc": "Schmerzpunkt-Karte der Landingpages: Zitat in Serif, Titel, Copy.",
+      "html": "pain.html",
+      "css": "pain.css",
+      "rootClass": "pain",
+      "sourcePage": "prototype/praxen.html",
+      "properties": [
+        "Zitat",
+        "Titel",
+        "Copy"
+      ],
+      "usesGlobalClasses": [],
+      "images": []
+    },
+    {
+      "label": "Feature-Block",
+      "category": "Abschnitte",
+      "desc": "Zweispaltiger Feature-Abschnitt mit Eyebrow, H2, Copy, Liste und Bild; Bildseite wechselbar.",
+      "html": "feature.html",
+      "css": "feature.css",
+      "rootClass": "feature",
+      "sourcePage": "prototype/kanzleien.html",
+      "properties": [
+        "Eyebrow",
+        "Titel",
+        "Copy",
+        "Liste",
+        "Bild",
+        "Bild-Seite"
+      ],
+      "usesGlobalClasses": [
+        "da-eyebrow",
+        "icon"
+      ],
+      "images": [
+        "img/m26-anwaeltin-fenster-lesend.jpg"
+      ]
+    },
+    {
+      "label": "Concierge",
+      "category": "Abschnitte",
+      "desc": "Dunkler Abschnitt mit Text und Visual, Eyebrow in Sand.",
+      "html": "concierge.html",
+      "css": "concierge.css",
+      "rootClass": "concierge",
+      "sourcePage": "prototype/praxen.html",
+      "properties": [
+        "Eyebrow",
+        "Titel",
+        "Copy",
+        "Button-Text",
+        "Link"
+      ],
+      "usesGlobalClasses": [
+        "da-eyebrow",
+        "icon"
+      ],
+      "images": [
+        "img/m24-praxis-inhaberin-nachricht.jpg"
+      ]
+    },
+    {
+      "label": "FAQ",
+      "category": "Abschnitte",
+      "desc": "FAQ-Liste als Akkordeon. In Bricks: Accordion (Nestable), Inhalte später aus dem FAQ-Post-Typ.",
+      "html": "faq.html",
+      "css": "faq.css",
+      "rootClass": "faq",
+      "sourcePage": "prototype/praxen.html",
+      "properties": [
+        "Fragen"
+      ],
+      "usesGlobalClasses": [
+        "icon"
+      ],
+      "images": []
+    },
+    {
+      "label": "Digital-Check-Block",
+      "category": "Abschnitte",
+      "desc": "CTA-Block Digital-Check mit Liste, Hinweis, Buttons und Aside.",
+      "html": "check.html",
+      "css": "check.css",
+      "rootClass": "check",
+      "sourcePage": "prototype/index.html",
+      "properties": [
+        "Eyebrow",
+        "Titel",
+        "Copy",
+        "Liste",
+        "Button-Text"
+      ],
+      "usesGlobalClasses": [
+        "da-eyebrow",
+        "icon",
+        "da-btn-light"
+      ],
+      "images": []
+    },
+    {
+      "label": "Hero Landingpage",
+      "category": "Abschnitte",
+      "desc": "Hero der Landingpages mit Eyebrow, H1 mit Betonung, Lead, Buttons, Bild, Fokus-Service-Karte.",
+      "html": "lp-hero.html",
+      "css": "lp-hero.css",
+      "rootClass": "lp-hero",
+      "sourcePage": "prototype/praxen.html",
+      "properties": [
+        "Eyebrow",
+        "Titel",
+        "Betonung",
+        "Lead",
+        "Button-Text",
+        "Bild"
+      ],
+      "usesGlobalClasses": [
+        "da-eyebrow",
+        "da-btn-primary",
+        "da-btn-ghost",
+        "icon"
+      ],
+      "images": [
+        "img/m09-arzt-sprechzimmer-lachend.jpg"
+      ]
+    },
+    {
+      "label": "Hero Start",
+      "category": "Abschnitte",
+      "desc": "Zentrierter Hero der Startseite. Kein Component, Section mit Global Classes; HTML für den Seitenimport.",
+      "html": "hero.html",
+      "css": "hero.css",
+      "rootClass": "hero",
+      "sourcePage": "prototype/index.html",
+      "properties": [],
+      "usesGlobalClasses": [
+        "da-eyebrow",
+        "da-btn-primary",
+        "da-btn-ghost",
+        "icon"
+      ],
+      "images": []
+    },
+    {
+      "label": "Mosaik",
+      "category": "Abschnitte",
+      "desc": "Mosaik-Grid der Startseite mit Bildern, Chips, Service-Karten, Textkarte. Grid als Custom CSS, Karten als Component-Instanzen.",
+      "html": "mosaic.html",
+      "css": "mosaic.css",
+      "rootClass": "mosaic",
+      "sourcePage": "prototype/index.html",
+      "properties": [],
+      "usesGlobalClasses": [
+        "icon"
+      ],
+      "images": [
+        "img/m01-praxis-inhaberin-fenster.jpg",
+        "img/m32-anwalt-portrait-wand.jpg",
+        "img/m33-unternehmerin-portrait-wand.jpg"
+      ]
+    },
+    {
+      "label": "Partnerzeile",
+      "category": "Abschnitte",
+      "desc": "Logo-Zeile der Partner. Später Query Loop über Partner.",
+      "html": "partners.html",
+      "css": "partners.css",
+      "rootClass": "partners",
+      "sourcePage": "prototype/index.html",
+      "properties": [],
+      "usesGlobalClasses": [],
+      "images": []
+    },
+    {
+      "label": "Zielgruppen-Tabs",
+      "category": "Abschnitte",
+      "desc": "Tabs Praxen/Kanzleien/Mittelstand mit Panel. In Bricks: Tabs (Nestable) plus Custom CSS.",
+      "html": "audience.html",
+      "css": "audience.css",
+      "rootClass": "audience",
+      "sourcePage": "prototype/index.html",
+      "properties": [],
+      "usesGlobalClasses": [
+        "icon",
+        "textlink"
+      ],
+      "images": [
+        "img/m22-aerztin-patient.jpg"
+      ]
+    },
+    {
+      "label": "Leitbild",
+      "category": "Abschnitte",
+      "desc": "Leitbild mit Text und Fakten.",
+      "html": "about.html",
+      "css": "about.css",
+      "rootClass": "about",
+      "sourcePage": "prototype/index.html",
+      "properties": [],
+      "usesGlobalClasses": [
+        "section",
+        "split",
+        "da-eyebrow"
+      ],
+      "images": []
+    },
+    {
+      "label": "Dialog Digital-Check",
+      "category": "Abschnitte",
+      "desc": "Formular-Dialog. In Bricks: Popup-Template mit Form-Element.",
+      "html": "check-dialog.html",
+      "css": "check-dialog.css",
+      "rootClass": "check-dialog",
+      "sourcePage": "prototype/index.html",
+      "properties": [],
+      "usesGlobalClasses": [
+        "da-eyebrow",
+        "icon",
+        "form",
+        "field",
+        "segmented",
+        "form-foot",
+        "da-btn-primary",
+        "form-success",
+        "icon-20"
+      ],
+      "images": []
+    }
+  ]
+}

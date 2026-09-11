@@ -1,0 +1,98 @@
+dialog.check-dialog {
+  border: 0;
+  padding: 0;
+  border-radius: var(--da-r-xl);
+  width: min(100% - 32px, 640px);
+  background: var(--da-card-bg);
+  color: var(--da-text);
+  box-shadow: var(--da-shadow-lg);
+}
+
+dialog.check-dialog::backdrop {
+  background: color-mix(in srgb, var(--da-teal-deeper) 70%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.dialog-inner {
+  padding: clamp(24px, 4vw, 40px);
+}
+
+.dialog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--da-sp-4);
+}
+
+.dialog-head h2 {
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-top: 10px;
+}
+
+.dialog-head p {
+  margin-top: 8px;
+  font-size: var(--da-text-sm);
+  color: var(--da-muted);
+}
+
+.dialog-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--da-border);
+  background: var(--da-card-bg);
+  color: var(--da-text);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.dialog-close:hover {
+  border-color: var(--da-teal);
+  color: var(--da-teal);
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field .error {
+  display: none;
+  font-size: var(--da-text-xs);
+  color: var(--da-error);
+}
+
+.field.invalid .error {
+  display: block;
+}
+
+.form-success .ok {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto var(--da-sp-5);
+  display: grid;
+  place-items: center;
+  background: var(--da-success-subtle);
+  color: var(--da-success);
+}
+
+dialog.check-dialog.sent .form {
+  display: none;
+}
+
+dialog.check-dialog.sent .dialog-head p {
+  display: none;
+}
+
+dialog.check-dialog.sent .form-success {
+  display: block;
+}
+
+@media (max-width: 560px) {
+  .field.half {
+    grid-column: auto;
+  }
+}

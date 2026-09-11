@@ -1,0 +1,213 @@
+.concierge-text .da-eyebrow {
+  color: var(--da-sand);
+}
+
+.mosaic-tile .service-card {
+  position: relative;
+  z-index: 2;
+  margin: var(--da-sp-4);
+}
+
+.mosaic-card-head .sc-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--da-sand-text);
+}
+
+.mosaic-kanzlei .service-card {
+  padding: var(--da-sp-4);
+  margin: var(--da-sp-3);
+}
+
+.mosaic-mittelstand .service-card {
+  padding: var(--da-sp-4);
+  margin: var(--da-sp-3);
+}
+
+.mosaic-kanzlei .sc-title {
+  font-size: var(--da-text-sm);
+}
+
+.mosaic-mittelstand .sc-title {
+  font-size: var(--da-text-sm);
+}
+
+.service-card {
+  background: color-mix(in srgb, #fff 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, #fff 60%, transparent);
+  border-radius: var(--da-r-lg);
+  padding: var(--da-sp-5);
+  box-shadow: var(--da-shadow-md);
+  color: var(--da-text);
+}
+
+.service-card .sc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.service-card .sc-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--da-sand-text);
+}
+
+.service-card .sc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--da-success);
+}
+
+.service-card .sc-title {
+  font-size: var(--da-text-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.service-card ul {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-card li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: var(--da-text-sm);
+  color: var(--da-muted);
+  line-height: 1.4;
+}
+
+.service-card li .icon {
+  margin-top: 2px;
+  color: var(--da-teal);
+}
+
+.service-card.sand {
+  background: color-mix(in srgb, var(--da-sand-subtle) 94%, transparent);
+}
+
+:root[data-brx-theme="dark"] .service-card {
+  background: color-mix(in srgb, var(--da-card-bg) 90%, transparent);
+  border-color: color-mix(in srgb, var(--da-border) 70%, transparent);
+}
+
+:root[data-brx-theme="dark"] .service-card.sand {
+  background: color-mix(in srgb, var(--da-sand-subtle) 92%, transparent);
+}
+
+:root[data-brx-theme="dark"] .concierge {
+  border: 1px solid var(--da-border);
+}
+
+.lp-hero figure .service-card {
+  position: absolute;
+  left: var(--da-sp-5);
+  right: var(--da-sp-5);
+  bottom: var(--da-sp-5);
+}
+
+.concierge {
+  border-radius: var(--da-r-xl);
+  overflow: hidden;
+  background: var(--da-teal-deeper);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.concierge-text {
+  padding: clamp(32px, 5vw, 64px);
+}
+
+.concierge h2 {
+  margin-top: var(--da-sp-4);
+  color: #fff;
+  font-size: clamp(26px, 3vw, 38px);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.concierge p {
+  margin-top: var(--da-sp-4);
+  color: color-mix(in srgb, #fff 78%, transparent);
+  font-size: var(--da-text-md);
+  line-height: 1.6;
+}
+
+.concierge-visual {
+  position: relative;
+  min-height: 360px;
+}
+
+.concierge-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.concierge-visual .service-card {
+  position: absolute;
+  left: var(--da-sp-6);
+  right: var(--da-sp-6);
+  bottom: var(--da-sp-6);
+}
+
+.timeline {
+  margin-top: var(--da-sp-8);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 14px;
+  padding-block: 12px;
+  border-top: 1px solid color-mix(in srgb, #fff 12%, transparent);
+  font-size: var(--da-text-sm);
+  color: color-mix(in srgb, #fff 80%, transparent);
+  line-height: 1.5;
+}
+
+.timeline li strong {
+  color: #fff;
+}
+
+.timeline .dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--da-sand) 22%, transparent);
+  color: var(--da-sand);
+  margin-top: 1px;
+}
+
+@media (max-width: 880px) {
+  .concierge {
+    grid-template-columns: 1fr;
+  }
+  
+  .concierge-visual {
+    min-height: 300px;
+  }
+}

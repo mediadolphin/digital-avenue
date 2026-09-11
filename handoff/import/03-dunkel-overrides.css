@@ -1,0 +1,11 @@
+/* Dunkelmodus-Werte für Variablen, die in Bricks keinen Dunkelwert haben (nur Farben haben einen).
+   Einfügen unter Bricks › Einstellungen › Custom Code › Custom CSS. */
+:root[data-brx-theme="dark"] {
+  --da-card-shadow: 0 1px 3px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.3);
+  --da-card-hover: 0 2px 8px rgb(0 0 0 / 0.5), 0 8px 28px rgb(0 0 0 / 0.4);
+  --da-shadow-sm: 0 1px 3px rgb(0 0 0 / 0.25), 0 2px 8px rgb(0 0 0 / 0.20);
+  --da-shadow-md: 0 1px 4px rgb(0 0 0 / 0.30), 0 4px 16px rgb(0 0 0 / 0.28);
+  --da-shadow-lg: 0 4px 16px rgb(0 0 0 / 0.35), 0 12px 40px rgb(0 0 0 / 0.40);
+  --da-shadow-teal: 0 2px 12px color-mix(in srgb, #4d8aa0 30%, transparent);
+  --da-shadow-teal-hover: 0 4px 20px color-mix(in srgb, #4d8aa0 40%, transparent);
+}

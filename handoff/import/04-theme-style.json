@@ -1,0 +1,237 @@
+{
+  "label": "Digital Avenue",
+  "conditions": [
+    {
+      "main": "any"
+    }
+  ],
+  "hinweis": "Schlüssel folgen bricks-element-schemas/references/schema-resolved/global/theme-styles.json. Wertformen (Typography-Objekt, Border, Padding, Farbe) vor dem Schreiben mit get-element-schema bzw. dem Schema-Bündel prüfen; Farben als var()-Referenz auf die Palette.",
+  "settings": {
+    "typography": {
+      "typographyBody": {
+        "font-family": "Manrope",
+        "font-size": "var(--da-text-base)",
+        "line-height": "var(--da-leading-normal)",
+        "color": "var(--da-text)"
+      },
+      "typographyHeadings": {
+        "font-family": "Manrope",
+        "color": "var(--da-text)",
+        "letter-spacing": "var(--da-tracking-tight)",
+        "line-height": "var(--da-leading-tight)"
+      },
+      "typographyHeadingH1": {
+        "font-size": "var(--da-text-xl)",
+        "font-weight": "800",
+        "line-height": "1.14",
+        "letter-spacing": "-0.03em"
+      },
+      "typographyHeadingH2": {
+        "font-size": "clamp(28px, 3.4vw, 44px)",
+        "font-weight": "700",
+        "line-height": "1.1",
+        "letter-spacing": "-0.03em"
+      },
+      "typographyHeadingH3": {
+        "font-size": "var(--da-text-h3)",
+        "font-weight": "700",
+        "line-height": "var(--da-leading-snug)",
+        "letter-spacing": "-0.015em"
+      },
+      "typographyHeadingH4": {
+        "font-size": "var(--da-text-md)",
+        "font-weight": "600",
+        "line-height": "var(--da-leading-snug)"
+      },
+      "typographyHeadingH5": {
+        "font-size": "var(--da-text-base)",
+        "font-weight": "700",
+        "line-height": "var(--da-leading-snug)"
+      },
+      "typographyHeadingH6": {
+        "font-size": "var(--da-text-xs)",
+        "font-weight": "700",
+        "letter-spacing": "0.06em",
+        "text-transform": "uppercase",
+        "color": "var(--da-muted)"
+      },
+      "h1Margin": {
+        "top": 0,
+        "bottom": 0
+      },
+      "h2Margin": {
+        "top": 0,
+        "bottom": 0
+      },
+      "h3Margin": {
+        "top": 0,
+        "bottom": 0
+      },
+      "h4Margin": {
+        "top": 0,
+        "bottom": 0
+      },
+      "typographyLead": {
+        "font-size": "var(--da-text-md)",
+        "line-height": "1.55",
+        "color": "var(--da-muted)"
+      },
+      "focusOutline": "2px solid var(--da-teal)"
+    },
+    "colors": {
+      "colorPrimary": "var(--da-teal)",
+      "colorSecondary": "var(--da-sand)",
+      "colorLight": "var(--da-bg)",
+      "colorDark": "var(--da-text)",
+      "colorMuted": "var(--da-muted)",
+      "colorBorder": "var(--da-border)",
+      "colorInfo": "var(--da-teal)",
+      "colorSuccess": "var(--da-success)",
+      "colorWarning": "var(--da-warning)",
+      "colorDanger": "var(--da-error)"
+    },
+    "general": {
+      "containerMaxWidth": "1240px",
+      "sectionPadding": {
+        "top": "var(--da-sp-20)",
+        "right": "var(--da-sp-6)",
+        "bottom": "var(--da-sp-20)",
+        "left": "var(--da-sp-6)"
+      },
+      "siteBackground": "var(--da-bg)"
+    },
+    "links": {
+      "typography": {
+        "color": "var(--da-teal)"
+      },
+      "textDecoration": "none",
+      "transition": "color var(--da-t)"
+    },
+    "button": {
+      "typography": {
+        "font-family": "Manrope",
+        "font-size": "15px",
+        "font-weight": "700",
+        "line-height": "1",
+        "letter-spacing": "0.01em",
+        "color": "#ffffff"
+      },
+      "background": "var(--da-teal-fill)",
+      "border": {
+        "radius": {
+          "top": "var(--da-r-md)",
+          "right": "var(--da-r-md)",
+          "bottom": "var(--da-r-md)",
+          "left": "var(--da-r-md)"
+        },
+        "width": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "boxShadow": "var(--da-shadow-teal)",
+      "transition": "background var(--da-t), transform var(--da-t), box-shadow var(--da-t), color var(--da-t)",
+      "primaryBackground": "var(--da-teal-fill)",
+      "primaryTypography": {
+        "color": "#ffffff"
+      },
+      "secondaryBackground": "var(--da-sand)",
+      "secondaryTypography": {
+        "color": "var(--da-teal-dark)"
+      },
+      "lightBackground": "#ffffff",
+      "lightTypography": {
+        "color": "var(--da-teal-dark)"
+      },
+      "lightBoxShadow": "var(--da-shadow-sm)",
+      "outlineBorder": {
+        "width": {
+          "top": "1.5px",
+          "right": "1.5px",
+          "bottom": "1.5px",
+          "left": "1.5px"
+        },
+        "style": "solid",
+        "color": "var(--da-teal)"
+      },
+      "outlineTypography": {
+        "color": "var(--da-teal)"
+      },
+      "hinweis": "Innenabstand 13px 26px kommt über die Global Class da-btn (Theme Style hat kein Button-Padding-Feld)."
+    },
+    "form": {
+      "labelTypography": {
+        "font-size": "var(--da-text-xs)",
+        "font-weight": "700",
+        "letter-spacing": "0.06em",
+        "text-transform": "uppercase",
+        "color": "var(--da-muted)"
+      },
+      "placeholderTypography": {
+        "color": "var(--da-muted)"
+      },
+      "fieldTypography": {
+        "font-family": "Manrope",
+        "font-size": "var(--da-text-base)",
+        "color": "var(--da-text)"
+      },
+      "fieldBackgroundColor": "var(--da-bg)",
+      "fieldBorder": {
+        "width": {
+          "top": "1px",
+          "right": "1px",
+          "bottom": "1px",
+          "left": "1px"
+        },
+        "style": "solid",
+        "color": "var(--da-border)",
+        "radius": {
+          "top": "var(--da-r-md)",
+          "right": "var(--da-r-md)",
+          "bottom": "var(--da-r-md)",
+          "left": "var(--da-r-md)"
+        }
+      },
+      "fieldPadding": {
+        "top": "12px",
+        "right": "14px",
+        "bottom": "12px",
+        "left": "14px"
+      },
+      "fieldMargin": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "submitButtonPadding": {
+        "top": "13px",
+        "right": "26px",
+        "bottom": "13px",
+        "left": "26px"
+      },
+      "submitButtonTypography": {
+        "font-weight": "700",
+        "font-size": "15px",
+        "color": "#ffffff"
+      },
+      "submitButtonBackgroundColor": "var(--da-teal-fill)",
+      "submitButtonBorder": {
+        "width": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "radius": {
+          "top": "var(--da-r-md)",
+          "right": "var(--da-r-md)",
+          "bottom": "var(--da-r-md)",
+          "left": "var(--da-r-md)"
+        }
+      }
+    }
+  }
+}

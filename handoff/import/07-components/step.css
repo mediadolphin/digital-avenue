@@ -1,0 +1,36 @@
+.step {
+  padding: var(--da-sp-8);
+  border-radius: var(--da-r-lg);
+  background: var(--da-card-bg);
+  border: 1px solid var(--da-border);
+  box-shadow: var(--da-card-shadow);
+}
+
+.step-num {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--da-teal-subtle);
+  color: var(--da-teal-text);
+  font-weight: 800;
+  font-size: var(--da-text-sm);
+}
+
+:root[data-brx-theme="dark"] .step-num {
+  background: color-mix(in srgb, var(--da-teal) 24%, transparent);
+}
+
+.step h3 {
+  margin-top: var(--da-sp-5);
+  font-size: clamp(19px, 1.6vw, 22px);
+  letter-spacing: -0.02em;
+}
+
+.step p {
+  margin-top: 10px;
+  font-size: var(--da-text-sm);
+  color: var(--da-muted);
+  line-height: 1.6;
+}

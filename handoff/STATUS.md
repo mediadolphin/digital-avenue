@@ -15,9 +15,11 @@ Bricks-Version: Ziel ist 2.4 (RC2, wir warten auf das Final). Style Guide mit In
 
 Betriebskonzept (MCP, Meta Box, CPTs): `handoff/BETRIEBSKONZEPT-MCP.md`. Datenmodell (CPTs, Felder) am 11.09.2026 zurückgestellt: erst Grundparameter, Theme Style, Icons und Components, dann Felder aus den fertigen Templates ableiten.
 
+Importdaten für den Aufbau am Staging: `handoff/import/` (README mit Aufträgen je Schritt, Build über `build-import.mjs`).
+
 ## Nächste Schritte
 
-0. MCP-Verbindung lokal testen („Liste die verfügbaren Bricks-Abilities“). Das kompromittierte Anwendungspasswort vorher widerrufen. Die Cloud-Umgebung braucht zusätzlich die Freigabe der Staging-Domain in der Netzwerkrichtlinie.
+0. Lokal in Claude Code die Schritte 0 bis 7 aus `handoff/import/README.md` ausführen (Farben, Schriften, Variablen, Theme Style, Klassen, Icons, Components). Das kompromittierte Anwendungspasswort vorher widerrufen.
 1. Dunkel-Logos (Digital Avenue vorhanden, Referenzlogos fehlen) beschaffen.
 2. Palette und Variablen in eine Staging-Installation importieren, Ergebnis mit `export/tokens-report.md` vergleichen.
 3. Erste Global Classes anlegen (Buttons, Eyebrow, Karten) und gegen den Prototyp prüfen.
