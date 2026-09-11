@@ -119,6 +119,11 @@ Auftrag (MCP-Weg):
 > `get-theme-styles` zurück und rendere ein H1, ein H2, einen Absatz, einen
 > Button und ein Formularfeld zur Kontrolle.
 
+Wichtig: `typographyHtml: 100%` setzt die HTML-Schriftgröße. Ohne diesen
+Wert rechnet der Style Manager mit 62,5 % (1rem = 10px), und alles, was in
+rem gesetzt ist, schrumpft. Am Staging bereits importierte Theme Styles von
+Hand ergänzen: Theme Styles › Digital Avenue › Typography › HTML font size.
+
 Der Theme Style deckt Grundschrift, H1 bis H6, Lead, Links, Farben,
 Container-Breite, Section-Abstand, Buttons (Standard, Primary, Secondary,
 Light, Outline) und Formularfelder ab. Schatten der Buttons stehen nicht im

@@ -11,6 +11,7 @@
       ]
     },
     "typography": {
+      "typographyHtml": "100%",
       "typographyBody": {
         "font-family": "Manrope",
         "font-size": "var(--da-text-base)",

@@ -134,6 +134,7 @@ const themeStyle = {
     _custom: true,
     conditions: { conditions: [{ id: 'daglob1', main: 'any' }] },
     typography: {
+      typographyHtml: '100%',
       typographyBody: { 'font-family': 'Manrope', 'font-size': 'var(--da-text-base)', 'line-height': 'var(--da-leading-normal)', color: raw('var(--da-text)') },
       typographyHeadings: { 'font-family': 'Manrope', 'line-height': 'var(--da-leading-tight)', 'letter-spacing': 'var(--da-tracking-tight)', color: raw('var(--da-text)') },
       typographyHeadingH1: { 'font-size': 'var(--da-text-xl)', 'font-weight': '800', 'line-height': '1.14', 'letter-spacing': '-0.03em' },
