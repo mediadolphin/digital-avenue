@@ -33,10 +33,17 @@ ist), `export-transfer-package` / `import-transfer-package`,
 `audit-design-system`, `regenerate-css-files`, `list-orphaned-elements`,
 `render-elements` zur Prüfung, `list-ability-status`.
 
-**Kann nicht:** CPTs, Taxonomien oder Meta-Box-Felder registrieren;
-Feldwerte in Posts schreiben (dafür WordPress REST mit demselben
-Anwendungspasswort, Meta Box REST API ist in AIO enthalten); Plugins
-installieren; PHP ausführen; Hosting, DNS, Backups.
+**Meta Box liefert eigene Abilities** (festgestellt 11.09.2026 am
+Staging): `meta-box/create-post-type`, `create-taxonomy`,
+`create-field-group`, `create-field`, `update-field-value` und die
+zugehörigen Lese-, Änderungs- und Löschfunktionen. CPTs, Taxonomien und
+Felder lassen sich also doch über MCP anlegen; die Frage Code-Plugin oder
+Meta-Box-Builder ist damit eine Frage der Versionierung, nicht der
+Machbarkeit. Empfehlung bleibt: Felder erst aus den fertigen Templates
+ableiten, dann per Ability anlegen und den Stand als Export sichern.
+
+**Kann nicht:** Plugins installieren; PHP ausführen; Hosting, DNS,
+Backups.
 
 **Vor jeder Feldnutzung:** `list-dynamic-data-tags` mit einer `postId` des
 Zieltyps aufrufen, Tag kopieren, mit `preview-dynamic-tag` prüfen. Ein
