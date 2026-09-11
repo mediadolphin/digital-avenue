@@ -337,9 +337,22 @@ Entscheidungen:
   (`.site-nav.brxe-section`), damit der Import sie nicht in Controls
   übersetzt und `color-mix`-Werte heil bleiben.
 
-Offen: Footer-Template „Main Footer“ (54), Verhalten des Burgers und der
-mobilen Navigation im Browser prüfen, aktiver Menüpunkt (`aria-current`)
-setzt Bricks automatisch.
+Umbau 11.09.2026 nach Nils' Rückmeldung: Menü mit Leistungen, Branchen
+(Dropdown: Ärzte, Heilberufe, Freie Berufe, Kanzleien, Ferienwohnungen,
+Handwerk, Kundendienst), Referenzen (Dropdown: DIGIZT Haushaltsgeräte,
+Lungenpraxis Tibarg, Dialyse Güstrow, Metallbau Rostock, Urlaub bei
+Jana), Blog, Über uns. Links sind Platzhalter unter `/branchen/…/`,
+`/referenzen/…/`, `/blog/`, `/ueber-uns/`. Dropdown-Aufbau: `dropdown`
+(Text, Chevron, `toggleOn: both`) › `div` mit `customTag: ul` und
+`_hidden: {_cssClasses: "brx-dropdown-content"}` › Text-Links. Abstand
+der Menüpunkte jetzt `--da-sp-8`. Der Burger (Toggle-Element) liegt als
+letztes Kind in der Nav, damit Bricks ihn nur unter dem Breakpoint zeigt
+und das mobile Menü daran bindet; DOM-Reihenfolge Logo, Aktionen, Nav,
+die optische Reihenfolge regelt `order` (Nav 1, Aktionen 2, mobil Nav 3,
+damit der Burger rechts außen steht).
+
+Offen: Footer-Template „Main Footer“ (54), mobiles Menü im Browser
+prüfen, aktiver Menüpunkt (`aria-current`) setzt Bricks automatisch.
 
 ## Danach
 
