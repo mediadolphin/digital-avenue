@@ -224,3 +224,9 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 - Wir warten auf Bricks 2.4 (derzeit RC2) und bauen erst dann in Bricks.
 - Relevante Neuerungen: nativer MCP-Server mit AI Abilities (Claude Code kann Seiten, Templates, Components, Global Classes, Design System direkt anlegen; über den WordPress MCP Adapter, Endpunkt `index.php?rest_route=/mcp/mcp-adapter-default-server`, stdio-Brücke `@automattic/mcp-wordpress-remote`, Anwendungspasswort nur in Umgebungsvariablen; Konfiguration in `.mcp.json`, nicht als claude.ai-Connector), HTML-zu-Bricks, bidirektionaler CSS Sync zwischen Custom CSS und Style-Controls, globaler Import/Export für Design Systems und Components, Bricks Browser, Stile zwischen Breakpoints kopieren. Details in `.claude/skills/bricks-handoff/references/bricks-2-4.md` und im Style Guide, Abschnitt „Bricks 2.4“.
 - Folge für den Handoff: Statt JSON-Importe von Hand einzuspielen, kann Claude Code über MCP direkt in Staging arbeiten, sofern die Staging-Domain aus der Umgebung erreichbar ist. Das Anwendungspasswort bleibt beim Client, nie im Repository.
+
+## Datenmodell und Betrieb über MCP (11.09.2026)
+
+- Drei Ebenen: Struktur über MCP (Bricks-Abilities), Datenmodell als Meta-Box-Code im Repo, Inhalte im WordPress-Admin.
+- CPTs: `da_referenz` (mit Kundenstimme als Feldgruppe), `da_leistung`, `da_faq`, `da_partner`. Taxonomien `zielgruppe` und `leistungsbereich`. Settings Page `unternehmen`. Landingpages bleiben Seiten aus Components.
+- Go-Live durch Übernahme des Stagings; danach Struktur-Änderungen als Transfer-Pakete. Details und Leitplanken in `handoff/BETRIEBSKONZEPT-MCP.md`.

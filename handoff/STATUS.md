@@ -13,6 +13,8 @@ Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45
 
 Bricks-Version: Ziel ist 2.4 (RC2, wir warten auf das Final). Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
 
+Betriebskonzept (MCP, Meta Box, CPTs): `handoff/BETRIEBSKONZEPT-MCP.md`.
+
 ## Nächste Schritte
 
 0. MCP-Verbindung lokal testen („Liste die verfügbaren Bricks-Abilities“). Das kompromittierte Anwendungspasswort vorher widerrufen. Die Cloud-Umgebung braucht zusätzlich die Freigabe der Staging-Domain in der Netzwerkrichtlinie.
