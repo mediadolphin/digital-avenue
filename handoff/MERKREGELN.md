@@ -89,12 +89,13 @@ den Header durch die Anmeldung aus den Umgebungseinstellungen
 (API-Anmeldedaten, Typ Basic). Zugangsdaten nie in Datei, Repository, Chat
 oder Screenshot; ein Passwort, das dort stand, widerrufen.
 
-**Bricks › AI muss eingeschaltet sein, und Apache muss den
-Authorization-Header durchreichen.** (11.09.2026) Ohne den Schalter kennt
-der Adapter keine Bricks-Abilities. Antwortet WordPress auf jede Anmeldung
-mit `rest_forbidden` statt `incorrect_password`, verschluckt der Server den
-Header: `SetEnvIf`- und Rewrite-Zeilen in der `.htaccess`, siehe
-Skill-Referenz `bricks-2-4.md`.
+**Bricks › AI muss eingeschaltet sein, und Verbindungstests laufen vom
+eigenen Rechner.** (11.09.2026) Ohne den Schalter kennt der Adapter keine
+Bricks-Abilities. Aus der Cloud-Umgebung ersetzt der Proxy jeden
+Authorization-Header durch die hinterlegte Anmeldung; ein 401 von dort sagt
+nur, dass diese Anmeldung veraltet ist. Erst wenn der Test vom Mac 200
+liefert und trotzdem `rest_forbidden` kommt, liegt es am Server
+(Skill-Referenz `bricks-2-4.md`, Punkt 3).
 
 **Struktur am Staging bauen, Inhalte in der Produktion pflegen.**
 (11.09.2026) Struktur-Änderungen wandern als Transfer-Paket vom Staging in

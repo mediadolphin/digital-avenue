@@ -73,9 +73,11 @@ ebenfalls, braucht aber Node und die Variablen im jeweiligen Prozess.
 2. **Rewrite-Regeln.** `https://<site>/wp-json/` muss JSON liefern. Bei
    Plesk ohne `.htaccess` landet die Adresse in der Hoster-404, während
    `?rest_route=/` geht. Standard-`.htaccess` von WordPress anlegen.
-3. **Authorization-Header an PHP.** Apache mit PHP-FPM verschluckt ihn; dann
-   antwortet WordPress auf jede Anmeldung mit `rest_forbidden` statt
-   `incorrect_password`. In die `.htaccess` vor den WordPress-Block:
+3. **Authorization-Header an PHP**, nur falls nötig. Manche Apache-Setups
+   mit PHP-FPM verschlucken ihn; dann antwortet WordPress vom eigenen Rechner
+   aus auf jede Anmeldung mit `rest_forbidden` statt `incorrect_password`.
+   Erst mit Punkt 4 vom eigenen Rechner prüfen; am Digital-Avenue-Staging
+   war es nicht nötig. In die `.htaccess` vor den WordPress-Block:
    `SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1` und im Rewrite-Block
    `RewriteCond %{HTTP:Authorization} ^(.*)` mit
    `RewriteRule ^ - [E=HTTP_AUTHORIZATION:%1]`; notfalls `CGIPassAuth On`.
@@ -89,9 +91,11 @@ ebenfalls, braucht aber Node und die Variablen im jeweiligen Prozess.
    ```
 
    200 mit `serverInfo` heißt Server in Ordnung. 401 `incorrect_password`:
-   Passwort oder Benutzer. 401 `rest_forbidden`: Header kommt nicht an
-   (Punkt 3) oder, aus der Cloud, der Proxy ersetzt ihn durch eine veraltete
-   Anmeldung. 404 mit HTML-Seite: Punkt 2. 404 `rest_no_route`: Adapter
+   Passwort oder Benutzer. 401 `rest_forbidden` vom eigenen Rechner: Header
+   kommt nicht an (Punkt 3). 401 `rest_forbidden` nur aus der Cloud: der
+   Proxy ersetzt den Header durch eine veraltete Anmeldung aus den
+   Umgebungseinstellungen; Tests aus der Cloud sagen deshalb nichts über den
+   Server aus. 404 mit HTML-Seite: Punkt 2. 404 `rest_no_route`: Adapter
    nicht aktiv.
 
 Ein Passwort, das einmal im Chat, in einem Screenshot oder in einer Datei
