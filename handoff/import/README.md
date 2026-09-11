@@ -229,6 +229,35 @@ Gelernt beim ersten Durchlauf:
   aber keine Kategorie anlegen. Neue Kategorien entstehen nur im Style
   Manager.
 
+Stand 11.09.2026, zweiter Durchlauf (Kartenfamilie): Klassen `tiles`,
+`tile` (Sub-Selektoren `.tile-num`, `h3`, `p`, `.textlink`), Modifier
+`tile-teal`, `tile-deep`, `tile-sand`, `tile-cream`, `tile-photo`; `steps`,
+`step`; `refs`, `ref`; `quotes`, `quote`, Modifier `featured`; `pains`,
+`pain`; `checks`; `wordmark` mit Modifiern `serif`, `wide`. Components
+(Kategorie in Klammern): Kachel (`c3c53b`, Kacheln), Foto-Kachel
+(`0851ab`, Kacheln), Schritt (`719767`, Karten), Referenzkarte (`cbca1c`,
+Karten, Logo-Bild Attachment 62), Referenzkarte Wortmarke (`7b7cee`,
+Karten), Kundenstimme (`05cb9e`, Karten), Pain-Karte (`469300`, Karten).
+Testseiten: „Component-Test Kachel“ (Post 60), „Component-Test Karten“
+(Post 63).
+
+Gelernt im zweiten Durchlauf:
+
+- `batch-create-global-classes` übersetzt Custom CSS beim Anlegen in
+  echte Controls (Padding, Border, Display, Typografie); der Rest bleibt
+  Custom CSS. Kurzschreibweisen mit `color-mix(...)` gehen dabei kaputt
+  (`border: 1px dashed color-mix(...)` wurde zu `var(--da-border))`).
+  Farben mit `color-mix` als `_border.color.raw` setzen oder als
+  Langschreibweise `border-color` schreiben.
+- Eine Property ohne `default` überschreibt den Elementwert mit leer.
+  Bild-Properties brauchen deshalb `default: {id, url, size}`, sonst
+  zeigt jede Instanz „No image selected“.
+- Instanz-Kinder brauchen `settings: {}`; Property-Werte einer Instanz
+  stehen in `properties`, Class-Properties mit der Options-ID (`teal`).
+- Fotos fehlen noch in der Mediathek. `prototype/img/` (30 Dateien) per
+  Mediathek hochladen, dann Foto-Kachel, Feature-Block, Concierge und
+  Hero Landingpage bestücken.
+
 Für FAQ das Bricks-Accordion (Nestable) statt `details` verwenden; für die
 Zielgruppen-Tabs später das Tabs-Element. Beides steht im Skill
 `bricks-nestable-elements`.

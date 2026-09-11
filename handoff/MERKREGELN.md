@@ -86,6 +86,15 @@ des Wurzelelements; die Basisklasse bleibt, der Modifier kommt dazu.
 Set „Digital Avenue“ plus Global Class `icon`; kein Inline-SVG, das lässt
 sich per MCP nicht speichern.
 
+**Properties immer mit Default.** (11.09.2026) Eine verbundene Property
+ohne Default leert den Wert des Elements. Bei Bildern also Attachment-ID,
+URL und Größe als Default eintragen.
+
+**`color-mix` nie in CSS-Kurzschreibweisen für Klassen.** (11.09.2026)
+Der Import übersetzt Kurzschreibweisen in Controls und zerlegt dabei die
+Klammern. Entweder Langschreibweise (`border-color: color-mix(...)`) oder
+direkt als Raw-Wert im Control.
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)
