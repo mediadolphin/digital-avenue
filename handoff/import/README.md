@@ -389,6 +389,13 @@ Partnerzeile ist eine Section `partners` mit Container `partners-inner`,
 Label und Wortmarken (`wordmark`, `wide`, `serif`). Bilder für Partner-
 Logos später einfach als Image statt Wortmarke.
 
+Nachjustiert (11.09.2026): Glas-Effekt war zu deckend. Paletten-
+farben `da_glass` (hell 0.72, dunkel 0.72), `da_glass_border` (hell 0.55)
+und `da_glass_sand` (hell 0.78, dunkel 0.78) per `bricks/update-color`
+gesenkt; Tokens in `design-system/colors_and_type.css` gleich. Service-
+Karte: Selektor `.sc-title` hat jetzt `line-height: 1.3` (vorher erbte
+der Titel die Absatz-Zeilenhöhe).
+
 Nächste Schritte: mobiles Menü (Bricks 2.4 rendert die Nav-Kinder ohne
 `ul.brx-nav-nested-items`, deshalb greifen Bricks' Mobile-Regeln nicht;
 Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den

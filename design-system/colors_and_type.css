@@ -73,9 +73,9 @@
   --da-teal-glow:      rgb(48 91 117 / 0.35); /* Button-Schein */
   --da-teal-glow-strong: rgb(48 91 117 / 0.45);
   --da-nav-shadow:     rgb(0 0 0 / 0.04);     /* Navigation beim Scrollen */
-  --da-glass:          rgb(255 255 255 / 0.92); /* Glaskarte (Service-Karte) */
-  --da-glass-border:   rgb(255 255 255 / 0.60);
-  --da-glass-sand:     rgb(246 242 234 / 0.94); /* Glaskarte Variante sand */
+  --da-glass:          rgb(255 255 255 / 0.72); /* Glaskarte (Service-Karte) */
+  --da-glass-border:   rgb(255 255 255 / 0.55);
+  --da-glass-sand:     rgb(246 242 234 / 0.78); /* Glaskarte Variante sand */
   --da-chip-bg:        rgb(255 255 255 / 0.88); /* Mosaik-Chip */
   --da-chip-text:      #1b3a4a;
   --da-step-bg:        #e7eff3;                /* Schritt-Nummer */
@@ -189,9 +189,9 @@
   --da-teal-glow:      rgb(77 138 160 / 0.30);
   --da-teal-glow-strong: rgb(77 138 160 / 0.40);
   --da-nav-shadow:     rgb(0 0 0 / 0.35);
-  --da-glass:          rgb(29 51 64 / 0.90);
+  --da-glass:          rgb(29 51 64 / 0.72);
   --da-glass-border:   rgb(41 70 83 / 0.70);
-  --da-glass-sand:     rgb(42 35 24 / 0.92);
+  --da-glass-sand:     rgb(42 35 24 / 0.78);
   --da-chip-bg:        rgb(29 51 64 / 0.84);
   --da-chip-text:      #ede9e0;
   --da-step-bg:        rgb(77 138 160 / 0.24);

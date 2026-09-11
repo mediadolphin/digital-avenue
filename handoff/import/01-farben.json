@@ -257,22 +257,22 @@
     {
       "id": "da_glass",
       "raw": "var(--da-glass)",
-      "light": "rgb(255 255 255 / 0.92)",
-      "dark": "rgb(29 51 64 / 0.90)",
+      "light": "rgb(255 255 255 / 0.72)",
+      "dark": "rgb(29 51 64 / 0.72)",
       "darkModeEnabled": true
     },
     {
       "id": "da_glass_border",
       "raw": "var(--da-glass-border)",
-      "light": "rgb(255 255 255 / 0.60)",
+      "light": "rgb(255 255 255 / 0.55)",
       "dark": "rgb(41 70 83 / 0.70)",
       "darkModeEnabled": true
     },
     {
       "id": "da_glass_sand",
       "raw": "var(--da-glass-sand)",
-      "light": "rgb(246 242 234 / 0.94)",
-      "dark": "rgb(42 35 24 / 0.92)",
+      "light": "rgb(246 242 234 / 0.78)",
+      "dark": "rgb(42 35 24 / 0.78)",
       "darkModeEnabled": true
     },
     {
