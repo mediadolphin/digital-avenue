@@ -155,9 +155,9 @@
 .lp-hero h1 {
   margin: var(--da-sp-5) 0 var(--da-sp-6);
   font-size: clamp(30px, 3.9vw, 50px);
-  font-weight: 400;
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+  font-weight: var(--da-w-black);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .lp-hero h1 strong {

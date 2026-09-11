@@ -37,9 +37,9 @@
   margin: var(--da-sp-5) auto var(--da-sp-6);
   max-width: 26ch;
   font-size: clamp(30px, 3.9vw, 52px);
-  font-weight: 400;
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+  font-weight: var(--da-w-black);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .hero h1 strong {

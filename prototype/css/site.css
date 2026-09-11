@@ -143,7 +143,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero h1 {
   margin: var(--da-sp-5) auto var(--da-sp-6);
   max-width: 26ch;
-  font-size: clamp(30px, 3.9vw, 52px); font-weight: 400; line-height: 1.14; letter-spacing: -0.02em;
+  font-size: clamp(30px, 3.9vw, 52px); font-weight: var(--da-w-black); line-height: 1.1; letter-spacing: -0.03em;
 }
 .hero h1 strong { font-weight: inherit; color: var(--da-teal); }
 .hero .lead { max-width: 58ch; margin: 0 auto var(--da-sp-8); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: var(--da-muted); }
@@ -352,7 +352,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .lp-hero { position: relative; overflow: hidden; padding-block: var(--da-sp-16) var(--da-sp-16); background: linear-gradient(165deg, var(--da-hero-from) 0%, var(--da-hero-to) 65%); }
 .lp-hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(800px 500px at 95% 0%, var(--da-glow-sand-soft), transparent 60%); }
 .lp-hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--da-sp-16); align-items: center; }
-.lp-hero h1 { margin: var(--da-sp-5) 0 var(--da-sp-6); font-size: clamp(30px, 3.9vw, 50px); font-weight: 400; line-height: 1.14; letter-spacing: -0.02em; }
+.lp-hero h1 { margin: var(--da-sp-5) 0 var(--da-sp-6); font-size: clamp(30px, 3.9vw, 50px); font-weight: var(--da-w-black); line-height: 1.1; letter-spacing: -0.03em; }
 .lp-hero h1 strong { font-weight: inherit; color: var(--da-teal); }
 .lp-hero .lead { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: var(--da-muted); max-width: 52ch; margin-bottom: var(--da-sp-8); }
 .lp-hero-ctas { display: flex; gap: var(--da-sp-3); flex-wrap: wrap; }
