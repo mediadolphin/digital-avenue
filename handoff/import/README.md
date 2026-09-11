@@ -85,6 +85,21 @@ Die Schatten-Variablen enthalten nur `var(--da-ink…)`- und
 `var(--da-teal-glow…)`-Referenzen auf Farben aus Schritt 1. Deshalb braucht
 keine Variable einen Dunkelwert; Bricks-Variablen hätten auch keinen.
 
+**Skalen-Generator (Reiter Spacing und Typography) nicht verwenden.**
+Bricks erzeugt dort Verhältnisreihen (`clamp()` in rem mit Steigung ab
+36rem Bildschirmbreite, Wurzelgröße laut Theme Style, sonst 10px). Unser
+Design System sind Vielfache von 4px in eigenen `clamp()`-Werten; eine
+Verhältnisreihe bildet das nicht ab. Die Kategorien Abstände und
+Schriftgrößen bleiben deshalb ohne Skalen-Konfiguration und tauchen in den
+Reitern nicht auf; in den Controls sind sie normal wählbar. Eine zum Test
+erzeugte Kategorie „Spacing“ mit `br-space-*` im Variablen-Manager wieder
+löschen. Wer den Generator später doch nutzt, setzt vorher im Theme Style
+die HTML-Schriftgröße auf 16px, sonst rechnet Bricks mit 10px.
+
+Stand 11.09.2026: Farben (52) und Variablen (48 in 8 Kategorien) sind
+über den Style Manager am Staging importiert; Exportformat der Variablen
+ist `{ variables, categories, styleManager }`.
+
 ## Schritt 4: Theme Style
 
 `04-theme-style.json` liegt im Export-Format von Bricks 2.4 RC2 (wie die
