@@ -21,7 +21,7 @@ Schritt `handoff/STATUS.md` fortschreiben.
 | 1 Farben | `01-farben.json` | `create-color-palette`, je Farbe `create-color` (raw, light, dark) | `list-color-palettes`: 36 Farben mit Dunkelwert |
 | 2 Schriften | `02-schriften.json` | `upload-custom-font-file`, `create-custom-font`, `update-custom-font` | `list-custom-fonts`: Manrope mit Faces |
 | 3 Variablen | `03-variablen.json`, `03-dunkel-overrides.css` | `set-global-variable-categories`, `set-global-variables`; Overrides als Custom CSS | `list-global-variables`: 8 Kategorien, 48 Variablen |
-| 4 Theme Style | `04-theme-style.json` | `create-theme-style` mit `conditions: [{ main: "any" }]` | `get-theme-styles`: Einstellungen und Bedingung vorhanden |
+| 4 Theme Style | `04-theme-style.json` | Import im Builder (Theme Styles › Import) oder `create-theme-style` | Stil „Digital Avenue“ aktiv, H1 und Button stimmen |
 | 5 Klassen | `05-klassen/klassen.json` | je Klasse `create-global-class` mit Custom CSS | `list-global-classes`: 21 Klassen; `render-elements` mit einem Button |
 | 6 Icons | `06-icons/` | ohne Ability: Bricks › Einstellungen › Icons, eigenes Set | Icon-Set im Builder wählbar |
 | 7 Components | `07-components/components.json` | `convert-html-css-to-bricks-data`, dann `create-component` | `get-component`, `render-elements` |
@@ -79,20 +79,29 @@ Die sieben Schatten-Variablen bekommen ihren Dunkelwert über diese Regel.
 
 ## Schritt 4: Theme Style
 
-Auftrag:
+`04-theme-style.json` liegt im Export-Format von Bricks 2.4 RC2 (wie die
+leere Vorlage `Global Theme`). Einfachster Weg ohne Ability: im Builder
+unter Einstellungen › Theme Styles › Import die Datei einspielen. Der Stil
+heißt „Digital Avenue“ und gilt mit Bedingung „any“ für die ganze Seite.
 
-> Lies `handoff/import/04-theme-style.json`. Prüfe jede Wertform gegen das
-> Schema in
-> `.claude/skills/bricks-element-schemas/references/schema-resolved/global/theme-styles.json`
-> (Typography-Objekte, Border, Padding, Farben als `var()`-Referenz) und
-> passe die Form an, nicht die Werte. Lege den Theme Style „Digital Avenue“
-> mit `create-theme-style` und `conditions: [{ main: "any" }]` an. Lies ihn
-> mit `get-theme-styles` zurück und rendere ein H1, ein H2, einen Absatz und
-> einen Button zur Kontrolle.
+Über MCP: `create-theme-style` mit `label`, `conditions: [{ main: "any" }]`
+und dem Objekt `settings` aus der Datei ohne die Schlüssel `_custom` und
+`conditions`.
+
+Auftrag (MCP-Weg):
+
+> Lies `handoff/import/04-theme-style.json`. Lege mit `create-theme-style`
+> den Theme Style „Digital Avenue“ an: `conditions: [{ main: "any" }]`,
+> `settings` aus der Datei ohne `_custom` und `conditions`. Lies ihn mit
+> `get-theme-styles` zurück und rendere ein H1, ein H2, einen Absatz, einen
+> Button und ein Formularfeld zur Kontrolle.
 
 Der Theme Style deckt Grundschrift, H1 bis H6, Lead, Links, Farben,
-Container-Breite, Section-Abstand, Buttons und Formularfelder ab. H5 und H6
-sind Vorschläge (siehe Style Guide, Entscheidung offen).
+Container-Breite, Section-Abstand, Buttons (Standard, Primary, Secondary,
+Light, Outline) und Formularfelder ab. Schatten der Buttons stehen nicht im
+Theme Style, weil Bricks-Schatten keine Variablen mit mehreren Ebenen
+tragen; sie kommen aus den Global Classes in Schritt 5. H5 und H6 sind
+Vorschläge (Style Guide, Entscheidung offen).
 
 ## Schritt 5: Global Classes
 
