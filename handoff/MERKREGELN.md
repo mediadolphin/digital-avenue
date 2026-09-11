@@ -106,6 +106,15 @@ Container.
 `accordion-content-wrapper`; Dropdown: `brx-dropdown-content`. Ohne diese
 Klassen läuft das Bricks-Skript nicht.
 
+**Media-Queries in Klassen brauchen die Element-Klasse im Selektor.**
+(11.09.2026) Bricks erzeugt aus den Controls eine Regel wie
+`.tiles.brxe-div { grid-template-columns: … }` und gibt Media-Queries
+davor aus. `@media { .tiles { … } }` verliert dann doppelt (Spezifität
+und Reihenfolge). Deshalb in Media-Queries immer
+`.tiles.brxe-div, .tiles.brxe-block, .tiles.brxe-container` schreiben.
+Gleiches gilt für Regeln, die einen Control-Wert überschreiben sollen
+(`.tile-photo { padding: 0 }` gegen `.tile.brxe-div { padding }`).
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)

@@ -291,6 +291,11 @@ Gelernt im dritten Durchlauf:
   die Eigenschaft verloren. Abhilfe: Regel mit Element-Klasse schreiben
   (`.faq.brxe-accordion-nested { flex-direction: column }`), die bleibt
   Custom CSS.
+- Media-Queries in Klassen müssen die Element-Klasse tragen
+  (`.tiles.brxe-div`), sonst gewinnt die Control-Regel `.tiles.brxe-div`
+  der Basisbreite; Bricks gibt Media-Queries außerdem vor der Custom-CSS
+  aus. Alle zehn Rasterklassen am 11.09.2026 entsprechend korrigiert,
+  ebenso `nav-burger` (Desktop-Ausblendung als `min-width`-Query).
 - Heading kennt kein `_textAlign`; Ausrichtung über
   `_typography: {"text-align": "center"}`.
 - Slot-Kinder in `add-element` gehen auch verschachtelt (Objekte in
