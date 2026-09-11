@@ -135,8 +135,8 @@ Vorschläge (Style Guide, Entscheidung offen).
 
 Auftrag:
 
-> Lies `handoff/import/05-klassen/klassen.json`. Lege die Kategorien Layout,
-> Text, Buttons, Icons, Formular und Hilfsklassen an und je Eintrag eine
+> Lies `handoff/import/05-klassen/klassen.json`. Lege die Kategorien Sections,
+> Text, Buttons, Icons, Forms, Modifiers und Utilities an und je Eintrag eine
 > Global Class mit `create-global-class`, das Feld `css` als Custom CSS der
 > Klasse (Selektoren sind vollständig, Zeilenumbrüche erhalten). Prüfe mit
 > `list-global-classes`, dass 21 Klassen existieren, und rendere ein
