@@ -74,11 +74,14 @@ for (const [k, v] of Object.entries(light)) {
     usage: USAGE[name] || '',
   });
 }
-writeFileSync(resolve(OUT, '01-farben.json'), JSON.stringify({
-  palette: 'Digital Avenue',
-  hinweis: 'Je Farbe ein create-color mit raw, light und dark. Keine Shades generieren: Hover- und Subtle-Stufen sind bereits eigene Tokens. oklch-Werte sind nach Hex umgerechnet (source zeigt das Original). Halbtransparente Werte (rgb mit Alpha) sind Schatten- und Glasfarben; sie müssen als Farbe angelegt werden, damit Schatten im Dunkelmodus umschalten.',
-  colors,
-}, null, 2) + '\n');
+const palette = {
+  id: 'da_palette',
+  name: 'Digital Avenue',
+  colors: colors.map(c => ({ id: 'da_' + c.raw.slice(9, -1).replace(/-/g, '_'), raw: c.raw, light: c.light, dark: c.dark, darkModeEnabled: true })),
+};
+writeFileSync(resolve(OUT, '01-farben.json'), JSON.stringify(palette, null, 2) + '\n');
+writeFileSync(resolve(OUT, '01-farben.md'), `# Farben (${colors.length})\n\nImport: Style Manager › Colors › Import (\`01-farben.json\`, Format der gespeicherten Palette) oder je Farbe \`create-color\` mit raw, light, dark.\nHalbtransparente Werte (rgb mit Alpha) sind Schatten- und Glasfarben; sie schalten Schatten und Glasflächen im Dunkelmodus um. oklch-Werte des Design Systems sind nach Hex umgerechnet.\n\n| Variable | Hell | Dunkel | Verwendung |\n|---|---|---|---|\n` +
+  colors.map(c => `| \`${c.raw}\` | \`${c.light}\` | \`${c.dark}\` | ${c.usage} |`).join('\n') + '\n');
 
 // ── 02 Schriften ──────────────────────────────────────────────────────────
 writeFileSync(resolve(OUT, '02-schriften.json'), JSON.stringify({
@@ -111,10 +114,11 @@ for (const [k, v] of Object.entries(light)) {
   variables.push({ name: k.slice(2), value: v.replace(/\s+/g, ' '), category: cat.id, darkValue: dark[k] ? dark[k].replace(/\s+/g, ' ') : undefined });
 }
 writeFileSync(resolve(OUT, '03-variablen.json'), JSON.stringify({
-  hinweis: 'Kategorien ohne scale-Konfiguration (feste clamp-Werte aus dem Design System). Namen ohne führendes "--", Bricks ergänzt es. Schatten referenzieren nur Farb-Tokens mit Hell- und Dunkelwert, deshalb braucht keine Variable einen Dunkelwert.',
   categories: CATS.map(({ id, name }) => ({ id, name })),
-  variables,
+  variables: variables.map(v => ({ id: 'da_' + v.name, name: v.name, value: v.value, category: v.category })),
 }, null, 2) + '\n');
+writeFileSync(resolve(OUT, '03-variablen.md'), `# Variablen (${variables.length}, ${CATS.length} Kategorien)\n\nImport: Style Manager › Variables › Import (\`03-variablen.json\`) oder \`set-global-variable-categories\` und \`set-global-variables\`. Namen ohne führendes \`--\`, Bricks ergänzt es. Kategorien ohne Scale-Konfiguration (feste clamp-Werte). Schatten referenzieren nur Farb-Tokens, deshalb braucht keine Variable einen Dunkelwert.\n\n| Kategorie | Variablen |\n|---|---|\n` +
+  CATS.map(c => `| ${c.name} | ${variables.filter(v => v.category === c.id).map(v => '`--' + v.name + '`').join(', ')} |`).join('\n') + '\n');
 if (variables.some(v => v.darkValue)) console.warn('Achtung: Variablen mit Dunkelwert gefunden. Bricks-Variablen haben keinen Dunkelwert; solche Werte gehören als Farbe in den Color Manager.');
 
 // ── 04 Theme Style ────────────────────────────────────────────────────────
@@ -292,11 +296,12 @@ for (const c of CLASSES) {
   classOut.push({ name: c.name, category: c.category, note: c.note, css: rulesToCss(rules, opts) });
 }
 mkdirSync(resolve(OUT, '05-klassen'), { recursive: true });
-writeFileSync(resolve(OUT, '05-klassen/klassen.json'), JSON.stringify({
-  hinweis: 'Je Eintrag eine Global Class (create-global-class) mit dem CSS als Custom CSS der Klasse; Bricks 2.4 CSS Sync übernimmt unterstützte Deklarationen in die Controls. Selektoren sind bereits vollständig (.klasse, .klasse:hover, Kontext). Buttons: Basisklasse da-btn plus Variante kombinieren.',
-  classes: classOut,
-}, null, 2) + '\n');
+const classId = name => 'da' + name.replace(/[^a-z0-9]/g, '').slice(0, 5).padEnd(5, 'x') + String(CLASSES.findIndex(c => c.name === name)).padStart(2, '0');
+writeFileSync(resolve(OUT, '05-klassen/klassen.json'), JSON.stringify(
+  classOut.map(c => ({ id: classId(c.name), name: c.name, settings: { _cssCustom: c.css.trim() } })), null, 2) + '\n');
 writeFileSync(resolve(OUT, '05-klassen/klassen.css'), classOut.map(c => `/* ── ${c.name}: ${c.note} ── */\n${c.css}`).join('\n'));
+writeFileSync(resolve(OUT, '05-klassen/klassen.md'), `# Global Classes (${classOut.length})\n\nImport: Style Manager › Classes › Import (\`klassen.json\`, Array gespeicherter Klassen mit dem CSS als Custom CSS) oder je Klasse \`create-global-class\`. Bricks 2.4 CSS Sync übernimmt unterstützte Deklarationen in die Controls. Buttons: Basisklasse \`da-btn\` plus Variante kombinieren.\n\n| Klasse | Kategorie | Zweck |\n|---|---|---|\n` +
+  classOut.map(c => `| \`${c.name}\` | ${c.category} | ${c.note} |`).join('\n') + '\n');
 
 // ── 06 Icons ──────────────────────────────────────────────────────────────
 const ICON_NAMES = { 'i-check': 'check', 'i-arrow': 'arrow-right', 'i-phone': 'phone', 'i-mail': 'mail', 'i-pin': 'pin', 'i-clock': 'clock', 'i-shield': 'shield', 'i-menu': 'menu', 'i-x': 'x', 'i-chev': 'chevron-down', 'i-sun': 'sun', 'i-moon': 'moon' };

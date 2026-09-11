@@ -4,10 +4,12 @@ Erzeugt aus `design-system/colors_and_type.css` und dem Prototyp mit
 `node handoff/import/build-import.mjs`. Nach jeder Änderung an Tokens oder
 Prototyp neu bauen, nicht von Hand editieren.
 
-Ausführung: lokal in Claude Code im Repository, MCP-Server verbunden
-(`/mcp` zeigt `relaunch-digital-avenue-de` als connected), Bricks-Skills aus
-`.claude/skills/` geladen. Am Staging sind unter Bricks › AI alle Abilities
-eingeschaltet. Jeder Schritt unten ist ein Auftrag zum Kopieren in den Chat.
+Zwei Wege je Schritt: **Import im Style Manager** von Bricks 2.4 (Datei
+hochladen, kein MCP nötig) oder **Auftrag an Claude Code** lokal im
+Repository mit verbundenem MCP-Server. Die JSON-Dateien liegen im
+gespeicherten Format von Bricks (Schema-Bündel `bricks-element-schemas`,
+`global/*.json`), ohne Zusatzfelder; Erklärungen stehen in den
+Markdown-Dateien daneben. Die Aufträge unten gelten für den MCP-Weg.
 
 Regeln für alle Schritte: zuerst lesen (`get-design-context` und die passende
 `list-*`-Ability), Ownership-Werte aus der letzten Antwort weiterreichen,
@@ -18,11 +20,11 @@ Schritt `handoff/STATUS.md` fortschreiben.
 | Schritt | Datei | Ability-Weg | Prüfung |
 |---|---|---|---|
 | 0 Bestand | – | `list-ability-status`, `get-design-context` | Liste der Abilities erscheint; Design System leer oder bekannt |
-| 1 Farben | `01-farben.json` | `create-color-palette`, je Farbe `create-color` (raw, light, dark) | `list-color-palettes`: 52 Farben mit Dunkelwert |
+| 1 Farben | `01-farben.json` (+ `01-farben.md`) | Style Manager › Colors › Import, oder `create-color-palette` und je Farbe `create-color` | 52 Farben mit Dunkelwert in der Palette „Digital Avenue“ |
 | 2 Schriften | `02-schriften.json` | `upload-custom-font-file`, `create-custom-font`, `update-custom-font` | `list-custom-fonts`: Manrope mit Faces |
-| 3 Variablen | `03-variablen.json` | `set-global-variable-categories`, `set-global-variables` | `list-global-variables`: 8 Kategorien, 48 Variablen |
+| 3 Variablen | `03-variablen.json` (+ `03-variablen.md`) | Style Manager › Variables › Import, oder `set-global-variable-categories` und `set-global-variables` | 8 Kategorien, 48 Variablen |
 | 4 Theme Style | `04-theme-style.json` | Import im Builder (Theme Styles › Import) oder `create-theme-style` | Stil „Digital Avenue“ aktiv, H1 und Button stimmen |
-| 5 Klassen | `05-klassen/klassen.json` | je Klasse `create-global-class` mit Custom CSS | `list-global-classes`: 21 Klassen; `render-elements` mit einem Button |
+| 5 Klassen | `05-klassen/klassen.json` (+ `klassen.md`, `klassen.css`) | Style Manager › Classes › Import, oder je Klasse `create-global-class` | 21 Klassen; Button mit `da-btn da-btn-primary` rendern |
 | 6 Icons | `06-icons/` (durch den SVG → Bricks Optimizer gelaufen) | ohne Ability: Bricks › Einstellungen › Icons, eigenes Set | Icon-Set im Builder wählbar |
 | 7 Components | `07-components/components.json` | `convert-html-css-to-bricks-data`, dann `create-component` | `get-component`, `render-elements` |
 

@@ -1,131 +1,149 @@
-{
-  "hinweis": "Je Eintrag eine Global Class (create-global-class) mit dem CSS als Custom CSS der Klasse; Bricks 2.4 CSS Sync übernimmt unterstützte Deklarationen in die Controls. Selektoren sind bereits vollständig (.klasse, .klasse:hover, Kontext). Buttons: Basisklasse da-btn plus Variante kombinieren.",
-  "classes": [
-    {
-      "name": "section",
-      "category": "Layout",
-      "note": "Section-Innenabstand groß",
-      "css": ".section {\n  padding-block: var(--da-sp-20);\n}\n"
-    },
-    {
-      "name": "section-sm",
-      "category": "Layout",
-      "note": "Section-Innenabstand klein",
-      "css": ".section-sm {\n  padding-block: var(--da-sp-16);\n}\n"
-    },
-    {
-      "name": "section-head",
-      "category": "Layout",
-      "note": "Abschnittskopf mit Eyebrow, H2, Lead; Modifier center",
-      "css": ".section-head {\n  max-width: 62ch;\n  margin-bottom: var(--da-sp-12);\n}\n\n.section-head h2 {\n  margin-top: var(--da-sp-4);\n  font-size: clamp(28px, 3.4vw, 44px);\n  letter-spacing: -0.03em;\n  line-height: 1.1;\n}\n\n.section-head p {\n  margin-top: var(--da-sp-5);\n  font-size: var(--da-text-md);\n  color: var(--da-muted);\n}\n"
-    },
-    {
-      "name": "split",
-      "category": "Layout",
-      "note": "Zweispaltiges Grid, mobil einspaltig",
-      "css": ".split {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: var(--da-sp-16);\n  align-items: start;\n}\n\n@media (max-width: 880px) {\n  .split {\n    grid-template-columns: 1fr;\n    gap: var(--da-sp-10);\n  }\n}\n"
-    },
-    {
-      "name": "da-eyebrow",
-      "category": "Text",
-      "note": "Eyebrow mit Linie, Versalien, Jost",
-      "css": ".da-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  color: var(--da-teal-text);\n  background: none;\n  border: 0;\n  padding: 0;\n  border-radius: 0;\n  font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;\n}\n\n.da-eyebrow::before {\n  content: '';\n  width: 28px;\n  height: 1px;\n  background: currentColor;\n  opacity: 0.55;\n  flex-shrink: 0;\n}\n\n.on-dark .da-eyebrow {\n  color: var(--da-sand);\n}\n"
-    },
-    {
-      "name": "on-dark",
-      "category": "Text",
-      "note": "Modifier: Eyebrow und Ghost-Button auf dunklem Grund",
-      "css": ".da-btn-ghost.on-dark {\n  color: #fff !important;\n  border-color: color-mix(in srgb, #fff 45%, transparent);\n}\n\n.da-btn-ghost.on-dark:hover {\n  background: color-mix(in srgb, #fff 10%, transparent);\n}\n"
-    },
-    {
-      "name": "textlink",
-      "category": "Text",
-      "note": "Textlink mit Pfeil-Icon",
-      "css": ".textlink {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  font-weight: 700;\n  font-size: var(--da-text-sm);\n  color: var(--da-teal);\n}\n\n.textlink .icon {\n  transition: transform var(--da-t);\n}\n\n.textlink:hover .icon {\n  transform: translateX(3px);\n}\n"
-    },
-    {
-      "name": "placeholder-tag",
-      "category": "Text",
-      "note": "Kleines Label (Tag) in Karten",
-      "css": ".placeholder-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  align-self: flex-start;\n  padding: 4px 10px;\n  border-radius: var(--da-r-sm);\n  background: var(--da-sand-subtle);\n  color: var(--da-sand-text);\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n"
-    },
-    {
-      "name": "da-btn",
-      "category": "Buttons",
-      "note": "Basis aller Buttons: Padding, Radius, Schrift",
-      "css": ".da-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  white-space: nowrap;\n  font-family: var(--da-font);\n  font-size: 15px;\n  font-weight: var(--da-w-bold);\n  line-height: 1;\n  letter-spacing: 0.01em;\n  padding: 13px 26px;\n  border-radius: var(--da-r-md);\n  border: none;\n  cursor: pointer;\n  text-decoration: none;\n  transition: background var(--da-t), transform var(--da-t), box-shadow var(--da-t), color var(--da-t);\n}\n"
-    },
-    {
-      "name": "da-btn-primary",
-      "category": "Buttons",
-      "note": "Gefüllt teal, weißer Text",
-      "css": ".da-btn-primary {\n  background: var(--da-teal-fill);\n  color: #fff !important;\n  transition: background var(--da-t), transform var(--da-t), box-shadow var(--da-t);\n  box-shadow: var(--da-shadow-teal);\n}\n\n.da-btn-primary:hover {\n  background: var(--da-teal-fill-hover);\n  transform: translateY(-1px);\n  box-shadow: var(--da-shadow-teal-hover);\n}\n"
-    },
-    {
-      "name": "da-btn-ghost",
-      "category": "Buttons",
-      "note": "Umrandet teal; mit on-dark weiß",
-      "css": ".da-btn-ghost {\n  background: transparent;\n  color: var(--da-teal) !important;\n  border: 1.5px solid var(--da-teal);\n  box-shadow: none;\n  padding: 11.5px 24.5px;\n}\n\n.da-btn-ghost:hover {\n  background: var(--da-teal-subtle);\n  transform: translateY(-1px);\n}\n"
-    },
-    {
-      "name": "da-btn-light",
-      "category": "Buttons",
-      "note": "Weiß auf dunklen Flächen",
-      "css": ".da-btn-light {\n  background: #fff;\n  color: var(--da-teal-dark) !important;\n  box-shadow: var(--da-shadow-sm);\n}\n\n.da-btn-light:hover {\n  background: var(--da-sand-subtle);\n  transform: translateY(-1px);\n}\n"
-    },
-    {
-      "name": "da-btn-sand",
-      "category": "Buttons",
-      "note": "Sand-Variante",
-      "css": ".da-btn-sand {\n  background: var(--da-sand);\n  color: var(--da-teal-dark) !important;\n  box-shadow: 0 2px 12px color-mix(in srgb, var(--da-sand) 40%, transparent);\n}\n\n.da-btn-sand:hover {\n  background: var(--da-sand-hover);\n}\n"
-    },
-    {
-      "name": "icon",
-      "category": "Icons",
-      "note": "Icon 16px",
-      "css": ".icon {\n  width: 16px;\n  height: 16px;\n  flex-shrink: 0;\n}\n"
-    },
-    {
-      "name": "icon-20",
-      "category": "Icons",
-      "note": "Icon 20px",
-      "css": ".icon-20 {\n  width: 20px;\n  height: 20px;\n}\n"
-    },
-    {
-      "name": "form",
-      "category": "Formular",
-      "note": "Zweispaltiges Formular-Grid, mobil einspaltig",
-      "css": ".form {\n  margin-top: var(--da-sp-6);\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: var(--da-sp-4);\n}\n\n@media (max-width: 560px) {\n  .form {\n    grid-template-columns: 1fr;\n  }\n}\n"
-    },
-    {
-      "name": "field",
-      "category": "Formular",
-      "note": "Feld mit Label, Input, Fehlertext; Modifier full, half, invalid",
-      "css": ".field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.field label {\n  font-size: var(--da-text-xs);\n  font-weight: 700;\n  letter-spacing: 0.06em;\n  text-transform: uppercase;\n  color: var(--da-muted);\n}\n\n.field input {\n  font: inherit;\n  font-size: var(--da-text-base);\n  color: var(--da-text);\n  background: var(--da-bg);\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  padding: 12px 14px;\n  min-height: 48px;\n  transition: border-color var(--da-t), box-shadow var(--da-t);\n}\n\n.field select {\n  font: inherit;\n  font-size: var(--da-text-base);\n  color: var(--da-text);\n  background: var(--da-bg);\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  padding: 12px 14px;\n  min-height: 48px;\n  transition: border-color var(--da-t), box-shadow var(--da-t);\n}\n\n.field textarea {\n  font: inherit;\n  font-size: var(--da-text-base);\n  color: var(--da-text);\n  background: var(--da-bg);\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  padding: 12px 14px;\n  min-height: 96px;\n  transition: border-color var(--da-t), box-shadow var(--da-t);\n  resize: vertical;\n}\n\n.field input:focus {\n  outline: none;\n  border-color: var(--da-teal);\n  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);\n}\n\n.field select:focus {\n  outline: none;\n  border-color: var(--da-teal);\n  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);\n}\n\n.field textarea:focus {\n  outline: none;\n  border-color: var(--da-teal);\n  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);\n}\n"
-    },
-    {
-      "name": "segmented",
-      "category": "Formular",
-      "note": "Segment-Auswahl (Radio als Buttons)",
-      "css": ".segmented {\n  display: flex;\n  gap: 6px;\n  flex-wrap: wrap;\n}\n\n.segmented label {\n  flex: 1;\n  text-align: center;\n  padding: 11px 12px;\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  font-size: var(--da-text-sm);\n  font-weight: 700;\n  letter-spacing: 0;\n  text-transform: none;\n  color: var(--da-text);\n  cursor: pointer;\n  min-height: 48px;\n  display: grid;\n  place-items: center;\n}\n\n.segmented input {\n  position: absolute;\n  opacity: 0;\n  pointer-events: none;\n}\n\n.segmented input:checked + label {\n  background: var(--da-teal-fill);\n  border-color: var(--da-teal-fill);\n  color: #fff;\n}\n"
-    },
-    {
-      "name": "form-foot",
-      "category": "Formular",
-      "note": "Formularfuß mit Hinweis und Button",
-      "css": ".form-foot {\n  grid-column: 1 / -1;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: var(--da-sp-4);\n  flex-wrap: wrap;\n  margin-top: var(--da-sp-2);\n}\n\n.form-foot small {\n  font-size: var(--da-text-xs);\n  color: var(--da-muted);\n  max-width: 42ch;\n  line-height: 1.4;\n}\n"
-    },
-    {
-      "name": "form-success",
-      "category": "Formular",
-      "note": "Erfolgsmeldung nach dem Absenden",
-      "css": ".form-success {\n  display: none;\n  text-align: center;\n  padding: var(--da-sp-8) 0 var(--da-sp-4);\n}\n\n.form-success h3 {\n  font-size: clamp(22px, 2.4vw, 28px);\n  letter-spacing: -0.025em;\n}\n\n.form-success p {\n  margin-top: var(--da-sp-3);\n  color: var(--da-muted);\n}\n"
-    },
-    {
-      "name": "sr-only",
-      "category": "Hilfsklassen",
-      "note": "Nur für Screenreader",
-      "css": ".sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip: rect(0 0 0 0);\n  white-space: nowrap;\n}\n"
+[
+  {
+    "id": "dasecti00",
+    "name": "section",
+    "settings": {
+      "_cssCustom": ".section {\n  padding-block: var(--da-sp-20);\n}"
     }
-  ]
-}
+  },
+  {
+    "id": "dasecti01",
+    "name": "section-sm",
+    "settings": {
+      "_cssCustom": ".section-sm {\n  padding-block: var(--da-sp-16);\n}"
+    }
+  },
+  {
+    "id": "dasecti02",
+    "name": "section-head",
+    "settings": {
+      "_cssCustom": ".section-head {\n  max-width: 62ch;\n  margin-bottom: var(--da-sp-12);\n}\n\n.section-head h2 {\n  margin-top: var(--da-sp-4);\n  font-size: clamp(28px, 3.4vw, 44px);\n  letter-spacing: -0.03em;\n  line-height: 1.1;\n}\n\n.section-head p {\n  margin-top: var(--da-sp-5);\n  font-size: var(--da-text-md);\n  color: var(--da-muted);\n}"
+    }
+  },
+  {
+    "id": "dasplit03",
+    "name": "split",
+    "settings": {
+      "_cssCustom": ".split {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: var(--da-sp-16);\n  align-items: start;\n}\n\n@media (max-width: 880px) {\n  .split {\n    grid-template-columns: 1fr;\n    gap: var(--da-sp-10);\n  }\n}"
+    }
+  },
+  {
+    "id": "dadaeye04",
+    "name": "da-eyebrow",
+    "settings": {
+      "_cssCustom": ".da-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  color: var(--da-teal-text);\n  background: none;\n  border: 0;\n  padding: 0;\n  border-radius: 0;\n  font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;\n}\n\n.da-eyebrow::before {\n  content: '';\n  width: 28px;\n  height: 1px;\n  background: currentColor;\n  opacity: 0.55;\n  flex-shrink: 0;\n}\n\n.on-dark .da-eyebrow {\n  color: var(--da-sand);\n}"
+    }
+  },
+  {
+    "id": "daondar05",
+    "name": "on-dark",
+    "settings": {
+      "_cssCustom": ".da-btn-ghost.on-dark {\n  color: #fff !important;\n  border-color: color-mix(in srgb, #fff 45%, transparent);\n}\n\n.da-btn-ghost.on-dark:hover {\n  background: color-mix(in srgb, #fff 10%, transparent);\n}"
+    }
+  },
+  {
+    "id": "datextl06",
+    "name": "textlink",
+    "settings": {
+      "_cssCustom": ".textlink {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  font-weight: 700;\n  font-size: var(--da-text-sm);\n  color: var(--da-teal);\n}\n\n.textlink .icon {\n  transition: transform var(--da-t);\n}\n\n.textlink:hover .icon {\n  transform: translateX(3px);\n}"
+    }
+  },
+  {
+    "id": "daplace07",
+    "name": "placeholder-tag",
+    "settings": {
+      "_cssCustom": ".placeholder-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  align-self: flex-start;\n  padding: 4px 10px;\n  border-radius: var(--da-r-sm);\n  background: var(--da-sand-subtle);\n  color: var(--da-sand-text);\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}"
+    }
+  },
+  {
+    "id": "dadabtn08",
+    "name": "da-btn",
+    "settings": {
+      "_cssCustom": ".da-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  white-space: nowrap;\n  font-family: var(--da-font);\n  font-size: 15px;\n  font-weight: var(--da-w-bold);\n  line-height: 1;\n  letter-spacing: 0.01em;\n  padding: 13px 26px;\n  border-radius: var(--da-r-md);\n  border: none;\n  cursor: pointer;\n  text-decoration: none;\n  transition: background var(--da-t), transform var(--da-t), box-shadow var(--da-t), color var(--da-t);\n}"
+    }
+  },
+  {
+    "id": "dadabtn09",
+    "name": "da-btn-primary",
+    "settings": {
+      "_cssCustom": ".da-btn-primary {\n  background: var(--da-teal-fill);\n  color: #fff !important;\n  transition: background var(--da-t), transform var(--da-t), box-shadow var(--da-t);\n  box-shadow: var(--da-shadow-teal);\n}\n\n.da-btn-primary:hover {\n  background: var(--da-teal-fill-hover);\n  transform: translateY(-1px);\n  box-shadow: var(--da-shadow-teal-hover);\n}"
+    }
+  },
+  {
+    "id": "dadabtn10",
+    "name": "da-btn-ghost",
+    "settings": {
+      "_cssCustom": ".da-btn-ghost {\n  background: transparent;\n  color: var(--da-teal) !important;\n  border: 1.5px solid var(--da-teal);\n  box-shadow: none;\n  padding: 11.5px 24.5px;\n}\n\n.da-btn-ghost:hover {\n  background: var(--da-teal-subtle);\n  transform: translateY(-1px);\n}"
+    }
+  },
+  {
+    "id": "dadabtn11",
+    "name": "da-btn-light",
+    "settings": {
+      "_cssCustom": ".da-btn-light {\n  background: #fff;\n  color: var(--da-teal-dark) !important;\n  box-shadow: var(--da-shadow-sm);\n}\n\n.da-btn-light:hover {\n  background: var(--da-sand-subtle);\n  transform: translateY(-1px);\n}"
+    }
+  },
+  {
+    "id": "dadabtn12",
+    "name": "da-btn-sand",
+    "settings": {
+      "_cssCustom": ".da-btn-sand {\n  background: var(--da-sand);\n  color: var(--da-teal-dark) !important;\n  box-shadow: 0 2px 12px color-mix(in srgb, var(--da-sand) 40%, transparent);\n}\n\n.da-btn-sand:hover {\n  background: var(--da-sand-hover);\n}"
+    }
+  },
+  {
+    "id": "daiconx13",
+    "name": "icon",
+    "settings": {
+      "_cssCustom": ".icon {\n  width: 16px;\n  height: 16px;\n  flex-shrink: 0;\n}"
+    }
+  },
+  {
+    "id": "daicon214",
+    "name": "icon-20",
+    "settings": {
+      "_cssCustom": ".icon-20 {\n  width: 20px;\n  height: 20px;\n}"
+    }
+  },
+  {
+    "id": "daformx15",
+    "name": "form",
+    "settings": {
+      "_cssCustom": ".form {\n  margin-top: var(--da-sp-6);\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: var(--da-sp-4);\n}\n\n@media (max-width: 560px) {\n  .form {\n    grid-template-columns: 1fr;\n  }\n}"
+    }
+  },
+  {
+    "id": "dafield16",
+    "name": "field",
+    "settings": {
+      "_cssCustom": ".field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.field label {\n  font-size: var(--da-text-xs);\n  font-weight: 700;\n  letter-spacing: 0.06em;\n  text-transform: uppercase;\n  color: var(--da-muted);\n}\n\n.field input {\n  font: inherit;\n  font-size: var(--da-text-base);\n  color: var(--da-text);\n  background: var(--da-bg);\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  padding: 12px 14px;\n  min-height: 48px;\n  transition: border-color var(--da-t), box-shadow var(--da-t);\n}\n\n.field select {\n  font: inherit;\n  font-size: var(--da-text-base);\n  color: var(--da-text);\n  background: var(--da-bg);\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  padding: 12px 14px;\n  min-height: 48px;\n  transition: border-color var(--da-t), box-shadow var(--da-t);\n}\n\n.field textarea {\n  font: inherit;\n  font-size: var(--da-text-base);\n  color: var(--da-text);\n  background: var(--da-bg);\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  padding: 12px 14px;\n  min-height: 96px;\n  transition: border-color var(--da-t), box-shadow var(--da-t);\n  resize: vertical;\n}\n\n.field input:focus {\n  outline: none;\n  border-color: var(--da-teal);\n  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);\n}\n\n.field select:focus {\n  outline: none;\n  border-color: var(--da-teal);\n  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);\n}\n\n.field textarea:focus {\n  outline: none;\n  border-color: var(--da-teal);\n  box-shadow: 0 0 0 3px color-mix(in srgb, var(--da-teal) 18%, transparent);\n}"
+    }
+  },
+  {
+    "id": "dasegme17",
+    "name": "segmented",
+    "settings": {
+      "_cssCustom": ".segmented {\n  display: flex;\n  gap: 6px;\n  flex-wrap: wrap;\n}\n\n.segmented label {\n  flex: 1;\n  text-align: center;\n  padding: 11px 12px;\n  border: 1px solid var(--da-border);\n  border-radius: var(--da-r-md);\n  font-size: var(--da-text-sm);\n  font-weight: 700;\n  letter-spacing: 0;\n  text-transform: none;\n  color: var(--da-text);\n  cursor: pointer;\n  min-height: 48px;\n  display: grid;\n  place-items: center;\n}\n\n.segmented input {\n  position: absolute;\n  opacity: 0;\n  pointer-events: none;\n}\n\n.segmented input:checked + label {\n  background: var(--da-teal-fill);\n  border-color: var(--da-teal-fill);\n  color: #fff;\n}"
+    }
+  },
+  {
+    "id": "daformf18",
+    "name": "form-foot",
+    "settings": {
+      "_cssCustom": ".form-foot {\n  grid-column: 1 / -1;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: var(--da-sp-4);\n  flex-wrap: wrap;\n  margin-top: var(--da-sp-2);\n}\n\n.form-foot small {\n  font-size: var(--da-text-xs);\n  color: var(--da-muted);\n  max-width: 42ch;\n  line-height: 1.4;\n}"
+    }
+  },
+  {
+    "id": "daforms19",
+    "name": "form-success",
+    "settings": {
+      "_cssCustom": ".form-success {\n  display: none;\n  text-align: center;\n  padding: var(--da-sp-8) 0 var(--da-sp-4);\n}\n\n.form-success h3 {\n  font-size: clamp(22px, 2.4vw, 28px);\n  letter-spacing: -0.025em;\n}\n\n.form-success p {\n  margin-top: var(--da-sp-3);\n  color: var(--da-muted);\n}"
+    }
+  },
+  {
+    "id": "dasronl20",
+    "name": "sr-only",
+    "settings": {
+      "_cssCustom": ".sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip: rect(0 0 0 0);\n  white-space: nowrap;\n}"
+    }
+  }
+]
