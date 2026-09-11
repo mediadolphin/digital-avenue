@@ -6,7 +6,8 @@ Prototyp neu bauen, nicht von Hand editieren.
 
 Zwei Wege je Schritt: **Import im Style Manager** von Bricks 2.4 (Datei
 hochladen, kein MCP nötig) oder **Auftrag an Claude Code** lokal im
-Repository mit verbundenem MCP-Server. Die JSON-Dateien liegen im
+Repository oder in der Cloud-Umgebung, jeweils mit verbundenem MCP-Server
+(Einrichtung in `.claude/skills/bricks-handoff/references/bricks-2-4.md`). Die JSON-Dateien liegen im
 gespeicherten Format von Bricks (Schema-Bündel `bricks-element-schemas`,
 `global/*.json`), ohne Zusatzfelder; Erklärungen stehen in den
 Markdown-Dateien daneben. Die Aufträge unten gelten für den MCP-Weg.

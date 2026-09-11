@@ -82,9 +82,19 @@ eingebaut.
 
 **MCP-Server in `.mcp.json`, nie als claude.ai-Connector.** (11.09.2026)
 Der Connector versucht OAuth, Bricks kennt nur Anwendungspasswörter, die
-Verbindung läuft in eine 404-Schleife. Zugangsdaten nur in
-Umgebungsvariablen, nie in Datei, Repository oder Chat; ein Passwort, das
-im Chat stand, widerrufen.
+Verbindung läuft in eine 404-Schleife. Eine Datei für beide Orte: direkte
+HTTP-Verbindung zum Endpunkt, Header `Authorization: Basic ${BRICKS_MCP_AUTH}`.
+Auf dem Mac liefert die Variable den Wert, in der Cloud ersetzt der Proxy
+den Header durch die Anmeldung aus den Umgebungseinstellungen
+(API-Anmeldedaten, Typ Basic). Zugangsdaten nie in Datei, Repository, Chat
+oder Screenshot; ein Passwort, das dort stand, widerrufen.
+
+**Bricks › AI muss eingeschaltet sein, und Apache muss den
+Authorization-Header durchreichen.** (11.09.2026) Ohne den Schalter kennt
+der Adapter keine Bricks-Abilities. Antwortet WordPress auf jede Anmeldung
+mit `rest_forbidden` statt `incorrect_password`, verschluckt der Server den
+Header: `SetEnvIf`- und Rewrite-Zeilen in der `.htaccess`, siehe
+Skill-Referenz `bricks-2-4.md`.
 
 **Struktur am Staging bauen, Inhalte in der Produktion pflegen.**
 (11.09.2026) Struktur-Änderungen wandern als Transfer-Paket vom Staging in

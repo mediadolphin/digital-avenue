@@ -31,57 +31,71 @@ ersten Einsatz am Staging verifizieren.
 ## Verbindung einrichten und prüfen
 
 **Nicht als claude.ai-Connector.** Ein Connector startet einen OAuth-Handshake;
-Bricks hat keinen OAuth-Server, der Handshake endet in einer 404-Schleife.
-Der Server gehört in die MCP-Konfiguration von Claude Code (Terminal oder
-Desktop-App), Vorlage in `.mcp.json` im Projekt:
+Bricks hat keinen OAuth-Server, der Handshake endet in einer 404-Schleife
+(`/authorize`, `/register`). Auch Organisations-Connectors entfernen.
+
+**Eine `.mcp.json` für beide Orte.** Direkte HTTP-Verbindung zum Endpunkt des
+WordPress MCP Adapters, ohne npx-Brücke:
 
 ```json
 {
   "mcpServers": {
     "relaunch-digital-avenue-de": {
-      "command": "npx",
-      "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
-      "env": {
-        "WP_API_URL": "https://<site>/wp-json/mcp/mcp-adapter-default-server",
-        "WP_API_USERNAME": "${WP_API_USERNAME}",
-        "WP_API_PASSWORD": "${WP_API_PASSWORD}"
-      }
+      "type": "http",
+      "url": "https://<site>/wp-json/mcp/mcp-adapter-default-server",
+      "headers": { "Authorization": "Basic ${BRICKS_MCP_AUTH}" }
     }
   }
 }
 ```
 
-Benutzer und Anwendungspasswort stehen nur in der Shell-Umgebung des
-Rechners, der Claude Code startet, nie in der Datei, im Repository oder im
-Chat. Passwort abfragen, ohne dass es in der History landet:
+- **Auf dem eigenen Rechner:** `BRICKS_MCP_AUTH` ist Base64 von
+  `<wp-benutzer>:<anwendungspasswort>`, gesetzt in der Shell, aus der Claude
+  Code startet. Passwort abfragen, ohne dass es in der History landet:
+  `read -rsp 'Anwendungspasswort: ' PW; export BRICKS_MCP_AUTH=$(printf '%s:%s' '<wp-benutzer>' "$PW" | base64); unset PW`
+- **In der Cloud-Umgebung von Claude Code:** in den Umgebungseinstellungen
+  unter „API-Anmeldedaten“ einen Eintrag für den Host anlegen, Typ Basic,
+  Benutzer und Anwendungspasswort. Der Proxy ersetzt den Authorization-Header
+  ausgehender Anfragen an diesen Host durch diese Anmeldung; die Variable muss
+  dort nicht gesetzt sein. Dazu den Host in der Netzwerkrichtlinie freigeben.
+  Änderungen gelten ab der nächsten Sitzung.
+- Der WordPress-Anmeldename zählt, nicht der Anzeigename (Bricks › AI zeigt
+  beides: „Anzeigename (login)“).
 
-```
-read -rsp 'Anwendungspasswort: ' WP_API_PASSWORD; export WP_API_PASSWORD; export WP_API_USERNAME=<wp-benutzer>
-```
+Die von Bricks vorgeschlagene stdio-Brücke `@automattic/mcp-wordpress-remote`
+(Variablen `WP_API_URL`, `WP_API_USERNAME`, `WP_API_PASSWORD`) funktioniert
+ebenfalls, braucht aber Node und die Variablen im jeweiligen Prozess.
 
-Bricks erzeugt unter Bricks › AI eine fertige Client-Anleitung. Sie enthält
-das Passwort im Klartext: nur als Vorlage nutzen, Passwort durch die Variable
-ersetzen. Ein Passwort, das einmal im Chat oder in einer Datei stand, in
-WordPress widerrufen und neu anlegen.
+**Voraussetzungen am Server**, in dieser Reihenfolge prüfen:
 
-Prüfen: Claude Code im Projekt neu starten, `/mcp` aufrufen, dann im Chat
-„Liste die verfügbaren Bricks-Abilities“. Erscheint keine Liste, ist der
-Client nicht verbunden. Typische Ursachen:
+1. **Bricks › AI › „Enable Bricks abilities“ eingeschaltet.** Ohne den
+   Schalter antwortet der Adapter, kennt aber keine Bricks-Abilities.
+2. **Rewrite-Regeln.** `https://<site>/wp-json/` muss JSON liefern. Bei
+   Plesk ohne `.htaccess` landet die Adresse in der Hoster-404, während
+   `?rest_route=/` geht. Standard-`.htaccess` von WordPress anlegen.
+3. **Authorization-Header an PHP.** Apache mit PHP-FPM verschluckt ihn; dann
+   antwortet WordPress auf jede Anmeldung mit `rest_forbidden` statt
+   `incorrect_password`. In die `.htaccess` vor den WordPress-Block:
+   `SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1` und im Rewrite-Block
+   `RewriteCond %{HTTP:Authorization} ^(.*)` mit
+   `RewriteRule ^ - [E=HTTP_AUTHORIZATION:%1]`; notfalls `CGIPassAuth On`.
+4. **Handshake prüfen**, vom eigenen Rechner (curl fragt das Passwort ab):
 
-1. **npx fehlt.** Node.js 18 oder neuer muss auf dem Rechner installiert sein.
-2. **401 rest_forbidden.** Passwort falsch, Benutzer ohne Builder-Zugang oder
-   Ability für diesen Benutzer unter Bricks › AI nicht freigegeben.
-3. **404 rest_no_route.** MCP Adapter nicht aktiv oder Bricks-Version unter
-   2.4. Test ohne Anmeldung vom eigenen Rechner:
-   `curl -s "https://<site>/index.php?rest_route=/" | jq .namespaces`
-   muss einen `mcp`-Namespace zeigen.
-4. **Staging-Schutz.** Wartungsmodus, Coming-soon-Plugin oder Basic Auth per
-   .htaccess sperren nicht eingeloggte Aufrufe. Für die MCP-Route Ausnahme
-   setzen.
-5. **Cloud-Umgebung.** Claude Code in der Cloud erreicht die Domain nur, wenn
-   sie in der Netzwerkrichtlinie der Umgebung freigegeben ist und die beiden
-   Variablen dort als Umgebungsvariablen hinterlegt sind. Stand 11.09.2026:
-   `relaunch.digital-avenue.de` ist gesperrt (Proxy 403).
+   ```
+   curl -i -u "<wp-benutzer>" -X POST https://<site>/wp-json/mcp/mcp-adapter-default-server \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/json, text/event-stream" \
+     -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"curl","version":"1"}}}'
+   ```
+
+   200 mit `serverInfo` heißt Server in Ordnung. 401 `incorrect_password`:
+   Passwort oder Benutzer. 401 `rest_forbidden`: Header kommt nicht an
+   (Punkt 3) oder, aus der Cloud, der Proxy ersetzt ihn durch eine veraltete
+   Anmeldung. 404 mit HTML-Seite: Punkt 2. 404 `rest_no_route`: Adapter
+   nicht aktiv.
+
+Ein Passwort, das einmal im Chat, in einem Screenshot oder in einer Datei
+stand, in WordPress widerrufen und neu anlegen.
 
 ## HTML-zu-Bricks
 
