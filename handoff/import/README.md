@@ -201,6 +201,34 @@ Auftrag je Component (Beispiel Service-Karte):
 > Controls; Variante als Global-Class-Property mit `sand`. Lies mit
 > `get-component` zurück und rendere eine Instanz.
 
+Stand 11.09.2026 (aus der Cloud-Sitzung per MCP angelegt): Global Class
+`service-card` (id `jquabn`, Controls plus Sub-Selektoren `.sc-head`,
+`.sc-label`, `.sc-status`, `.sc-title`, `ul`, `li`, `li .icon`, `&.sand`),
+Modifier-Klasse `sand` (id `40736a`, Kategorie Modifiers), Components
+„Service-Punkt“ (id `0b9bf7`, Property Text) und „Service-Karte“ (id
+`580b83`, Properties Label, Status, Titel, Variante; Slot `76f9e7` für
+Service-Punkt-Instanzen), Kategorie „Service-Karte“. Testseite „Component-
+Test Service-Karte“ (Post 50, privat) mit beiden Varianten.
+
+Gelernt beim ersten Durchlauf:
+
+- Icons aus dem Icon Manager als Icon-Element setzen:
+  `{"icon":{"library":"custom_set_nmqwgfdgv","svg":{"id":36,"icon_id":"icon_n6tla3o2l","url":"…/check.svg"}},"iconSize":"16px","_cssGlobalClasses":["daiconx13"]}`.
+  Inline-SVG aus dem Konverter lässt sich nicht speichern (code-sensitiv).
+- Instanzen im Elementbaum brauchen `name: "div"` und `cid`; sonst lehnt
+  `create-component` ab („missing a name“).
+- Kinder im Slot der Hauptcomponent werden auf der Seite nicht gerendert.
+  Jede Instanz liefert ihre Listenpunkte selbst: flache Zeilen mit
+  `parent` = Instanz-ID und `slotChildren: {"76f9e7": ["id1","id2"]}`.
+  Verschachtelte Objekte in `slotChildren` haben beim Rendern die Karte
+  verdoppelt, also flache Zeilen verwenden.
+- Variante als Class-Property mit Optionen `standard` (leer) und `sand`
+  (Klassen-ID); ohne `replace`, damit `service-card` erhalten bleibt.
+- `create-global-class` kann eine Kategorie zuweisen
+  (`category` + `expectedCategoryOwnership` aus `list-global-classes`),
+  aber keine Kategorie anlegen. Neue Kategorien entstehen nur im Style
+  Manager.
+
 Für FAQ das Bricks-Accordion (Nestable) statt `details` verwenden; für die
 Zielgruppen-Tabs später das Tabs-Element. Beides steht im Skill
 `bricks-nestable-elements`.

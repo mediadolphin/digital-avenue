@@ -71,6 +71,21 @@ Der CSS Sync übersetzt importiertes CSS nicht automatisch in Regler. Die
 Klasse funktioniert trotzdem; Regler entstehen erst, wenn der Sync im
 Panel angestoßen wird.
 
+## Components
+
+**Component je wiederkehrendem Element, Listenzeilen als eigene
+Component.** (11.09.2026) Service-Karte besteht aus Service-Punkt-
+Instanzen in einem Slot. Slot-Inhalt der Hauptcomponent ist nur
+Vorlage im Builder; auf der Seite zählt, was die Instanz in den Slot legt.
+
+**Varianten als Class-Property, nicht als Kopie.** (11.09.2026) Eine
+Property „Variante“ mit Optionen Standard und Sand bindet an die Klassen
+des Wurzelelements; die Basisklasse bleibt, der Modifier kommt dazu.
+
+**Icons in Components aus dem Icon Manager.** (11.09.2026) Icon-Element mit
+Set „Digital Avenue“ plus Global Class `icon`; kein Inline-SVG, das lässt
+sich per MCP nicht speichern.
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)
