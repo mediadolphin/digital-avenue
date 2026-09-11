@@ -290,6 +290,13 @@ Gelernt im dritten Durchlauf:
   `slotChildren`), ohne die Verdopplung aus `render-elements`.
 - Listen mit `strong` im Text: Property-Typ `text` reicht, HTML wird
   ausgegeben.
+- Ein `li` mit Grid-Layout (Zähler links, Text rechts) braucht ein
+  eigenes Kind-Element für den Text. Liegt der Text direkt im `li`,
+  werden `strong` und Textknoten getrennte Grid-Zellen und der Text
+  bricht Wort für Wort um (Digital-Check-Block, Aside, korrigiert).
+- Theme-Style-Buttons haben `border: none` auf `.bricks-button`. Eine
+  Outline-Klasse muss deshalb auch `.bricks-button.da-btn-ghost` und
+  `.brxe-button.da-btn-ghost` ansprechen, sonst verliert sie den Rahmen.
 
 Für FAQ das Bricks-Accordion (Nestable) statt `details` verwenden; für die
 Zielgruppen-Tabs später das Tabs-Element. Beides steht im Skill
