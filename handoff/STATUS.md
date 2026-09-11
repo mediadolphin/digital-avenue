@@ -11,7 +11,7 @@ Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45
 | 4 Templates & Seiten | offen | Header, Footer, Startseite, drei Landingpages. |
 | 5 Abgleich, Redirects, Launch | offen | Checkliste in `references/launch-checklist.md`. |
 
-Bricks-Version: 2.4 RC2 am Staging. Post-Typen Referenz und Leistung sind am Staging angelegt und für Bricks freigeschaltet (11.09.2026). Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
+Bricks-Version: 2.4 RC2 am Staging. Das Plugin `da-content-model` war am Staging kurz aktiv und wird wieder entfernt (Einträge und Begriffe vorher löschen, dann deaktivieren und löschen); Post-Typen kommen erst nach den Templates zurück. Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
 
 Betriebskonzept (MCP, Meta Box, CPTs): `handoff/BETRIEBSKONZEPT-MCP.md`. Datenmodell (CPTs, Felder) am 11.09.2026 zurückgestellt: erst Grundparameter, Theme Style, Icons und Components, dann Felder aus den fertigen Templates ableiten.
 
