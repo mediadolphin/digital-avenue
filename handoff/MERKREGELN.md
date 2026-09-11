@@ -43,7 +43,7 @@ normal wählbar.
 Dunkelwert im Color Manager.** (11.09.2026) Variablen haben keinen
 Dunkelwert. Schatten und Glasflächen referenzieren deshalb nur Farb-Tokens
 (`--da-ink-*`, `--da-teal-glow*`, `--da-glass*`); dann schaltet Bricks
-nativ um, ohne eigene CSS-Regeln.
+nativ um, ohne eigene CSS-Regeln. Am Staging mit dem Element „Toggle – Mode“ bestätigt.
 
 **Importdateien nur im gespeicherten Format von Bricks, ohne
 Zusatzfelder.** (11.09.2026) Der Style Manager lehnt Dateien mit fremden
