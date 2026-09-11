@@ -309,6 +309,33 @@ Für FAQ das Bricks-Accordion (Nestable) statt `details` verwenden; für die
 Zielgruppen-Tabs später das Tabs-Element. Beides steht im Skill
 `bricks-nestable-elements`.
 
+## Schritt 8: Header
+
+Stand 11.09.2026: Header-Template „Main Header“ (52, Bedingung „gesamte
+Website“, Sticky über die Template-Einstellung `headerSticky`). Aufbau:
+Section `site-nav` › Container `nav-inner` › Logo-Element (Attachment
+110, 28px, Link `/`), Nav (Nestable) `nav-menu` mit fünf Text-Links,
+Div `nav-actions` mit Toggle-Mode (Mond/Sonne aus dem Icon-Set), Button
+`da-btn da-btn-primary da-btn-sm` und Toggle `nav-burger` (Menü-Icon,
+`toggleSelector: #brxe-navmn1`). Mobile Menü über die Nav-Einstellungen:
+Breakpoint 960px, Position unter dem Header (`var(--nav-h)`), Hintergrund
+`--da-bg`. Neue Variable `--nav-h: 72px` (Kategorie Abstände), neue
+Klasse `da-btn-sm`.
+
+Entscheidungen:
+
+- Dunkles Logo nicht als zweite Datei, sondern per CSS-Filter
+  (`brightness(0) invert(1)`) im Dunkelmodus; das Logo ist einfarbig.
+- Scroll-Zustand über Bricks' eigene Klasse
+  `#brx-header.brx-sticky.scrolling`, kein eigenes Skript.
+- Wurzelregeln der Header-Klassen tragen die Element-Klasse
+  (`.site-nav.brxe-section`), damit der Import sie nicht in Controls
+  übersetzt und `color-mix`-Werte heil bleiben.
+
+Offen: Footer-Template „Main Footer“ (54), Verhalten des Burgers und der
+mobilen Navigation im Browser prüfen, aktiver Menüpunkt (`aria-current`)
+setzt Bricks automatisch.
+
 ## Danach
 
 Header und Footer als Templates, dann Seiten per
