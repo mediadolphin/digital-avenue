@@ -4,12 +4,12 @@ Import: Style Manager › Classes › Import (`klassen.json`, Array gespeicherte
 
 | Klasse | Kategorie | Zweck |
 |---|---|---|
-| `section` | Layout | Section-Innenabstand groß |
-| `section-sm` | Layout | Section-Innenabstand klein |
-| `section-head` | Layout | Abschnittskopf mit Eyebrow, H2, Lead; Modifier center |
-| `split` | Layout | Zweispaltiges Grid, mobil einspaltig |
+| `section` | Sections | Section-Innenabstand groß |
+| `section-sm` | Sections | Section-Innenabstand klein |
+| `section-head` | Sections | Abschnittskopf mit Eyebrow, H2, Lead; Modifier center |
+| `split` | Sections | Zweispaltiges Grid, mobil einspaltig |
 | `da-eyebrow` | Text | Eyebrow mit Linie, Versalien, Jost |
-| `on-dark` | Text | Modifier: Eyebrow und Ghost-Button auf dunklem Grund |
+| `on-dark` | Modifiers | Modifier: Eyebrow und Ghost-Button auf dunklem Grund |
 | `textlink` | Text | Textlink mit Pfeil-Icon |
 | `placeholder-tag` | Text | Kleines Label (Tag) in Karten |
 | `da-btn` | Buttons | Basis aller Buttons: Padding, Radius, Schrift |
@@ -19,9 +19,9 @@ Import: Style Manager › Classes › Import (`klassen.json`, Array gespeicherte
 | `da-btn-sand` | Buttons | Sand-Variante |
 | `icon` | Icons | Icon 16px |
 | `icon-20` | Icons | Icon 20px |
-| `form` | Formular | Zweispaltiges Formular-Grid, mobil einspaltig |
-| `field` | Formular | Feld mit Label, Input, Fehlertext; Modifier full, half, invalid |
-| `segmented` | Formular | Segment-Auswahl (Radio als Buttons) |
-| `form-foot` | Formular | Formularfuß mit Hinweis und Button |
-| `form-success` | Formular | Erfolgsmeldung nach dem Absenden |
-| `sr-only` | Hilfsklassen | Nur für Screenreader |
+| `form` | Forms | Zweispaltiges Formular-Grid, mobil einspaltig |
+| `field` | Forms | Feld mit Label, Input, Fehlertext; Modifier full, half, invalid |
+| `segmented` | Forms | Segment-Auswahl (Radio als Buttons) |
+| `form-foot` | Forms | Formularfuß mit Hinweis und Button |
+| `form-success` | Forms | Erfolgsmeldung nach dem Absenden |
+| `sr-only` | Utilities | Nur für Screenreader |

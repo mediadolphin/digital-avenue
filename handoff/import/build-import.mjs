@@ -259,12 +259,12 @@ function rulesToCss(rules, opts) {
 
 // ── 05 Global Classes ─────────────────────────────────────────────────────
 const CLASSES = [
-  { name: 'section', category: 'Layout', note: 'Section-Innenabstand groß' },
-  { name: 'section-sm', category: 'Layout', note: 'Section-Innenabstand klein' },
-  { name: 'section-head', category: 'Layout', note: 'Abschnittskopf mit Eyebrow, H2, Lead; Modifier center' },
-  { name: 'split', category: 'Layout', note: 'Zweispaltiges Grid, mobil einspaltig' },
+  { name: 'section', category: 'Sections', note: 'Section-Innenabstand groß' },
+  { name: 'section-sm', category: 'Sections', note: 'Section-Innenabstand klein' },
+  { name: 'section-head', category: 'Sections', note: 'Abschnittskopf mit Eyebrow, H2, Lead; Modifier center' },
+  { name: 'split', category: 'Sections', note: 'Zweispaltiges Grid, mobil einspaltig' },
   { name: 'da-eyebrow', category: 'Text', note: 'Eyebrow mit Linie, Versalien, Jost' },
-  { name: 'on-dark', category: 'Text', note: 'Modifier: Eyebrow und Ghost-Button auf dunklem Grund' },
+  { name: 'on-dark', category: 'Modifiers', note: 'Modifier: Eyebrow und Ghost-Button auf dunklem Grund' },
   { name: 'textlink', category: 'Text', note: 'Textlink mit Pfeil-Icon' },
   { name: 'placeholder-tag', category: 'Text', note: 'Kleines Label (Tag) in Karten' },
   { name: 'da-btn', category: 'Buttons', note: 'Basis aller Buttons: Padding, Radius, Schrift', synth: true },
@@ -274,12 +274,12 @@ const CLASSES = [
   { name: 'da-btn-sand', category: 'Buttons', note: 'Sand-Variante' },
   { name: 'icon', category: 'Icons', note: 'Icon 16px' },
   { name: 'icon-20', category: 'Icons', note: 'Icon 20px' },
-  { name: 'form', category: 'Formular', note: 'Zweispaltiges Formular-Grid, mobil einspaltig' },
-  { name: 'field', category: 'Formular', note: 'Feld mit Label, Input, Fehlertext; Modifier full, half, invalid' },
-  { name: 'segmented', category: 'Formular', note: 'Segment-Auswahl (Radio als Buttons)' },
-  { name: 'form-foot', category: 'Formular', note: 'Formularfuß mit Hinweis und Button' },
-  { name: 'form-success', category: 'Formular', note: 'Erfolgsmeldung nach dem Absenden' },
-  { name: 'sr-only', category: 'Hilfsklassen', note: 'Nur für Screenreader' },
+  { name: 'form', category: 'Forms', note: 'Zweispaltiges Formular-Grid, mobil einspaltig' },
+  { name: 'field', category: 'Forms', note: 'Feld mit Label, Input, Fehlertext; Modifier full, half, invalid' },
+  { name: 'segmented', category: 'Forms', note: 'Segment-Auswahl (Radio als Buttons)' },
+  { name: 'form-foot', category: 'Forms', note: 'Formularfuß mit Hinweis und Button' },
+  { name: 'form-success', category: 'Forms', note: 'Erfolgsmeldung nach dem Absenden' },
+  { name: 'sr-only', category: 'Utilities', note: 'Nur für Screenreader' },
 ];
 const baseClassNames = CLASSES.map(c => c.name);
 // Button-Basisregel aus der Sammelregel des Prototyps ableiten.
