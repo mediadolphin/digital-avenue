@@ -233,13 +233,20 @@ Stand 11.09.2026, zweiter Durchlauf (Kartenfamilie): Klassen `tiles`,
 `tile` (Sub-Selektoren `.tile-num`, `h3`, `p`, `.textlink`), Modifier
 `tile-teal`, `tile-deep`, `tile-sand`, `tile-cream`, `tile-photo`; `steps`,
 `step`; `refs`, `ref`; `quotes`, `quote`, Modifier `featured`; `pains`,
-`pain`; `checks`; `wordmark` mit Modifiern `serif`, `wide`. Components
+`pain`; `checks`; `wordmark` mit Modifiern `serif`, `wide` (nur noch für die
+Partnerzeile). Components
 (Kategorie in Klammern): Kachel (`c3c53b`, Kacheln), Foto-Kachel
 (`0851ab`, Kacheln), Schritt (`719767`, Karten), Referenzkarte (`cbca1c`,
-Karten, Logo-Bild Attachment 62), Referenzkarte Wortmarke (`7b7cee`,
-Karten), Kundenstimme (`05cb9e`, Karten), Pain-Karte (`469300`, Karten).
+Karten, Logo-Bild Attachment 62), Kundenstimme (`05cb9e`, Karten), Pain-Karte (`469300`, Karten).
 Testseiten: „Component-Test Kachel“ (Post 60), „Component-Test Karten“
 (Post 63).
+
+Nachtrag 11.09.2026: Alle Referenzen bekommen ein Logo, deshalb ist die
+Component „Referenzkarte Wortmarke“ wieder gelöscht (0 Instanzen). Platz-
+halter-Logos für Dialyse Güstrow (106), Lungenpraxis am Tibarg (107) und
+Urlaub bei Jana (108) liegen in der Mediathek und unter
+`design-system/assets/`; echte Logos später einfach in der Property
+„Logo“ austauschen.
 
 Gelernt im zweiten Durchlauf:
 
