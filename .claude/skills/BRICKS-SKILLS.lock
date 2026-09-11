@@ -1,0 +1,5 @@
+source: https://github.com/codeerhq/bricks-skills
+release: v0.1.0-beta.3
+commit: ab954c702d9fb33e6a539bf42e6e1ca9a74e6808
+installed: 2026-09-11
+method: manual copy of skills/bricks-* into .claude/skills/ (project scope)

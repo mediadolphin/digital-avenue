@@ -1,6 +1,6 @@
 # Bricks-Handoff: Stand
 
-Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md).
+Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45 offiziellen Bricks-Skills (codeerhq/bricks-skills, Release v0.1.0-beta.3) in `.claude/skills/bricks-*`, Stand in `.claude/skills/BRICKS-SKILLS.lock`.
 
 | Phase | Stand | Ergebnis |
 |---|---|---|

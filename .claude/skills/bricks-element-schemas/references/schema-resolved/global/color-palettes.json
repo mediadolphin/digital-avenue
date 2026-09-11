@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bricks://global/color-palettes",
+  "schemaVersion": "2.3.6",
+  "title": "Bricks Color Palettes",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "colors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "raw": {
+              "type": "string"
+            },
+            "light": {
+              "type": "string"
+            },
+            "dark": {
+              "type": "string"
+            },
+            "darkModeEnabled": {
+              "type": "boolean"
+            },
+            "parent": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "light",
+                "dark",
+                "transparent"
+              ]
+            },
+            "index": {
+              "type": "integer"
+            },
+            "utilityClasses": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "bg",
+                  "text",
+                  "border",
+                  "outline",
+                  "fill",
+                  "stroke"
+                ]
+              }
+            }
+          },
+          "required": [
+            "id",
+            "raw"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "light"
+              ]
+            },
+            {
+              "required": [
+                "dark"
+              ]
+            }
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "colors"
+    ],
+    "additionalProperties": false
+  }
+}
