@@ -146,18 +146,22 @@
       }
     },
     "general": {
-      "containerMaxWidth": "1240px",
-      "sectionPadding": {
-        "top": "var(--da-sp-20)",
-        "right": "var(--da-sp-6)",
-        "bottom": "var(--da-sp-20)",
-        "left": "var(--da-sp-6)"
-      },
       "siteBackground": {
         "color": {
           "raw": "var(--da-bg)"
         }
       }
+    },
+    "section": {
+      "padding": {
+        "top": "var(--da-sp-20)",
+        "right": "var(--da-sp-6)",
+        "bottom": "var(--da-sp-20)",
+        "left": "var(--da-sp-6)"
+      }
+    },
+    "container": {
+      "widthMax": "1240px"
     },
     "links": {
       "typography": {

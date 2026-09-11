@@ -124,6 +124,11 @@ Wert rechnet der Style Manager mit 62,5 % (1rem = 10px), und alles, was in
 rem gesetzt ist, schrumpft. Am Staging bereits importierte Theme Styles von
 Hand ergänzen: Theme Styles › Digital Avenue › Typography › HTML font size.
 
+Falle beim Theme Style: Die Felder „Root container padding“ und „Root
+container width“ unter General (rotes Symbol) sind Altlasten und wirken
+nicht auf Sections. Section-Innenabstand steht in der Gruppe Section,
+die Breite in der Gruppe Container; die Datei setzt beides dort.
+
 Der Theme Style deckt Grundschrift, H1 bis H6, Lead, Links, Farben,
 Container-Breite, Section-Abstand, Buttons (Standard, Primary, Secondary,
 Light, Outline) und Formularfelder ab. Schatten der Buttons stehen nicht im

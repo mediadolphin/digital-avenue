@@ -158,10 +158,13 @@ const themeStyle = {
       colorSuccess: raw('var(--da-success)'), colorWarning: raw('var(--da-warning)'), colorDanger: raw('var(--da-error)'),
     },
     general: {
-      containerMaxWidth: wrap,
-      sectionPadding: box('var(--da-sp-20)', 'var(--da-sp-6)'),
       siteBackground: { color: raw('var(--da-bg)') },
     },
+    // Section-Abstand und Container-Breite gehören in die Gruppen section und
+    // container. general.sectionPadding / containerMaxWidth sind die alten
+    // "Root container"-Felder und wirken nicht auf Section-Elemente.
+    section: { padding: box('var(--da-sp-20)', 'var(--da-sp-6)') },
+    container: { widthMax: wrap },
     links: { typography: { color: raw('var(--da-teal)') }, textDecoration: 'none', transition: 'color var(--da-t)' },
     button: {
       typography: { 'font-family': 'Manrope', 'font-size': '15px', 'font-weight': '700', 'line-height': '1', 'letter-spacing': '0.01em', color: raw('#ffffff') },
