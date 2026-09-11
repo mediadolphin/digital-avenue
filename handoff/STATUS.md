@@ -7,7 +7,7 @@ Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45
 | 0 Klären | teilweise | Config angelegt (`handoff.config.json`, Präfix `da`, Framework **Bricks Native**, Dunkel-Selektor `:root[data-brx-theme="dark"]`). Staging `https://relaunch.digital-avenue.de` (Bricks 2.4 RC mit MCP Adapter), MCP-Server in `.mcp.json` (HTTP, Header aus `BRICKS_MCP_AUTH` lokal, Proxy-Anmeldung in der Cloud). Verbindung aus der Cloud-Sitzung bestätigt (11.09.2026): 193 Abilities, davon 167 Bricks und 26 Meta Box. |
 | 1 Tokens exportieren | erledigt, am Staging importiert (Theme Style, 52 Farben, 48 Variablen über den Style Manager, 11.09.2026) | `export/`: 52 Farb-Tokens mit Hell- und Dunkel-Wert (davon 16 Schatten- und Glasfarben), 48 Variablen in 8 Kategorien, keine unzugeordneten. Dunkelmodus im Prototyp umgesetzt und am Staging bestätigt (Toggle-Mode-Element, 11.09.2026): Hintergrund, Button und Icons wechseln über den Color Manager. |
 | 2 Schriften & Icons | erledigt (11.09.2026) | Manrope und Jost als Custom Fonts mit je 8 Schnitten im Font Manager (Jost lokal statt Google). Icon-Set „Digital Avenue“ mit 15 Icons im Icon Manager, Quelle `import/06-icons/` (SVG → Bricks Optimizer). |
-| 3 Komponenten als Global Classes und Components | weitgehend (11.09.2026): 43 Klassen am Staging in 8 Kategorien (Cards neu), 9 Components per MCP angelegt (Service-Punkt, Service-Karte, Kachel, Foto-Kachel, Schritt, Referenzkarte, Referenzkarte Wortmarke, Kundenstimme, Pain-Karte), Testseiten 50, 60, 63; offen: Abschnitte Feature-Block, Concierge, FAQ, Digital-Check-Block, Hero Landingpage (brauchen Fotos in der Mediathek) | Stand, IDs und Lernpunkte in `handoff/import/README.md`, Schritt 7. |
+| 3 Komponenten als Global Classes und Components | erledigt (11.09.2026): 50 Klassen am Staging in 8 Kategorien, 15 Components per MCP (Karten, Kacheln, Listenzeilen, Abschnitte Feature-Block, Concierge, Digital-Check-Block, Hero Landingpage), FAQ als Accordion-Muster, alle Fotos in der Mediathek; Testseiten 50, 60, 63, 101. Offen: Abnahme durch Nils, Popup Digital-Check (Formular), Partnerzeile, Zielgruppen-Tabs, Mosaik beim Seitenimport | Stand, IDs und Lernpunkte in `handoff/import/README.md`, Schritt 7. |
 | 4 Templates & Seiten | offen | Header, Footer, Startseite, drei Landingpages. |
 | 5 Abgleich, Redirects, Launch | offen | Checkliste in `references/launch-checklist.md`. |
 
@@ -19,7 +19,7 @@ Merkregeln zum Nachschlagen: `handoff/MERKREGELN.md`. Importdaten für den Aufba
 
 ## Nächste Schritte
 
-0. Schritte 0 bis 6 aus `handoff/import/README.md` sind am Staging erledigt. Schritt 7 läuft per MCP: Kartenfamilie fertig (Service-Karte, Kachel, Schritt, Referenzkarte, Kundenstimme, Pain-Karte); es fehlen Feature-Block, Concierge, FAQ, Digital-Check-Block, Hero Landingpage. Vorher die Fotos aus `prototype/img/` in die Mediathek laden. Im Chat gezeigte Anwendungspasswörter widerrufen.
+0. Schritte 0 bis 7 aus `handoff/import/README.md` sind am Staging erledigt (Components inklusive Abschnitte). Als Nächstes Header und Footer als Templates, dann die Seiten aus den Components zusammensetzen (Startseite zuerst). Im Chat gezeigte Anwendungspasswörter widerrufen.
 1. Dunkel-Logos (Digital Avenue vorhanden, Referenzlogos fehlen) beschaffen.
 2. Palette und Variablen in eine Staging-Installation importieren, Ergebnis mit `export/tokens-report.md` vergleichen.
 3. Erste Global Classes anlegen (Buttons, Eyebrow, Karten) und gegen den Prototyp prüfen.

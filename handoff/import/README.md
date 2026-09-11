@@ -258,6 +258,39 @@ Gelernt im zweiten Durchlauf:
   Mediathek hochladen, dann Foto-Kachel, Feature-Block, Concierge und
   Hero Landingpage bestücken.
 
+Stand 11.09.2026, dritter Durchlauf (Abschnitte, nach Foto-Upload):
+Fotos liegen in der Mediathek (Attachments 66 bis 98, `m01` bis `m33`,
+Logo DIGIZT 62). Klassen `feature` mit Modifier `flip`, `concierge`,
+`timeline`, `check`, `lp-hero`, `faq`. Components (Kategorie Abschnitte):
+Feature-Block (`25cc6c`, Slot `7823d9`), Timeline-Punkt (`74ec3e`),
+Concierge (`0a205a`, Slot `3856e1`), Digital-Check-Block (`e44db4`, Slot
+`17e049`), Hero Landingpage (`951227`, Wurzel ist eine Section). Foto-
+Kachel hat jetzt ein Standardbild (74). FAQ ist keine Component, sondern
+ein Accordion (Nestable) mit Klasse `faq`; Aufbau siehe unten. Testseite
+„Component-Test Abschnitte“ (Post 101).
+
+Gelernt im dritten Durchlauf:
+
+- Eine Component darf eine `section` als Wurzel haben (Hero
+  Landingpage); die Instanz liegt dann direkt auf Wurzelebene der Seite.
+- `add-element` mit `accordion-nested` legt keine Kinder an. Aufbau von
+  Hand: Accordion > `block` je Frage (`_cssClasses: faq-item`) > `block`
+  mit `_hidden: {_cssClasses: "accordion-title-wrapper"}` (Heading h3 +
+  Icon chevron-down) und `block` mit
+  `_hidden: {_cssClasses: "accordion-content-wrapper"}` (Text). Bricks
+  setzt `brx-open` auf das Item.
+- Wurzelregeln einer Klasse werden beim Anlegen in Controls übersetzt.
+  Fehlt dem Element das Control (Accordion hat kein `_direction`), geht
+  die Eigenschaft verloren. Abhilfe: Regel mit Element-Klasse schreiben
+  (`.faq.brxe-accordion-nested { flex-direction: column }`), die bleibt
+  Custom CSS.
+- Heading kennt kein `_textAlign`; Ausrichtung über
+  `_typography: {"text-align": "center"}`.
+- Slot-Kinder in `add-element` gehen auch verschachtelt (Objekte in
+  `slotChildren`), ohne die Verdopplung aus `render-elements`.
+- Listen mit `strong` im Text: Property-Typ `text` reicht, HTML wird
+  ausgegeben.
+
 Für FAQ das Bricks-Accordion (Nestable) statt `details` verwenden; für die
 Zielgruppen-Tabs später das Tabs-Element. Beides steht im Skill
 `bricks-nestable-elements`.

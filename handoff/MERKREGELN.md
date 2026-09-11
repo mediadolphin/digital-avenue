@@ -95,6 +95,17 @@ Der Import übersetzt Kurzschreibweisen in Controls und zerlegt dabei die
 Klammern. Entweder Langschreibweise (`border-color: color-mix(...)`) oder
 direkt als Raw-Wert im Control.
 
+**Abschnitte mit eigenem Hintergrund bekommen die Section als
+Component-Wurzel.** (11.09.2026) Hero Landingpage trägt Verlauf und
+Abstand selbst, deshalb ist die Wurzel eine Section, nicht ein Div in
+einer Section. Alle anderen Abschnitte liegen als Div in Section und
+Container.
+
+**Nestable-Kinder tragen ihre Rolle in `_hidden._cssClasses`.**
+(11.09.2026) Accordion: `accordion-title-wrapper` und
+`accordion-content-wrapper`; Dropdown: `brx-dropdown-content`. Ohne diese
+Klassen läuft das Bricks-Skript nicht.
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)
