@@ -11,6 +11,8 @@ gespeicherten Format von Bricks (Schema-Bündel `bricks-element-schemas`,
 `global/*.json`), ohne Zusatzfelder; Erklärungen stehen in den
 Markdown-Dateien daneben. Die Aufträge unten gelten für den MCP-Weg.
 
+Merkregeln zum Nachschlagen: `handoff/MERKREGELN.md`.
+
 Regeln für alle Schritte: zuerst lesen (`get-design-context` und die passende
 `list-*`-Ability), Ownership-Werte aus der letzten Antwort weiterreichen,
 Schreibaufrufe nacheinander statt parallel, bei `duplicate`-Konflikten das
