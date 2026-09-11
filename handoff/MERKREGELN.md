@@ -95,3 +95,15 @@ Paket-Import freischalten, Lösch-Abilities nur im Wartungsfenster.
 `node handoff/import/build-import.mjs` erzeugt alle Dateien aus Design
 System und Prototyp. Ändert sich ein Token, ändert sich die Token-Datei,
 dann der Build.
+
+## Hosting
+
+**Plesk liefert ohne `.htaccess` keine schönen Adressen.** (11.09.2026)
+Fehlt die Datei im WordPress-Stammverzeichnis, landen `/wp-json/` und alle
+Unterseiten in der Plesk-404, während `?rest_route=` und `?p=` weiter
+gehen. Abhilfe: Standard-`.htaccess` von WordPress anlegen (Block
+`# BEGIN WordPress` mit den Rewrite-Regeln), dann Permalinks einmal
+speichern. Erkennungszeichen: eine HTML-Fehlerseite des Hosters statt einer
+JSON-Antwort von WordPress. Die MCP-Adresse in `.mcp.json` bleibt bei
+`index.php?rest_route=`, weil sie unabhängig von Rewrite-Regeln
+funktioniert.
