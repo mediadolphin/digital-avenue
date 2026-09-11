@@ -1,5 +1,5 @@
 {
-  "hinweis": "Kategorien ohne scale-Konfiguration (feste clamp-Werte aus dem Design System). Namen ohne führendes \"--\", Bricks ergänzt es. Variablen mit darkValue brauchen zusätzlich die Regel aus 03-dunkel-overrides.css.",
+  "hinweis": "Kategorien ohne scale-Konfiguration (feste clamp-Werte aus dem Design System). Namen ohne führendes \"--\", Bricks ergänzt es. Schatten referenzieren nur Farb-Tokens mit Hell- und Dunkelwert, deshalb braucht keine Variable einen Dunkelwert.",
   "categories": [
     {
       "id": "da-spacing",
@@ -36,46 +36,39 @@
   ],
   "variables": [
     {
-      "name": "da-card-shadow",
-      "value": "0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06)",
-      "category": "da-shadow",
-      "darkValue": "0 1px 3px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.3)"
-    },
-    {
-      "name": "da-card-hover",
-      "value": "0 2px 8px rgb(0 0 0 / 0.08), 0 8px 28px rgb(0 0 0 / 0.10)",
-      "category": "da-shadow",
-      "darkValue": "0 2px 8px rgb(0 0 0 / 0.5), 0 8px 28px rgb(0 0 0 / 0.4)"
-    },
-    {
       "name": "da-shadow-sm",
-      "value": "0 1px 3px rgb(0 0 0 / 0.04), 0 2px 8px rgb(0 0 0 / 0.04)",
-      "category": "da-shadow",
-      "darkValue": "0 1px 3px rgb(0 0 0 / 0.25), 0 2px 8px rgb(0 0 0 / 0.20)"
+      "value": "0 1px 3px var(--da-ink-soft), 0 2px 8px var(--da-ink-soft)",
+      "category": "da-shadow"
     },
     {
       "name": "da-shadow-md",
-      "value": "0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06)",
-      "category": "da-shadow",
-      "darkValue": "0 1px 4px rgb(0 0 0 / 0.30), 0 4px 16px rgb(0 0 0 / 0.28)"
+      "value": "0 1px 4px var(--da-ink-soft), 0 4px 16px var(--da-ink)",
+      "category": "da-shadow"
     },
     {
       "name": "da-shadow-lg",
-      "value": "0 4px 16px rgb(0 0 0 / 0.08), 0 12px 40px rgb(0 0 0 / 0.10)",
-      "category": "da-shadow",
-      "darkValue": "0 4px 16px rgb(0 0 0 / 0.35), 0 12px 40px rgb(0 0 0 / 0.40)"
+      "value": "0 4px 16px var(--da-ink), 0 12px 40px var(--da-ink-strong)",
+      "category": "da-shadow"
+    },
+    {
+      "name": "da-card-shadow",
+      "value": "var(--da-shadow-md)",
+      "category": "da-shadow"
+    },
+    {
+      "name": "da-card-hover",
+      "value": "0 2px 8px var(--da-ink), 0 8px 28px var(--da-ink-strong)",
+      "category": "da-shadow"
     },
     {
       "name": "da-shadow-teal",
-      "value": "0 2px 12px color-mix(in srgb, #305b75 35%, transparent)",
-      "category": "da-shadow",
-      "darkValue": "0 2px 12px color-mix(in srgb, #4d8aa0 30%, transparent)"
+      "value": "0 2px 12px var(--da-teal-glow)",
+      "category": "da-shadow"
     },
     {
       "name": "da-shadow-teal-hover",
-      "value": "0 4px 20px color-mix(in srgb, #305b75 45%, transparent)",
-      "category": "da-shadow",
-      "darkValue": "0 4px 20px color-mix(in srgb, #4d8aa0 40%, transparent)"
+      "value": "0 4px 20px var(--da-teal-glow-strong)",
+      "category": "da-shadow"
     },
     {
       "name": "da-r-xs",

@@ -75,7 +75,7 @@ for (const [k, v] of Object.entries(light)) {
 }
 writeFileSync(resolve(OUT, '01-farben.json'), JSON.stringify({
   palette: 'Digital Avenue',
-  hinweis: 'Je Farbe ein create-color mit raw, light und dark. Keine Shades generieren: Hover- und Subtle-Stufen sind bereits eigene Tokens. oklch-Werte sind nach Hex umgerechnet (source zeigt das Original).',
+  hinweis: 'Je Farbe ein create-color mit raw, light und dark. Keine Shades generieren: Hover- und Subtle-Stufen sind bereits eigene Tokens. oklch-Werte sind nach Hex umgerechnet (source zeigt das Original). Halbtransparente Werte (rgb mit Alpha) sind Schatten- und Glasfarben; sie müssen als Farbe angelegt werden, damit Schatten im Dunkelmodus umschalten.',
   colors,
 }, null, 2) + '\n');
 
@@ -110,14 +110,11 @@ for (const [k, v] of Object.entries(light)) {
   variables.push({ name: k.slice(2), value: v.replace(/\s+/g, ' '), category: cat.id, darkValue: dark[k] ? dark[k].replace(/\s+/g, ' ') : undefined });
 }
 writeFileSync(resolve(OUT, '03-variablen.json'), JSON.stringify({
-  hinweis: 'Kategorien ohne scale-Konfiguration (feste clamp-Werte aus dem Design System). Namen ohne führendes "--", Bricks ergänzt es. Variablen mit darkValue brauchen zusätzlich die Regel aus 03-dunkel-overrides.css.',
+  hinweis: 'Kategorien ohne scale-Konfiguration (feste clamp-Werte aus dem Design System). Namen ohne führendes "--", Bricks ergänzt es. Schatten referenzieren nur Farb-Tokens mit Hell- und Dunkelwert, deshalb braucht keine Variable einen Dunkelwert.',
   categories: CATS.map(({ id, name }) => ({ id, name })),
   variables,
 }, null, 2) + '\n');
-const darkVars = variables.filter(v => v.darkValue);
-writeFileSync(resolve(OUT, '03-dunkel-overrides.css'),
-  `/* Dunkelmodus-Werte für Variablen, die in Bricks keinen Dunkelwert haben (nur Farben haben einen).\n   Einfügen unter Bricks › Einstellungen › Custom Code › Custom CSS. */\n:root[data-brx-theme="dark"] {\n` +
-  darkVars.map(v => `  --${v.name}: ${v.darkValue};`).join('\n') + '\n}\n');
+if (variables.some(v => v.darkValue)) console.warn('Achtung: Variablen mit Dunkelwert gefunden. Bricks-Variablen haben keinen Dunkelwert; solche Werte gehören als Farbe in den Color Manager.');
 
 // ── 04 Theme Style ────────────────────────────────────────────────────────
 // Format = Export aus Bricks 2.4 RC2 (Theme Styles › Export), Wertformen nach
@@ -383,4 +380,4 @@ writeFileSync(resolve(compDir, 'components.json'), JSON.stringify({
   components: manifest,
 }, null, 2) + '\n');
 
-console.log(`Farben: ${colors.length}, Variablen: ${variables.length} (${darkVars.length} mit Dunkelwert), Klassen: ${classOut.length}, Icons: ${iconReport.length}, Components/Abschnitte: ${manifest.length}`);
+console.log(`Farben: ${colors.length}, Variablen: ${variables.length}, Klassen: ${classOut.length}, Icons: ${iconReport.length}, Components/Abschnitte: ${manifest.length}`);

@@ -1,6 +1,6 @@
 {
   "palette": "Digital Avenue",
-  "hinweis": "Je Farbe ein create-color mit raw, light und dark. Keine Shades generieren: Hover- und Subtle-Stufen sind bereits eigene Tokens. oklch-Werte sind nach Hex umgerechnet (source zeigt das Original).",
+  "hinweis": "Je Farbe ein create-color mit raw, light und dark. Keine Shades generieren: Hover- und Subtle-Stufen sind bereits eigene Tokens. oklch-Werte sind nach Hex umgerechnet (source zeigt das Original). Halbtransparente Werte (rgb mit Alpha) sind Schatten- und Glasfarben; sie müssen als Farbe angelegt werden, damit Schatten im Dunkelmodus umschalten.",
   "colors": [
     {
       "raw": "var(--da-teal)",
@@ -331,6 +331,182 @@
         "dark": "#1d3340"
       },
       "usage": "Kartenhintergrund"
+    },
+    {
+      "raw": "var(--da-ink-soft)",
+      "light": "rgb(0 0 0 / 0.04)",
+      "dark": "rgb(0 0 0 / 0.22)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(0 0 0 / 0.04)",
+        "dark": "rgb(0 0 0 / 0.22)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-ink)",
+      "light": "rgb(0 0 0 / 0.06)",
+      "dark": "rgb(0 0 0 / 0.30)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(0 0 0 / 0.06)",
+        "dark": "rgb(0 0 0 / 0.30)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-ink-strong)",
+      "light": "rgb(0 0 0 / 0.10)",
+      "dark": "rgb(0 0 0 / 0.40)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(0 0 0 / 0.10)",
+        "dark": "rgb(0 0 0 / 0.40)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-teal-glow)",
+      "light": "rgb(48 91 117 / 0.35)",
+      "dark": "rgb(77 138 160 / 0.30)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(48 91 117 / 0.35)",
+        "dark": "rgb(77 138 160 / 0.30)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-teal-glow-strong)",
+      "light": "rgb(48 91 117 / 0.45)",
+      "dark": "rgb(77 138 160 / 0.40)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(48 91 117 / 0.45)",
+        "dark": "rgb(77 138 160 / 0.40)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-nav-shadow)",
+      "light": "rgb(0 0 0 / 0.04)",
+      "dark": "rgb(0 0 0 / 0.35)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(0 0 0 / 0.04)",
+        "dark": "rgb(0 0 0 / 0.35)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-glass)",
+      "light": "rgb(255 255 255 / 0.92)",
+      "dark": "rgb(29 51 64 / 0.90)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(255 255 255 / 0.92)",
+        "dark": "rgb(29 51 64 / 0.90)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-glass-border)",
+      "light": "rgb(255 255 255 / 0.60)",
+      "dark": "rgb(41 70 83 / 0.70)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(255 255 255 / 0.60)",
+        "dark": "rgb(41 70 83 / 0.70)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-glass-sand)",
+      "light": "rgb(246 242 234 / 0.94)",
+      "dark": "rgb(42 35 24 / 0.92)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(246 242 234 / 0.94)",
+        "dark": "rgb(42 35 24 / 0.92)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-chip-bg)",
+      "light": "rgb(255 255 255 / 0.88)",
+      "dark": "rgb(29 51 64 / 0.84)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(255 255 255 / 0.88)",
+        "dark": "rgb(29 51 64 / 0.84)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-chip-text)",
+      "light": "#1b3a4a",
+      "dark": "#ede9e0",
+      "darkDiffers": true,
+      "source": {
+        "light": "#1b3a4a",
+        "dark": "#ede9e0"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-step-bg)",
+      "light": "#e7eff3",
+      "dark": "rgb(77 138 160 / 0.24)",
+      "darkDiffers": true,
+      "source": {
+        "light": "#e7eff3",
+        "dark": "rgb(77 138 160 / 0.24)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-deep-border)",
+      "light": "#132a37",
+      "dark": "#294653",
+      "darkDiffers": true,
+      "source": {
+        "light": "#132a37",
+        "dark": "#294653"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-wordmark)",
+      "light": "#1b3a4a",
+      "dark": "#82c2d2",
+      "darkDiffers": true,
+      "source": {
+        "light": "#1b3a4a",
+        "dark": "#82c2d2"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-glow-sand)",
+      "light": "rgb(215 201 170 / 0.45)",
+      "dark": "rgb(196 179 147 / 0.14)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(215 201 170 / 0.45)",
+        "dark": "rgb(196 179 147 / 0.14)"
+      },
+      "usage": ""
+    },
+    {
+      "raw": "var(--da-glow-sand-soft)",
+      "light": "rgb(215 201 170 / 0.40)",
+      "dark": "rgb(196 179 147 / 0.12)",
+      "darkDiffers": true,
+      "source": {
+        "light": "rgb(215 201 170 / 0.40)",
+        "dark": "rgb(196 179 147 / 0.12)"
+      },
+      "usage": ""
     },
     {
       "raw": "var(--da-success)",

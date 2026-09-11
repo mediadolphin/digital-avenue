@@ -62,15 +62,36 @@
 
   /* ── Card ── */
   --da-card-bg:        #ffffff;
-  --da-card-shadow:    0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06);
-  --da-card-hover:     0 2px 8px rgb(0 0 0 / 0.08), 0 8px 28px rgb(0 0 0 / 0.10);
 
-  /* ── Elevation Shadows ── */
-  --da-shadow-sm:      0 1px 3px rgb(0 0 0 / 0.04), 0 2px 8px rgb(0 0 0 / 0.04);
-  --da-shadow-md:      0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06);
-  --da-shadow-lg:      0 4px 16px rgb(0 0 0 / 0.08), 0 12px 40px rgb(0 0 0 / 0.10);
-  --da-shadow-teal:    0 2px 12px color-mix(in srgb, #305b75 35%, transparent);
-  --da-shadow-teal-hover: 0 4px 20px color-mix(in srgb, #305b75 45%, transparent);
+  /* ── Modusabhängige Flächen- und Schattenfarben ──
+     Jede dieser Farben hat im Bricks Color Manager einen Hell- und einen
+     Dunkelwert. Schatten und Glasflächen referenzieren nur diese Farben,
+     damit der Dunkelmodus ohne eigene CSS-Regeln umschaltet. */
+  --da-ink-soft:       rgb(0 0 0 / 0.04);     /* leichte Schattenebene */
+  --da-ink:            rgb(0 0 0 / 0.06);     /* mittlere Schattenebene */
+  --da-ink-strong:     rgb(0 0 0 / 0.10);     /* kräftige Schattenebene */
+  --da-teal-glow:      rgb(48 91 117 / 0.35); /* Button-Schein */
+  --da-teal-glow-strong: rgb(48 91 117 / 0.45);
+  --da-nav-shadow:     rgb(0 0 0 / 0.04);     /* Navigation beim Scrollen */
+  --da-glass:          rgb(255 255 255 / 0.92); /* Glaskarte (Service-Karte) */
+  --da-glass-border:   rgb(255 255 255 / 0.60);
+  --da-glass-sand:     rgb(246 242 234 / 0.94); /* Glaskarte Variante sand */
+  --da-chip-bg:        rgb(255 255 255 / 0.88); /* Mosaik-Chip */
+  --da-chip-text:      #1b3a4a;
+  --da-step-bg:        #e7eff3;                /* Schritt-Nummer */
+  --da-deep-border:    #132a37;                /* Rand dunkler Flächen: hell unsichtbar */
+  --da-wordmark:       #1b3a4a;                /* Text-Wortmarken in Referenzen */
+  --da-glow-sand:      rgb(215 201 170 / 0.45); /* Hero-Schein Start */
+  --da-glow-sand-soft: rgb(215 201 170 / 0.40); /* Hero-Schein Landingpage */
+
+  /* ── Elevation Shadows (nur Farb-Tokens, keine Dunkelwerte nötig) ── */
+  --da-shadow-sm:      0 1px 3px var(--da-ink-soft), 0 2px 8px var(--da-ink-soft);
+  --da-shadow-md:      0 1px 4px var(--da-ink-soft), 0 4px 16px var(--da-ink);
+  --da-shadow-lg:      0 4px 16px var(--da-ink), 0 12px 40px var(--da-ink-strong);
+  --da-card-shadow:    var(--da-shadow-md);
+  --da-card-hover:     0 2px 8px var(--da-ink), 0 8px 28px var(--da-ink-strong);
+  --da-shadow-teal:    0 2px 12px var(--da-teal-glow);
+  --da-shadow-teal-hover: 0 4px 20px var(--da-teal-glow-strong);
 
   /* ── Semantic Status ── */
   --da-success:        oklch(58% 0.140 145);
@@ -161,8 +182,23 @@
   --da-sand-text:      #d7c9aa;
 
   --da-card-bg:        #1d3340;
-  --da-card-shadow:    0 1px 3px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.3);
-  --da-card-hover:     0 2px 8px rgb(0 0 0 / 0.5), 0 8px 28px rgb(0 0 0 / 0.4);
+
+  --da-ink-soft:       rgb(0 0 0 / 0.22);
+  --da-ink:            rgb(0 0 0 / 0.30);
+  --da-ink-strong:     rgb(0 0 0 / 0.40);
+  --da-teal-glow:      rgb(77 138 160 / 0.30);
+  --da-teal-glow-strong: rgb(77 138 160 / 0.40);
+  --da-nav-shadow:     rgb(0 0 0 / 0.35);
+  --da-glass:          rgb(29 51 64 / 0.90);
+  --da-glass-border:   rgb(41 70 83 / 0.70);
+  --da-glass-sand:     rgb(42 35 24 / 0.92);
+  --da-chip-bg:        rgb(29 51 64 / 0.84);
+  --da-chip-text:      #ede9e0;
+  --da-step-bg:        rgb(77 138 160 / 0.24);
+  --da-deep-border:    #294653;
+  --da-wordmark:       #82c2d2;
+  --da-glow-sand:      rgb(196 179 147 / 0.14);
+  --da-glow-sand-soft: rgb(196 179 147 / 0.12);
 
   --da-plum:           #8a5c7e;
   --da-plum-hover:     #9e6e92;
@@ -177,12 +213,6 @@
 
   --da-nav-bg:         #10202a;
   --da-nav-border:     #1f3742;
-
-  --da-shadow-sm:      0 1px 3px rgb(0 0 0 / 0.25), 0 2px 8px rgb(0 0 0 / 0.20);
-  --da-shadow-md:      0 1px 4px rgb(0 0 0 / 0.30), 0 4px 16px rgb(0 0 0 / 0.28);
-  --da-shadow-lg:      0 4px 16px rgb(0 0 0 / 0.35), 0 12px 40px rgb(0 0 0 / 0.40);
-  --da-shadow-teal:    0 2px 12px color-mix(in srgb, #4d8aa0 30%, transparent);
-  --da-shadow-teal-hover: 0 4px 20px color-mix(in srgb, #4d8aa0 40%, transparent);
 
   --da-success:        oklch(72% 0.140 145);
   --da-success-subtle: oklch(30% 0.050 145);

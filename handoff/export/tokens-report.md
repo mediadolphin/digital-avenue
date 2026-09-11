@@ -2,7 +2,7 @@
 
 Quelle: `design-system/colors_and_type.css`, Präfix `--da-`, Framework: bricks-native
 
-- Farb-Tokens: 36 (davon mit Dunkel-Wert: 33)
+- Farb-Tokens: 52 (davon mit Dunkel-Wert: 49)
 - AT-Basisfarben mit Schattierungen: 4
 - Variablen: 48 in 8 Kategorien
 
@@ -40,6 +40,22 @@ Quelle: `design-system/colors_and_type.css`, Präfix `--da-`, Framework: bricks-
 | `--da-hero-from` | #e7eff3 | #1e333e |
 | `--da-hero-to` | #f9f8f6 | #182a33 |
 | `--da-card-bg` | #ffffff | #1d3340 |
+| `--da-ink-soft` | rgb(0 0 0 / 0.04) | rgb(0 0 0 / 0.22) |
+| `--da-ink` | rgb(0 0 0 / 0.06) | rgb(0 0 0 / 0.30) |
+| `--da-ink-strong` | rgb(0 0 0 / 0.10) | rgb(0 0 0 / 0.40) |
+| `--da-teal-glow` | rgb(48 91 117 / 0.35) | rgb(77 138 160 / 0.30) |
+| `--da-teal-glow-strong` | rgb(48 91 117 / 0.45) | rgb(77 138 160 / 0.40) |
+| `--da-nav-shadow` | rgb(0 0 0 / 0.04) | rgb(0 0 0 / 0.35) |
+| `--da-glass` | rgb(255 255 255 / 0.92) | rgb(29 51 64 / 0.90) |
+| `--da-glass-border` | rgb(255 255 255 / 0.60) | rgb(41 70 83 / 0.70) |
+| `--da-glass-sand` | rgb(246 242 234 / 0.94) | rgb(42 35 24 / 0.92) |
+| `--da-chip-bg` | rgb(255 255 255 / 0.88) | rgb(29 51 64 / 0.84) |
+| `--da-chip-text` | #1b3a4a | #ede9e0 |
+| `--da-step-bg` | #e7eff3 | rgb(77 138 160 / 0.24) |
+| `--da-deep-border` | #132a37 | #294653 |
+| `--da-wordmark` | #1b3a4a | #82c2d2 |
+| `--da-glow-sand` | rgb(215 201 170 / 0.45) | rgb(196 179 147 / 0.14) |
+| `--da-glow-sand-soft` | rgb(215 201 170 / 0.40) | rgb(196 179 147 / 0.12) |
 | `--da-success` | oklch(58% 0.140 145) | oklch(72% 0.140 145) |
 | `--da-success-subtle` | oklch(94% 0.030 145) | oklch(30% 0.050 145) |
 | `--da-warning` | oklch(70% 0.150 65) | oklch(78% 0.150 65) |

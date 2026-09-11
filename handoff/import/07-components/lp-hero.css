@@ -57,10 +57,10 @@
 }
 
 .service-card {
-  background: color-mix(in srgb, #fff 92%, transparent);
+  background: var(--da-glass);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid color-mix(in srgb, #fff 60%, transparent);
+  border: 1px solid var(--da-glass-border);
   border-radius: var(--da-r-lg);
   padding: var(--da-sp-5);
   box-shadow: var(--da-shadow-md);
@@ -120,16 +120,7 @@
 }
 
 .service-card.sand {
-  background: color-mix(in srgb, var(--da-sand-subtle) 94%, transparent);
-}
-
-:root[data-brx-theme="dark"] .service-card {
-  background: color-mix(in srgb, var(--da-card-bg) 90%, transparent);
-  border-color: color-mix(in srgb, var(--da-border) 70%, transparent);
-}
-
-:root[data-brx-theme="dark"] .service-card.sand {
-  background: color-mix(in srgb, var(--da-sand-subtle) 92%, transparent);
+  background: var(--da-glass-sand);
 }
 
 .audience .lead {
@@ -150,7 +141,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(800px 500px at 95% 0%, color-mix(in srgb, var(--da-sand) var(--lp-glow), transparent), transparent 60%);
+  background: radial-gradient(800px 500px at 95% 0%, var(--da-glow-sand-soft), transparent 60%);
 }
 
 .lp-hero .wrap {

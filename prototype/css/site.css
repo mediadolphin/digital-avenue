@@ -7,12 +7,6 @@
 :root {
   --wrap: 1240px;
   --nav-h: 72px;
-  --hero-glow: 45%;
-  --lp-glow: 40%;
-}
-:root[data-brx-theme="dark"] {
-  --hero-glow: 14%;
-  --lp-glow: 12%;
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
@@ -81,8 +75,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-bottom: 1px solid transparent;
   transition: border-color var(--da-t), box-shadow var(--da-t);
 }
-.nav.scrolled { border-color: var(--da-border); box-shadow: 0 6px 24px rgb(0 0 0 / 0.04); }
-:root[data-brx-theme="dark"] .nav.scrolled { box-shadow: 0 6px 24px rgb(0 0 0 / 0.35); }
+.nav.scrolled { border-color: var(--da-border); box-shadow: 0 6px 24px var(--da-nav-shadow); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--da-sp-6); height: var(--nav-h); }
 .nav-logo img { height: 28px; }
 .nav-logo .logo-dark { display: none; }
@@ -143,7 +136,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(900px 420px at 80% -10%, color-mix(in srgb, var(--da-sand) var(--hero-glow), transparent), transparent 65%),
+    radial-gradient(900px 420px at 80% -10%, var(--da-glow-sand), transparent 65%),
     radial-gradient(700px 380px at 10% 20%, color-mix(in srgb, var(--da-teal) 14%, transparent), transparent 60%);
 }
 .hero .wrap { position: relative; }
@@ -187,11 +180,10 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
   position: absolute; top: var(--da-sp-4); left: var(--da-sp-4);
   font-family: var(--da-font-logo), 'Futura', system-ui, sans-serif;
   font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--da-teal-dark); background: color-mix(in srgb, #fff 88%, transparent);
+  color: var(--da-chip-text); background: var(--da-chip-bg);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   padding: 6px 12px; border-radius: var(--da-r-pill);
 }
-:root[data-brx-theme="dark"] .mosaic-chip { color: var(--da-text); background: color-mix(in srgb, var(--da-card-bg) 84%, transparent); }
 .mosaic-praxis { grid-column: 1; }
 .mosaic-praxis img { object-position: 62% 40%; }
 .mosaic-card { grid-column: 2; justify-content: flex-start; padding: var(--da-sp-6); background: var(--da-card-bg); border: 1px solid var(--da-border); box-shadow: var(--da-card-shadow); }
@@ -226,9 +218,9 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 
 /* Service-Karte (auf Fotos, in Hero-Figuren) */
 .service-card {
-  background: color-mix(in srgb, #fff 92%, transparent);
+  background: var(--da-glass);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border: 1px solid color-mix(in srgb, #fff 60%, transparent);
+  border: 1px solid var(--da-glass-border);
   border-radius: var(--da-r-lg); padding: var(--da-sp-5);
   box-shadow: var(--da-shadow-md); color: var(--da-text);
 }
@@ -239,9 +231,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .service-card ul { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
 .service-card li { display: flex; gap: 8px; align-items: flex-start; font-size: var(--da-text-sm); color: var(--da-muted); line-height: 1.4; }
 .service-card li .icon { margin-top: 2px; color: var(--da-teal); }
-.service-card.sand { background: color-mix(in srgb, var(--da-sand-subtle) 94%, transparent); }
-:root[data-brx-theme="dark"] .service-card { background: color-mix(in srgb, var(--da-card-bg) 90%, transparent); border-color: color-mix(in srgb, var(--da-border) 70%, transparent); }
-:root[data-brx-theme="dark"] .service-card.sand { background: color-mix(in srgb, var(--da-sand-subtle) 92%, transparent); }
+.service-card.sand { background: var(--da-glass-sand); }
 
 /* ── Partnerzeile ──────────────────────────────────────────── */
 .partners { padding-block: var(--da-sp-10); }
@@ -307,8 +297,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .tile-teal p { opacity: 0.85; }
 .tile-teal .tile-num { color: var(--da-sand); }
 .tile-teal .textlink { color: #fff; }
-.tile-deep { background: var(--da-teal-deeper); border-color: var(--da-teal-deeper); color: #fff; }
-:root[data-brx-theme="dark"] .tile-deep, :root[data-brx-theme="dark"] .concierge { border: 1px solid var(--da-border); }
+.tile-deep { background: var(--da-teal-deeper); border-color: var(--da-deep-border); color: #fff; }
 .tile-deep h3, .tile-deep p { color: #fff; }
 .tile-deep p { opacity: 0.8; }
 .tile-deep .tile-num { color: var(--da-sand); }
@@ -321,8 +310,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 /* ── Schritte ──────────────────────────────────────────────── */
 .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--da-sp-5); counter-reset: step; }
 .step { padding: var(--da-sp-8); border-radius: var(--da-r-lg); background: var(--da-card-bg); border: 1px solid var(--da-border); box-shadow: var(--da-card-shadow); }
-.step-num { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--da-teal-subtle); color: var(--da-teal-text); font-weight: 800; font-size: var(--da-text-sm); }
-:root[data-brx-theme="dark"] .step-num { background: color-mix(in srgb, var(--da-teal) 24%, transparent); }
+.step-num { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--da-step-bg); color: var(--da-teal-text); font-weight: 800; font-size: var(--da-text-sm); }
 .step h3 { margin-top: var(--da-sp-5); font-size: clamp(19px, 1.6vw, 22px); letter-spacing: -0.02em; }
 .step p { margin-top: 10px; font-size: var(--da-text-sm); color: var(--da-muted); line-height: 1.6; }
 @media (max-width: 880px) { .steps { grid-template-columns: 1fr; } }
@@ -333,8 +321,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 .ref:hover { transform: translateY(-3px); box-shadow: var(--da-card-hover); }
 .ref-logo { height: 32px; display: flex; align-items: center; }
 .ref-logo img { height: 28px; }
-.ref-logo .wordmark { opacity: 0.9; color: var(--da-teal-dark); }
-:root[data-brx-theme="dark"] .ref-logo .wordmark { color: var(--da-teal-text); }
+.ref-logo .wordmark { opacity: 0.9; color: var(--da-wordmark); }
 .ref-kind { font-size: var(--da-text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--da-sand-text); }
 .ref h3 { font-size: var(--da-text-md); letter-spacing: -0.015em; }
 .ref p { font-size: var(--da-text-sm); color: var(--da-muted); line-height: 1.6; }
@@ -363,7 +350,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 
 /* ── Landingpage-Hero (zweispaltig) ────────────────────────── */
 .lp-hero { position: relative; overflow: hidden; padding-block: var(--da-sp-16) var(--da-sp-16); background: linear-gradient(165deg, var(--da-hero-from) 0%, var(--da-hero-to) 65%); }
-.lp-hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(800px 500px at 95% 0%, color-mix(in srgb, var(--da-sand) var(--lp-glow), transparent), transparent 60%); }
+.lp-hero::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(800px 500px at 95% 0%, var(--da-glow-sand-soft), transparent 60%); }
 .lp-hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--da-sp-16); align-items: center; }
 .lp-hero h1 { margin: var(--da-sp-5) 0 var(--da-sp-6); font-size: clamp(30px, 3.9vw, 50px); font-weight: 400; line-height: 1.14; letter-spacing: -0.02em; }
 .lp-hero h1 strong { font-weight: inherit; color: var(--da-teal); }
@@ -391,7 +378,7 @@ a.mosaic-tile:hover img { transform: scale(1.03); }
 @media (max-width: 880px) { .feature { grid-template-columns: 1fr; gap: var(--da-sp-8); } .feature.flip figure { order: 0; } }
 
 /* ── Concierge-Beispiel ────────────────────────────────────── */
-.concierge { border-radius: var(--da-r-xl); overflow: hidden; background: var(--da-teal-deeper); color: #fff; display: grid; grid-template-columns: 1fr 1fr; }
+.concierge { border-radius: var(--da-r-xl); overflow: hidden; background: var(--da-teal-deeper); border: 1px solid var(--da-deep-border); color: #fff; display: grid; grid-template-columns: 1fr 1fr; }
 .concierge-text { padding: clamp(32px, 5vw, 64px); }
 .concierge-text .da-eyebrow { color: var(--da-sand); }
 .concierge h2 { margin-top: var(--da-sp-4); color: #fff; font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.03em; line-height: 1.1; }

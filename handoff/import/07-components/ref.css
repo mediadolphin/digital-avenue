@@ -30,11 +30,7 @@
 
 .ref-logo .wordmark {
   opacity: 0.9;
-  color: var(--da-teal-dark);
-}
-
-:root[data-brx-theme="dark"] .ref-logo .wordmark {
-  color: var(--da-teal-text);
+  color: var(--da-wordmark);
 }
 
 .ref-kind {

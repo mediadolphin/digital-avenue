@@ -25,7 +25,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(900px 420px at 80% -10%, color-mix(in srgb, var(--da-sand) var(--hero-glow), transparent), transparent 65%),
+  background: radial-gradient(900px 420px at 80% -10%, var(--da-glow-sand), transparent 65%),
     radial-gradient(700px 380px at 10% 20%, color-mix(in srgb, var(--da-teal) 14%, transparent), transparent 60%);
 }
 

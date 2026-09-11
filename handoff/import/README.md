@@ -18,9 +18,9 @@ Schritt `handoff/STATUS.md` fortschreiben.
 | Schritt | Datei | Ability-Weg | Prüfung |
 |---|---|---|---|
 | 0 Bestand | – | `list-ability-status`, `get-design-context` | Liste der Abilities erscheint; Design System leer oder bekannt |
-| 1 Farben | `01-farben.json` | `create-color-palette`, je Farbe `create-color` (raw, light, dark) | `list-color-palettes`: 36 Farben mit Dunkelwert |
+| 1 Farben | `01-farben.json` | `create-color-palette`, je Farbe `create-color` (raw, light, dark) | `list-color-palettes`: 52 Farben mit Dunkelwert |
 | 2 Schriften | `02-schriften.json` | `upload-custom-font-file`, `create-custom-font`, `update-custom-font` | `list-custom-fonts`: Manrope mit Faces |
-| 3 Variablen | `03-variablen.json`, `03-dunkel-overrides.css` | `set-global-variable-categories`, `set-global-variables`; Overrides als Custom CSS | `list-global-variables`: 8 Kategorien, 48 Variablen |
+| 3 Variablen | `03-variablen.json` | `set-global-variable-categories`, `set-global-variables` | `list-global-variables`: 8 Kategorien, 48 Variablen |
 | 4 Theme Style | `04-theme-style.json` | Import im Builder (Theme Styles › Import) oder `create-theme-style` | Stil „Digital Avenue“ aktiv, H1 und Button stimmen |
 | 5 Klassen | `05-klassen/klassen.json` | je Klasse `create-global-class` mit Custom CSS | `list-global-classes`: 21 Klassen; `render-elements` mit einem Button |
 | 6 Icons | `06-icons/` | ohne Ability: Bricks › Einstellungen › Icons, eigenes Set | Icon-Set im Builder wählbar |
@@ -42,12 +42,18 @@ Auftrag:
 > Lies `handoff/import/01-farben.json`. Lege die Palette „Digital Avenue“ an
 > und darin jede Farbe mit `create-color`: `raw`, `light` und `dark` genau wie
 > in der Datei, nacheinander, Ownership jeweils aus der vorigen Antwort.
-> Keine Shades generieren, die Abstufungen sind eigene Tokens. Prüfe zum
-> Schluss mit `list-color-palettes`, dass 36 Farben mit Dunkelwert vorhanden
-> sind, und rendere ein Element mit `background: var(--da-teal)`.
+> Keine Shades generieren, die Abstufungen sind eigene Tokens. Die 16
+> halbtransparenten Werte (rgb mit Alpha) sind Schatten- und Glasfarben und
+> werden genauso angelegt. Prüfe zum Schluss mit `list-color-palettes`, dass
+> 52 Farben mit Dunkelwert vorhanden sind, und rendere ein Element mit
+> `background: var(--da-teal); box-shadow: var(--da-shadow-md)` einmal hell
+> und einmal mit `data-brx-theme="dark"`.
 
 Hinweis: Die sechs Status-Farben stehen im Design System als `oklch()`;
-die Datei enthält sie als Hex (Original unter `source`).
+die Datei enthält sie als Hex (Original unter `source`). Schatten,
+Glasflächen, Chips, Schritt-Nummern und Hero-Schein hängen nur an diesen
+Farben, deshalb schaltet der Dunkelmodus dort über den Color Manager um,
+ohne eigene CSS-Regeln.
 
 ## Schritt 2: Schriften
 
@@ -70,12 +76,12 @@ Auftrag:
 > Scale-Konfiguration mit `set-global-variable-categories` an (vorhandene
 > Kategorien erhalten) und speichere die 48 Variablen mit
 > `set-global-variables`, Namen ohne führendes `--`. Prüfe mit
-> `list-global-variables`. Melde danach, ob eine Ability das Custom CSS unter
-> Bricks › Einstellungen › Custom Code schreiben kann; wenn nicht, sage mir,
-> dass ich `03-dunkel-overrides.css` dort von Hand einfügen muss.
+> `list-global-variables` und rendere ein Element mit
+> `padding: var(--da-sp-6); border-radius: var(--da-r-md); box-shadow: var(--da-shadow-lg)`.
 
-Warum die Overrides: Bricks-Variablen haben keinen Dunkelwert, nur Farben.
-Die sieben Schatten-Variablen bekommen ihren Dunkelwert über diese Regel.
+Die Schatten-Variablen enthalten nur `var(--da-ink…)`- und
+`var(--da-teal-glow…)`-Referenzen auf Farben aus Schritt 1. Deshalb braucht
+keine Variable einen Dunkelwert; Bricks-Variablen hätten auch keinen.
 
 ## Schritt 4: Theme Style
 

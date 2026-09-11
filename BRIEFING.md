@@ -212,6 +212,7 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 - Neue Tokens: `--da-teal-fill` / `--da-teal-fill-hover` für gefüllte Flächen mit weißem Text (Buttons, Digital-Check-Block, aktive Tabs, Kundenstimme). Im Dunkelmodus heller als das Text-Teal, damit Weiß darauf lesbar bleibt (Kontrast 5,4:1). Dunkel-Werte ergänzt für `--da-teal-dark`, `--da-teal-deeper`, `--da-nav-bg`, `--da-nav-border`, Schatten sowie Erfolg/Warnung/Fehler.
 - Dunkelmodus-Regeln im Layout: Logo wechselt auf die weiße Variante; Chips und Service-Karten auf Fotos werden dunkles Glas; Hero-Glanz auf Sand reduziert; Concierge- und Deep-Kacheln bekommen eine Kontur; Fremdlogos (DIGIZT) werden per Filter invertiert. Für Bricks werden echte Dunkel-Logos gebraucht.
 - Vorschau-Schalter: `?dark` und `?light` an jeder Prototyp-URL.
+- Ergänzung 11.09.2026: Alles, was im Dunkelmodus anders aussieht, ist jetzt eine Farbe mit Hell- und Dunkelwert (16 neue Tokens: `--da-ink-*` für Schattenebenen, `--da-teal-glow*`, `--da-glass*`, `--da-chip-*`, `--da-step-bg`, `--da-deep-border`, `--da-wordmark`, `--da-glow-sand*`). Schatten-Variablen referenzieren nur noch diese Farben. Damit schaltet der Bricks Color Manager alles nativ um; im Prototyp-CSS bleiben nur Logo-Wechsel, Umschalter-Icons und die Platzhalter-Filter für Referenzlogos als Dunkelmodus-Regeln.
 
 ## Style Guide (10.09.2026)
 

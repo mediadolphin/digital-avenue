@@ -176,51 +176,51 @@
    "type": "static"
   },
   {
-   "id": "da_da-card-shadow",
-   "name": "da-card-shadow",
-   "value": "0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06)",
-   "category": "da_shadow",
-   "type": "static"
-  },
-  {
-   "id": "da_da-card-hover",
-   "name": "da-card-hover",
-   "value": "0 2px 8px rgb(0 0 0 / 0.08), 0 8px 28px rgb(0 0 0 / 0.10)",
-   "category": "da_shadow",
-   "type": "static"
-  },
-  {
    "id": "da_da-shadow-sm",
    "name": "da-shadow-sm",
-   "value": "0 1px 3px rgb(0 0 0 / 0.04), 0 2px 8px rgb(0 0 0 / 0.04)",
+   "value": "0 1px 3px var(--da-ink-soft), 0 2px 8px var(--da-ink-soft)",
    "category": "da_shadow",
    "type": "static"
   },
   {
    "id": "da_da-shadow-md",
    "name": "da-shadow-md",
-   "value": "0 1px 4px rgb(0 0 0 / 0.05), 0 4px 16px rgb(0 0 0 / 0.06)",
+   "value": "0 1px 4px var(--da-ink-soft), 0 4px 16px var(--da-ink)",
    "category": "da_shadow",
    "type": "static"
   },
   {
    "id": "da_da-shadow-lg",
    "name": "da-shadow-lg",
-   "value": "0 4px 16px rgb(0 0 0 / 0.08), 0 12px 40px rgb(0 0 0 / 0.10)",
+   "value": "0 4px 16px var(--da-ink), 0 12px 40px var(--da-ink-strong)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-card-shadow",
+   "name": "da-card-shadow",
+   "value": "var(--da-shadow-md)",
+   "category": "da_shadow",
+   "type": "static"
+  },
+  {
+   "id": "da_da-card-hover",
+   "name": "da-card-hover",
+   "value": "0 2px 8px var(--da-ink), 0 8px 28px var(--da-ink-strong)",
    "category": "da_shadow",
    "type": "static"
   },
   {
    "id": "da_da-shadow-teal",
    "name": "da-shadow-teal",
-   "value": "0 2px 12px color-mix(in srgb, #305b75 35%, transparent)",
+   "value": "0 2px 12px var(--da-teal-glow)",
    "category": "da_shadow",
    "type": "static"
   },
   {
    "id": "da_da-shadow-teal-hover",
    "name": "da-shadow-teal-hover",
-   "value": "0 4px 20px color-mix(in srgb, #305b75 45%, transparent)",
+   "value": "0 4px 20px var(--da-teal-glow-strong)",
    "category": "da_shadow",
    "type": "static"
   },

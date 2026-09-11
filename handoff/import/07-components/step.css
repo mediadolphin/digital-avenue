@@ -12,14 +12,10 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--da-teal-subtle);
+  background: var(--da-step-bg);
   color: var(--da-teal-text);
   font-weight: 800;
   font-size: var(--da-text-sm);
-}
-
-:root[data-brx-theme="dark"] .step-num {
-  background: color-mix(in srgb, var(--da-teal) 24%, transparent);
 }
 
 .step h3 {
