@@ -363,6 +363,28 @@ mobile Layout.
 Offen: Footer-Template „Main Footer“ (54), mobiles Menü im Browser
 prüfen, aktiver Menüpunkt (`aria-current`) setzt Bricks automatisch.
 
+## Schritt 9: Footer und Hero der Startseite
+
+Stand 11.09.2026: Footer-Template „Main Footer“ (54, Bedingung „gesamte
+Website“). Aufbau: Section `site-footer` › Container › Div `footer-grid`
+mit Marke (Logo 110 per Filter weiß, Kurztext), Spalten Leistungen,
+Branchen, Kontakt (Telefon, Mail, Adresse mit Icons aus dem Set) › Div
+`footer-bottom` mit © `{current_date:Y}` und Impressum/Datenschutz. Die
+Klasse `site-footer` trägt alle Regeln, Kinder tragen nur `_cssClasses`.
+Adresse ist noch Platzhalter „[Adresse ergänzen]“.
+
+Hero der Startseite (Post 2, ersetzt Nils' Test-Section): Section `hero`
+› Container › Eyebrow, H1 mit `strong`, Lead, Buttons (primär, ghost),
+Vertrauensliste mit drei Check-Icons. Die Klasse `hero` trägt Verlauf,
+Schein und Typografie; die zentrierte Ausrichtung kommt über
+`.hero > .brxe-container { align-items: center }`.
+
+Nächste Schritte: mobiles Menü (Bricks 2.4 rendert die Nav-Kinder ohne
+`ul.brx-nav-nested-items`, deshalb greifen Bricks' Mobile-Regeln nicht;
+Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den
+Components (Mosaik, Kacheln, Schritte, Referenzen, Kundenstimmen,
+Digital-Check), Popup Digital-Check mit Formular.
+
 ## Danach
 
 Header und Footer als Templates, dann Seiten per
