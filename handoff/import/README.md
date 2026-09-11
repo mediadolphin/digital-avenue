@@ -351,6 +351,15 @@ und das mobile Menü daran bindet; DOM-Reihenfolge Logo, Aktionen, Nav,
 die optische Reihenfolge regelt `order` (Nav 1, Aktionen 2, mobil Nav 3,
 damit der Burger rechts außen steht).
 
+Nachtrag: Die Klassenregeln `.nav-menu .brx-nav-nested-items …` griffen
+im Frontend nicht (Ursache offen, Reihenfolge und Order-Regel griffen).
+Abstand, Padding, Typografie, Hover, Aktiv-Zustand und Dropdown-Optik
+liegen deshalb jetzt in den Nav-Einstellungen selbst (`gap`,
+`itemPadding`, `itemTypography`, `itemTypography:hover`,
+`itemTypographyActive`, `dropdown…`), die Bricks mit `#brxe-navmn1
+:where(…)` ausgibt. Die Klasse `nav-menu` behält Order-Regeln und das
+mobile Layout.
+
 Offen: Footer-Template „Main Footer“ (54), mobiles Menü im Browser
 prüfen, aktiver Menüpunkt (`aria-current`) setzt Bricks automatisch.
 
