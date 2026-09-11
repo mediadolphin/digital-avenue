@@ -379,6 +379,16 @@ Vertrauensliste mit drei Check-Icons. Die Klasse `hero` trägt Verlauf,
 Schein und Typografie; die zentrierte Ausrichtung kommt über
 `.hero > .brxe-container { align-items: center }`.
 
+Mosaik und Partnerzeile (11.09.2026, Post 2): Section ohne Padding ›
+Container › Div `mosaic` (Klasse trägt Raster, Kacheln, Chips, Karte,
+Liste und die Media-Queries mit `.mosaic.brxe-div`). Kacheln Praxen,
+Kanzleien, Mittelstand sind Divs mit `tag: a` und Link, darin Bild
+(98, 67, 66), Chip und eine Service-Karte-Instanz; die Textkarte „Diese
+Woche“ nutzt Service-Punkt-Instanzen direkt in `ul.mosaic-list`. Die
+Partnerzeile ist eine Section `partners` mit Container `partners-inner`,
+Label und Wortmarken (`wordmark`, `wide`, `serif`). Bilder für Partner-
+Logos später einfach als Image statt Wortmarke.
+
 Nächste Schritte: mobiles Menü (Bricks 2.4 rendert die Nav-Kinder ohne
 `ul.brx-nav-nested-items`, deshalb greifen Bricks' Mobile-Regeln nicht;
 Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den
