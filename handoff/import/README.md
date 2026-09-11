@@ -23,11 +23,11 @@ Schritt `handoff/STATUS.md` fortschreiben.
 |---|---|---|---|
 | 0 Bestand | – | `list-ability-status`, `get-design-context` | Liste der Abilities erscheint; Design System leer oder bekannt |
 | 1 Farben | `01-farben.json` (+ `01-farben.md`) | Style Manager › Colors › Import, oder `create-color-palette` und je Farbe `create-color` | 52 Farben mit Dunkelwert in der Palette „Digital Avenue“ |
-| 2 Schriften | `02-schriften.json` | `upload-custom-font-file`, `create-custom-font`, `update-custom-font` | `list-custom-fonts`: Manrope mit Faces |
+| 2 Schriften | `02-schriften.json` | Font Manager im Builder oder `upload-custom-font-file`, `create-custom-font`, `update-custom-font` | erledigt 11.09.2026: Manrope und Jost als Custom Fonts, je 8 Schnitte |
 | 3 Variablen | `03-variablen.json` (+ `03-variablen.md`) | Style Manager › Variables › Import, oder `set-global-variable-categories` und `set-global-variables` | 8 Kategorien, 48 Variablen |
 | 4 Theme Style | `04-theme-style.json` | Import im Builder (Theme Styles › Import) oder `create-theme-style` | Stil „Digital Avenue“ aktiv, H1 und Button stimmen |
 | 5 Klassen | `05-klassen/klassen.json` (+ `klassen.md`, `klassen.css`) | Style Manager › Classes › Import, oder je Klasse `create-global-class` | 21 Klassen; Button mit `da-btn da-btn-primary` rendern |
-| 6 Icons | `06-icons/` (durch den SVG → Bricks Optimizer gelaufen) | ohne Ability: Bricks › Einstellungen › Icons, eigenes Set | Icon-Set im Builder wählbar |
+| 6 Icons | `06-icons/` (durch den SVG → Bricks Optimizer gelaufen) | Icon Manager im Builder (Browser › Icon manager), eigenes Set, SVGs einzeln hochladen | erledigt 11.09.2026: Set „Digital Avenue“ mit 15 Icons |
 | 7 Components | `07-components/components.json` | `convert-html-css-to-bricks-data`, dann `create-component` | `get-component`, `render-elements` |
 
 ## Schritt 0: Bestand aufnehmen

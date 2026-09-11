@@ -6,12 +6,12 @@ Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45
 |---|---|---|
 | 0 Klären | teilweise | Config angelegt (`handoff.config.json`, Präfix `da`, Framework **Bricks Native**, Dunkel-Selektor `:root[data-brx-theme="dark"]`). Staging `https://relaunch.digital-avenue.de` (Bricks 2.4 RC mit MCP Adapter), MCP-Server in `.mcp.json`, Zugangsdaten nur lokal in `WP_API_USERNAME` / `WP_API_PASSWORD`. Offen: erster Verbindungstest aus lokalem Claude Code. |
 | 1 Tokens exportieren | erledigt, am Staging importiert (Theme Style, 52 Farben, 48 Variablen über den Style Manager, 11.09.2026) | `export/`: 52 Farb-Tokens mit Hell- und Dunkel-Wert (davon 16 Schatten- und Glasfarben), 48 Variablen in 8 Kategorien, keine unzugeordneten. Dunkelmodus im Prototyp umgesetzt. |
-| 2 Schriften & Icons | teilweise | 15 Icons Bricks-fertig in `import/06-icons/` (SVG → Bricks Optimizer, `handoff/tools/`), Rohfassung in `export/icons/`. Manrope-Dateien liegen im Design System, Jost über Google Fonts. In Bricks noch nicht hinterlegt. |
+| 2 Schriften & Icons | erledigt (11.09.2026) | Manrope und Jost als Custom Fonts mit je 8 Schnitten im Font Manager (Jost lokal statt Google). Icon-Set „Digital Avenue“ mit 15 Icons im Icon Manager, Quelle `import/06-icons/` (SVG → Bricks Optimizer). |
 | 3 Komponenten als Global Classes | teilweise: 21 Basisklassen (Layout, Eyebrow, Textlink, Buttons, Icons, Formular) am Staging importiert, 11.09.2026; Kategorien und CSS-Sync-Prüfung offen | Zuordnung Prototyp-Komponenten zu Bricks-Klassen (Beispiel in `references/component-mapping-example.md`). |
 | 4 Templates & Seiten | offen | Header, Footer, Startseite, drei Landingpages. |
 | 5 Abgleich, Redirects, Launch | offen | Checkliste in `references/launch-checklist.md`. |
 
-Bricks-Version: Ziel ist 2.4 (RC2, wir warten auf das Final). Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
+Bricks-Version: 2.4 RC2 am Staging. Post-Typen Referenz und Leistung sind am Staging angelegt und für Bricks freigeschaltet (11.09.2026). Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
 
 Betriebskonzept (MCP, Meta Box, CPTs): `handoff/BETRIEBSKONZEPT-MCP.md`. Datenmodell (CPTs, Felder) am 11.09.2026 zurückgestellt: erst Grundparameter, Theme Style, Icons und Components, dann Felder aus den fertigen Templates ableiten.
 
