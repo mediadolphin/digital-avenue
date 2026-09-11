@@ -23,7 +23,7 @@ Schritt `handoff/STATUS.md` fortschreiben.
 | 3 Variablen | `03-variablen.json` | `set-global-variable-categories`, `set-global-variables` | `list-global-variables`: 8 Kategorien, 48 Variablen |
 | 4 Theme Style | `04-theme-style.json` | Import im Builder (Theme Styles › Import) oder `create-theme-style` | Stil „Digital Avenue“ aktiv, H1 und Button stimmen |
 | 5 Klassen | `05-klassen/klassen.json` | je Klasse `create-global-class` mit Custom CSS | `list-global-classes`: 21 Klassen; `render-elements` mit einem Button |
-| 6 Icons | `06-icons/` | ohne Ability: Bricks › Einstellungen › Icons, eigenes Set | Icon-Set im Builder wählbar |
+| 6 Icons | `06-icons/` (durch den SVG → Bricks Optimizer gelaufen) | ohne Ability: Bricks › Einstellungen › Icons, eigenes Set | Icon-Set im Builder wählbar |
 | 7 Components | `07-components/components.json` | `convert-html-css-to-bricks-data`, dann `create-component` | `get-component`, `render-elements` |
 
 ## Schritt 0: Bestand aufnehmen
@@ -128,14 +128,22 @@ nur Farbe, Rahmen und Schatten. Immer beide Klassen setzen.
 
 ## Schritt 6: Icons
 
+Die 15 SVGs in `06-icons/` sind bereits durch den **SVG → Bricks Optimizer**
+gelaufen (`handoff/tools/svg-bricks-optimizer.html`, Browser-Tool; dieselben
+Regeln als Node-Modul in `handoff/tools/svg-bricks-optimize.mjs`, das der
+Build verwendet): kein `width`/`height`, `viewBox` vorhanden, alle Farben
+`currentColor`, jede Form trägt eine Klasse `bx1`, `bx2` …, damit sie sich in
+Bricks per CSS einzeln ansprechen lässt. `star` färbt über `fill`, alle
+anderen über `stroke`.
+
 Ohne Ability. In Bricks › Einstellungen › Icons ein eigenes Set „Digital
-Avenue“ anlegen und die 15 SVG-Dateien aus `06-icons/` hochladen (Bricks 2.4
-erlaubt SVG-Upload in eigenen Sets). Alle Icons sind 16×16 mit Strich in
-`currentColor`; `star` färbt über `fill`. Klappt der Upload nicht: Dateien
-als Medien hochladen (SVG-Upload unter Bricks › Einstellungen freigeben)
-und im Builder als SVG-Element mit Global Class `icon` oder `icon-20`
-verwenden. Das Import-Tool aus dem Gespräch liegt nicht im Repository;
-sobald es da ist, ersetzt es diesen Handschritt.
+Avenue“ anlegen und die 15 Dateien hochladen (Bricks 2.4 erlaubt SVG-Upload
+in eigenen Sets). Klappt der Upload nicht: Dateien als Medien hochladen
+(SVG-Upload unter Bricks › Einstellungen freigeben) und im Builder als
+SVG-Element mit Global Class `icon` oder `icon-20` verwenden.
+
+Neue Icons später: SVG in das Browser-Tool ziehen, Ergebnis nach
+`handoff/import/06-icons/` legen, oder `node handoff/tools/svg-bricks-optimize.mjs ein.svg aus.svg`.
 
 ## Schritt 7: Components
 

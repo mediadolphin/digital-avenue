@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVG → Bricks Optimizer</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #ffffff;
+  --bg2:     #f5f4f1;
+  --bg3:     #eceae5;
+  --border:  #e3e0d9;
+  --border2: #c8c4bb;
+  --text:    #1a1917;
+  --text2:   #6a6760;
+  --text3:   #9e9b93;
+  --mono:    'SF Mono','Fira Code','Cascadia Code',Consolas,monospace;
+  --sans:    -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --r:       10px;
+  --r-sm:    6px;
+  --green-bg:  #eaf3de; --green-tx: #3b6d11;
+  --blue-bg:   #e6f1fb; --blue-tx:  #185fa5;
+  --amber-bg:  #faeeda; --amber-tx: #854f0b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #181715; --bg2: #211f1d; --bg3: #2c2a27;
+    --border: #333028; --border2: #48453c;
+    --text: #f0ece5; --text2: #9e9a92; --text3: #6a6760;
+    --green-bg: #27500a; --green-tx: #c0dd97;
+    --blue-bg:  #0c447c; --blue-tx:  #b5d4f4;
+    --amber-bg: #633806; --amber-tx: #fac775;
+  }
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+/* ── Header ── */
+header {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+header .sep { color: var(--border2); margin: 0 2px; }
+header .sub { font-size: 12px; color: var(--text3); font-family: var(--mono); }
+
+/* ── Main ── */
+main { flex: 1; padding: 20px; max-width: 980px; width: 100%; margin: 0 auto; }
+
+/* ── Drop zone ── */
+.drop-zone {
+  border: 1.5px dashed var(--border2);
+  border-radius: var(--r);
+  padding: 40px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+  margin-bottom: 20px;
+  user-select: none;
+}
+.drop-zone:hover, .drop-zone.over {
+  border-color: var(--text2);
+  background: var(--bg2);
+}
+.drop-zone .dz-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 10px;
+  color: var(--text3);
+}
+.drop-zone .dz-label { font-size: 14px; color: var(--text2); margin-bottom: 4px; }
+.drop-zone .dz-hint  { font-size: 12px; color: var(--text3); font-family: var(--mono); }
+
+/* ── Input mode toggle ── */
+.input-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  width: fit-content;
+}
+.itog {
+  padding: 6px 14px;
+  font-size: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  font-family: var(--sans);
+  transition: background 0.1s, color 0.1s;
+}
+.itog + .itog { border-left: 1px solid var(--border); }
+.itog.active { background: var(--bg2); color: var(--text); font-weight: 500; }
+
+/* ── Paste area ── */
+.paste-zone {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.paste-zone.visible { display: flex; }
+.paste-row { display: flex; gap: 8px; align-items: flex-start; }
+.paste-name {
+  width: 180px;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-family: var(--mono);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+}
+.paste-name:focus { border-color: var(--border2); }
+textarea.paste-input {
+  flex: 1;
+  min-height: 100px;
+  padding: 10px 12px;
+  font-size: 11.5px;
+  font-family: var(--mono);
+  line-height: 1.6;
+  border: 1.5px dashed var(--border2);
+  border-radius: var(--r-sm);
+  background: var(--bg2);
+  color: var(--text);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.12s, background 0.12s;
+}
+textarea.paste-input:focus {
+  border-color: var(--text2);
+  background: var(--bg);
+}
+textarea.paste-input::placeholder { color: var(--text3); }
+.paste-hint { font-size: 11px; color: var(--text3); font-family: var(--mono); }
+.paste-error { font-size: 11px; color: var(--amber-tx); font-family: var(--mono); display: none; }
+
+/* ── File tabs ── */
+.file-tabs {
+  display: none;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.ftab {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-family: var(--mono);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.1s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ftab:hover { background: var(--bg2); }
+.ftab.active { background: var(--bg2); border-color: var(--border2); color: var(--text); }
+.ftab .dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--green-tx);
+  flex-shrink: 0;
+}
+.btn-all {
+  margin-left: auto;
+  padding: 4px 12px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+}
+.btn-all:hover { background: var(--bg2); }
+
+/* ── Panel ── */
+.panel { display: none; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+
+.pnl-header {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+.tab-btn {
+  padding: 10px 16px;
+  font-size: 13px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  font-family: var(--sans);
+  transition: all 0.1s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--text); border-bottom-color: var(--text); }
+.pnl-fname {
+  margin-left: auto;
+  padding: 0 16px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+}
+
+.changes-bar {
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+.changes-label { font-size: 11px; color: var(--text3); margin-right: 4px; }
+.badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: var(--r-sm);
+  font-family: var(--mono);
+  line-height: 1.5;
+}
+.b-green  { background: var(--green-bg); color: var(--green-tx); }
+.b-blue   { background: var(--blue-bg);  color: var(--blue-tx);  }
+.b-amber  { background: var(--amber-bg); color: var(--amber-tx); }
+
+/* ── Preview ── */
+.preview-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.preview-col {
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.preview-col + .preview-col { border-left: 1px solid var(--border); }
+.preview-lbl {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.svg-wrap {
+  width: 108px; height: 108px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow: hidden;
+}
+.svg-wrap svg { width: 100%; height: 100%; }
+
+.color-row { display: flex; gap: 7px; align-items: center; }
+.swatch {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.1s, transform 0.1s;
+}
+.swatch:hover { transform: scale(1.15); }
+.swatch.active { border-color: var(--text); }
+
+.sz-info { font-size: 11px; color: var(--text3); font-family: var(--mono); }
+
+/* ── Code view ── */
+.code-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.code-col { overflow: hidden; }
+.code-col + .code-col { border-left: 1px solid var(--border); }
+.code-lbl {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text3);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+pre.code {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.65;
+  padding: 14px 16px;
+  overflow: auto;
+  max-height: 360px;
+  background: var(--bg);
+  color: var(--text);
+  white-space: pre;
+  margin: 0;
+  tab-size: 2;
+}
+
+/* ── Footer ── */
+.pnl-footer {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  background: var(--bg2);
+}
+.btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  border: 1px solid var(--border2);
+  border-radius: var(--r-sm);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--sans);
+  transition: background 0.1s;
+}
+.btn:hover { background: var(--bg3); }
+.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.btn-primary:hover { opacity: 0.82; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg class="dz-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+    SVG → Bricks Optimizer
+  </div>
+  <span class="sep">·</span>
+  <span class="sub">Bricks Builder / WordPress</span>
+</header>
+
+<main>
+  <div class="input-toggle">
+    <button class="itog active" id="togFile" onclick="setInputMode('file')">Datei hochladen</button>
+    <button class="itog"        id="togPaste" onclick="setInputMode('paste')">Code einfügen</button>
+  </div>
+
+  <div class="drop-zone" id="dropZone">
+    <input type="file" id="fileInput" accept=".svg" multiple style="display:none">
+    <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+      <polyline points="17 8 12 3 7 8"/>
+      <line x1="12" y1="3" x2="12" y2="15"/>
+    </svg>
+    <div class="dz-label">SVG-Dateien hier ablegen oder klicken</div>
+    <div class="dz-hint">Mehrere Dateien möglich · Nur .svg</div>
+  </div>
+
+  <div class="paste-zone" id="pasteZone">
+    <div class="paste-row">
+      <textarea class="paste-input" id="pasteInput" placeholder="SVG-Code hier einfügen …&#10;&#10;Beispiel:&#10;&lt;svg viewBox=&quot;0 0 24 24&quot; …&gt;&lt;/svg&gt;" spellcheck="false"></textarea>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <input class="paste-name" id="pasteName" type="text" placeholder="icon-name.svg" spellcheck="false">
+      <button class="btn btn-primary" onclick="processPaste()">Optimieren →</button>
+      <span class="paste-hint" id="pasteHint">Name optional · wird aus dem Code abgeleitet</span>
+      <span class="paste-error" id="pasteError">Kein gültiges SVG gefunden</span>
+    </div>
+  </div>
+
+  <div class="file-tabs" id="fileTabs"></div>
+  <div class="panel" id="panel"></div>
+</main>
+
+<script>
+// ─── SVG Processing ──────────────────────────────────────────────────────────
+
+const NEUTRAL = new Set(["none","currentcolor","transparent","inherit"]);
+
+function skipColor(v) {
+  if (!v) return true;
+  const l = v.trim().toLowerCase();
+  return NEUTRAL.has(l) || l.startsWith("url(");
+}
+
+function walkEl(el, c) {
+  const tag = (el.tagName || "").toLowerCase();
+  if (!tag) return;
+
+  if (el.hasAttribute("data-name")) el.removeAttribute("data-name");
+
+  // fill attribute
+  const fill = el.getAttribute("fill");
+  if (fill && !skipColor(fill)) { el.setAttribute("fill", "currentColor"); c.fill++; }
+
+  // stroke attribute
+  const stroke = el.getAttribute("stroke");
+  if (stroke && !skipColor(stroke)) { el.setAttribute("stroke", "currentColor"); c.stroke++; }
+
+  // inline style — patch only fill/stroke properties
+  const style = el.getAttribute("style");
+  if (style) {
+    const next = style
+      .replace(/\bfill\s*:\s*([^;]+)/gi, (_, v) => skipColor(v.trim()) ? `fill:${v.trim()}` : "fill:currentColor")
+      .replace(/\bstroke\s*:\s*([^;]+)/gi, (_, v) => skipColor(v.trim()) ? `stroke:${v.trim()}` : "stroke:currentColor");
+    if (next !== style) { el.setAttribute("style", next); c.style++; }
+  }
+
+  // Add CSS class to leaf shape elements without one
+  const SHAPES = new Set(["path","circle","rect","ellipse","polygon","polyline","line"]);
+  if (SHAPES.has(tag) && !el.hasAttribute("class")) {
+    c.counter++;
+    el.setAttribute("class", `bx${c.counter}`);
+    c.classes++;
+  }
+
+  for (const child of el.children) walkEl(child, c);
+}
+
+function optimizeSVG(input) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(input.trim(), "image/svg+xml");
+
+  if (doc.querySelector("parsererror")) {
+    return { output: input, changes: [{ text: "Parse-Fehler – kein gültiges SVG", type: "amber" }] };
+  }
+
+  const svg = doc.documentElement;
+  const log = [];
+
+  // ① width / height → viewBox
+  const w  = svg.getAttribute("width");
+  const h  = svg.getAttribute("height");
+  const vb = svg.getAttribute("viewBox");
+
+  if (!vb && (w || h)) {
+    const nw = parseFloat(w) || 24;
+    const nh = parseFloat(h) || 24;
+    svg.setAttribute("viewBox", `0 0 ${nw} ${nh}`);
+    log.push({ text: `viewBox="0 0 ${nw} ${nh}" gesetzt`, type: "blue" });
+  }
+  if (w) { svg.removeAttribute("width");  log.push({ text: `width="${w}" entfernt`, type: "green" }); }
+  if (h) { svg.removeAttribute("height"); log.push({ text: `height="${h}" entfernt`, type: "green" }); }
+
+  // ② Clean root attributes
+  for (const a of ["version", "xml:space", "enable-background", "data-name"]) {
+    if (svg.hasAttribute(a)) { svg.removeAttribute(a); log.push({ text: `${a} entfernt`, type: "green" }); }
+  }
+
+  // ③ Walk element tree
+  const c = { fill: 0, stroke: 0, style: 0, classes: 0, counter: 0 };
+  for (const child of svg.children) walkEl(child, c);
+
+  if (c.fill)    log.push({ text: `${c.fill}× fill → currentColor`,    type: "blue" });
+  if (c.stroke)  log.push({ text: `${c.stroke}× stroke → currentColor`, type: "blue" });
+  if (c.style)   log.push({ text: `${c.style}× Inline-Style bereinigt`, type: "blue" });
+  if (c.classes) log.push({ text: `${c.classes}× CSS-Klasse vergeben`,  type: "green" });
+  if (log.length === 0) log.push({ text: "Keine Änderungen nötig", type: "green" });
+
+  // ④ Serialize + strip namespace artifacts
+  let out = new XMLSerializer().serializeToString(svg);
+  if (!out.includes("xlink:href") && !out.includes("xlink:")) {
+    out = out.replace(/ xmlns:xlink="[^"]*"/g, "");
+  }
+  out = out.replace(/ xmlns:NS\d+="[^"]*"/g, "").replace(/ NS\d+:[a-z-]+="[^"]*"/gi, "");
+
+  return { output: out, changes: log };
+}
+
+// ─── Pretty printer ──────────────────────────────────────────────────────────
+
+function prettyPrint(xml) {
+  let depth = 0;
+  return xml
+    .replace(/>\s*</g, ">\n<")
+    .trim()
+    .split("\n")
+    .map(raw => {
+      const line = raw.trim();
+      if (!line) return "";
+      const isClose  = /^<\//.test(line);
+      const isSelf   = /\/>$/.test(line);
+      const isOpen   = /^<[^!\/]/.test(line) && !isSelf && !/^<[^>]+>.*<\/[^>]+>$/.test(line);
+      if (isClose) depth = Math.max(0, depth - 1);
+      const out = "  ".repeat(depth) + line;
+      if (isOpen) depth++;
+      return out;
+    })
+    .join("\n");
+}
+
+// ─── Escape ──────────────────────────────────────────────────────────────────
+
+function esc(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// ─── State ───────────────────────────────────────────────────────────────────
+
+let files = [];
+let sel   = 0;
+let tab   = "preview";
+let demo  = "#2563eb";
+
+const PALETTE = ["#2563eb","#dc2626","#16a34a","#d97706","#7c3aed","#334155"];
+
+// ─── Render ──────────────────────────────────────────────────────────────────
+
+function render() {
+  const tabsEl  = document.getElementById("fileTabs");
+  const panelEl = document.getElementById("panel");
+
+  if (!files.length) {
+    tabsEl.style.display  = "none";
+    panelEl.style.display = "none";
+    return;
+  }
+
+  tabsEl.style.display  = "flex";
+  panelEl.style.display = "block";
+
+  // ── File tabs
+  tabsEl.innerHTML = files.map((f, i) =>
+    `<button class="ftab${i === sel ? " active" : ""}" onclick="selectFile(${i})"><span class="dot"></span>${esc(f.name)}</button>`
+  ).join("") + (files.length > 1
+    ? `<button class="btn-all" onclick="downloadAll()">Alle herunterladen ↓</button>`
+    : "");
+
+  const cur = files[sel];
+
+  // ── Panel
+  panelEl.innerHTML = `
+    <div class="pnl-header">
+      <button class="tab-btn${tab==="preview"?" active":""}" onclick="setTab('preview')">Vorschau</button>
+      <button class="tab-btn${tab==="code"?" active":""}" onclick="setTab('code')">SVG-Code</button>
+      <span class="pnl-fname">${esc(cur.name)}</span>
+    </div>
+    <div class="changes-bar">
+      <span class="changes-label">Änderungen</span>
+      ${cur.changes.map(c => `<span class="badge b-${c.type}">${esc(c.text)}</span>`).join("")}
+    </div>
+    ${tab === "preview" ? renderPreview(cur) : renderCode(cur)}
+    <div class="pnl-footer">
+      <button class="btn" id="copyBtn" onclick="copyCode()">Code kopieren</button>
+      <button class="btn btn-primary" onclick="downloadFile(${sel})">↓ ${esc(cur.name.replace(/\.svg$/i,"-bricks.svg"))}</button>
+    </div>
+  `;
+}
+
+function renderPreview(cur) {
+  const swatches = PALETTE.map(c =>
+    `<div class="swatch${c===demo?" active":""}" style="background:${c}" onclick="setDemo('${c}')"></div>`
+  ).join("");
+
+  return `
+    <div class="preview-grid">
+      <div class="preview-col">
+        <div class="preview-lbl">Original</div>
+        <div class="svg-wrap">${cur.original}</div>
+        <div class="sz-info">${cur.original.length} Zeichen</div>
+      </div>
+      <div class="preview-col">
+        <div class="preview-lbl">Optimiert · currentColor</div>
+        <div class="svg-wrap" style="color:${demo}">${cur.optimized}</div>
+        <div class="color-row">${swatches}</div>
+        <div class="sz-info">${cur.optimized.length} Zeichen</div>
+      </div>
+    </div>`;
+}
+
+function renderCode(cur) {
+  const oName = esc(cur.name);
+  const nName = esc(cur.name.replace(/\.svg$/i, "-bricks.svg"));
+  return `
+    <div class="code-grid">
+      <div class="code-col">
+        <div class="code-lbl">${oName}</div>
+        <pre class="code">${esc(prettyPrint(cur.original))}</pre>
+      </div>
+      <div class="code-col">
+        <div class="code-lbl">${nName}</div>
+        <pre class="code">${esc(prettyPrint(cur.optimized))}</pre>
+      </div>
+    </div>`;
+}
+
+// ─── Actions ─────────────────────────────────────────────────────────────────
+
+function selectFile(i) { sel = i; render(); }
+function setTab(t)      { tab = t; render(); }
+function setDemo(c)     { demo = c; render(); }
+
+function downloadFile(i) {
+  const f    = files[i];
+  const blob = new Blob([f.optimized], { type: "image/svg+xml" });
+  const url  = URL.createObjectURL(blob);
+  const a    = Object.assign(document.createElement("a"), {
+    href: url,
+    download: f.name.replace(/\.svg$/i, "-bricks.svg")
+  });
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadAll() {
+  files.forEach((_, i) => setTimeout(() => downloadFile(i), i * 60));
+}
+
+function copyCode() {
+  const text = files[sel]?.optimized || "";
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById("copyBtn");
+    if (btn) { btn.textContent = "✓ Kopiert"; setTimeout(() => { btn.textContent = "Code kopieren"; }, 1800); }
+  }).catch(() => {});
+}
+
+// ─── Input mode ──────────────────────────────────────────────────────────────
+
+let inputMode = "file";
+let pasteCounter = 0;
+
+function setInputMode(mode) {
+  inputMode = mode;
+  document.getElementById("dropZone").style.display  = mode === "file"  ? "" : "none";
+  document.getElementById("pasteZone").classList.toggle("visible", mode === "paste");
+  document.getElementById("togFile").classList.toggle("active",  mode === "file");
+  document.getElementById("togPaste").classList.toggle("active", mode === "paste");
+  if (mode === "paste") setTimeout(() => document.getElementById("pasteInput").focus(), 50);
+}
+
+function processPaste() {
+  const raw   = document.getElementById("pasteInput").value.trim();
+  const errEl = document.getElementById("pasteError");
+  const hintEl = document.getElementById("pasteHint");
+  errEl.style.display = "none";
+  hintEl.style.display = "";
+
+  // Strip optional XML declaration
+  const text = raw.replace(/^<\?xml[^?]*\?>\s*/i, "");
+
+  if (!text.startsWith("<svg") && !text.includes("<svg")) {
+    errEl.style.display = "inline";
+    return;
+  }
+
+  // Derive name
+  let name = document.getElementById("pasteName").value.trim();
+  if (!name) {
+    pasteCounter++;
+    name = `icon-${pasteCounter}.svg`;
+  } else if (!name.endsWith(".svg")) {
+    name += ".svg";
+  }
+
+  const { output, changes } = optimizeSVG(text);
+  files = [...files, { name, original: text, optimized: output, changes }];
+  sel = files.length - 1;
+  render();
+
+  // Reset
+  document.getElementById("pasteInput").value = "";
+  document.getElementById("pasteName").value  = "";
+}
+
+// Ctrl/Cmd+Enter inside textarea triggers optimieren
+document.addEventListener("keydown", e => {
+  if (document.getElementById("pasteInput") === document.activeElement) {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); processPaste(); }
+  }
+});
+
+// ─── File handling ───────────────────────────────────────────────────────────
+
+function processFileList(list) {
+  const svgs = Array.from(list).filter(f => f.name.toLowerCase().endsWith(".svg"));
+  if (!svgs.length) return;
+
+  Promise.all(svgs.map(f =>
+    f.text().then(text => {
+      const { output, changes } = optimizeSVG(text);
+      return { name: f.name, original: text, optimized: output, changes };
+    })
+  )).then(results => {
+    const prev = files.length;
+    files = [...files, ...results];
+    sel = prev;
+    render();
+  });
+}
+
+// ─── Events ──────────────────────────────────────────────────────────────────
+
+const dropZone  = document.getElementById("dropZone");
+const fileInput = document.getElementById("fileInput");
+
+dropZone.addEventListener("click",     () => fileInput.click());
+dropZone.addEventListener("dragover",  e  => { e.preventDefault(); dropZone.classList.add("over"); });
+dropZone.addEventListener("dragleave", ()  => dropZone.classList.remove("over"));
+dropZone.addEventListener("drop",      e  => {
+  e.preventDefault();
+  dropZone.classList.remove("over");
+  processFileList(e.dataTransfer.files);
+});
+fileInput.addEventListener("change", e => processFileList(e.target.files));
+</script>
+</body>
+</html>

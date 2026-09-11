@@ -1,6 +1,6 @@
 # Icon-Set „Digital Avenue“ (15 Icons)
 
-Alle 16×16, Strich 1.5 bis 2, Farbe über currentColor. Für Bricks › Einstellungen › Icons (eigenes Set, SVG-Upload in 2.4) oder als SVG-Element mit Global Class icon / icon-20.
+Alle mit viewBox 0 0 16 16, ohne width/height, Farbe über currentColor, jede Form mit Klasse bx1, bx2 … (in Bricks einzeln ansprechbar). Durch den SVG → Bricks Optimizer gelaufen (handoff/tools/). Für Bricks › Einstellungen › Icons (eigenes Set, SVG-Upload in 2.4) oder als SVG-Element mit Global Class icon / icon-20.
 Nicht übernommen: washer, oven (Reste eines fremden Sets).
 
 - check: aus dem Prototyp-Sprite, Strich currentColor

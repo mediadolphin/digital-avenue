@@ -3,6 +3,7 @@
 // Aufruf: node handoff/import/build-import.mjs   (vom Repo-Stamm)
 import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync } from 'node:fs';
 import { resolve, basename } from 'node:path';
+import { optimizeSVG } from '../tools/svg-bricks-optimize.mjs';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const OUT = resolve(ROOT, 'handoff/import');
@@ -305,16 +306,16 @@ for (const m of headHtml.matchAll(/<symbol\b([^>]*)>([\s\S]*?)<\/symbol>/g)) {
   const id = (m[1].match(/id="([^"]+)"/) || [])[1]; const name = ICON_NAMES[id]; if (!name) continue;
   const viewBox = (m[1].match(/viewBox="([^"]+)"/) || [, '0 0 16 16'])[1];
   const inner = m[2].trim();
-  writeFileSync(resolve(iconDir, `${name}.svg`), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="16" height="16" fill="none" aria-hidden="true">${inner}</svg>\n`);
+  writeFileSync(resolve(iconDir, `${name}.svg`), optimizeSVG(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" fill="none" aria-hidden="true">${inner}</svg>`).output + '\n');
   iconReport.push(`- ${name}: aus dem Prototyp-Sprite, Strich currentColor`);
 }
 for (const extra of ['calendar', 'star', 'wrench']) {
   const src = resolve(ROOT, `handoff/export/icons/${extra}.svg`);
-  let svg = readFileSync(src, 'utf8').replace(/<svg /, '<svg width="16" height="16" ').replace(/>\n\s+/g, '>').replace(/\n\s*</g, '<');
-  writeFileSync(resolve(iconDir, `${extra}.svg`), svg.trim() + '\n');
+  const svg = readFileSync(src, 'utf8').replace(/>\n\s+/g, '>').replace(/\n\s*</g, '<');
+  writeFileSync(resolve(iconDir, `${extra}.svg`), optimizeSVG(svg).output + '\n');
   iconReport.push(`- ${extra}: aus dem Design-System-Sprite${extra === 'star' ? ' (Fill statt Stroke)' : ''}`);
 }
-writeFileSync(resolve(iconDir, 'ICONS.md'), `# Icon-Set „Digital Avenue“ (${iconReport.length} Icons)\n\nAlle 16×16, Strich 1.5 bis 2, Farbe über currentColor. Für Bricks › Einstellungen › Icons (eigenes Set, SVG-Upload in 2.4) oder als SVG-Element mit Global Class icon / icon-20.\nNicht übernommen: washer, oven (Reste eines fremden Sets).\n\n${iconReport.join('\n')}\n`);
+writeFileSync(resolve(iconDir, 'ICONS.md'), `# Icon-Set „Digital Avenue“ (${iconReport.length} Icons)\n\nAlle mit viewBox 0 0 16 16, ohne width/height, Farbe über currentColor, jede Form mit Klasse bx1, bx2 … (in Bricks einzeln ansprechbar). Durch den SVG → Bricks Optimizer gelaufen (handoff/tools/). Für Bricks › Einstellungen › Icons (eigenes Set, SVG-Upload in 2.4) oder als SVG-Element mit Global Class icon / icon-20.\nNicht übernommen: washer, oven (Reste eines fremden Sets).\n\n${iconReport.join('\n')}\n`);
 
 // ── 07 Components ─────────────────────────────────────────────────────────
 const VOID = new Set(['img', 'br', 'hr', 'input', 'meta', 'link', 'source', 'use', 'path', 'circle', 'rect', 'line', 'polyline', 'polygon', 'wbr']);

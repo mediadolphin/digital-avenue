@@ -83,6 +83,16 @@ Jede Datei behält `viewBox`, `currentColor` und Strichstärke. Der Report
 listet Icons, die Fill statt Stroke nutzen, weil die sich in Bricks
 anders färben lassen.
 
+Danach jede Datei Bricks-fertig machen (Regeln des Browser-Tools
+„SVG → Bricks Optimizer“, im Projekt Digital Avenue unter
+`handoff/tools/`): `width`/`height` entfernen, `viewBox` sicherstellen,
+`fill`/`stroke` auf `currentColor`, jede Form bekommt eine Klasse `bx1`,
+`bx2` …, damit sie in Bricks einzeln stylbar ist:
+
+```bash
+node handoff/tools/svg-bricks-optimize.mjs ein.svg aus.svg
+```
+
 ## Phase 3: Komponenten als globale Klassen
 
 Der schnellste Weg zu visueller Übereinstimmung: Das Prototyp-CSS zunächst
