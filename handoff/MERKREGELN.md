@@ -13,6 +13,12 @@ Seitenrand. Blocks und Divs: Grid, Flex, Abstände zwischen Elementen.
 Randlose Elemente (Hero-Bild bis zum Rand) bekommen eine eigene Section
 ohne Seitenrand.
 
+**Blocks haben keinen Standard-Innenabstand.** (11.09.2026) Ein Block
+ordnet Kinder an (Grid, Flex, Lücken). Innenabstand, Fläche, Rand und
+Schatten kommen mit der Komponenten-Klasse auf dem Block, etwa
+`service-card` oder `tile`. So muss keine Klasse ein Padding
+zurücksetzen, und reine Layout-Blocks rücken nicht ein.
+
 **Ein Feld je Stelle im Template.** (11.09.2026) Jeder Inhalt, der im
 Template ein eigenes Element mit eigener Position bekommt, braucht ein
 eigenes Feld. Der Editor-Inhalt ist ein Block und taugt nur für Fließtext.
