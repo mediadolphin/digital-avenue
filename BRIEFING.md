@@ -230,3 +230,4 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 - Drei Ebenen: Struktur über MCP (Bricks-Abilities), Datenmodell als Meta-Box-Code im Repo, Inhalte im WordPress-Admin.
 - CPTs: `da_referenz` (mit Kundenstimme als Feldgruppe), `da_leistung`, `da_faq`, `da_partner`. Taxonomien `zielgruppe` und `leistungsbereich`. Settings Page `unternehmen`. Landingpages bleiben Seiten aus Components.
 - Go-Live durch Übernahme des Stagings; danach Struktur-Änderungen als Transfer-Pakete. Details und Leitplanken in `handoff/BETRIEBSKONZEPT-MCP.md`.
+- Entscheidungen 11.09.2026: Referenz-Einzelseiten ab Start; Digital-Check per E-Mail und als Anfrage-CPT; Entwicklung auf relaunch.digital-avenue.de, Go-Live per All-in-One WP Migration; Leistungen mit eigenen Seiten unter `/leistungen/`. Plugin `wordpress/plugins/da-content-model/`.

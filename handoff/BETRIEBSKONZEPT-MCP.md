@@ -120,8 +120,8 @@ System vor Components, Components vor Seiten.
 
 ## 5. Go-Live und Betrieb
 
-**Go-Live.** Empfehlung: Staging als Ganzes auf die Produktivdomain
-übernehmen (Hosting-Funktion oder Migrationsplugin), weil Inhalte, Medien
+**Go-Live.** Empfehlung: Staging als Ganzes mit All-in-One WP Migration auf das
+Livesystem übernehmen, weil Inhalte, Medien
 und Plugin-Einstellungen mitkommen. Das Transfer-Paket ist Reserve und
 Nachweis. Danach werden Struktur-Änderungen wieder am Staging gebaut und als
 Paket in die Produktion importiert (`inspect-transfer-package` vor
@@ -154,20 +154,24 @@ Paket in die Produktion importiert (`inspect-transfer-package` vor
 - Cloud-Sitzungen von Claude Code erreichen das Staging erst nach
   Freigabe der Domain in der Netzwerkrichtlinie; bis dahin lokal arbeiten.
 
-## 6. Offene Entscheidungen
+## 6. Entscheidungen (11.09.2026)
 
-1. Slugs: `/referenzen/`, `/leistungen/<slug>/`; Zielgruppen-Landingpages
-   bleiben `/praxen/`, `/kanzleien/`, `/mittelstand/`.
-2. Referenz-Einzelseiten von Anfang an veröffentlichen oder erst nach der
-   Keyword-Recherche.
-3. Digital-Check: nur E-Mail oder zusätzlich CPT `da_anfrage`.
-4. Produktivdomain und Hosting-Weg für den Go-Live.
-5. Dynamic-Data-Form für Meta-Box-Settings-Pages am Staging verifizieren.
+1. Referenz-Einzelseiten ab Start veröffentlichen; Feinschliff am lebenden
+   Objekt. Slugs `/referenzen/`, `/leistungen/<slug>/`, Landingpages
+   `/praxen/`, `/kanzleien/`, `/mittelstand/`.
+2. Digital-Check: E-Mail und Speicherung als Anfrage (CPT `da_anfrage`)
+   mit Status. Löschfrist in der Settings Page hinterlegt.
+3. Entwicklung auf `relaunch.digital-avenue.de`, Go-Live per All-in-One WP
+   Migration auf das Livesystem. Danach Struktur-Änderungen als
+   Transfer-Pakete vom Staging in die Produktion.
+4. Leistungen bekommen eigene Seiten unter `/leistungen/`.
+5. Offen: Dynamic-Data-Form für die Meta-Box-Settings-Page am Staging
+   verifizieren.
 
 ## 7. Nächste Schritte
 
-1. Plugin `wordpress/plugins/da-content-model/` schreiben (CPTs,
-   Taxonomien, Felder, Settings Page, Admin-Spalten), am Staging aktivieren.
+1. Plugin `wordpress/plugins/da-content-model/` (fertig, v0.1.0) am
+   Staging hochladen und aktivieren; Post-Typen für Bricks freischalten.
 2. Beispiel-Einträge anlegen, `list-dynamic-data-tags` auslesen, Tags in
    `handoff/STATUS.md` festhalten.
 3. Aufbau nach Abschnitt 4 starten, Hero als erste Probe für den
