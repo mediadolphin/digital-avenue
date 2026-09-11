@@ -30,9 +30,11 @@ sie nicht aus dem Projekt hervorgehen (CLAUDE.md, BRIEFING.md, README):
    Variablen (z. B. `--da-`).
 3. **Zielinstallation**: Staging-URL, Bricks-Version, vorhandene
    Global Classes oder Templates, die erhalten bleiben müssen. Ab Bricks 2.4
-   zusätzlich: Ist der native MCP-Endpunkt aktiviert und die Staging-Domain
-   aus der Umgebung erreichbar? Dann laufen Phase 3 bis 5 direkt über MCP
-   statt über Importdateien. Siehe `references/bricks-2-4.md`.
+   zusätzlich: Ist der MCP Adapter aktiv und in `.mcp.json` eingetragen
+   (stdio-Brücke `@automattic/mcp-wordpress-remote`, Zugangsdaten nur in
+   Umgebungsvariablen)? Dann laufen Phase 3 bis 5 direkt über MCP statt über
+   Importdateien. Einrichtung und Fehlersuche in `references/bricks-2-4.md`.
+   Nie als claude.ai-Connector anlegen, das endet in einer OAuth-Schleife.
 
 Lege dann `handoff/handoff.config.json` an (Vorlage in
 `references/config-example.json`). Die Skripte lesen daraus, welche Tokens

@@ -3,6 +3,8 @@
   "tokensCss": "design-system/colors_and_type.css",
   "prefix": "da",
   "framework": "bricks-native",
+  "staging": "https://relaunch.digital-avenue.de",
+  "mcp": ".mcp.json",
   "darkSelector": ":root[data-brx-theme=\"dark\"]",
   "palette": {
     "name": "Digital Avenue",

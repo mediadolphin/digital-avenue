@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "relaunch-digital-avenue-de": {
+      "command": "npx",
+      "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
+      "env": {
+        "WP_API_URL": "https://relaunch.digital-avenue.de/index.php?rest_route=/mcp/mcp-adapter-default-server",
+        "WP_API_USERNAME": "${WP_API_USERNAME}",
+        "WP_API_PASSWORD": "${WP_API_PASSWORD}"
+      }
+    }
+  }
+}
