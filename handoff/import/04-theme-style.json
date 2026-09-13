@@ -161,7 +161,7 @@
       }
     },
     "container": {
-      "widthMax": "1240px"
+      "width": "1240px"
     },
     "links": {
       "typography": {

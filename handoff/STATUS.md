@@ -27,3 +27,5 @@ Merkregeln zum Nachschlagen: `handoff/MERKREGELN.md`. Importdaten für den Aufba
 Nachtrag 11.09.2026 (abends): Startseite um die Section „Für wen“ mit Bricks-Tabs (Klasse `tabs`), Abschnittskopf (`section-head center`) und Component „Zielgruppen-Panel“ (`28c728`) ergänzt. Glas-Deckkraft auf 0.84/0.86 mit stärkerem Blur eingependelt.
 
 Nachtrag 13.09.2026: Header auf „Sticky on scroll“ umgestellt (Hero-Abstand oben wieder da), Rasterklassen `mosaic`, `audience`, `lp-hero`, `flip` so umgebaut, dass die Media-Queries greifen (Grundwerte in Controls bzw. Selektoren mit Element-Klasse). Nächster Schritt: mobiles Menü in der Navigation.
+
+Nachtrag 13.09.2026 (2): Mosaik auf `width: 100%`, `minmax`-Spalten und `grid-template-areas` umgebaut, Containerbreite im Theme Style von 1100 auf 1240px korrigiert (`container.width`). Offen: Header-Menü läuft bei 400px über (mobiles Menü).

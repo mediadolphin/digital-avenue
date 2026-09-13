@@ -28,9 +28,15 @@ Query Loop.
 ## Theme Style
 
 **Section-Abstand steht in der Gruppe Section, die Breite in der Gruppe
-Container.** (11.09.2026) Die Felder „Root container padding“ und „Root
-container width“ unter General tragen ein rotes Symbol, sind Altlasten und
-wirken nicht auf Sections.
+Container.** (11.09.2026, ergänzt 13.09.2026) Die Felder „Root container
+padding“ und „Root container width“ unter General tragen ein rotes Symbol,
+sind Altlasten und wirken nicht auf Sections: `general.containerMaxWidth`
+gibt `.brxe-container.root` aus, und Container in Sections tragen kein
+`root`. Die Breite gehört als `container.width` (Feld „Width“) in die
+Gruppe Container; das ergibt `.brxe-container { width: 1240px }` und
+überschreibt Bricks' Vorgabe von 1100px. `widthMax` allein reicht nicht,
+weil es die Vorgabe-Breite nicht anhebt. Am Staging am 13.09.2026
+umgestellt, der Build schreibt jetzt `width`.
 
 **HTML-Schriftgröße im Theme Style auf 100 % setzen.** (11.09.2026)
 Ohne den Wert rechnet Bricks mit 62,5 % (1rem = 10px), und alles in rem
@@ -143,6 +149,25 @@ Media-Query auf ein Kind (`.lp-hero .lp-hero-grid`, `.feature.flip figure`),
 hilft kein Control; dann bekommt der Media-Query-Selektor die Element-Klasse
 zusätzlich (`.lp-hero.brxe-section .lp-hero-grid`), damit er über die
 Spezifität gewinnt.
+
+**Layout-Divs im Container brauchen `width: 100%`.** (13.09.2026) Bricks
+setzt am Container `align-items: flex-start`; ein Div darin wird nicht
+gestreckt, sondern so breit wie sein Inhalt. Ein Grid mit `1fr`-Spalten
+wächst dann mit dem längsten Text und lässt rechts einen Rand (Mosaik am
+Tablet). Deshalb bei Rasterklassen (`mosaic`, künftig `tiles`, `steps`,
+`refs`, `quotes`) `_width: 100%` als Control setzen.
+
+**Raster: Spalten als `minmax(0, …fr)`, Reihen als `minmax(…, auto)`,
+Anordnung über `grid-template-areas`.** (13.09.2026) `1fr` heißt
+`minmax(auto, 1fr)`; ein langer Text kann die Spalte aufblähen. `minmax(0,
+4fr)` hält das Verhältnis, Kacheln bekommen `min-width: 0`. Feste
+`grid-auto-rows: 500px` schneiden längere Texte ab, `minmax(500px, auto)`
+lässt die Reihe wachsen. Die Anordnung je Breite steht in
+`grid-template-areas`, die Kacheln tragen nur `grid-area: praxis` usw.;
+umstellen heißt dann eine Zeile ändern. Weil es für `grid-template-areas`
+kein Control gibt, stehen alle drei Zustände in sich ausschließenden
+Media-Queries (`min-width: 1081px`, `641px bis 1080px`, `max-width:
+640px`); so spielt die Reihenfolge im Custom-CSS keine Rolle.
 
 ## Templates
 

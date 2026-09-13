@@ -410,6 +410,19 @@ Korrektur für `audience` (Controls) sowie `lp-hero` und `flip`
 (Media-Query-Selektoren mit Element-Klasse). Regel in `MERKREGELN.md`.
 Geprüft per Playwright bei 1440/900/400px: 4, 2, 1 Spalten.
 
+Mosaik zweiter Durchgang (13.09.2026): Am Tablet blieb rechts ein Rand,
+weil Bricks' Container `align-items: flex-start` hat und das Mosaik-Div
+nur so breit wurde wie sein Inhalt. Klasse `mosaic` jetzt mit `_width:
+100%`, Spalten `minmax(0, 4fr) minmax(0, 3fr) minmax(0, 2.4fr) minmax(0,
+2.4fr)`, Reihen `minmax(500px, auto)`, Anordnung über
+`grid-template-areas` (Desktop eine Zeile, Tablet 2×2, Smartphone eine
+Spalte), Kacheln mit `grid-area` statt `grid-column`. Dabei fiel auf, dass
+die Container am Staging 1100px breit waren: Der Theme Style hatte nur die
+Altlast `general.containerMaxWidth` (`.brxe-container.root`). Jetzt
+`container.width: 1240px`, Altlast entfernt, Build angepasst. Geprüft bei
+1440/1280/900/400px: Container 1240/1234/864/364, Mosaik bündig, kein
+Überlauf außer dem Header-Menü bei 400px (nächster Schritt).
+
 Nächste Schritte: mobiles Menü (Bricks 2.4 rendert die Nav-Kinder ohne
 `ul.brx-nav-nested-items`, deshalb greifen Bricks' Mobile-Regeln nicht;
 Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den

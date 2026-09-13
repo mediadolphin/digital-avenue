@@ -164,7 +164,7 @@ const themeStyle = {
     // container. general.sectionPadding / containerMaxWidth sind die alten
     // "Root container"-Felder und wirken nicht auf Section-Elemente.
     section: { padding: box('var(--da-sp-20)', 'var(--da-sp-6)') },
-    container: { widthMax: wrap },
+    container: { width: wrap },
     links: { typography: { color: raw('var(--da-teal)') }, textDecoration: 'none', transition: 'color var(--da-t)' },
     button: {
       typography: { 'font-family': 'Manrope', 'font-size': '15px', 'font-weight': '700', 'line-height': '1', 'letter-spacing': '0.01em', color: raw('#ffffff') },
