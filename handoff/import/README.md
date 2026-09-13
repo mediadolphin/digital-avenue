@@ -538,6 +538,61 @@ Offen: Popup Digital-Check mit Formular (alle Buttons zeigen auf
 `#digital-check`), echte Kundenstimmen und Leistungsumfang je Referenz,
 Adresse im Footer, drei Landingpages.
 
+## Schritt 12: Popup Digital-Check mit Formular
+
+Stand 13.09.2026, Entscheidung Nils: kein HubSpot, Bricks-Bordmittel,
+Anfragen werden manuell bearbeitet. Popup-Template „Popup Digital-Check“
+(130, Bedingung „gesamte Website“, Schließen per Backdrop und Escape,
+Inhalt `calc(100% - 32px)`, max. 640px, Hintergrund `--da-teal-deeper` zu
+70 %). Aufbau: Div `ckdlg0` (Global Class `check-dialog` `b44e42`, Kategorie
+Sections: Fläche, Radius, Schatten, Kopfzeile, Schließen-Button,
+Formular-Feinheiten) › Kopf `ckhead` (Eyebrow, H2, Intro, Button `ckclos`
+mit X-Icon `icon_ekrpbw1ba` und Interaktion „hide popup 130“) › Formular
+`ckform`.
+
+Felder (IDs sind zugleich die Platzhalter in der E-Mail): `audnce` Radio
+„Ich führe“ (Praxis, Kanzlei, Unternehmen, Pflicht), `fname1` Name
+(Pflicht, 50 %), `femail` E-Mail (Pflicht, 50 %), `fphone` Telefon (50 %),
+`fsite1` Website (50 %), `fmsg01` Textarea, `fdsgvo` Checkbox Einwilligung
+(Pflicht, Text mit Platzhalter für den Datenschutz-Link), `fpage1` Hidden
+`{post_title}` (Seite, von der die Anfrage kam), `fhoney` Honeypot.
+Aktionen in dieser Reihenfolge: `save-submission` (Tabelle, global aktiv),
+`email` an post@digital-avenue.de mit Reply-To auf die Absenderadresse.
+Erfolgs- und Fehlermeldung mit Telefonnummer als Ausweg.
+
+Öffnen: Interaktion `click › show › popup 130` direkt auf den vier Buttons
+Hero `herob1` (Post 2), Header `hdrcta` und Drawer `navcta` (Template 52)
+und dem Button `07a417` in der Component Digital-Check-Block (Property
+„Button-Link“ entfernt). Alle vier sind jetzt `tag: button` ohne Link.
+
+Geprüft per Playwright: Popup öffnet aus allen vier Buttons bei 1440 und
+400px, schließt per X, Backdrop und Escape, Body-Scroll gesperrt; die
+Probesendung liefert alle Felder korrekt in den E-Mail-Text, scheitert aber
+an der E-Mail-Aktion, weil am Staging kein Mailversand eingerichtet ist
+(kein SMTP-Plugin, siehe Systeminfo). Gelernt:
+
+- Klassen-CSS wird nur ausgegeben, wenn das Element die Klasse per
+  `_cssGlobalClasses` (ID) referenziert. `_cssClasses: "check-dialog"`
+  setzt nur den Namen ins HTML, das CSS der Global Class fehlt dann.
+- Eine Klick-Interaktion auf einem Button mit `href` (auch `#anker`)
+  öffnet das Popup nicht; erst ohne Link läuft sie. Deshalb CTA-Buttons als
+  `tag: button` ohne Link.
+- `_interactions` auf einer Global Class nimmt der MCP-Adapter nicht an
+  („Expected a registered setting for a global class“); Interaktionen
+  deshalb je Element setzen.
+- `list-form-submissions` sucht das Formular-Element auf der angegebenen
+  Post-ID; die Tabelle speichert aber die Seite, auf der abgeschickt wurde.
+  Popup-Formulare lassen sich damit per MCP nicht auslesen, im Admin unter
+  Bricks › Form Submissions schon.
+- Playwrights `click()` scheitert auf Bricks-Elementen mit Lazy-Load-Klasse
+  an der Sichtbarkeitsprüfung; im Test per `element.click()` auslösen.
+
+Offen: SMTP einrichten (Staging und Produktion, z. B. WP Mail SMTP oder
+FluentSMTP mit dem Mailkonto des Hosters), Datenschutz-Link im
+Checkbox-Text, optional Cloudflare Turnstile (Schlüssel nötig),
+Löschfrist für die Submissions-Tabelle festlegen, Probesendung nach
+SMTP-Einrichtung wiederholen.
+
 ## Danach
 
 Header und Footer als Templates, dann Seiten per

@@ -211,6 +211,17 @@ Drawer-Variante in der Klasse verliert dann. Deshalb Dropdown-Optik nur in
 der Klasse `nav-menu`, Controls der Nav nur für das, was Desktop und
 Drawer teilen.
 
+**Global Classes immer per ID in `_cssGlobalClasses` referenzieren.**
+(13.09.2026) `_cssClasses: "name"` schreibt nur den Klassennamen ins HTML;
+Bricks gibt das CSS einer Global Class nur aus, wenn ein Element sie per
+ID referenziert. Für Kind-Elemente, die nur ein Selektor der Klasse
+anspricht (`.check-dialog .dialog-head`), reicht `_cssClasses`.
+
+**Buttons, die ein Popup öffnen, sind `tag: button` ohne Link.**
+(13.09.2026) Mit `href` (auch `#anker`) läuft die Klick-Interaktion
+„show popup“ nicht. Interaktionen stehen am Element; auf einer Global
+Class nimmt der MCP-Adapter `_interactions` nicht an.
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)
