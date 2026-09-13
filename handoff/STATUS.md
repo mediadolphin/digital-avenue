@@ -25,3 +25,5 @@ Merkregeln zum Nachschlagen: `handoff/MERKREGELN.md`. Importdaten für den Aufba
 3. Erste Global Classes anlegen (Buttons, Eyebrow, Karten) und gegen den Prototyp prüfen.
 
 Nachtrag 11.09.2026 (abends): Startseite um die Section „Für wen“ mit Bricks-Tabs (Klasse `tabs`), Abschnittskopf (`section-head center`) und Component „Zielgruppen-Panel“ (`28c728`) ergänzt. Glas-Deckkraft auf 0.84/0.86 mit stärkerem Blur eingependelt.
+
+Nachtrag 13.09.2026: Header auf „Sticky on scroll“ umgestellt (Hero-Abstand oben wieder da), Rasterklassen `mosaic`, `audience`, `lp-hero`, `flip` so umgebaut, dass die Media-Queries greifen (Grundwerte in Controls bzw. Selektoren mit Element-Klasse). Nächster Schritt: mobiles Menü in der Navigation.

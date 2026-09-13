@@ -398,6 +398,18 @@ Blur der Service-Karte auf `blur(24px) saturate(1.4)` erhöht; Tokens in
 Karte: Selektor `.sc-title` hat jetzt `line-height: 1.3` (vorher erbte
 der Titel die Absatz-Zeilenhöhe).
 
+Nachjustiert (13.09.2026): Der Hero begann direkt unter dem Header, weil
+das Header-Template nur `headerSticky` hatte (`position: fixed`, Header
+über dem Inhalt). Jetzt zusätzlich `headerStickyOnScroll` (`position:
+sticky`, im Fluss), der obere Abstand `--da-sp-20` ist wieder sichtbar.
+Das Mosaik brach nie um: Die Grundregel `.mosaic.brxe-div` stand im
+Custom-CSS hinter den Media-Queries (der Adapter sortiert `@media` nach
+oben). Grundwerte jetzt als Controls (`_display`, `_gridTemplateColumns`,
+`_gridGap`, `_gridAutoRows`), Media-Queries bleiben im Custom-CSS; gleiche
+Korrektur für `audience` (Controls) sowie `lp-hero` und `flip`
+(Media-Query-Selektoren mit Element-Klasse). Regel in `MERKREGELN.md`.
+Geprüft per Playwright bei 1440/900/400px: 4, 2, 1 Spalten.
+
 Nächste Schritte: mobiles Menü (Bricks 2.4 rendert die Nav-Kinder ohne
 `ul.brx-nav-nested-items`, deshalb greifen Bricks' Mobile-Regeln nicht;
 Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den

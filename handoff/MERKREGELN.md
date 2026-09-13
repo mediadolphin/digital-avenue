@@ -128,6 +128,30 @@ und Reihenfolge). Deshalb in Media-Queries immer
 Gleiches gilt für Regeln, die einen Control-Wert überschreiben sollen
 (`.tile-photo { padding: 0 }` gegen `.tile.brxe-div { padding }`).
 
+**Grundwerte, die eine Media-Query überschreibt, gehören in die Controls
+der Klasse, nicht ins Custom-CSS.** (13.09.2026) Bricks gibt bei einer
+Global Class zuerst die CSS aus den Controls aus und danach `_cssCustom`;
+der MCP-Adapter sortiert `@media`-Blöcke innerhalb von `_cssCustom` beim
+Speichern nach oben (eine Umsortierung kommt unverändert zurück). Steht
+die Grundregel im Custom-CSS, landet sie hinter der Media-Query und
+gewinnt bei gleicher Spezifität. Deshalb `display`, `grid-template-columns`,
+`gap`, `grid-auto-rows`, `align-items` als Controls
+(`_display`, `_gridTemplateColumns`, `_gridGap`, `_gridAutoRows`,
+`_alignItemsGrid`) setzen und im Custom-CSS nur die Media-Queries lassen
+(so funktionieren `tiles`, `steps`, `mosaic`, `audience`). Zielt die
+Media-Query auf ein Kind (`.lp-hero .lp-hero-grid`, `.feature.flip figure`),
+hilft kein Control; dann bekommt der Media-Query-Selektor die Element-Klasse
+zusätzlich (`.lp-hero.brxe-section .lp-hero-grid`), damit er über die
+Spezifität gewinnt.
+
+## Templates
+
+**Header-Template mit „Sticky header“ und „Sticky on scroll“.** (13.09.2026)
+Nur `headerSticky` macht den Header `position: fixed`; er liegt dann über
+dem Seitenanfang, und der obere Section-Abstand des Heros verschwindet
+hinter den 72px Nav-Höhe. Mit `headerStickyOnScroll` wird er `position:
+sticky`, bleibt wie im Prototyp im Fluss und der Hero beginnt darunter.
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)
