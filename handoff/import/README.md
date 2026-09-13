@@ -493,6 +493,51 @@ blenden (`.tab-pane.brx-open`) unberührt; die Einblend-Animation hängt an
 Component-Instanzen mit `slotChildren: {slotId: [Kinder]}` an, eigene
 6-stellige IDs werden übernommen.
 
+## Schritt 11: Startseite unterhalb des Heros
+
+Stand 13.09.2026: Startseite (Post 2) ist komplett, alle Abschnitte des
+Prototyps `prototype/index.html` sind aus den Components zusammengesetzt
+(Revisionen 125 bis 129). Aufbau je Abschnitt, jeweils Section › Container:
+
+- **Leistungen** `lssec0` (`#leistungen`, Klasse `section`, Hintergrund
+  `--da-bg-alt`, Rahmen oben/unten als Controls) › Abschnittskopf `lshead`
+  (`section-head`) › Kacheln `lstile` (`tiles`) mit acht Instanzen in
+  Prototyp-Reihenfolge: Foto-Kachel `0851ab` (74, Ausschnitt 35 % 25 %),
+  Kachel `c3c53b` cream (Standard), Foto 94, Kachel teal, Kachel deep,
+  Foto 92, Kachel sand, Foto 88.
+- **So arbeiten wir** `sasec0` (`#so-arbeiten-wir`) › Kopf › Schritte
+  `sastep` (`steps`) mit drei Schritt-Instanzen `719767` (nummer, titel,
+  copy).
+- **Referenzen** `rfsec0` (`#referenzen`, Klasse `section-sm`, bg-alt,
+  Rahmen) › Kopf (nur Eyebrow und H2) › Referenzkarten `rfrefs` (`refs`)
+  mit vier Instanzen `cbca1c` (Logos 62, 106, 107, 108) › Kundenstimmen
+  `rfquot` (`quotes`, Abstand oben `--da-sp-5`) mit zwei Instanzen `05cb9e`
+  (erste `featured`). Texte tragen noch die Platzhalter aus dem Prototyp.
+- **Über uns** `absec0` (`#ueber-uns`, Klassen `section` und neu `about`
+  `023c83`) › Div `absplt` (`split`, `width: 100 %`) › Spalte 1 mit
+  Eyebrow, H2 und `about-facts` (vier `fact`-Divs mit `num` und `label`
+  als Spans) › Spalte 2 `about-text` mit drei Absätzen. `about` trägt
+  Hintergrund, Rahmen, Fakten-Raster (2 Spalten, ab 480px eine) und
+  Typografie; die Kind-Elemente tragen nur `_cssClasses`.
+- **Digital-Check** `dcsec0` (`#digital-check-info`) › Instanz
+  Digital-Check-Block `e44db4` mit fünf Service-Punkten im Slot `17e049`.
+
+Geprüft per Playwright bei 1440/900/400px: keine kaputten Bilder, kein
+horizontaler Überlauf, Raster 4/2/1 (Kacheln), 3/3/1 (Schritte), 4/3/1
+(Referenzen), 2/2/1 (Kundenstimmen, Über uns).
+
+Attachment-IDs der Fotos folgen dem Muster `99 − n` für `mNN` (m05 → 94,
+m07 → 92, m11 → 88, m25 → 74).
+
+Hinweis: Die Klasse `split` (Import vom 11.09.) hat ihre Media-Query noch
+hinter der Grundregel im Custom-CSS. Das funktioniert, weil der Import
+nicht umsortiert; bei der nächsten Änderung per MCP nach der Merkregel
+(Grundwerte in Controls) umbauen.
+
+Offen: Popup Digital-Check mit Formular (alle Buttons zeigen auf
+`#digital-check`), echte Kundenstimmen und Leistungsumfang je Referenz,
+Adresse im Footer, drei Landingpages.
+
 ## Danach
 
 Header und Footer als Templates, dann Seiten per
