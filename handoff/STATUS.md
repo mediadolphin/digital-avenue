@@ -37,3 +37,5 @@ Nachtrag 13.09.2026 (4): Header-Feinschliff: Burger als X, Drawer-Untermenüs al
 Nachtrag 13.09.2026 (5): Startseite fertig gebaut (Leistungen, So arbeiten wir, Referenzen, Über uns, Digital-Check), neue Klasse `about`. Nächster Schritt: Popup Digital-Check mit Formular, dann Landingpages.
 
 Nachtrag 13.09.2026 (6): Popup Digital-Check gebaut, alle vier CTA-Buttons öffnen es. E-Mail-Versand am Staging scheitert ohne SMTP-Plugin; Einrichtung offen.
+
+Nachtrag 13.09.2026 (7): `handoff/BAUKASTEN.md` angelegt: Anleitung für manuell gebaute Seiten mit allen 65 Global Classes, 14 Components, Templates, Rezepten und Fehlerbildern.
