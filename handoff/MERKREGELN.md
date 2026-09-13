@@ -198,6 +198,19 @@ Kind (`#brxe-navcta`) verlieren, weil Bricks sie vor der Nav-Regel
 ausgibt. Wer einen einzelnen Menüpunkt anders gestalten will (CTA-Button
 im Drawer), braucht `!important` in der Klasse; das ist hier bewusst so.
 
+**Toggle-Element: der offene Zustand kommt per CSS, nicht per zweitem
+Icon.** (13.09.2026) Das Toggle hat nur ein Icon-Control. Beim Öffnen
+setzt Bricks `aria-expanded="true"` und die Klasse `is-active` auf den
+Button. Darauf reagiert die Klasse `nav-burger`: SVG ausblenden, X aus
+zwei Pseudo-Elementen in `currentColor`.
+
+**Was mobil anders aussehen soll, darf nicht in Nav-Controls stehen.**
+(13.09.2026) Dropdown-Controls der Nav (`dropdownBackgroundColor`,
+`dropdownBorder`, …) gelten in beiden Zuständen mit ID-Spezifität; die
+Drawer-Variante in der Klasse verliert dann. Deshalb Dropdown-Optik nur in
+der Klasse `nav-menu`, Controls der Nav nur für das, was Desktop und
+Drawer teilen.
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)

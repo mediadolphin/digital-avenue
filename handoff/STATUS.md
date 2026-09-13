@@ -31,3 +31,5 @@ Nachtrag 13.09.2026: Header auf „Sticky on scroll“ umgestellt (Hero-Abstand 
 Nachtrag 13.09.2026 (2): Mosaik auf `width: 100%`, `minmax`-Spalten und `grid-template-areas` umgebaut, Containerbreite im Theme Style von 1100 auf 1240px korrigiert (`container.width`). Offen: Header-Menü läuft bei 400px über (mobiles Menü).
 
 Nachtrag 13.09.2026 (3): Mobiles Menü läuft. Ursache war der fehlende Wrapper-Block `ul.brx-nav-nested-items` in der Nav (plus `backdrop-filter` auf der Header-Section als Containing Block des Drawers). Header 52 umgebaut, Drawer mit CTA, Merkregeln ergänzt. Offen: Burger als X im offenen Zustand, Rest der Startseite.
+
+Nachtrag 13.09.2026 (4): Header-Feinschliff: Burger als X, Drawer-Untermenüs als Liste, Seitenabstand, mobil Logo links und Icons rechts. Nächster Schritt: Rest der Startseite aus den Components.

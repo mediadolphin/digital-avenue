@@ -354,12 +354,13 @@ damit der Burger rechts außen steht).
 Nachtrag: Die Klassenregeln `.nav-menu .brx-nav-nested-items …` griffen
 im Frontend nicht (Ursache am 13.09.2026 gefunden: der Wrapper-Block
 `ul.brx-nav-nested-items` fehlte, siehe unten).
-Abstand, Padding, Typografie, Hover, Aktiv-Zustand und Dropdown-Optik
-liegen deshalb jetzt in den Nav-Einstellungen selbst (`gap`,
-`itemPadding`, `itemTypography`, `itemTypography:hover`,
-`itemTypographyActive`, `dropdown…`), die Bricks mit `#brxe-navmn1
-:where(…)` ausgibt. Die Klasse `nav-menu` behält Order-Regeln und das
-mobile Layout.
+Abstand, Padding, Typografie, Hover und Aktiv-Zustand der obersten Ebene
+liegen deshalb in den Nav-Einstellungen selbst (`gap`, `itemPadding`,
+`itemTypography`, `itemTypography:hover`, `itemTypographyActive`), die
+Bricks mit `#brxe-navmn1 :where(…)` ausgibt. Die Dropdown-Optik liegt seit
+13.09.2026 wieder komplett in der Klasse `nav-menu` (Desktop-Karte und
+Drawer-Liste), weil die ID-Regeln der Controls sonst die mobile Variante
+blockieren.
 
 Offen: Footer-Template „Main Footer“ (54), mobiles Menü im Browser
 prüfen, aktiver Menüpunkt (`aria-current`) setzt Bricks automatisch.
@@ -441,9 +442,20 @@ Geprüft bei 1440/900/400px: Desktop-Menü ohne Burger, darunter Burger,
 Drawer 72px bis Fensterunterkante, Dropdowns klappen im Drawer auf, Body
 ist gesperrt, kein horizontaler Überlauf. Revisionen 120 bis 123.
 
+Feinschliff (13.09.2026): Burger zeigt im offenen Zustand ein X (Bricks
+setzt `aria-expanded="true"` und `is-active`; das SVG wird ausgeblendet,
+zwei Pseudo-Elemente bilden das X, kein zweites Icon nötig). Untermenüs im
+Drawer wie im Prototyp: eingerückte schlichte Liste ohne Karte, Rahmen und
+Hover-Fläche. Dafür sind die Dropdown-Controls der Nav (`dropdown…`)
+entfernt, die Klasse `nav-menu` gestaltet Desktop-Karte und Drawer-Liste
+allein. Header-Section mit `padding: 0 var(--da-sp-6)`; `nav-inner` trägt
+Richtung, Ausrichtung, Lücke und Höhe als Controls, mobil kleinere Lücke;
+`nav-actions` rückt mobil mit `margin-left: auto` neben den Burger (Logo
+links, Mond und Burger rechts). Geprüft bei 400/900/1440px.
+
 Nächste Schritte: Startseite unterhalb des Heros aus den Components
 (Kacheln, Schritte, Referenzen, Kundenstimmen, Digital-Check), Popup
-Digital-Check mit Formular, Burger-Icon im offenen Zustand als X.
+Digital-Check mit Formular.
 
 ## Schritt 10: Zielgruppen-Umschalter (Tabs) auf der Startseite
 
