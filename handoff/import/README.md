@@ -352,7 +352,8 @@ die optische Reihenfolge regelt `order` (Nav 1, Aktionen 2, mobil Nav 3,
 damit der Burger rechts außen steht).
 
 Nachtrag: Die Klassenregeln `.nav-menu .brx-nav-nested-items …` griffen
-im Frontend nicht (Ursache offen, Reihenfolge und Order-Regel griffen).
+im Frontend nicht (Ursache am 13.09.2026 gefunden: der Wrapper-Block
+`ul.brx-nav-nested-items` fehlte, siehe unten).
 Abstand, Padding, Typografie, Hover, Aktiv-Zustand und Dropdown-Optik
 liegen deshalb jetzt in den Nav-Einstellungen selbst (`gap`,
 `itemPadding`, `itemTypography`, `itemTypography:hover`,
@@ -423,11 +424,26 @@ Altlast `general.containerMaxWidth` (`.brxe-container.root`). Jetzt
 1440/1280/900/400px: Container 1240/1234/864/364, Mosaik bündig, kein
 Überlauf außer dem Header-Menü bei 400px (nächster Schritt).
 
-Nächste Schritte: mobiles Menü (Bricks 2.4 rendert die Nav-Kinder ohne
-`ul.brx-nav-nested-items`, deshalb greifen Bricks' Mobile-Regeln nicht;
-Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den
-Components (Mosaik, Kacheln, Schritte, Referenzen, Kundenstimmen,
-Digital-Check), Popup Digital-Check mit Formular.
+Mobiles Menü (13.09.2026): Die Diagnose „Bricks 2.4 rendert die Nav-Kinder
+ohne `ul.brx-nav-nested-items`“ war falsch. Bricks rendert den Wrapper
+nicht selbst; er ist ein Kind-Element der Nav, das der Builder beim
+Einfügen anlegt und das beim Aufbau per MCP fehlte (Vorlage: das gekaufte
+Mega-Menu-Template von Nick Arce, Nav › Block `brx-nav-nested-items` ›
+Punkte, Toggle daneben). Header 52 jetzt: Nav `navmn1` › Block `navitm`
+(`customTag: ul`, `_hidden._cssClasses: brx-nav-nested-items`) › Leistungen,
+Branchen, Referenzen, Blog, Über uns, Button `navcta` (`nav-cta`, nur im
+Drawer sichtbar) › Toggle `hdrbrg`. Dazu zwei Klassenkorrekturen:
+`site-nav` trägt den Blur auf `::before` (ein `backdrop-filter` auf der
+Section machte sie zum Containing Block des fixierten Drawers, Höhe 48px),
+`nav-menu` richtet den Drawer oben aus (`justify-content: flex-start`) und
+gestaltet den CTA mit `!important` gegen die ID-Regeln der Nav-Controls.
+Geprüft bei 1440/900/400px: Desktop-Menü ohne Burger, darunter Burger,
+Drawer 72px bis Fensterunterkante, Dropdowns klappen im Drawer auf, Body
+ist gesperrt, kein horizontaler Überlauf. Revisionen 120 bis 123.
+
+Nächste Schritte: Startseite unterhalb des Heros aus den Components
+(Kacheln, Schritte, Referenzen, Kundenstimmen, Digital-Check), Popup
+Digital-Check mit Formular, Burger-Icon im offenen Zustand als X.
 
 ## Schritt 10: Zielgruppen-Umschalter (Tabs) auf der Startseite
 

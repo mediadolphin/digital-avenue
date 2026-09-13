@@ -108,10 +108,15 @@ einer Section. Alle anderen Abschnitte liegen als Div in Section und
 Container.
 
 **Nestable-Kinder tragen ihre Rolle in `_hidden._cssClasses`.**
-(11.09.2026) Accordion: `accordion-title-wrapper` und
+(11.09.2026, ergänzt 13.09.2026) Accordion: `accordion-title-wrapper` und
 `accordion-content-wrapper`; Dropdown: `brx-dropdown-content`; Tabs:
-`tab-menu`, `tab-title`, `tab-content`, `tab-pane`. Ohne diese Klassen
-läuft das Bricks-Skript nicht.
+`tab-menu`, `tab-title`, `tab-content`, `tab-pane`; **Nav (Nestable):
+ein Block mit `customTag: ul` und `brx-nav-nested-items`, in dem alle
+Menüpunkte liegen, der Toggle (Burger) bleibt direktes Kind der Nav.**
+Ohne diese Klassen läuft das Bricks-Skript nicht. Beim Header fehlte der
+Nav-Wrapper: Bricks hängt Ausblenden unter dem Breakpoint, Drawer und
+`brx-open` an genau diese `ul`, deshalb blieb das Menü sichtbar und hinter
+dem Burger war nichts.
 
 **Controls mit Bricks-Vorgabewerten am Element setzen, nicht in der Klasse.**
 (11.09.2026) Tabs und Accordion bringen Vorgaben mit (Padding 20px,
@@ -176,6 +181,22 @@ Nur `headerSticky` macht den Header `position: fixed`; er liegt dann über
 dem Seitenanfang, und der obere Section-Abstand des Heros verschwindet
 hinter den 72px Nav-Höhe. Mit `headerStickyOnScroll` wird er `position:
 sticky`, bleibt wie im Prototyp im Fluss und der Hero beginnt darunter.
+
+**Kein `backdrop-filter` (und kein `transform`, `filter`) auf Header-Section
+oder -Container.** (13.09.2026) Diese Eigenschaften machen das Element zum
+Containing Block für `position: fixed`. Der mobile Drawer der Nav ist
+`fixed` und liegt zwingend in der Nav; mit dem Blur auf der Section war
+er nur 48px hoch und lag hinter dem Hero. Der Blur sitzt jetzt auf
+`.site-nav.brxe-section::before` (absolut, `inset: 0`, `z-index: -1`),
+die Section bleibt filterfrei.
+
+**Nav-Controls gibt Bricks mit ID-Selektor aus, und zwar nach der
+Element-CSS der Kinder.** (13.09.2026) `itemPadding`, `itemTypography`
+usw. werden zu `#brxe-navmn1 :where(.brx-nav-nested-items > li > a)`
+(Spezifität eines IDs). Eine Klasse verliert immer, und auch Controls am
+Kind (`#brxe-navcta`) verlieren, weil Bricks sie vor der Nav-Regel
+ausgibt. Wer einen einzelnen Menüpunkt anders gestalten will (CTA-Button
+im Drawer), braucht `!important` in der Klasse; das ist hier bewusst so.
 
 ## Icons
 
