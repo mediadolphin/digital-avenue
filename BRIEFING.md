@@ -46,6 +46,12 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
 - Claude-Design-Projekt (Quelle des Exports):
   https://claude.ai/design/p/019ddea1-f8fe-7a97-bba0-f6d090a4b241
 - Inhalt des "Digital-Check" mit Nils abstimmen (Umfang, Dauer, was der Kunde bekommt).
+- Referenzen für Foto und Video (16.09.2026): Nils hat Porträts und einen
+  Imagefilm aus Kundenprojekten. Nutzungsrechte für die Website müssen erst
+  geklärt werden (Kunde und abgebildete Personen). Bis dahin bleiben die
+  Referenzkarten bei Website-Projekten. Nach Freigabe: eine Referenzkarte
+  je Projekt mit Foto-Serie bzw. Film; Film selbst gehostet (MP4 mit
+  Vorschaubild), kein YouTube-Embed, damit keine fremden Cookies laden.
 - Echte Kundenstimmen nachliefern.
 - Hosting-Hintergrund (Nils, 10.09.2026): Digital Avenue hostet nicht selbst,
   sondern arbeitet mit Partnern (IONOS, Netleaders), weil diese Infrastruktur
