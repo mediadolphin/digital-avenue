@@ -39,3 +39,5 @@ Nachtrag 13.09.2026 (5): Startseite fertig gebaut (Leistungen, So arbeiten wir, 
 Nachtrag 13.09.2026 (6): Popup Digital-Check gebaut, alle vier CTA-Buttons öffnen es. E-Mail-Versand am Staging scheitert ohne SMTP-Plugin; Einrichtung offen.
 
 Nachtrag 13.09.2026 (7): `handoff/BAUKASTEN.md` angelegt: Anleitung für manuell gebaute Seiten mit allen 65 Global Classes, 14 Components, Templates, Rezepten und Fehlerbildern.
+
+Nachtrag 16.09.2026: Positionierung erweitert (Foto und Video vom Konzept bis zum Publishing, alle Inhalte auf Wunsch, alles aus einer Hand). Startseite, Footer, Prototyp-Quellen und Briefing angepasst; vierter Leistungsbereich „Foto, Video & Text“ als Kachel. Landingpages übernehmen das beim Bau.

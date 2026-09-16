@@ -17,6 +17,12 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
   USP: Sichtbarkeit (Webdesign, PR, Marketing) plus Infrastruktur
   (Placetel-Telefonie, Hosting, Doctolib-/HubSpot-Anbindung) aus einer Hand,
   proaktiver Service (Beispiel: Urlaubs-Service).
+- Ergänzung 16.09.2026 (Nils): Digital Avenue bietet **Foto und Video vom
+  Konzept über die Produktion bis zum Publishing** an und **erstellt auf Wunsch
+  alle Inhalte** (Texte, Fotos, Videos). Kernaussage überall: **alles aus einer
+  Hand**, keine dritte Agentur nötig. Auf der Startseite als vierter
+  Leistungsbereich „Foto, Video & Text“ umgesetzt (Kachel, Hero-Lead,
+  Zielgruppen-Panels, Digital-Check-Liste, Über uns, Footer).
 - Das Design System und die Entwürfe aus Claude Design liegen seit dem
   10.09.2026 unverändert unter `design-system/` im Repo (ZIP-Export).
 

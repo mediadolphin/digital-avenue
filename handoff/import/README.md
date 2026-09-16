@@ -534,6 +534,24 @@ hinter der Grundregel im Custom-CSS. Das funktioniert, weil der Import
 nicht umsortiert; bei der nächsten Änderung per MCP nach der Merkregel
 (Grundwerte in Controls) umbauen.
 
+Inhaltliche Ergänzung (16.09.2026, Nils): Foto und Video vom Konzept bis zum
+Publishing, alle Inhalte auf Wunsch aus einer Hand. Umgesetzt auf der
+Startseite: Hero-Lead (`herold`), Abschnittskopf Leistungen („Vier
+Bereiche“, `lshh20`, `lshp00`), Kachelraster: Foto-Kachel Hafen (m07)
+ersetzt durch Kachel `lsk009` „04 · Foto, Video & Text“ (Sand), Recruiting-
+Kachel `lsk007` auf Creme, Kachel 01 `lsk002` ohne „Texte und Bilder“;
+Mosaik-Karte `ml0204` („Neue Teamfotos …“); je Zielgruppen-Panel ein
+vierter Service-Punkt (`fwc104`, `fwc204`, `fwc304`), Mittelstand-Lead;
+Über uns `abp002`; Digital-Check-Block mit sechstem Prüfpunkt „Inhalte“
+(`dcp006`); Footer 54: Link „Foto, Video & Text“ (`fl0105`) und Kurztext.
+Prototyp-Quellen in `prototype/src/` gleich geändert, Build gelaufen.
+
+Gelernt: `update-element` und `batch-update-elements` ändern nur
+`settings`. Property-Werte einer Component-Instanz und Slot-Inhalte
+lassen sich nur durch Entfernen und Neu-Einfügen der Instanz ändern
+(`add-element` mit `properties` und `slotChildren`); ein `add-element`
+mit `parentId` = Instanz landet zwar im Baum, aber nicht im Slot.
+
 Offen: Popup Digital-Check mit Formular (alle Buttons zeigen auf
 `#digital-check`), echte Kundenstimmen und Leistungsumfang je Referenz,
 Adresse im Footer, drei Landingpages.

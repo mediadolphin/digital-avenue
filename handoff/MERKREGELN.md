@@ -222,6 +222,13 @@ anspricht (`.check-dialog .dialog-head`), reicht `_cssClasses`.
 „show popup“ nicht. Interaktionen stehen am Element; auf einer Global
 Class nimmt der MCP-Adapter `_interactions` nicht an.
 
+**Instanz-Properties und Slots ändern heißt: Instanz neu einfügen.**
+(16.09.2026) `update-element` nimmt nur `settings`; `properties` einer
+Component-Instanz lehnt es ab, und ein Kind, das per `add-element` an eine
+Instanz gehängt wird, steht nicht im Slot und rendert nicht. Deshalb
+Instanz mit `remove-element` entfernen und mit `add-element` (gleiche ID,
+`position`, `properties`, `slotChildren` verschachtelt) neu einfügen.
+
 ## Icons
 
 **SVGs vor dem Upload durch den SVG → Bricks Optimizer.** (11.09.2026)
