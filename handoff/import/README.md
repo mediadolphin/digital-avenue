@@ -494,7 +494,8 @@ K1 Hero 176 (m34), Feature 177 (m35); K2 Hero 178 (m36), Feature 179
 hochgeladen (`upload-media` per URL, der Server holt das Bild selbst; aus
 der Cloud ist das CDN gesperrt). Prototyp: `prototype/src/pages/lp-*.html`,
 Routen `#lp-facharztpraxis`, `#lp-empfang-entlasten`,
-`#lp-betreuung-wechseln`, verlinkt im Footer unter „Für wen“.
+`#lp-betreuung-wechseln`; bewusst nicht im Footer oder in der Navigation
+verlinkt, Kampagnenseiten werden nur über den Kampagnenlink erreicht.
 
 `update-element` kennt keine Component-Properties (nur `settings`). Eine
 Instanz ändert man über `set-page-elements` mit dem ganzen Seitenbaum;
