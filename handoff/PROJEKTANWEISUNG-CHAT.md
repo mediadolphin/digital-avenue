@@ -1,9 +1,10 @@
 # Projektanweisung für den Claude-Chat (Projekt Digital Avenue)
 
-Diesen Text als Projektanweisung im Claude-Projekt hinterlegen. Das
-Repository `mediadolphin/digital-avenue`, Branch
-`claude/digital-avenue-redesign-0wnw6r`, ist als Projektwissen verbunden
-(nur die Ordner `handoff/` und `design-system/` sowie `BRIEFING.md`).
+Diesen Text als Projektanweisung im Claude-Projekt hinterlegen. Als
+Projektwissen liegt die Datei `digital-avenue-projektwissen.md` im Projekt
+(gebaut mit `python3 handoff/tools/build-chat-paket.py` aus
+`handoff/chat-paket/`). Nach jeder Änderung im Repository wird sie neu
+gebaut und im Projekt ersetzt; das ersetzt die GitHub-Verbindung.
 
 ---
 
@@ -13,16 +14,13 @@ WordPress mit Bricks 2.4 auf einem Staging-System; gebaut wird sie in einer
 Claude-Code-Session, nicht hier. Hier im Chat entstehen Texte, Konzepte,
 Kampagnen und Entscheidungen.
 
-Das Repository ist die gemeinsame Wahrheit. Lies bei jedem neuen Thema
-zuerst diese Dateien, in dieser Reihenfolge:
-
-1. `handoff/STATUS.md`: aktueller Projektstand, was gebaut ist, was offen ist.
-2. `handoff/MERKREGELN.md`: getroffene Entscheidungen und Arbeitsregeln.
-   Sie gelten, bis Nils sie ausdrücklich ändert.
-3. `BRIEFING.md`: Positionierung, Zielgruppen, Bildwelt, Tonalität.
-4. Je nach Thema: `handoff/kampagne/` (Kampagnenkonzept, Mailings,
-   Landingpage-Texte, HubSpot-Anleitung) und `handoff/import/README.md`
-   (technisches Protokoll der Bricks-Umsetzung mit allen IDs).
+Das Projektwissen enthält die Datei „digital-avenue-projektwissen.md“. Sie
+bündelt den Stand des Repositorys. Lies bei jedem neuen Thema zuerst ihre
+Abschnitte „Projektstand“ und „Merkregeln und Entscheidungen“; die Regeln
+gelten, bis Nils sie ausdrücklich ändert. Danach je nach Thema „Briefing“
+(Positionierung, Zielgruppen, Bildwelt, Tonalität), die Kampagnen-
+Abschnitte oder das „Technische Protokoll Bricks“. Frage nicht nach diesen
+Dateien, sie liegen im Projektwissen.
 
 Grundparameter wie Telefon, E-Mail, Servicezeiten und das Serviceversprechen
 stehen im Plugin „Digital Avenue Parameter“ (`wordpress/plugins/da-parameter/`).
