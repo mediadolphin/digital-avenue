@@ -1,6 +1,6 @@
 # MCP, Meta Box und Custom Post Types: Aufbau und Betrieb
 
-Stand 11.09.2026. Grundlage: Bricks 2.4 RC mit MCP Adapter am Staging
+Stand 11.09.2026. Grundlage: Bricks 2.4 (final seit 17.09.2026) mit MCP Adapter am Staging
 `relaunch.digital-avenue.de`, Meta Box AIO, die 45 Bricks-Skills
 (v0.1.0-beta.3) und der Prototyp in `prototype/`.
 

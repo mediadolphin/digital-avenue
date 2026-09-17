@@ -105,7 +105,7 @@ ist `{ variables, categories, styleManager }`.
 
 ## Schritt 4: Theme Style
 
-`04-theme-style.json` liegt im Export-Format von Bricks 2.4 RC2 (wie die
+`04-theme-style.json` liegt im Export-Format von Bricks 2.4 (erstellt unter RC2, wie die
 leere Vorlage `Global Theme`). Einfachster Weg ohne Ability: im Builder
 unter Einstellungen › Theme Styles › Import die Datei einspielen. Der Stil
 heißt „Digital Avenue“ und gilt mit Bedingung „any“ für die ganze Seite.
