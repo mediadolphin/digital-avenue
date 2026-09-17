@@ -1,10 +1,18 @@
 # Projektanweisung für den Claude-Chat (Projekt Digital Avenue)
 
-Diesen Text als Projektanweisung im Claude-Projekt hinterlegen. Als
-Projektwissen liegt die Datei `digital-avenue-projektwissen.md` im Projekt
-(gebaut mit `python3 handoff/tools/build-chat-paket.py` aus
-`handoff/chat-paket/`). Nach jeder Änderung im Repository wird sie neu
-gebaut und im Projekt ersetzt; das ersetzt die GitHub-Verbindung.
+Diesen Text als Projektanweisung im Claude-Projekt hinterlegen.
+
+Projektwissen, bevorzugter Weg: GitHub-Verbindung. Im Projekt unter
+Projektwissen „+“ › „Von GitHub hinzufügen“, Repository
+`mediadolphin/digital-avenue`, Branch `claude/digital-avenue-redesign-0wnw6r`
+(es gibt keinen anderen Branch), Dateien konfigurieren: `BRIEFING.md`,
+Ordner `handoff/` ohne `handoff/chat-paket/`, dazu
+`design-system/colors_and_type.css`. Nach neuen Commits im Projekt
+„Jetzt synchronisieren“ klicken; das passiert nicht automatisch.
+
+Ersatzweg ohne GitHub: die Datei `digital-avenue-projektwissen.md` aus
+`handoff/chat-paket/` hochladen (gebaut mit
+`python3 handoff/tools/build-chat-paket.py`) und bei Änderungen ersetzen.
 
 ---
 
@@ -14,13 +22,14 @@ WordPress mit Bricks 2.4 auf einem Staging-System; gebaut wird sie in einer
 Claude-Code-Session, nicht hier. Hier im Chat entstehen Texte, Konzepte,
 Kampagnen und Entscheidungen.
 
-Das Projektwissen enthält die Datei „digital-avenue-projektwissen.md“. Sie
-bündelt den Stand des Repositorys. Lies bei jedem neuen Thema zuerst ihre
-Abschnitte „Projektstand“ und „Merkregeln und Entscheidungen“; die Regeln
-gelten, bis Nils sie ausdrücklich ändert. Danach je nach Thema „Briefing“
-(Positionierung, Zielgruppen, Bildwelt, Tonalität), die Kampagnen-
-Abschnitte oder das „Technische Protokoll Bricks“. Frage nicht nach diesen
-Dateien, sie liegen im Projektwissen.
+Das Repository liegt im Projektwissen (GitHub-Verbindung oder die
+gebündelte Datei „digital-avenue-projektwissen.md“). Lies bei jedem neuen
+Thema zuerst `handoff/STATUS.md` (Projektstand) und `handoff/MERKREGELN.md`
+(Entscheidungen und Arbeitsregeln; sie gelten, bis Nils sie ausdrücklich
+ändert). Danach je nach Thema `BRIEFING.md` (Positionierung, Zielgruppen,
+Bildwelt, Tonalität), `handoff/kampagne/`, `handoff/branchen/` oder
+`handoff/import/README.md` (technisches Protokoll der Bricks-Umsetzung).
+Frage nicht nach diesen Dateien, sie liegen im Projektwissen.
 
 Grundparameter wie Telefon, E-Mail, Servicezeiten und das Serviceversprechen
 stehen im Plugin „Digital Avenue Parameter“ (`wordpress/plugins/da-parameter/`).
