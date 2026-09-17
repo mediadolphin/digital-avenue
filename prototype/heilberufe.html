@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website und Online-Terminbuchung für Heilberufe | Digital Avenue</title>
+<meta name="description" content="Praxiswebsite, Online-Terminbuchung und Sichtbarkeit für Physiotherapie, Ergotherapie, Logopädie, Heilpraktik und weitere Heilberufe in Hamburg und Rostock. Mit persönlicher Betreuung.">
+<link rel="icon" type="image/svg+xml" href="../design-system/assets/favicon.svg">
+<script>
+/* Bricks-Logik: gespeicherte Wahl (localStorage "brx_mode") vor dem ersten Rendern anwenden,
+   sonst Systemeinstellung. ?dark / ?light dienen nur der Vorschau. */
+(function () {
+  try {
+    var m = null, q = location.search;
+    if (/[?&]dark\b/.test(q)) m = 'dark'; else if (/[?&]light\b/.test(q)) m = 'light';
+    if (!m) m = localStorage.getItem('brx_mode');
+    if (!m && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) m = 'dark';
+    document.documentElement.setAttribute('data-brx-theme', m === 'dark' ? 'dark' : 'light');
+  } catch (e) { document.documentElement.setAttribute('data-brx-theme', 'light'); }
+})();
+</script>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="heilberufe">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 16 16" fill="none"><path d="M3.5 2h2.2l1.1 3-1.5 1a8 8 0 0 0 4.7 4.7l1-1.5 3 1.1v2.2A1.5 1.5 0 0 1 12.5 14 11 11 0 0 1 2 3.5 1.5 1.5 0 0 1 3.5 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 16 16" fill="none"><rect x="2" y="3.5" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 4.5 8 8.5l5.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 16 16" fill="none"><path d="M8 14s-5-3.8-5-7.5A5 5 0 0 1 13 6.5C13 10.2 8 14 8 14z" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="6.5" r="1.6" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3.5l2 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 16 16" fill="none"><path d="M8 1.8 13 3.6v4.1c0 3-2.1 5.4-5 6.5-2.9-1.1-5-3.5-5-6.5V3.6L8 1.8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 16 16" fill="none"><path d="M3.5 6l4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5v1.8M8 12.7v1.8M1.5 8h1.8M12.7 8h1.8M3.4 3.4l1.3 1.3M11.3 11.3l1.3 1.3M3.4 12.6l1.3-1.3M11.3 4.7l1.3-1.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 16 16" fill="none"><path d="M13.5 9.6A5.5 5.5 0 0 1 6.4 2.5a5.5 5.5 0 1 0 7.1 7.1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+</svg>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Digital Avenue – Startseite"><img class="logo-light" src="../design-system/assets/logo-digital-avenue.svg" alt="Digital Avenue"><img class="logo-dark" src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue"></a>
+    <nav class="nav-menu" aria-label="Hauptnavigation">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="praxen.html" data-page="praxen">Für Praxen</a>
+      <a href="kanzleien.html" data-page="kanzleien">Für Kanzleien</a>
+      <a href="mittelstand.html" data-page="mittelstand">Für den Mittelstand</a>
+      <a href="index.html#ueber-uns">Über uns</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus einschalten" aria-pressed="false" data-toggle-mode>
+        <span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span>
+        <span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span>
+      </button>
+      <a href="#digital-check" class="da-btn-primary da-btn-sm" data-open-check>Digital-Check anfragen</a>
+      <button class="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg class="icon icon-20"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="nav-drawer" id="drawer">
+    <nav aria-label="Mobile Navigation">
+      <a href="index.html" data-page="start">Start</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="praxen.html" data-page="praxen">Für Praxen</a>
+      <a href="kanzleien.html" data-page="kanzleien">Für Kanzleien</a>
+      <a href="mittelstand.html" data-page="mittelstand">Für den Mittelstand</a>
+      <a href="index.html#ueber-uns">Über uns</a>
+      <a href="#digital-check" class="da-btn-primary" data-open-check>Digital-Check anfragen</a>
+    </nav>
+    <div class="nav-drawer-contact">
+      <span>+49 (40) 41343870</span>
+      <span>post@digital-avenue.de</span>
+    </div>
+  </div>
+<main id="main">
+
+  <section class="lp-hero">
+    <div class="wrap">
+      <div>
+        <span class="da-eyebrow">Für Physiotherapie, Ergotherapie, Logopädie, Heilpraktik und weitere Heilberufe</span>
+        <h1>Neue Klientinnen und Klienten finden Sie online. <strong>Und buchen ihren ersten Termin gleich mit.</strong></h1>
+        <p class="lead">Website, Online-Terminbuchung und lokale Sichtbarkeit für Ihre Praxis, mit persönlicher Betreuung aus Hamburg und Rostock.</p>
+        <div class="lp-hero-ctas">
+          <button type="button" class="da-btn-primary" data-open-check data-audience="praxis">Digital-Check anfragen</button>
+          <a href="#leistungen" class="da-btn-ghost">Leistungen ansehen</a>
+        </div>
+        <ul class="hero-trust" style="justify-content:flex-start;margin-top:var(--da-sp-6)">
+          <li><svg class="icon"><use href="#i-check"/></svg>Website, Terminbuchung, Google Business Profil und Telefonie aus einer Hand</li>
+        </ul>
+      </div>
+      <figure class="reveal">
+        <img style="object-position:50% 30%" src="img/m40-heilberufe-empfang-tablet.jpg" alt="Eine Praxisinhaberin steht mit einem Tablet am hellen Empfang ihrer Therapiepraxis.">
+        <div class="service-card">
+          <div class="sc-head"><span class="sc-label">Neuer Termin</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>bestätigt</span></div>
+          <div class="sc-title">Dienstag, 14:30 Uhr. Bestätigung ist raus.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="kennen-sie-das">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Kennen Sie das?</span>
+        <h2>Drei Sätze, die wir aus Praxen der Heilberufe hören.</h2>
+      </div>
+      <div class="pains">
+        <div class="pain reveal"><blockquote>„Unsere Praxis ist gut. Aber wer uns nicht kennt, findet uns bei Google auf Seite zwei.“</blockquote></div>
+        <div class="pain reveal"><blockquote>„Termine kommen per Telefon, Mailbox, E-Mail und WhatsApp. Zwischen zwei Behandlungen bleibt keine Zeit zum Zurückrufen.“</blockquote></div>
+        <div class="pain reveal"><blockquote>„Unsere Website sagt nicht, was wir anbieten, was es kostet und wie der erste Termin abläuft. Also fragen alle dasselbe am Telefon.“</blockquote></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="leistungen" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Unsere Leistungen für Heilberufe</span>
+        <h2>Gefunden werden, Termin buchen, informiert ankommen.</h2>
+        <p>Drei Aufgaben, die über neue Klientinnen und Klienten entscheiden. Wir übernehmen sie zusammen, damit sie ineinandergreifen.</p>
+      </div>
+      <div class="feature-stack">
+      <div class="feature reveal">
+        <div>
+          <span class="da-eyebrow">Sichtbarkeit</span>
+          <h3>Gefunden werden, wenn jemand in Ihrer Nähe sucht.</h3>
+          <p class="lead">Wer eine Physiotherapie, eine Logopädin oder einen Heilpraktiker sucht, sucht meist lokal und mit einem konkreten Anliegen. Wir bauen Ihre Leistungsseiten so, dass sie diese Suchanfragen beantworten, pflegen Ihr Google Business Profil und richten auf Wunsch Anzeigen ein, wenn eine Leistung schneller bekannt werden soll.</p>
+          <ul class="checks"><li><svg class="icon"><use href="#i-check"/></svg><span>Eine Seite je Leistung mit den Begriffen, nach denen gesucht wird</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Google Business Profil: Öffnungszeiten, Leistungen, Fotos, Beiträge</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Lokale Suchmaschinenoptimierung für Hamburg, Rostock oder Ihren Standort</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Anzeigen bei Google nur mit klarem Ziel und eigenem Budget</span></li></ul>
+          <a href="#kontakt" class="textlink" style="margin-top:var(--da-sp-6)">So arbeiten wir bei der Sichtbarkeit <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <figure><img src="img/m41-suche-smartphone-cafe.jpg" alt="Eine Frau sitzt im Straßencafé und schaut auf die Kartenansicht in ihrem Smartphone."></figure>
+      </div>
+      <div class="feature flip reveal">
+        <div>
+          <span class="da-eyebrow">Online-Terminbuchung</span>
+          <h3>Der erste Termin ist drei Klicks entfernt.</h3>
+          <p class="lead">Neue Klientinnen und Klienten möchten buchen, wenn sie gerade suchen, oft abends oder am Wochenende. Mit unserer Online-Terminbuchung wählen sie Leistung, Termin und Behandlerin oder Behandler direkt auf Ihrer Website. Sie sehen die Buchung in Ihrem Kalender, die Bestätigung geht automatisch raus.</p>
+          <ul class="checks"><li><svg class="icon"><use href="#i-check"/></svg><span>Freie Termine direkt auf Ihrer Website, rund um die Uhr</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Buchung nach Leistung, Dauer und Behandlerin oder Behandler</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Bestätigung und Erinnerung per E-Mail, Absagen laufen über das System</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Serientermine und Warteliste für ausgebuchte Zeiten</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Termin in der Praxis oder, wenn Sie es anbieten, als Hausbesuch</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Betrieb, Pflege und Anpassungen übernehmen wir</span></li></ul>
+          <a href="#kontakt" class="textlink" style="margin-top:var(--da-sp-6)">Mehr zur Online-Terminbuchung <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <figure><img src="img/m42-buchung-haende-smartphone.jpg" alt="Nahaufnahme von Händen am Smartphone vor dem Empfang einer Therapiepraxis."></figure>
+      </div>
+      <div class="feature reveal">
+        <div>
+          <span class="da-eyebrow">Praxiswebsite</span>
+          <h3>Ihre Praxis erklärt sich selbst.</h3>
+          <p class="lead">Eine gute Praxiswebsite beantwortet die Fragen, die sonst am Telefon landen: Welche Leistungen gibt es, für wen, was kostet es, was zahlt die Kasse, wie läuft der erste Termin ab, wer behandelt, wie komme ich hin. Wir bauen oder übernehmen Ihre WordPress-Website, schreiben mit Ihnen verständliche Texte und halten sie aktuell.</p>
+          <ul class="checks"><li><svg class="icon"><use href="#i-check"/></svg><span>Leistungen, Ablauf und Kosten verständlich dargestellt</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Team, Räume und Anfahrt so, dass sich Klientinnen und Klienten wiederfinden</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Verordnung, Privatleistung, Selbstzahler: Wege klar getrennt</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Änderungen melden Sie uns, wir setzen sie um</span></li></ul>
+          <a href="#kontakt" class="textlink" style="margin-top:var(--da-sp-6)">Website bauen oder übernehmen <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <figure><img src="img/m43-wartebereich-klientin.jpg" alt="Eine Klientin sitzt entspannt mit Unterlagen im hellen Wartebereich einer Praxis."></figure>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="terminbuchung">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <span class="da-eyebrow">Terminbuchung</span>
+          <h2 class="split-title">Termine annehmen, ohne ans Telefon zu gehen.</h2>
+          <p class="split-copy">Unsere Online-Terminbuchung ist ein Baustein Ihrer Website, kein fremdes Portal. Klientinnen und Klienten bleiben auf Ihrer Seite, sehen Ihre freien Termine und buchen in Ihrem Design. Sie entscheiden, welche Leistungen online buchbar sind, wie lang ein Termin dauert und wie viel Vorlauf Sie brauchen.</p>
+          <p class="split-copy">Nach der Buchung erhalten beide Seiten eine Bestätigung mit Kalendereintrag, vor dem Termin eine Erinnerung. Sagt jemand ab, wird der Termin im Kalender aktualisiert und der freie Platz kann an die Warteliste gehen. Wiederkehrende Behandlungen buchen Ihre Klientinnen und Klienten als Serie. Bieten Sie Hausbesuche an, lässt sich der Ort mit auswählen. Die Pflichtangaben für Online-Buchungen sind eingebaut, bezahlt wird wie gewohnt in der Praxis.</p>
+          <p class="split-copy">Zum Datenschutz: Gebucht wird mit Kontaktdaten und Termin. Da die gewählte Behandlung und ein Kommentar Rückschlüsse auf die Gesundheit zulassen können, holt das Buchungsformular dafür die ausdrückliche Einwilligung ein. Alles Weitere bespricht die Praxis im Termin.</p>
+          <button type="button" class="da-btn-ghost" style="margin-top:var(--da-sp-6)" data-open-check data-audience="praxis">Terminbuchung im Digital-Check ansehen</button>
+        </div>
+        <div class="reveal">
+          <div class="service-card sand booking-card">
+            <div class="sc-head"><span class="sc-label">Neue Buchung über Ihre Website</span><span class="sc-status"><svg class="icon"><use href="#i-check"/></svg>bestätigt</span></div>
+            <div class="sc-title">Erstbefund Physiotherapie, 40 Minuten</div>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Dienstag, 14:30 Uhr, bei Frau M.</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Bestätigung an beide Seiten, Termin im Kalender</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Erinnerung am Tag vorher, Absage über das System</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="betreuung" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="concierge reveal">
+        <div class="concierge-text">
+          <span class="da-eyebrow">Persönlich betreut</span>
+          <h2>Ein Anruf genügt. Den Rest übernehmen wir.</h2>
+          <p>Ändern sich Ihre Öffnungszeiten, kommt eine neue Leistung dazu oder fehlt eine Kollegin für zwei Wochen: Sie melden es uns per Telefon oder E-Mail. Wir aktualisieren Website, Google Business Profil, Terminbuchung und, wenn vereinbart, Ihre Telefonansage und nehmen die Änderung zum abgesprochenen Zeitpunkt wieder zurück.</p>
+          <p>Wir melden uns innerhalb einer Stunde, montags bis freitags von 08:00 bis 18:00 Uhr, ausgenommen gesetzliche Feiertage.</p>
+          <ul class="timeline">
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Sie melden die Änderung</strong> per Telefon oder E-Mail, in Ihren Worten.</span></li>
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Wir melden uns innerhalb einer Stunde</strong> während der Servicezeiten und stimmen die Umsetzung ab.</span></li>
+            <li><span class="dot"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>Wir setzen um</strong> und nehmen vereinbarte Folgeschritte ohne neue Erinnerung vor.</span></li>
+          </ul>
+        </div>
+        <div class="concierge-visual">
+          <img src="img/m24-praxis-inhaberin-nachricht.jpg" alt="Eine Praxisinhaberin tippt am Fenster ihrer Praxis eine kurze Nachricht ins Handy.">
+          <div class="service-card">
+            <div class="sc-head"><span class="sc-label">Nachricht an Digital Avenue</span></div>
+            <div class="sc-title">„Ab Oktober bieten wir auch Lymphdrainage an. Bitte auf Website und Google ergänzen.“</div>
+            <ul><li><svg class="icon"><use href="#i-check"/></svg>Das ist alles, was Sie schreiben müssen.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="recruiting">
+    <div class="wrap">
+      <div class="feature flip reveal">
+        <div>
+          <span class="da-eyebrow">Recruiting</span>
+          <h3>Neue Kolleginnen und Kollegen finden Sie dort, wo sie suchen.</h3>
+          <p class="lead">Fachkräfte für Therapie und Heilpraktik suchen mobil und über die Google-Jobsuche. Wir bauen Ihre Karriereseite mit Stellenanzeigen, die dort erscheinen, und einem Bewerbungsweg, der vom Handy in zwei Minuten funktioniert. Ihre Praxis zeigt sich als Arbeitsplatz, nicht nur als Adresse.</p>
+          <ul class="checks"><li><svg class="icon"><use href="#i-check"/></svg><span>Karriereseite mit Team, Arbeitsweise und Konditionen</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Stellenanzeigen als Google Jobs</span></li><li><svg class="icon"><use href="#i-check"/></svg><span>Bewerbung ohne Lebenslauf-Upload-Hürde</span></li></ul>
+          <a href="#kontakt" class="textlink" style="margin-top:var(--da-sp-6)">Recruiting für Praxen <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <figure><img src="img/m44-praxisteam-pausenraum.jpg" alt="Drei junge Therapeutinnen und Therapeuten unterhalten sich im Pausenraum ihrer Praxis."></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" id="referenzen" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="da-eyebrow">Aus unserer Arbeit</span>
+        <h2>Praxen, die wir betreuen.</h2>
+        <p>Terminwege, Patienteninformation und Recruiting sind in Heilberufen dieselben Aufgaben wie in Arztpraxen. <span class="placeholder-tag">[Referenz Heilberufe folgt]</span></p>
+      </div>
+      <div class="refs">
+        <article class="ref reveal">
+          <div class="ref-logo"><img src="../design-system/assets/logo-pneumologie-eppendorf.svg" alt="Pneumologie Eppendorf"></div>
+          <span class="ref-kind">Hausärztlich-internistische Praxis · Hamburg</span>
+          <h3>Pneumologie Eppendorf</h3>
+          <p>Website und abgestimmter Praxisauftritt. Termin- und Rezeptwege, aktuelle Informationen und eine offene Stelle auf der Website, mit persönlicher laufender Betreuung.</p>
+        </article>
+        <article class="ref reveal">
+          <div class="ref-logo"><img src="../design-system/assets/logo-lungenpraxis-tibarg.svg" alt="Lungenpraxis am Tibarg"></div>
+          <span class="ref-kind">Facharztpraxis · Hamburg</span>
+          <h3>Lungenpraxis am Tibarg</h3>
+          <p>Praxis-Website und digitale Erreichbarkeit für eine Facharztpraxis. [Leistungsumfang ergänzen]</p>
+        </article>
+        <article class="ref reveal">
+          <div class="ref-logo"><img src="../design-system/assets/logo-dialyse-guestrow.svg" alt="Dialyse Güstrow"></div>
+          <span class="ref-kind">Dialysepraxis · Güstrow · Recruiting</span>
+          <h3>Dialyse Güstrow</h3>
+          <p>SEO-optimierte Karriereseite mit Online-Bewerbung. Zwei MFA in vier Wochen besetzt, trotz Fachkräftemangel. [Leistungsumfang ergänzen]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-check-info">
+    <div class="wrap">
+      <div class="check reveal">
+        <div>
+          <span class="da-eyebrow">Kostenloser Einstieg</span>
+          <h2>Der Digital-Check für Ihre Praxis.</h2>
+          <p>Wir sehen uns an, wie Ihre Praxis heute gefunden wird und wie leicht der Weg zum ersten Termin ist. Sie bekommen eine kurze, verständliche Einschätzung, keine Verkaufspräsentation.</p>
+          <ul class="check-list">
+            <li><svg class="icon"><use href="#i-check"/></svg>Auffindbarkeit bei Google und im Google Business Profil</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Website: Leistungen, Kosten, Ablauf, Kontaktwege</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Terminweg: Telefon, Formular, Online-Buchung</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Telefonie: Erreichbarkeit und Ansagen</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Karriereseite und Stellenanzeigen</li>
+          </ul>
+          <div class="check-ctas">
+            <button type="button" class="da-btn-light" data-open-check data-audience="praxis">Digital-Check anfragen</button>
+            <span class="check-note">Kostenlos und unverbindlich.</span>
+          </div>
+        </div>
+        <aside class="check-aside">
+          <h3>So läuft es ab</h3>
+          <ol>
+            <li><div><strong>Sie fragen an.</strong> Name, Kontakt, fertig. Wir melden uns innerhalb einer Stunde während der Servicezeiten.</div></li>
+            <li><div><strong>Wir schauen vorab hin.</strong> Google-Profil, Website und Terminweg prüfen wir schon vor dem Gespräch.</div></li>
+            <li><div><strong>20 Minuten Gespräch.</strong> Sie bekommen drei konkrete Punkte, die sich sofort lohnen.</div></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" style="background:var(--da-bg-alt);border-block:1px solid var(--da-border)">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="da-eyebrow">Häufige Fragen</span>
+        <h2>Was Praxen der Heilberufe uns fragen.</h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>Passt die Online-Terminbuchung zu meiner Praxis?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Sie passt zu jeder Praxis, die feste Terminlängen und planbare Kapazitäten hat. Welche Leistungen online buchbar sind und wie viel Vorlauf Sie brauchen, legen Sie fest. Wir richten das gemeinsam ein.</p></details>
+        <details><summary>Welche Daten gibt jemand bei der Online-Buchung an?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Name, Kontaktdaten und den gewünschten Termin. Die Auswahl der Behandlung und ein optionales Kommentarfeld können Rückschlüsse auf die Gesundheit zulassen; dafür holt das Formular eine ausdrückliche Einwilligung ein. Bezahlt wird in der Praxis, Zahlungsdaten werden nicht erhoben.</p></details>
+        <details><summary>Erinnert das System an Termine?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Ja. Klientinnen und Klienten erhalten eine Bestätigung und vor dem Termin eine Erinnerung. Wird ein Termin abgesagt, kann der Platz an die Warteliste gehen. Serientermine lassen sich in einem Schritt buchen.</p></details>
+        <details><summary>Was ist mit Verordnungen und Kassenleistungen?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Die Website trennt Kassenleistung, Privatleistung und Selbstzahlerangebot verständlich. Welche Angaben zur Verordnung Sie bei der Buchung oder erst im Termin abfragen, entscheiden Sie. Fachliche und abrechnungsrelevante Aussagen kommen von Ihrer Praxis.</p></details>
+        <details><summary>Muss meine Website neu gebaut werden?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Nicht unbedingt. Wir prüfen Ihre WordPress-Website und bieten bei Eignung die Übernahme an. Notwendige Vorarbeiten beschreiben wir vorab.</p></details>
+        <details><summary>Brauche ich Anzeigen, um gefunden zu werden?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Meist reichen gute Leistungsseiten und ein gepflegtes Google Business Profil für die lokale Suche. Anzeigen empfehlen wir, wenn eine Leistung schnell bekannt werden soll oder der Wettbewerb am Standort groß ist. Das Werbebudget bleibt getrennt und bei Ihnen.</p></details>
+        <details><summary>Was kostet die Betreuung?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Sie erhalten einen festen monatlichen Preis für den vereinbarten Umfang. Einrichtung, größere Zusatzarbeiten und Fremdkosten werden getrennt ausgewiesen. Wir klären zuerst, welche Aufgaben tatsächlich zu Ihrer Praxis passen.</p></details>
+        <details><summary>Ist innerhalb einer Stunde alles erledigt?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Die Zusage betrifft unsere persönliche Rückmeldung während der Servicezeiten. Die Umsetzung hängt von Dringlichkeit, Umfang und gegebenenfalls weiteren Anbietern ab.</p></details>
+        <details><summary>Wer schreibt die Texte?<svg class="icon"><use href="#i-chev"/></svg></summary><p>Wir. Sie liefern die fachlichen Angaben und geben frei. Wir sorgen dafür, dass Klientinnen und Klienten verstehen, was Sie anbieten und wie sie zu Ihnen kommen.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kontakt">
+    <div class="wrap">
+      <div class="lp-kontakt reveal">
+        <div class="lp-kontakt-text">
+          <span class="da-eyebrow">Kontakt</span>
+          <h2>Lassen Sie uns über Ihre Praxis sprechen.</h2>
+          <p>In einem kurzen Gespräch sehen wir uns an, wie Ihre Praxis gefunden wird und wie der Weg zum ersten Termin heute aussieht. Danach wissen Sie, was sich lohnt und was nicht.</p>
+          <p class="lp-kontakt-direkt">Oder direkt: <a href="tel:+494041343870">+49 (40) 41343870</a> · <a href="mailto:post@digital-avenue.de">post@digital-avenue.de</a></p>
+        </div>
+        <div class="lp-form-card">
+          <h3>Was möchten Sie verbessern?</h3>
+          <form class="form lp-form" novalidate>
+            <div class="field half"><label for="heilberufe-praxis">Praxis</label><input id="heilberufe-praxis" name="praxis" type="text" autocomplete="organization" required><span class="error">Bitte nennen Sie Ihre Praxis.</span></div>
+            <div class="field half"><label for="heilberufe-name">Ihr Name</label><input id="heilberufe-name" name="name" type="text" autocomplete="name" required><span class="error">Bitte nennen Sie uns Ihren Namen.</span></div>
+            <div class="field full"><label for="heilberufe-kontakt">E-Mail oder Rückrufnummer</label><input id="heilberufe-kontakt" name="contact" type="text" inputmode="email" required><span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span></div>
+            <div class="field full"><label for="heilberufe-thema">Thema</label><select id="heilberufe-thema" name="thema"><option value="">Bitte wählen</option><option>Sichtbarkeit und Google</option><option>Online-Terminbuchung</option><option>Praxiswebsite</option><option>Telefonie</option><option>Recruiting</option><option>Sonstiges</option></select></div>
+            <div class="field full"><label for="heilberufe-msg">Kurze Nachricht (optional)</label><textarea id="heilberufe-msg" name="message" placeholder="Was möchten Sie verbessern?"></textarea></div>
+            <p class="lp-form-note">Bitte übermitteln Sie hier keine Klienten- oder Gesundheitsdaten. Wie wir Ihre Angaben verarbeiten, steht in unserer <a href="#">Datenschutzinformation</a>.</p>
+            <input type="hidden" name="page" value="Heilberufe">
+            <div class="form-foot"><button type="submit" class="da-btn-primary">Gespräch anfragen</button></div>
+          </form>
+          <div class="form-success" role="status" aria-live="polite"><h3>Vielen Dank. Ihre Anfrage ist angekommen.</h3><p>Wir melden uns während unserer Servicezeiten persönlich bei Ihnen.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main><footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../design-system/assets/logo-digital-avenue-white.svg" alt="Digital Avenue">
+        <p>Ihre externe Digitalabteilung aus Hamburg und Rostock. Website, Telefonie, Termine und E-Mail aus einer Hand, persönlich betreut.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="index.html#leistungen">Sichtbarkeit &amp; Marke</a></li>
+          <li><a href="index.html#leistungen">Infrastruktur &amp; Prozesse</a></li>
+          <li><a href="index.html#leistungen">Digital-Concierge</a></li>
+          <li><a href="#digital-check" data-open-check>Digital-Check</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Für wen</h4>
+        <ul>
+          <li><a href="praxen.html">Arztpraxen</a></li>
+          <li><a href="heilberufe.html">Heilberufe</a></li>
+          <li><a href="kanzleien.html">Kanzleien</a></li>
+          <li><a href="mittelstand.html">Mittelstand</a></li>
+          <li><a href="mittelstand.html">Gastgewerbe</a></li>
+          <li><a href="index.html#ueber-uns">Über uns</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul class="footer-contact">
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+494041343870">+49 (40) 41343870</a></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:post@digital-avenue.de">post@digital-avenue.de</a></li>
+          <li><svg class="icon"><use href="#i-pin"/></svg><span>Digital Avenue UG (haftungsbeschränkt)<br>[ADRESSE], Hamburg · Rostock</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Digital Avenue UG (haftungsbeschränkt)</span>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="proto-note" aria-hidden="true">Prototyp · Entwurf</div>
+<dialog class="check-dialog" id="check-dialog" aria-labelledby="check-title">
+  <div class="dialog-inner">
+    <div class="dialog-head">
+      <div>
+        <span class="da-eyebrow">Digital-Check</span>
+        <h2 id="check-title">Sagen Sie uns kurz, wer Sie sind. Den Rest übernehmen wir.</h2>
+        <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Der Check dauert 20 Minuten, am Telefon oder per Video.</p>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Schließen" data-close-check><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <form class="form" novalidate>
+      <div class="field full">
+        <label>Ich führe</label>
+        <div class="segmented">
+          <input type="radio" name="audience" id="aud-praxis" value="praxis" checked><label for="aud-praxis">eine Praxis</label>
+          <input type="radio" name="audience" id="aud-kanzlei" value="kanzlei"><label for="aud-kanzlei">eine Kanzlei</label>
+          <input type="radio" name="audience" id="aud-unternehmen" value="unternehmen"><label for="aud-unternehmen">ein Unternehmen</label>
+        </div>
+      </div>
+      <div class="field half">
+        <label for="f-name">Ihr Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <span class="error">Bitte nennen Sie uns Ihren Namen.</span>
+      </div>
+      <div class="field half">
+        <label for="f-contact">E-Mail oder Telefon</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email" inputmode="email" required>
+        <span class="error">Bitte eine E-Mail-Adresse oder Telefonnummer angeben.</span>
+      </div>
+      <div class="field full">
+        <label for="f-site">Ihre Website (optional)</label>
+        <input id="f-site" name="website" type="url" inputmode="url" placeholder="www.">
+      </div>
+      <div class="field full">
+        <label for="f-msg">Was beschäftigt Sie gerade? (optional)</label>
+        <textarea id="f-msg" name="message" placeholder="Zum Beispiel: Die Telefonanlage ist alt, die Website auch, und niemand kümmert sich."></textarea>
+      </div>
+      <div class="form-foot">
+        <small>Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Kontaktaufnahme speichern. [Datenschutzhinweis ergänzen]</small>
+        <button type="submit" class="da-btn-primary">Digital-Check anfragen</button>
+      </div>
+    </form>
+    <div class="form-success" aria-live="polite">
+      <div class="ok"><svg class="icon icon-20"><use href="#i-check"/></svg></div>
+      <h3>Danke, Ihre Anfrage ist angekommen.</h3>
+      <p>Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag. Bis dahin müssen Sie nichts weiter tun.</p>
+      <p style="margin-top:24px"><button type="button" class="da-btn-primary" data-close-check>Schließen</button></p>
+    </div>
+  </div>
+</dialog>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -497,3 +497,11 @@ dialog.check-dialog.sent .form-success { display: block; }
 .field-check input { margin-top: 3px; accent-color: var(--da-teal); }
 .lp-form .form-foot { justify-content: flex-start; }
 @media (max-width: 880px) { .lp-kontakt { grid-template-columns: 1fr; gap: var(--da-sp-8); } }
+
+/* ── Branchenseite Heilberufe ──────────────────────────────── */
+.feature-stack { display: flex; flex-direction: column; gap: var(--da-sp-16); }
+.feature h3 { margin-top: var(--da-sp-4); font-size: clamp(24px, 2.6vw, 34px); letter-spacing: -0.025em; line-height: 1.15; }
+.split-title { margin-top: var(--da-sp-4); font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -0.03em; line-height: 1.1; }
+.split-copy { margin-top: var(--da-sp-4); font-size: var(--da-text-md); color: var(--da-muted); line-height: 1.6; }
+.booking-card { position: sticky; top: calc(var(--nav-h) + 24px); }
+.pain:has(blockquote:last-child) blockquote { margin: 0; }
