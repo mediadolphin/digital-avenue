@@ -101,6 +101,15 @@ Abstand selbst, deshalb ist die Wurzel eine Section, nicht ein Div in
 einer Section. Alle anderen Abschnitte liegen als Div in Section und
 Container.
 
+**Media-Query mit gleichem Selektor wie die Basisregel verliert.**
+(17.09.2026) Bricks gibt `@media`-Blöcke vor den Basisregeln aus. Steht in
+beiden dieselbe Selektorstärke (`.lp-kontakt.brxe-div`), gewinnt die
+Basisregel auch auf dem Handy. Deshalb im Media-Block die Klasse doppeln:
+`.lp-kontakt.lp-kontakt.brxe-div`. `render-elements` (summary) meldet den
+Fall als `responsive_override_precedes_base_rule`; nach jedem Klassen-
+Anlegen einmal prüfen. Korrigiert für `lp-kontakt`, `lp-form`, `audience`,
+`tabs`.
+
 **Nestable-Kinder tragen ihre Rolle in `_hidden._cssClasses`.**
 (11.09.2026) Accordion: `accordion-title-wrapper` und
 `accordion-content-wrapper`; Dropdown: `brx-dropdown-content`; Tabs:
@@ -119,7 +128,7 @@ lassen (Beispiel: `tabs` auf dem Zielgruppen-Umschalter).
 (z. B. Zielgruppen-Panel) steckt darin. So kollidiert das `display` der
 Component nicht mit dem Ein- und Ausblenden von Bricks.
 
-**Media-Queries in Klassen brauchen die Element-Klasse im Selektor.**
+**Media-Queries in Klassen brauchen die Element-Klasse im Selektor, und eine Stufe mehr Spezifität.**
 (11.09.2026) Bricks erzeugt aus den Controls eine Regel wie
 `.tiles.brxe-div { grid-template-columns: … }` und gibt Media-Queries
 davor aus. `@media { .tiles { … } }` verliert dann doppelt (Spezifität
