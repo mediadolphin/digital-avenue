@@ -496,6 +496,10 @@ der Cloud ist das CDN gesperrt). Prototyp: `prototype/src/pages/lp-*.html`,
 Routen `#lp-facharztpraxis`, `#lp-empfang-entlasten`,
 `#lp-betreuung-wechseln`, verlinkt im Footer unter „Für wen“.
 
+`update-element` kennt keine Component-Properties (nur `settings`). Eine
+Instanz ändert man über `set-page-elements` mit dem ganzen Seitenbaum;
+die IDs bleiben dabei erhalten (so am 17.09.2026 die Bilder getauscht).
+
 `render-elements` zeigt für Template-Elemente zwar das HTML der Templates,
 aber nicht deren Klassen-CSS; das erzeugt Bricks erst im Frontend.
 
