@@ -198,6 +198,42 @@
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260910_112359_4c40efc2-328f-496c-a00c-1b5fd2b8482e.png",
    "width": 1200,
    "quality": 80
+  },
+  {
+   "name": "m34-facharztin-sprechzimmer",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260917_102700_73ca0212-7c1b-46b3-964c-7c60b6946a4d.png",
+   "width": 1200,
+   "quality": 80
+  },
+  {
+   "name": "m35-facharzt-flur-lesend",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260917_102700_c60ec058-0d6f-4ff0-9d36-f5364dc772d9.png",
+   "width": 1600,
+   "quality": 80
+  },
+  {
+   "name": "m36-empfang-notiz",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260917_102700_878374e6-12a2-4649-a3c9-e4f1d88fd0f7.png",
+   "width": 1200,
+   "quality": 80
+  },
+  {
+   "name": "m37-empfang-team-pause",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260917_102700_ecb8c2f6-d2f7-40f2-b7e6-734b98ffd828.png",
+   "width": 1600,
+   "quality": 80
+  },
+  {
+   "name": "m38-praxisinhaber-tuer",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260917_102700_2af57702-878e-476f-8e2d-5cbe082e03b7.png",
+   "width": 1200,
+   "quality": 80
+  },
+  {
+   "name": "m39-praxisinhaberin-laptop",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IS2Dz7oKKIoduW5Uo084zthAiU/hf_20260917_102700_6268d70a-0ecf-4215-ae55-34d225ed8491.png",
+   "width": 1600,
+   "quality": 80
   }
  ]
 }

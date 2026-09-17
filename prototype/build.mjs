@@ -13,6 +13,9 @@ const PAGES = [
   { file: 'praxen.html', route: 'praxen' },
   { file: 'kanzleien.html', route: 'kanzleien' },
   { file: 'mittelstand.html', route: 'mittelstand' },
+  { file: 'lp-facharztpraxis.html', route: 'lp-facharztpraxis' },
+  { file: 'lp-empfang-entlasten.html', route: 'lp-empfang-entlasten' },
+  { file: 'lp-betreuung-wechseln.html', route: 'lp-betreuung-wechseln' },
 ];
 
 function parsePage(src) {
@@ -47,7 +50,7 @@ const svgUri = (p) => svgCache[p] ??= 'data:image/svg+xml;base64,' + b64(p);
 const rewriteLinks = (html) => html
   .replace(/href="index\.html#([\w-]+)"/g, 'href="#start/$1"')
   .replace(/href="index\.html"/g, 'href="#start"')
-  .replace(/href="(praxen|kanzleien|mittelstand)\.html(#[\w-]+)?"/g, (_, r, a) => `href="#${r}${a ? '/' + a.slice(1) : ''}"`)
+  .replace(/href="(praxen|kanzleien|mittelstand|lp-facharztpraxis|lp-empfang-entlasten|lp-betreuung-wechseln)\.html(#[\w-]+)?"/g, (_, r, a) => `href="#${r}${a ? '/' + a.slice(1) : ''}"`)
   .replace(/src="\.\.\/design-system\/assets\/([\w.-]+\.svg)"/g, (_, f) => `src="${svgUri('../design-system/assets/' + f)}"`)
   .replace(/src="img\/([\w.-]+\.jpg)"/g, (_, f) => existsSync(join(root, 'img', f)) ? `src="${dataUri('img/' + f, 'image/jpeg')}"` : `src="" data-missing="${f}"`);
 

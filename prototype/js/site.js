@@ -158,3 +158,23 @@
     });
   }
 })();
+
+// Kampagnen-Landingpages: Kontaktformular (Prototyp, kein Versand)
+document.querySelectorAll('form.lp-form').forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    form.querySelectorAll('.field').forEach(function (f) {
+      var input = f.querySelector('input[required], textarea[required]');
+      if (!input) return;
+      var bad = !input.value.trim();
+      f.classList.toggle('invalid', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) { var first = form.querySelector('.field.invalid input'); if (first) first.focus(); return; }
+    form.classList.add('is-sent');
+  });
+  form.querySelectorAll('input, textarea').forEach(function (i) {
+    i.addEventListener('input', function () { i.closest('.field') && i.closest('.field').classList.remove('invalid'); });
+  });
+});

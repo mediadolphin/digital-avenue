@@ -909,6 +909,24 @@ dialog.check-dialog.sent .form-success { display: block; }
 .proto-note { position: fixed; left: 12px; bottom: 12px; z-index: 70; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--da-sand-text); background: var(--da-sand-subtle); border: 1px solid color-mix(in srgb, var(--da-sand) 60%, transparent); padding: 6px 10px; border-radius: var(--da-r-pill); pointer-events: none; }
 @media (max-width: 560px) { .proto-note { display: none; } }
 
+/* ── Kampagnen-Landingpages (Kontaktbereich) ───────────────── */
+.lp-kontakt { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--da-sp-12); align-items: start; }
+.lp-kontakt-text h2 { margin-top: var(--da-sp-4); font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -0.03em; line-height: 1.1; }
+.lp-kontakt-text p { margin-top: var(--da-sp-5); font-size: var(--da-text-md); color: var(--da-muted); }
+.lp-kontakt-text .lp-kontakt-direkt { margin-top: var(--da-sp-6); font-size: var(--da-text-base); color: var(--da-text); }
+.lp-kontakt-text .lp-kontakt-direkt a { color: var(--da-teal); font-weight: 700; }
+.lp-form-card { background: var(--da-card-bg); border: 1px solid var(--da-border); border-radius: var(--da-r-xl); padding: clamp(24px, 3vw, 40px); box-shadow: var(--da-shadow-lg); }
+.lp-form-card h3 { font-size: var(--da-text-md); letter-spacing: -0.015em; }
+.lp-form-card .form { margin-top: var(--da-sp-5); }
+.lp-form-card .form.is-sent { display: none; }
+.lp-form-card .form.is-sent + .form-success { display: block; }
+.lp-form-note { grid-column: 1 / -1; margin: 0; font-size: var(--da-text-xs); color: var(--da-muted); line-height: 1.45; }
+.lp-form-note a { color: var(--da-teal); text-decoration: underline; }
+.field-check { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-size: var(--da-text-sm); color: var(--da-muted); line-height: 1.45; cursor: pointer; }
+.field-check input { margin-top: 3px; accent-color: var(--da-teal); }
+.lp-form .form-foot { justify-content: flex-start; }
+@media (max-width: 880px) { .lp-kontakt { grid-template-columns: 1fr; gap: var(--da-sp-8); } }
+
 /* Style Guide: eigenes Chrome mit Präfix sg-, Komponenten kommen unverändert aus site.css */
 .sg-top { position: sticky; top: 0; z-index: 80; background: color-mix(in srgb, var(--da-bg) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--da-border); }
 .sg-top-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--da-sp-6); height: 64px; }
@@ -1040,7 +1058,7 @@ dialog.check-dialog.sent .form-success { display: block; }
       <span>Style Guide</span>
     </div>
     <div class="sg-top-actions">
-      <span>Stand 11.09.2026</span>
+      <span>Stand 17.09.2026</span>
       <button class="brxe-toggle-mode" type="button" aria-label="Dunkelmodus einschalten" aria-pressed="false" data-toggle-mode>
         <span class="toggle light"><svg class="icon icon-20"><use href="#i-moon"/></svg></span>
         <span class="toggle dark"><svg class="icon icon-20"><use href="#i-sun"/></svg></span>
@@ -1972,6 +1990,9 @@ dialog.check-dialog.sent .form-success { display: block; }
         <h4>Für wen</h4>
         <ul>
           <li><a href="#praxen">Arztpraxen</a></li>
+          <li><a href="#lp-facharztpraxis">Kampagne: Facharztpraxis entlasten</a></li>
+          <li><a href="#lp-empfang-entlasten">Kampagne: Empfang entlasten</a></li>
+          <li><a href="#lp-betreuung-wechseln">Kampagne: Betreuung wechseln</a></li>
           <li><a href="#kanzleien">Kanzleien</a></li>
           <li><a href="#mittelstand">Mittelstand</a></li>
           <li><a href="#start/ueber-uns">Über uns</a></li>
@@ -2275,4 +2296,24 @@ dialog.check-dialog.sent .form-success { display: block; }
     });
   }
 })();
+
+// Kampagnen-Landingpages: Kontaktformular (Prototyp, kein Versand)
+document.querySelectorAll('form.lp-form').forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = true;
+    form.querySelectorAll('.field').forEach(function (f) {
+      var input = f.querySelector('input[required], textarea[required]');
+      if (!input) return;
+      var bad = !input.value.trim();
+      f.classList.toggle('invalid', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) { var first = form.querySelector('.field.invalid input'); if (first) first.focus(); return; }
+    form.classList.add('is-sent');
+  });
+  form.querySelectorAll('input, textarea').forEach(function (i) {
+    i.addEventListener('input', function () { i.closest('.field') && i.closest('.field').classList.remove('invalid'); });
+  });
+});
 </script>

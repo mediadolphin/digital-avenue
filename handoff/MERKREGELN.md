@@ -191,3 +191,14 @@ Serviceversprechen werden mit `[da key="…"]` oder in Bricks mit
 (17.09.2026) Adresslisten gehören nur ins CRM. Die `.gitignore` blockt die
 CSV-Dateien des Kampagnenpakets.
 
+**Subagents laufen höchstens mit Opus 5.**
+(17.09.2026, Nils) Wer in dieser Session Subagents startet, wählt als Modell
+maximal Opus 5, um Tokens zu sparen. Das gilt für Recherche, Reviews und
+parallele Bauaufgaben gleichermaßen.
+
+**Neue Seiten werden zuerst im Prototyp gebaut, dann in Bricks.**
+(17.09.2026) Auch Kampagnen-Landingpages: Prototyp (`prototype/src/pages/`)
+und Staging halten denselben Stand. Bilder kommen wie immer aus Higgsfield
+(Soul 2.0, Editorial-Look) und werden über `prototype/img/sources.json` und
+die GitHub-Action nachgeladen, weil das Bild-CDN aus der Cloud gesperrt ist.
+
