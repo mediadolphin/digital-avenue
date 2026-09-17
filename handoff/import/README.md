@@ -504,6 +504,47 @@ die IDs bleiben dabei erhalten (so am 17.09.2026 die Bilder getauscht).
 `render-elements` zeigt für Template-Elemente zwar das HTML der Templates,
 aber nicht deren Klassen-CSS; das erzeugt Bricks erst im Frontend.
 
+## Schritt 12: Branchenseite Heilberufe
+
+Stand 17.09.2026. Grundlage `handoff/branchen/heilberufe.md` (Konzept und
+Texte aus dem Chat). Elternseite „Branchen“ (Post 193, Entwurf, leer),
+Seite „Heilberufe“ (Post 196, Entwurf, `/branchen/heilberufe/`). Prototyp:
+`prototype/src/pages/heilberufe.html`, Route `#heilberufe`, Footer-Link
+„Heilberufe“ zeigt darauf.
+
+Aufbau (Post 196): Hero Landingpage `951227` (Buchungs-Karte als Overlay,
+Button 1 `#digital-check-info`, Button 2 `#leistungen`) › „Kennen Sie
+das?“ mit `pains` und drei Pain-Karten `469300` (Zitat plus kurzer Bezug
+zur Lösung) › `#leistungen` (bg-alt): Container mit `_rowGap` sp-16,
+Abschnittskopf und drei Feature-Blöcke `25cc6c` (zweiter mit `bildseite:
+links`) › `#terminbuchung`: `split` mit Abschnittskopf-Text, drei Absätzen,
+Ghost-Button und rechts Service-Karte `580b83` (Variante sand, drei
+Service-Punkte) › `#betreuung` (bg-alt): Concierge `0a205a` › `#recruiting`:
+Feature-Block mit Bild links › `#referenzen` (`section-sm`, bg-alt):
+Abschnittskopf, Platzhalter-Tag, `refs` mit drei Referenzkarten `cbca1c`
+(Pneumologie Eppendorf 164, Lungenpraxis am Tibarg 107, Dialyse Güstrow
+106) › `#digital-check-info`: Digital-Check-Block `e44db4` mit fünf
+Punkten › `#faq` (bg-alt): Accordion mit neun Fragen › `#kontakt`:
+`lp-kontakt` mit Template-Element → „Heilberufe: Kontaktformular“
+(Template 194, Themen Sichtbarkeit und Google, Online-Terminbuchung,
+Praxiswebsite, Telefonie, Recruiting, Sonstiges; Hinweis „keine Klienten-
+oder Gesundheitsdaten“).
+
+Bilder (Higgsfield Soul 2.0, im Prototyp m40–m44): Hero 188, Sichtbarkeit
+189, Terminbuchung 190, Praxiswebsite 191, Recruiting 192. Concierge nutzt
+weiter Bild 75 (m24).
+
+Abweichungen vom Konzept: Die Vertrauenszeile unter dem Hero gibt es nur
+im Prototyp, die Hero-Component hat dafür keine Property. Die
+Feature-Blöcke tragen ihre Titel als H2 (Component), im Prototyp als H3.
+`update-element` und `create-post` kennen für Container kein `_gap`, der
+Abstand zwischen gestapelten Blöcken kommt über `_rowGap`.
+
+Offen (Entscheidungen von Nils, siehe Konzept Abschnitt 4): Name des
+Buchungstools, Funktionsstand vor Livegang, Datenschutzaussage zur
+Buchung, Referenz aus den Heilberufen, Doctolib-Satz in den FAQ. Meta-Titel
+und -Beschreibung brauchen weiterhin ein SEO-Plugin.
+
 ## Danach
 
 Header und Footer als Templates, dann Seiten per

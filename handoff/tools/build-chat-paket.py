@@ -14,6 +14,7 @@ FILES = [
     ("Kampagne: Konzept", "handoff/kampagne/01_Kampagnenkonzept.md"),
     ("Kampagne: Mailingtexte", "handoff/kampagne/02_Mailingtexte.md"),
     ("Kampagne: Landingpage-Texte", "handoff/kampagne/03_Landingpage_Texte.md"),
+    ("Branchenseite Heilberufe: Konzept und Texte", "handoff/branchen/heilberufe.md"),
     ("Technisches Protokoll Bricks", "handoff/import/README.md"),
 ]
 

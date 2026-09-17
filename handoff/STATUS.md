@@ -29,3 +29,5 @@ Nachtrag 11.09.2026 (abends): Startseite um die Section „Für wen“ mit Brick
 Nachtrag 17.09.2026: Kampagnenpaket (`handoff/kampagne/`, ohne Kontaktdaten) übernommen. Landingpages K1/K2/K9 unter `/arztpraxen/` als Entwürfe gebaut (Posts 169, 171, 173), gemeinsame Module als Section-Template 167, Kontaktformular als Template 165. Plugin „Digital Avenue Parameter“ für Telefon, Servicezeiten, Serviceversprechen per Shortcode/Echo-Tag geschrieben (`wordpress/plugins/da-parameter.zip`), Installation durch Nils.
 
 Nachtrag 17.09.2026: Footer-Spalte „Für wen“ (Prototyp) bzw. „Branchen“ (Bricks, Template 54) um Heilberufe und Gastgewerbe ergänzt. Beide verweisen auf `/branchen/heilberufe/` und `/branchen/gastgewerbe/`; im Prototyp vorläufig auf die Praxen- bzw. Mittelstand-Seite. Für beide Zielgruppen gibt es noch keine Seite und keinen Text.
+
+Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handoff/branchen/heilberufe.md`) im Prototyp (`#heilberufe`) und in Bricks (Post 196 unter Elternseite „Branchen“ 193, beide Entwurf) gebaut, fünf neue Higgsfield-Motive m40–m44, eigenes Formular-Template 194. Offene Entscheidungen im Konzept, Abschnitt 4.
