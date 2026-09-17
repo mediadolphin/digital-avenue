@@ -25,3 +25,5 @@ Merkregeln zum Nachschlagen: `handoff/MERKREGELN.md`. Importdaten für den Aufba
 3. Erste Global Classes anlegen (Buttons, Eyebrow, Karten) und gegen den Prototyp prüfen.
 
 Nachtrag 11.09.2026 (abends): Startseite um die Section „Für wen“ mit Bricks-Tabs (Klasse `tabs`), Abschnittskopf (`section-head center`) und Component „Zielgruppen-Panel“ (`28c728`) ergänzt. Glas-Deckkraft auf 0.84/0.86 mit stärkerem Blur eingependelt.
+
+Nachtrag 17.09.2026: Kampagnenpaket (`handoff/kampagne/`, ohne Kontaktdaten) übernommen. Landingpages K1/K2/K9 unter `/arztpraxen/` als Entwürfe gebaut (Posts 169, 171, 173), gemeinsame Module als Section-Template 167, Kontaktformular als Template 165. Plugin „Digital Avenue Parameter“ für Telefon, Servicezeiten, Serviceversprechen per Shortcode/Echo-Tag geschrieben (`wordpress/plugins/da-parameter.zip`), Installation durch Nils.

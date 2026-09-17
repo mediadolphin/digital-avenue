@@ -440,6 +440,57 @@ blenden (`.tab-pane.brx-open`) unberührt; die Einblend-Animation hängt an
 Component-Instanzen mit `slotChildren: {slotId: [Kinder]}` an, eigene
 6-stellige IDs werden übernommen.
 
+## Schritt 11: Kampagnen-Landingpages Arztpraxen (K1, K2, K9)
+
+Stand 17.09.2026. Grundlage: `handoff/kampagne/03_Landingpage_Texte.md`.
+Entscheidungen: Kampagnenseiten liegen unter `/arztpraxen/…/` (Elternseite
+„Arztpraxen“, Post 163, Entwurf); alle Referenzen dürfen genutzt werden;
+die Google-Bewertung bleibt draußen; Grundparameter kommen aus dem Plugin
+„Digital Avenue Parameter“ (`wordpress/plugins/da-parameter/`).
+
+Seiten (alle Entwurf, Eltern 163): K1 „Facharztpraxis entlasten“ 169
+(`facharztpraxis`), K2 „Empfang entlasten“ 171 (`empfang-entlasten`),
+K9 „Betreuung wechseln“ 173 (`betreuung-wechseln`). Aufbau je Seite:
+
+1. Hero Landingpage (Component `951227` als Section-Root; Button 1
+   `#kontakt`, Button 2 `#leistungen`).
+2. Section `#leistungen` › Container › Feature-Block `25cc6c` mit drei
+   Service-Punkten im Slot `7823d9`.
+3. Section `#referenz` (bg-alt) › Abschnittskopf (`section-head center`)
+   › Div max 560px › Referenzkarte `cbca1c` Pneumologie Eppendorf
+   (Platzhalter-Logo Attachment 164, `design-system/assets/`).
+4. Template-Element → „LP Arztpraxen: Gemeinsame Module“ (Template 167,
+   `noRoot`): Concierge (`0a205a`, Serviceversprechen als Copy und drei
+   Timeline-Punkte), Schritte (`steps` + 3× Schritt `719767`), Partner
+   (IONOS, Doctolib, Placetel als `tile tile-cream` im `steps`-Raster),
+   FAQ (`faq`-Accordion mit fünf Fragen aus dem Kampagnenpaket).
+5. Section `#kontakt` › Container › Div `lp-kontakt` (Klasse `lpkont`):
+   links Eyebrow, H2, kampagnenspezifische Copy, Direktkontakt; rechts
+   Div `lp-form-card` (`lpfcrd`) mit H3 und Template-Element → „LP
+   Arztpraxen: Kontaktformular“ (Template 165).
+
+Formular (Template 165, Bricks-Form `lpfrm0`, Klasse `lp-form` `lpform`):
+Praxis, Name, E-Mail oder Rückrufnummer, Thema (Select), Nachricht,
+HTML-Hinweis „keine Patientendaten“ mit Datenschutzlink, optionale, nicht
+vorausgewählte Marketing-Checkbox, versteckte Felder `utm_campaign` und
+`utm_source` (`{url_parameter:…}`) und Seitentitel, Honeypot. Aktionen:
+Submission speichern + E-Mail an post@digital-avenue.de. Erfolgstext aus
+dem Kampagnenpaket. Kein Tracking-Skript.
+
+Weitere Varianten (K3–K8): Seite 169 mit `bricks/duplicate-post`
+duplizieren und nur Hero-, Feature-, Referenz- und Kontakt-Texte tauschen;
+die gemeinsamen Module kommen automatisch aus Template 167.
+
+Offen: Meta-Titel und -Beschreibung (Bricks hat keine SEO-Felder, dafür
+ein SEO-Plugin oder Meta Box nutzen), Seite „Arztpraxen“ (163) füllen,
+Branchenseite „Ärzte“ auf `/arztpraxen/` verlinken, Datenschutzseite mit
+Abschnitt zur Rechercheansprache, Serviceversprechen nach Plugin-
+Installation per `{echo:da_param('serviceversprechen')}` einsetzen (heute
+noch als Klartext in Concierge, FAQ und Formular-Erfolgstext).
+
+`render-elements` zeigt für Template-Elemente zwar das HTML der Templates,
+aber nicht deren Klassen-CSS; das erzeugt Bricks erst im Frontend.
+
 ## Danach
 
 Header und Footer als Templates, dann Seiten per

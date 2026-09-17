@@ -1,0 +1,7 @@
+
+# Kampagne: Kontaktdaten (personenbezogen) niemals ins Repository
+handoff/kampagne/**/Kontakte_*.csv
+handoff/kampagne/**/Praxiszuordnung*.csv
+handoff/kampagne/**/Pruefbericht.json
+**/Kontakte_Hamburg.csv
+**/Kontakte_Rostock.csv

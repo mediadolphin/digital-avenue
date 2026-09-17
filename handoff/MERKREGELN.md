@@ -175,3 +175,19 @@ speichern. Erkennungszeichen: eine HTML-Fehlerseite des Hosters statt einer
 JSON-Antwort von WordPress. Die MCP-Adresse in `.mcp.json` ist die dokumentierte Form
 `/wp-json/mcp/mcp-adapter-default-server`; sie setzt funktionierende
 Rewrite-Regeln voraus.
+
+**Wiederkehrende Seitenmodule liegen in Section-Templates, nicht auf jeder Seite.**
+(17.09.2026) Concierge, Schritte, Partner und FAQ der Kampagnenseiten
+stecken in einem Template und werden per Template-Element (`noRoot`)
+eingebunden. Eine Textänderung wirkt auf allen Seiten. Auch ein Formular
+ist so ein Modul: ein Template, viele Seiten.
+
+**Grundparameter kommen aus dem Parameter-Plugin, nicht aus Fließtext.**
+(17.09.2026) Telefon, E-Mail, Servicezeiten, Reaktionszeit und das
+Serviceversprechen werden mit `[da key="…"]` oder in Bricks mit
+`{echo:da_param('…')}` ausgegeben. Wer den Wert ändert, ändert ihn einmal.
+
+**Kontaktdaten aus Kampagnen bleiben außerhalb von Repository und Website.**
+(17.09.2026) Adresslisten gehören nur ins CRM. Die `.gitignore` blockt die
+CSV-Dateien des Kampagnenpakets.
+

@@ -1,0 +1,38 @@
+﻿Objekt,CSV_Spalte,HubSpot_Eigenschaft,Typ,Anlage,Eindeutige_Werte,Hinweis
+Kontakt,da_quell_id,da_quell_id,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,JA – zwingend,"Als eindeutige Kennung im Import wählen; identifiziert einen Quelleintrag, nicht zwingend eine einmalige Person"
+Kontakt,firstname,firstname,Einzeiliger Text,Vorhandene Standard-Eigenschaft,NEIN,
+Kontakt,lastname,lastname,Einzeiliger Text,Vorhandene Standard-Eigenschaft,NEIN,
+Kontakt,address,address,Einzeiliger Text,Vorhandene Standard-Eigenschaft,NEIN,
+Kontakt,zip,zip,Einzeiliger Text,Vorhandene Standard-Eigenschaft,NEIN,PLZ als Text erhalten
+Kontakt,city,city,Einzeiliger Text,Vorhandene Standard-Eigenschaft,NEIN,
+Kontakt,country,country,Einzeiliger Text,Vorhandene Standard-Eigenschaft,NEIN,
+Kontakt,da_name_original,da_name_original,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_titel_quelle,da_titel_quelle,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_anrede_quelle,da_anrede_quelle,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_briefanrede,da_briefanrede,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_region,da_region,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_teilregion,da_teilregion,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_fachrichtung_original,da_fachrichtung_original,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_fachgruppen,da_fachgruppen,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,Text; keine automatische Mehrfachauswahl
+Kontakt,da_kampagne_vorschlag,da_kampagne_vorschlag,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_kampagnen_optionen,da_kampagnen_optionen,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,Text; keine automatische Mehrfachauswahl
+Kontakt,da_prioritaet,da_prioritaet,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_email_quelle,da_email_quelle,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,"Recherchefeld, NICHT auf Email mappen"
+Kontakt,da_email_status,da_email_status,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_telefon_quelle,da_telefon_quelle,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_fax_quelle,da_fax_quelle,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_website_quelle,da_website_quelle,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_website_status,da_website_status,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_adresscluster,da_adresscluster,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_organisation_status,da_organisation_status,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_entscheider_status,da_entscheider_status,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_bestandskunden_status,da_bestandskunden_status,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_versandstatus,da_versandstatus,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_email_werbung,da_email_werbung,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_datenquelle,da_datenquelle,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_quell_url,da_quell_url,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_quell_stand,da_quell_stand,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_import_charge,da_import_charge,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_quelldatei,da_quelldatei,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_quellzeile,da_quellzeile,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
+Kontakt,da_pruefhinweise,da_pruefhinweise,Einzeiliger Text,Benutzerdefiniert vor Import anlegen,NEIN,
