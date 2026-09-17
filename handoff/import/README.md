@@ -488,6 +488,14 @@ Abschnitt zur Rechercheansprache, Serviceversprechen nach Plugin-
 Installation per `{echo:da_param('serviceversprechen')}` einsetzen (heute
 noch als Klartext in Concierge, FAQ und Formular-Erfolgstext).
 
+Bilder (17.09.2026, Higgsfield Soul 2.0, auch im Prototyp als m34–m39):
+K1 Hero 176 (m34), Feature 177 (m35); K2 Hero 178 (m36), Feature 179
+(m37); K9 Hero 180 (m38), Feature 181 (m39). Auf Staging als PNG
+hochgeladen (`upload-media` per URL, der Server holt das Bild selbst; aus
+der Cloud ist das CDN gesperrt). Prototyp: `prototype/src/pages/lp-*.html`,
+Routen `#lp-facharztpraxis`, `#lp-empfang-entlasten`,
+`#lp-betreuung-wechseln`, verlinkt im Footer unter „Für wen“.
+
 `render-elements` zeigt für Template-Elemente zwar das HTML der Templates,
 aber nicht deren Klassen-CSS; das erzeugt Bricks erst im Frontend.
 

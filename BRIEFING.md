@@ -163,7 +163,7 @@ Platzhalter und teils erfunden. Vor der Umsetzung gilt:
 - Seiten: Startseite, Für Praxen, Für Kanzleien, Für den Mittelstand. Alle mit
   Zielgruppen-Umschalter (Startseite), Digital-Check-Dialog mit Validierung,
   FAQ, Referenzen und Kundenstimmen-Platzhaltern.
-- Bilder: 33 Higgsfield-Motive in `prototype/img/` (Soul 2.0 sowie zwei Porträts
+- Bilder: 39 Higgsfield-Motive in `prototype/img/` (m34–m39 am 17.09.2026 für die Kampagnen-Landingpages) (Soul 2.0 sowie zwei Porträts
   mit GPT Image 2 für ruhige Hintergründe; rund 20 Credits gesamt). Übersicht in
   `prototype/img/contact-sheet.jpg`. Kein Motiv wird doppelt verwendet.
   Nicht verwendet: m04, m06, m08, m10, m14, m17, m20, m23, m30, m31 (m14, m17,
