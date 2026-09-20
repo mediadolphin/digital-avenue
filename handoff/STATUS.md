@@ -42,3 +42,7 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
 - Dabei aufgefallen: `color-scheme: light/dark` steht am Staging noch nicht
   im Custom CSS (Formularfelder, Scrollbalken). Standardmodus am Staging ist
   `light`, im Prototyp galt die Systemeinstellung; Entscheidung offen.
+- `handoff/BRICKS-SVG-ICONS.md`: portable Anleitung für SVG-Icons in Bricks
+  (Normalisierung, eigenes Set per Icon Manager oder MCP, Icon-Element,
+  Klassen `icon`/`icon-20`, Farbe über Kontext, Components, Stolperfallen).
+  Icon-IDs des Staging-Sets per `list-custom-icons` aufgenommen.
