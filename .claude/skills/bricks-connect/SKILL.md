@@ -53,7 +53,30 @@ bricks-connect.sh all      <site-url> -u <wp-login> [--write .mcp.json]
 Ausgabezeilen beginnen mit `[OK]`, `[WARN]` oder `[FAIL]`; Rückgabewert 0
 bedeutet alles in Ordnung.
 
-## Kurzweg (Nutzer im Terminal, im Projektordner)
+## Weg A: Cloud-Umgebung, ohne Terminal (Standard)
+
+So sind relaunch.digital-avenue.de und mediadolphin.net angebunden. Der
+Proxy der Cloud-Umgebung ersetzt den Authorization-Header ausgehender
+Anfragen an den Host durch eine hinterlegte Anmeldung. Es braucht nur den
+HTTP-Eintrag in `.mcp.json` (Schritt 2 unten) und zwei Einträge in den
+Umgebungseinstellungen von Claude Code (claude.ai › Claude Code › Umgebung
+„Claude"), die der Nutzer selbst setzt:
+
+1. **Netzwerkrichtlinie**: den Host freigeben, z. B. `mediadolphin.net`.
+2. **API-Anmeldedaten**: Eintrag für denselben Host, Typ Basic, Benutzer =
+   WordPress-Anmeldename, Passwort = Anwendungspasswort.
+
+Danach eine neue Cloud-Sitzung auf dem Projekt-Repository starten; die
+Einstellungen gelten ab der nächsten Sitzung. Prüfung in der Sitzung:
+`bricks/list-ability-status` über `mcp-adapter-execute-ability` aufrufen.
+Ein 401 `rest_forbidden` aus der Cloud heißt, die hinterlegte Anmeldung ist
+falsch oder veraltet; der Server ist damit nicht bewertet.
+
+Aus der Client-Anleitung von Bricks › AI werden nur Server-URL, Benutzername
+und Servername übernommen; der npx-Block und die Variablen `WP_API_*`
+entfallen. Das Passwort dort nie in den Chat einfügen.
+
+## Weg B: Lokal auf dem Mac (Nutzer im Terminal, im Projektordner)
 
 Ein Befehl macht alles, mit einer einzigen Passwortabfrage durch den
 Schlüsselbund; `test` holt das Passwort danach von dort:
@@ -65,6 +88,7 @@ Schlüsselbund; `test` holt das Passwort danach von dort:
 Danach die ausgegebene `export`-Zeile in `~/.zshrc`, neues Terminal, Claude
 Code aus dem Projektordner starten, in der Sitzung `/mcp` prüfen. Die
 Einzelschritte unten gelten für die Fehlersuche und für Claude selbst.
+Weg B ist nur nötig, wenn lokal ohne Cloud gearbeitet werden soll.
 
 ## Ablauf
 
