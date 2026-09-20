@@ -31,3 +31,14 @@ Nachtrag 17.09.2026: Kampagnenpaket (`handoff/kampagne/`, ohne Kontaktdaten) üb
 Nachtrag 17.09.2026: Footer-Spalte „Für wen“ (Prototyp) bzw. „Branchen“ (Bricks, Template 54) um Heilberufe und Gastgewerbe ergänzt. Beide verweisen auf `/branchen/heilberufe/` und `/branchen/gastgewerbe/`; im Prototyp vorläufig auf die Praxen- bzw. Mittelstand-Seite. Für beide Zielgruppen gibt es noch keine Seite und keinen Text.
 
 Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handoff/branchen/heilberufe.md`) im Prototyp (`#heilberufe`) und in Bricks (Post 196 unter Elternseite „Branchen“ 193, beide Entwurf) gebaut, fünf neue Higgsfield-Motive m40–m44, eigenes Formular-Template 194. Offene Entscheidungen im Konzept, Abschnitt 4.
+
+### Nachtrag 20.09.2026: Farbsystem-Dokument
+
+- `handoff/BRICKS-FARBSYSTEM-DARKMODE.md`: portable Beschreibung des
+  Bricks-Farbsystems und des Hell/Dunkelmodus (Attribut `data-brx-theme`,
+  Skript `bricks-dl-mode-js-after` mit `brx_mode`, Palette wird als `:root`-
+  und Dunkelblock gedruckt, Datenmodell einer Farbe, Regeln, Umschalter,
+  Übertragung auf neue Projekte). Für andere Claude-Code-Umgebungen gedacht.
+- Dabei aufgefallen: `color-scheme: light/dark` steht am Staging noch nicht
+  im Custom CSS (Formularfelder, Scrollbalken). Standardmodus am Staging ist
+  `light`, im Prototyp galt die Systemeinstellung; Entscheidung offen.
