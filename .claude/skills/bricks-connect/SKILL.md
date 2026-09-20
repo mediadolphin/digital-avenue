@@ -46,11 +46,25 @@ bricks-connect.sh check    <site-url>                       Voraussetzungen ohne
 bricks-connect.sh test     <site-url> -u <wp-login>         Handshake, Abilities zählen
 bricks-connect.sh config   <site-url> [-n name] [-v VAR] [--write .mcp.json] [--force]
 bricks-connect.sh keychain <site-url> -u <wp-login> [-v VAR]  macOS: Passwort ablegen
-bricks-connect.sh all      <site-url> -u <wp-login>         alles nacheinander
+bricks-connect.sh all      <site-url> -u <wp-login> [--write .mcp.json]
+                                                     check, keychain, test, config; eine Passwortabfrage
 ```
 
 Ausgabezeilen beginnen mit `[OK]`, `[WARN]` oder `[FAIL]`; Rückgabewert 0
 bedeutet alles in Ordnung.
+
+## Kurzweg (Nutzer im Terminal, im Projektordner)
+
+Ein Befehl macht alles, mit einer einzigen Passwortabfrage durch den
+Schlüsselbund; `test` holt das Passwort danach von dort:
+
+```bash
+.claude/skills/bricks-connect/scripts/bricks-connect.sh all https://<site> -u <wp-login> --write .mcp.json
+```
+
+Danach die ausgegebene `export`-Zeile in `~/.zshrc`, neues Terminal, Claude
+Code aus dem Projektordner starten, in der Sitzung `/mcp` prüfen. Die
+Einzelschritte unten gelten für die Fehlersuche und für Claude selbst.
 
 ## Ablauf
 

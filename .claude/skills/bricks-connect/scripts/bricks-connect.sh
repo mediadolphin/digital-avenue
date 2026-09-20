@@ -9,9 +9,12 @@
 #   keychain <site-url> -u <wp-login> [-v VAR]
 #                                             (macOS) Passwort im Schlüsselbund ablegen,
 #                                             Zeile für die Shell-Konfiguration ausgeben
-#   all      <site-url> -u <wp-login> [...]   check, test, config, keychain nacheinander
+#   all      <site-url> -u <wp-login> [--write .mcp.json]
+#                                             check, keychain, test, config nacheinander;
+#                                             eine einzige Passwortabfrage
 #
-# Das Passwort wird immer abgefragt (ohne Echo) oder mit "-p -" von stdin gelesen.
+# Das Passwort kommt aus dem Schlüsselbund (macOS), wird abgefragt (ohne Echo)
+# oder mit "-p -" von stdin gelesen.
 # Es landet nie in Argumenten, Dateien, der Shell-History oder der Ausgabe.
 
 set -u
@@ -122,6 +125,7 @@ do_check() {
 
 # ---------- test ----------
 read_password() {
+  [ -n "${PW:-}" ] && return 0
   if [ "$PW_FROM_STDIN" = 1 ]; then
     IFS= read -r PW
   else
@@ -132,6 +136,15 @@ read_password() {
   [ -n "$PW" ] || die "Leeres Passwort."
 }
 
+# Passwort aus dem macOS-Schlüsselbund (Dienst bricks-mcp/<host>), wenn dort abgelegt
+password_from_keychain() {
+  [ "$(uname -s)" = "Darwin" ] || return 1
+  [ -n "$LOGIN" ] || return 1
+  PW=$(security find-generic-password -a "$LOGIN" -s "bricks-mcp/$HOST" -w 2>/dev/null) || return 1
+  [ -n "$PW" ] || return 1
+  say "Passwort aus dem Schlüsselbund (bricks-mcp/$HOST, $LOGIN)."
+}
+
 # curl mit Anmeldung, ohne dass das Passwort in argv erscheint (curl-Config über stdin)
 curl_auth() {
   { printf 'user = "%s:%s"\n' "$LOGIN" "$(printf '%s' "$PW" | sed 's/"/\\"/g')"; } | curl -sS -K - "$@"
@@ -140,7 +153,7 @@ curl_auth() {
 do_test() {
   local rc=0 code
   [ -n "$LOGIN" ] || die "WordPress-Anmeldename fehlt (-u <login>, der Login-Name, nicht der Anzeigename)."
-  read_password
+  password_from_keychain || read_password
   say "Handshake als $LOGIN an $ENDPOINT"
 
   code=$(curl_auth -o "$TMP/tinit" -D "$TMP/thead" -w '%{http_code}' --max-time 30 -X POST "$ENDPOINT" \
@@ -195,7 +208,6 @@ do_test() {
       [ -n "$bv" ] && ok "Bricks $bv, WordPress $wv."
     fi
   fi
-  unset PW
   return $rc
 }
 
@@ -245,8 +257,8 @@ do_keychain() {
   [ -n "$LOGIN" ] || die "WordPress-Anmeldename fehlt (-u <login>)."
   local service="bricks-mcp/$HOST"
   say "Lege Anwendungspasswort im Schlüsselbund ab (Dienst $service, Konto $LOGIN)."
-  if [ "$PW_FROM_STDIN" = 1 ] || [ -n "${PW:-}" ]; then
-    [ -n "${PW:-}" ] || read_password
+  if [ "$PW_FROM_STDIN" = 1 ]; then
+    read_password
     security add-generic-password -U -a "$LOGIN" -s "$service" -w "$PW" || return 1
   else
     security add-generic-password -U -a "$LOGIN" -s "$service" -w || return 1
@@ -274,11 +286,11 @@ case "$CMD" in
   all)
     do_check || rc=$?
     say
+    if [ "$(uname -s)" = "Darwin" ]; then do_keychain || rc=$?; else alt_shell_line; fi
+    say
     do_test || rc=$?
     say
     do_config || rc=$?
-    say
-    if [ "$(uname -s)" = "Darwin" ]; then do_keychain || rc=$?; else alt_shell_line; fi
     ;;
 esac
 exit $rc
