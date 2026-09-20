@@ -1,5 +1,6 @@
 source: https://github.com/codeerhq/bricks-skills
-release: v0.1.0-beta.3
-commit: ab954c702d9fb33e6a539bf42e6e1ca9a74e6808
-installed: 2026-09-11
-method: manual copy of skills/bricks-* into .claude/skills/ (project scope)
+release: v0.1.0
+commit: fbbece111a6c2b92273c34002768dd909026b192
+installed: 2026-09-20
+method: manual copy of skills/bricks-* into .claude/skills/ (project scope); own skills bricks-connect and bricks-handoff are not part of the upstream pack
+previous: v0.1.0-beta.3 (2026-09-11)
