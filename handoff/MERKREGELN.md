@@ -163,6 +163,15 @@ nur, dass diese Anmeldung veraltet ist. Erst wenn der Test vom Mac 200
 liefert und trotzdem `rest_forbidden` kommt, liegt es am Server
 (Skill-Referenz `bricks-2-4.md`, Punkt 3).
 
+**Neue Bricks-Site mit dem Skill `bricks-connect` anbinden.** (20.09.2026)
+`scripts/bricks-connect.sh check` prüft Rewrite und Adapter ohne Anmeldung,
+`config --write .mcp.json` legt den HTTP-Eintrag mit eigener Variable
+`BRICKS_MCP_AUTH_<HOST>` an, `keychain` und `test` laufen im Terminal des
+Nutzers (Schlüsselbund, Handshake, Abilities zählen). Die Client-Anleitung
+aus Bricks › AI liefert nur URL und Anmeldename; ihren npx-Block nicht
+übernehmen, er scheitert an Node 18 und am npx-Cache, sobald zwei Sites
+gleichzeitig starten.
+
 **Struktur am Staging bauen, Inhalte in der Produktion pflegen.**
 (11.09.2026) Struktur-Änderungen wandern als Transfer-Paket vom Staging in
 die Produktion. In der Produktion nur lesende Abilities plus Anlegen und
