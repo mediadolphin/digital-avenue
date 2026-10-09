@@ -221,7 +221,7 @@ Feiertage.}
 
 Timeline-Punkte:
 1. Sie melden die Änderung.
-2. Wir melden uns innerhalb einer Stunde während der Servicezeiten und
+2. Wir melden uns in der vereinbarten Reaktionszeit während der Servicezeiten und
    stimmen die Umsetzung ab.
 3. Wir setzen um und nehmen vereinbarte Folgeschritte ohne neue Erinnerung
    vor.
@@ -310,7 +310,7 @@ Einrichtung, größere Zusatzarbeiten und Fremdkosten werden getrennt
 ausgewiesen. Wir klären zuerst, welche Aufgaben tatsächlich zu Ihrer Praxis
 passen.
 
-**Ist innerhalb einer Stunde alles erledigt?**
+**Ist mit der Rückmeldung schon alles erledigt?**
 Die Zusage betrifft unsere persönliche Rückmeldung während der
 Servicezeiten. Die Umsetzung hängt von Dringlichkeit, Umfang und
 gegebenenfalls weiteren Anbietern ab.

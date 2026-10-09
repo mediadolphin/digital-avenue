@@ -7,6 +7,7 @@ import datetime, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FILES = [
+    ("Anleitung zu den Änderungen vom 09.10.2026", "handoff/ANLEITUNG-2026-10-09.md"),
     ("Statusbericht 09.10.2026", "handoff/STATUSBERICHT-2026-10-09.md"),
     ("Projektstand", "handoff/STATUS.md"),
     ("Merkregeln und Entscheidungen", "handoff/MERKREGELN.md"),

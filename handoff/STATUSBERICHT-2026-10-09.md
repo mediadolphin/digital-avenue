@@ -342,4 +342,6 @@ Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
 4. Eigene Kontaktseite?
    **Entschieden 09.10.2026:** ja, gebaut (Prototyp und Bricks-Entwurf 235).
 5. Unternehmensdaten über Meta-Box-Einstellungsseite oder das eigene Plugin?
+   **Entschieden 09.10.2026:** Meta Box Settings Page ist installiert.
+   Feldgruppe 243 angelegt, Einstellungsseite durch Nils (Anleitung).
 6. Leistungen zum Launch als vier Unterseiten oder zunächst eine Seite?

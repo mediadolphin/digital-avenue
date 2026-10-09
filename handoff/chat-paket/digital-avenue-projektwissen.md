@@ -4,18 +4,209 @@ Stand 09.10.2026. Automatisch aus dem Repository `mediadolphin/digital-avenue` g
 
 ## Inhalt
 
-1. Statusbericht 09.10.2026 (`handoff/STATUSBERICHT-2026-10-09.md`)
-2. Projektstand (`handoff/STATUS.md`)
-3. Merkregeln und Entscheidungen (`handoff/MERKREGELN.md`)
-4. Briefing (`BRIEFING.md`)
-5. Kampagne: Start (`handoff/kampagne/00_START_HIER.md`)
-6. Kampagne: Konzept (`handoff/kampagne/01_Kampagnenkonzept.md`)
-7. Kampagne: Mailingtexte (`handoff/kampagne/02_Mailingtexte.md`)
-8. Kampagne: Landingpage-Texte (`handoff/kampagne/03_Landingpage_Texte.md`)
-9. Branchenseite Heilberufe: Konzept und Texte (`handoff/branchen/heilberufe.md`)
-10. Partnerseiten: Konzept und Texte (`handoff/partner/partnerseiten.md`)
-11. Technisches Protokoll Bricks (`handoff/import/README.md`)
+1. Anleitung zu den Änderungen vom 09.10.2026 (`handoff/ANLEITUNG-2026-10-09.md`)
+2. Statusbericht 09.10.2026 (`handoff/STATUSBERICHT-2026-10-09.md`)
+3. Projektstand (`handoff/STATUS.md`)
+4. Merkregeln und Entscheidungen (`handoff/MERKREGELN.md`)
+5. Briefing (`BRIEFING.md`)
+6. Kampagne: Start (`handoff/kampagne/00_START_HIER.md`)
+7. Kampagne: Konzept (`handoff/kampagne/01_Kampagnenkonzept.md`)
+8. Kampagne: Mailingtexte (`handoff/kampagne/02_Mailingtexte.md`)
+9. Kampagne: Landingpage-Texte (`handoff/kampagne/03_Landingpage_Texte.md`)
+10. Branchenseite Heilberufe: Konzept und Texte (`handoff/branchen/heilberufe.md`)
+11. Partnerseiten: Konzept und Texte (`handoff/partner/partnerseiten.md`)
+12. Technisches Protokoll Bricks (`handoff/import/README.md`)
 
+
+
+---
+
+# Anleitung zu den Änderungen vom 09.10.2026
+
+Quelle: `handoff/ANLEITUNG-2026-10-09.md`
+
+## Anleitung: Änderungen vom 9. Oktober 2026
+
+Für Nils. Beschreibt, was sich am Staging und im Repository geändert hat und
+wie du damit arbeitest. Alles ist Entwurf, solange nichts anderes dasteht.
+
+### 1. Überblick
+
+| Bereich | Was jetzt gilt | Wo |
+|---|---|---|
+| Branchen | Fünf Seiten unter `/branchen/`: Arztpraxen, Heilberufe, Kanzleien & Freie Berufe, Mittelstand, später Gastgewerbe | Seiten 163, 196, 203, 204; Übersicht 193 |
+| Kampagnenseiten | liegen unter `/branchen/arztpraxen/` | Seiten 169, 171, 173 |
+| Referenzen | einfacher Menüpunkt auf `/referenzen/` | Header 52 |
+| Blog | bleibt im Menü, Seite „Blog“ ist Beitragsseite | Seite 231 |
+| Partner | Übersicht und vier Partnerseiten | Seiten 214 bis 218 |
+| Kontakt | eigene Seite mit allgemeinem Formular | Seite 235, Template 233 |
+| Header | kein Digital-Check-Button mehr, weder Desktop noch mobil | Header 52 |
+| Footer | Hamburger Adresse, Links „Partner“ und „Kontakt“ | Footer 54 |
+| Rückmeldezeiten | Interessenten: innerhalb eines Werktags. Kunden: vertraglich vereinbarte Reaktionszeit | alle Seiten |
+| Unternehmensdaten | Feldgruppe in Meta Box vorbereitet, Einstellungsseite legst du an | Feldgruppe 243 |
+
+### 2. Menü und Footer bearbeiten
+
+Header und Footer sind Bricks-Templates, keine WordPress-Menüs.
+
+- **Header:** Bricks › Templates › „Main Header“ (52). Die Navigation ist
+  das Element „Hauptnavigation“ (Nav Nested). Darin liegt der Block
+  „Menüpunkte“ mit Textlinks und den Dropdowns. Einen Menüpunkt fügst du
+  hinzu, indem du einen vorhandenen Textlink duplizierst und Text und Link
+  änderst.
+- **Branchen-Dropdown:** Dropdown „Branchen“ › „Branchen-Liste“. Eine neue
+  Branche kommt erst ins Menü, wenn ihre Seite Inhalt hat (Merkregel).
+- **Footer:** Bricks › Templates › „Main Footer“ (54). Spalten
+  „Leistungen“, „Branchen“, „Kontakt“, unten die Rechtslinks.
+- **Reihenfolge:** Im Builder per Ziehen in der Strukturansicht. Bricks
+  speichert die Reihenfolge so, wie die Elemente in der Struktur stehen.
+
+### 3. Eine neue Branchen- oder Partnerseite anlegen
+
+1. Eine passende Seite duplizieren, zum Beispiel Heilberufe (196) für eine
+   Branche oder Placetel (215) für einen Partner. In der Seitenliste geht
+   das über den Link zum Duplizieren, falls Bricks ihn anbietet, oder per
+   Claude mit `duplicate-post`.
+2. Titel, Titelform (Slug) und unter „Seitenattribute“ die übergeordnete
+   Seite setzen: „Branchen“ (193) oder „Partner“ (214).
+3. Im Builder die Texte ändern. Die meisten Abschnitte sind Components.
+   Du klickst die Instanz an und änderst die Werte im Bereich
+   „Properties“ rechts, nicht im Element darunter. Listenpunkte in Karten
+   sind eigene kleine Components (Service-Punkt) im Slot der Karte.
+4. Bilder tauschen: in der Property „Bild“ der Hero- oder Feature-Instanz.
+   Alt-Text steht als eigene Property daneben.
+5. Erst wenn die Seite fertig ist: Link im Header oder Footer ergänzen.
+
+### 4. Partnerseiten
+
+- **Aufbau jeder Seite:** Hero mit Service-Karte, „Was wir übernehmen“
+  (Feature-Block), „Wer macht was“ (Text und Karte), drei Schritte,
+  Digital-Check, FAQ, Kacheln zu den anderen drei Partnern.
+- **Texte:** Quelle ist `handoff/partner/partnerseiten.md`. Wenn du dort
+  etwas änderst, sag Bescheid; Prototyp und Bricks werden aus denselben
+  Daten erzeugt.
+- **Platzhalter:** Auf der Netleaders-Seite stehen drei sichtbare
+  Platzhalter in eckigen Klammern (Leistungsumfang, Vertragsmodell,
+  Abgrenzung zu IONOS). Vor dem Veröffentlichen ersetzen.
+- **Verlinkung:** Footer-Link „Partner“, Partnerzeile auf der Startseite
+  (die vier Namen sind Links), Kacheln auf jeder Partnerseite.
+- **Neuer Partner:** eine Partnerseite duplizieren (Abschnitt 3), dann
+  auf den anderen Partnerseiten eine Kachel in „Weitere Partner“ und auf
+  der Übersicht 214 eine Kachel ergänzen.
+- **Logos:** erst mit Freigabe des Partners. Bis dahin stehen die Namen als Text.
+
+### 5. Kontaktseite und Formular
+
+- **Seite 235** zeigt Kontaktdaten, das Formular und die Standorte.
+  „Route planen“ ist ein Link zu Google Maps, keine eingebettete Karte
+  (keine fremden Cookies).
+- **Formular:** Template „Kontaktformular allgemein“ (233). Es wird auf
+  der Seite über ein Template-Element eingebunden. Änderst du das Template,
+  ändert es sich überall, wo es eingebunden ist.
+- **Einbinden auf einer anderen Seite:** Element „Template“ einfügen,
+  Template 233 wählen, „Kein Wurzelelement“ aktivieren. Das versteckte
+  Feld „Seite“ trägt automatisch den Seitentitel in die Anfrage ein.
+- **Anfragen:** gehen per E-Mail an post@digital-avenue.de und werden in
+  Bricks › Form Submissions gespeichert. Ohne SMTP-Plugin kommen die Mails
+  am Staging nicht an.
+- **Themenliste ändern:** im Template 233 das Formular wählen, Feld
+  „Thema“, Optionen je Zeile.
+- **Rostock:** Die Adresse fehlt noch, auf der Seite steht ein Platzhalter.
+
+### 6. Unternehmensdaten zentral pflegen (Meta Box)
+
+Ziel: Telefon, E-Mail, Adressen, Servicezeiten und Rückmeldezeiten an
+einer Stelle pflegen. Die Seiten lesen sie über Dynamic Data aus.
+
+**Schritt 1, einmalig durch dich:** Einstellungsseite anlegen.
+
+1. WordPress-Admin › Meta Box › Settings Pages › Add New.
+2. Menu title: `Unternehmensdaten`
+3. ID: `unternehmen` (genau so, die Feldgruppe ist darauf eingestellt)
+4. Option name: `da_unternehmen`
+5. Menu type bzw. Parent: unter „Einstellungen“ (Settings).
+6. Speichern.
+
+Danach erscheint unter Einstellungen › Unternehmensdaten ein Formular mit
+zehn Feldern. Die Standardwerte sind schon eingetragen: Firma,
+Ansprechpartner, Telefon (Anzeige und Link), E-Mail, Adresse Hamburg,
+Adresse Rostock (leer), Servicezeiten, Rückmeldung für Interessenten,
+Reaktionszeit für Kunden. Einmal „Save Settings“ klicken, damit die Werte
+gespeichert sind.
+
+**Schritt 2, durch Claude:** Footer, Kontaktseite und die übrigen Stellen
+auf diese Felder umstellen. Danach ändert sich eine Telefonnummer an allen
+Stellen gleichzeitig.
+
+**Selbst verwenden:** Im Builder bei einem Text auf das Dynamic-Data-Symbol
+klicken und unter „Meta Box“ das Feld wählen. Bricks setzt dann einen
+Platzhalter-Tag ein, der beim Anzeigen durch den Wert ersetzt wird.
+
+Das eigene Plugin „DA Parameter“ wird damit nicht gebraucht.
+
+### 7. Rückmeldezeiten
+
+- **Interessenten** (Digital-Check, Kontaktformular, Anfragen):
+  „innerhalb eines Werktags“.
+- **Kunden mit Betreuungsvertrag:** „in der vertraglich vereinbarten
+  Reaktionszeit“, während der Servicezeiten.
+- Umgestellt auf Kontaktseite, Heilberufe, im Modul-Template der
+  Kampagnenseiten (167) und im Prototyp. Die FAQ-Frage heißt jetzt „Ist
+  mit der Rückmeldung schon alles erledigt?“.
+- **Nicht angefasst:** die Mailingtexte der Kampagne
+  (`handoff/kampagne/02_Mailingtexte.md`) und das Kampagnenkonzept. Dort
+  steht weiter „innerhalb einer Stunde“; das entscheidest du für HubSpot.
+
+### 8. Blog
+
+- Seite „Blog“ (231) ist unter Einstellungen › Lesen als Beitragsseite
+  eingetragen und noch Entwurf. Der WordPress-Beispielbeitrag liegt im
+  Papierkorb.
+- Beiträge schreibst du wie gewohnt unter Beiträge.
+- Vor dem Launch fehlen: ein Bricks-Template für die Beitragsübersicht und
+  eines für den einzelnen Beitrag (zuerst im Prototyp) sowie die ersten
+  drei bis fünf Beiträge.
+
+### 9. Digital-Check
+
+Der Button ist aus dem Header raus. Den Digital-Check öffnen weiterhin:
+der Button im Hero der Startseite und der Button im Digital-Check-Block,
+der auf fast jeder Seite unten steht. Beide öffnen das Popup 130.
+
+### 10. Rückgängig machen
+
+Jede Änderung per Claude hat eine Revision angelegt. Im Builder unter
+Revisionen oder per Claude mit `restore-revision`.
+
+| Stand vor | Revision |
+|---|---|
+| Startseite: Branchenlinks | 199 |
+| Header: Branchen | 200 |
+| Footer: Branchen | 201 |
+| Header: Referenzen als Link | 205 |
+| Startseite: Partnerlinks | 224 |
+| Footer: Partner-Link | 225 |
+| Header ohne Digital-Check-Button | 239 |
+| Modul-Template Kampagnen: Rückmeldezeit | 240 |
+| Heilberufe: Rückmeldezeit | 241 |
+| Kontaktseite: Rückmeldezeit | 242 |
+
+### 11. Für Claude-Sitzungen
+
+- `handoff/tools/mcpcall.py` ruft Bricks-Abilities direkt auf und
+  speichert große Seitenbäume als Datei. Der Server verlangt den Header
+  `MCP-Protocol-Version`, das Skript setzt ihn.
+- Beim Speichern eines Seitenbaums bestimmt die Reihenfolge im Array die
+  Reihenfolge auf der Seite (Merkregel).
+- Seiten anlegen und umhängen geht über `/wp-json/wp/v2/pages`.
+
+### 12. Was du noch liefern oder entscheiden musst
+
+- Einstellungsseite „Unternehmensdaten“ anlegen (Abschnitt 6)
+- Adresse Rostock, und ob die Hamburger Adresse für Besuche gedacht ist
+- Partnerstatus Placetel und Doctolib, Angaben zu Netleaders
+- Rückmeldezeit in den Kampagnen-Mailings
+- SMTP-Zugang für den Mailversand
 
 
 ---
@@ -368,6 +559,8 @@ Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
 4. Eigene Kontaktseite?
    **Entschieden 09.10.2026:** ja, gebaut (Prototyp und Bricks-Entwurf 235).
 5. Unternehmensdaten über Meta-Box-Einstellungsseite oder das eigene Plugin?
+   **Entschieden 09.10.2026:** Meta Box Settings Page ist installiert.
+   Feldgruppe 243 angelegt, Einstellungsseite durch Nils (Anleitung).
 6. Leistungen zum Launch als vier Unterseiten oder zunächst eine Seite?
 
 
@@ -476,6 +669,11 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   während der Servicezeiten“; eine Formulierung festlegen.
 - Bilder vom 17.09. und 09.10. liegen am Staging als PNG in voller Größe;
   vor dem Launch durch die optimierten JPGs aus `prototype/img/` ersetzen.
+- 09.10.2026 (Nils): Header ohne Digital-Check-Button. Rückmeldezeiten nach
+  Zielgruppe umgestellt (Merkregel). Meta Box Settings Page ist installiert;
+  Feldgruppe „Unternehmensdaten“ 243 angelegt, Einstellungsseite legt Nils
+  an, danach stellt Claude Footer, Kontaktseite und übrige Stellen auf die
+  Felder um. Anleitung: `handoff/ANLEITUNG-2026-10-09.md`.
 
 
 ---
@@ -833,6 +1031,15 @@ Element hinten anhängt, verschiebt Geschwister (so am 09.10. Kacheln der
 Startseite, Heilberufe im Footer, Referenzen im Header). Vor jedem
 Speichern das Array per Tiefensuche entlang der gewünschten `children`
 sortieren und danach im Frontend die Reihenfolge prüfen.
+
+**Rückmeldezeiten nach Zielgruppe.** (09.10.2026, Nils) Der Digital-Check
+ist Vertrieb: Interessenten bekommen eine Rückmeldung „innerhalb eines
+Werktags“. Kunden mit Betreuungsvertrag bekommen die vertraglich
+vereinbarte Reaktionszeit. Keine pauschale Stundenzusage auf der Website.
+
+**MCP-Adapter verlangt `MCP-Protocol-Version`.** (09.10.2026) Nach dem
+`initialize` muss jede Anfrage den Header `MCP-Protocol-Version: 2025-06-18`
+tragen, sonst antwortet der Server mit 400. `mcpcall.py` setzt ihn.
 
 
 ---
@@ -2220,7 +2427,7 @@ Besprechen wir kurz, welche Systeme Sie einsetzen und welche Betreuung Sie sich 
 
 #### Persönlich erreichbar. Vorausschauend betreut.
 
-Sie schicken uns Ihren Änderungswunsch per E-Mail oder rufen an. Wir melden uns innerhalb einer Stunde während unserer Servicezeiten: montags bis freitags, 08:00–18:00 Uhr, ausgenommen gesetzliche Feiertage. Den Zeitpunkt der Umsetzung stimmen wir nach Aufwand und Dringlichkeit ab.
+Sie schicken uns Ihren Änderungswunsch per E-Mail oder rufen an. Wir melden uns in der vertraglich vereinbarten Reaktionszeit, während unserer Servicezeiten montags bis freitags von 08:00 bis 18:00 Uhr, ausgenommen gesetzliche Feiertage. Den Zeitpunkt der Umsetzung stimmen wir nach Aufwand und Dringlichkeit ab.
 
 Zu unserer Betreuung gehören auch vereinbarte Folgeschritte. Ein Urlaubshinweis wird nach Ihrer Rückkehr wieder entfernt. Sie müssen uns daran nicht erneut erinnern.
 
@@ -2246,8 +2453,8 @@ Nicht unbedingt. Wir prüfen Ihre WordPress-Website und bieten bei Eignung die �
 **Was kostet die Betreuung?**
 Sie erhalten einen festen monatlichen Preis für den vereinbarten Umfang. Einrichtung, größere Zusatzarbeiten und Fremdkosten werden getrennt ausgewiesen. Wir klären zuerst, welche Aufgaben tatsächlich zu Ihrer Praxis passen.
 
-**Ist innerhalb einer Stunde alles erledigt?**
-Die Zusage betrifft unsere persönliche Rückmeldung während der Servicezeiten. Die Umsetzung hängt von Dringlichkeit, Umfang und gegebenenfalls weiteren Anbietern ab.
+**Ist mit der Rückmeldung schon alles erledigt?**
+Die vertraglich vereinbarte Reaktionszeit betrifft unsere persönliche Rückmeldung während der Servicezeiten. Die Umsetzung hängt von Dringlichkeit, Umfang und gegebenenfalls weiteren Anbietern ab.
 
 **Kann ich auch Logo, Drucksachen oder Praxisschilder beauftragen?**
 Ja. Gestaltung und Produktion bieten wir passend zum Projekt separat an und stimmen sie mit Ihrem digitalen Auftritt ab.
@@ -2496,7 +2703,7 @@ Feiertage.}
 
 Timeline-Punkte:
 1. Sie melden die Änderung.
-2. Wir melden uns innerhalb einer Stunde während der Servicezeiten und
+2. Wir melden uns in der vereinbarten Reaktionszeit während der Servicezeiten und
    stimmen die Umsetzung ab.
 3. Wir setzen um und nehmen vereinbarte Folgeschritte ohne neue Erinnerung
    vor.
@@ -2585,7 +2792,7 @@ Einrichtung, größere Zusatzarbeiten und Fremdkosten werden getrennt
 ausgewiesen. Wir klären zuerst, welche Aufgaben tatsächlich zu Ihrer Praxis
 passen.
 
-**Ist innerhalb einer Stunde alles erledigt?**
+**Ist mit der Rückmeldung schon alles erledigt?**
 Die Zusage betrifft unsere persönliche Rückmeldung während der
 Servicezeiten. Die Umsetzung hängt von Dringlichkeit, Umfang und
 gegebenenfalls weiteren Anbietern ab.
@@ -3737,3 +3944,25 @@ können später darauf umgestellt werden.
 
 Footer 54: Adresse „Appener Weg 3b, 20251 Hamburg“ (aus dem Impressum der
 alten Site) statt Platzhalter, Link „Kontakt“ (`fl0400`) vor Impressum.
+
+### Schritt 17: Unternehmensdaten, Header ohne CTA, Rückmeldezeiten
+
+Stand 09.10.2026. Anleitung für Nils: `handoff/ANLEITUNG-2026-10-09.md`.
+
+- Meta Box: Feldgruppe „Unternehmensdaten“ 243 (`meta-box/create-field-group`,
+  `settings: {object_type: "setting", settings_pages: ["unternehmen"]}`) mit
+  zehn Feldern: `firma`, `ansprechpartner`, `telefon`, `telefon_link`,
+  `email`, `adresse_hamburg`, `adresse_rostock`, `servicezeiten`,
+  `rueckmeldung_interessenten`, `reaktionszeit_kunden`, jeweils mit
+  Standardwert. Die Einstellungsseite selbst (ID `unternehmen`, Option
+  `da_unternehmen`) legt Nils im Admin an; Meta Box hat dafür keine
+  Ability. Werte lesen und schreiben geht danach über
+  `/wp-json/meta-box/v1/settings-page?id=unternehmen`. Den genauen
+  Dynamic-Data-Tag mit `preview-dynamic-tag` ermitteln, bevor Elemente
+  umgestellt werden.
+- Header 52: Buttons `hdrcta` (Desktop) und `navcta` (mobiles Menü)
+  entfernt (Revision 239). Die Klasse `959b1a` hängt an keinem Element mehr.
+- Rückmeldezeiten nach Entscheidung Nils: Interessenten „innerhalb eines
+  Werktags“, Kunden „in der vertraglich vereinbarten Reaktionszeit“.
+  Geändert in Template 167, Seite 196, Seite 235, Prototyp und
+  Textdokumenten; Mailingtexte bewusst nicht.

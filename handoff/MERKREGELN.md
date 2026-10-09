@@ -348,3 +348,12 @@ Startseite, Heilberufe im Footer, Referenzen im Header). Vor jedem
 Speichern das Array per Tiefensuche entlang der gewünschten `children`
 sortieren und danach im Frontend die Reihenfolge prüfen.
 
+**Rückmeldezeiten nach Zielgruppe.** (09.10.2026, Nils) Der Digital-Check
+ist Vertrieb: Interessenten bekommen eine Rückmeldung „innerhalb eines
+Werktags“. Kunden mit Betreuungsvertrag bekommen die vertraglich
+vereinbarte Reaktionszeit. Keine pauschale Stundenzusage auf der Website.
+
+**MCP-Adapter verlangt `MCP-Protocol-Version`.** (09.10.2026) Nach dem
+`initialize` muss jede Anfrage den Header `MCP-Protocol-Version: 2025-06-18`
+tragen, sonst antwortet der Server mit 400. `mcpcall.py` setzt ihn.
+

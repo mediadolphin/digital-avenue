@@ -802,3 +802,25 @@ können später darauf umgestellt werden.
 Footer 54: Adresse „Appener Weg 3b, 20251 Hamburg“ (aus dem Impressum der
 alten Site) statt Platzhalter, Link „Kontakt“ (`fl0400`) vor Impressum.
 
+## Schritt 17: Unternehmensdaten, Header ohne CTA, Rückmeldezeiten
+
+Stand 09.10.2026. Anleitung für Nils: `handoff/ANLEITUNG-2026-10-09.md`.
+
+- Meta Box: Feldgruppe „Unternehmensdaten“ 243 (`meta-box/create-field-group`,
+  `settings: {object_type: "setting", settings_pages: ["unternehmen"]}`) mit
+  zehn Feldern: `firma`, `ansprechpartner`, `telefon`, `telefon_link`,
+  `email`, `adresse_hamburg`, `adresse_rostock`, `servicezeiten`,
+  `rueckmeldung_interessenten`, `reaktionszeit_kunden`, jeweils mit
+  Standardwert. Die Einstellungsseite selbst (ID `unternehmen`, Option
+  `da_unternehmen`) legt Nils im Admin an; Meta Box hat dafür keine
+  Ability. Werte lesen und schreiben geht danach über
+  `/wp-json/meta-box/v1/settings-page?id=unternehmen`. Den genauen
+  Dynamic-Data-Tag mit `preview-dynamic-tag` ermitteln, bevor Elemente
+  umgestellt werden.
+- Header 52: Buttons `hdrcta` (Desktop) und `navcta` (mobiles Menü)
+  entfernt (Revision 239). Die Klasse `959b1a` hängt an keinem Element mehr.
+- Rückmeldezeiten nach Entscheidung Nils: Interessenten „innerhalb eines
+  Werktags“, Kunden „in der vertraglich vereinbarten Reaktionszeit“.
+  Geändert in Template 167, Seite 196, Seite 235, Prototyp und
+  Textdokumenten; Mailingtexte bewusst nicht.
+

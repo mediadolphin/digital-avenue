@@ -312,7 +312,7 @@ Besprechen wir kurz, welche Systeme Sie einsetzen und welche Betreuung Sie sich 
 
 ### Persönlich erreichbar. Vorausschauend betreut.
 
-Sie schicken uns Ihren Änderungswunsch per E-Mail oder rufen an. Wir melden uns innerhalb einer Stunde während unserer Servicezeiten: montags bis freitags, 08:00–18:00 Uhr, ausgenommen gesetzliche Feiertage. Den Zeitpunkt der Umsetzung stimmen wir nach Aufwand und Dringlichkeit ab.
+Sie schicken uns Ihren Änderungswunsch per E-Mail oder rufen an. Wir melden uns in der vertraglich vereinbarten Reaktionszeit, während unserer Servicezeiten montags bis freitags von 08:00 bis 18:00 Uhr, ausgenommen gesetzliche Feiertage. Den Zeitpunkt der Umsetzung stimmen wir nach Aufwand und Dringlichkeit ab.
 
 Zu unserer Betreuung gehören auch vereinbarte Folgeschritte. Ein Urlaubshinweis wird nach Ihrer Rückkehr wieder entfernt. Sie müssen uns daran nicht erneut erinnern.
 
@@ -338,8 +338,8 @@ Nicht unbedingt. Wir prüfen Ihre WordPress-Website und bieten bei Eignung die �
 **Was kostet die Betreuung?**
 Sie erhalten einen festen monatlichen Preis für den vereinbarten Umfang. Einrichtung, größere Zusatzarbeiten und Fremdkosten werden getrennt ausgewiesen. Wir klären zuerst, welche Aufgaben tatsächlich zu Ihrer Praxis passen.
 
-**Ist innerhalb einer Stunde alles erledigt?**
-Die Zusage betrifft unsere persönliche Rückmeldung während der Servicezeiten. Die Umsetzung hängt von Dringlichkeit, Umfang und gegebenenfalls weiteren Anbietern ab.
+**Ist mit der Rückmeldung schon alles erledigt?**
+Die vertraglich vereinbarte Reaktionszeit betrifft unsere persönliche Rückmeldung während der Servicezeiten. Die Umsetzung hängt von Dringlichkeit, Umfang und gegebenenfalls weiteren Anbietern ab.
 
 **Kann ich auch Logo, Drucksachen oder Praxisschilder beauftragen?**
 Ja. Gestaltung und Produktion bieten wir passend zum Projekt separat an und stimmen sie mit Ihrem digitalen Auftritt ab.

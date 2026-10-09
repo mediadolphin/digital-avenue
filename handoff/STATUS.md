@@ -97,4 +97,9 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   während der Servicezeiten“; eine Formulierung festlegen.
 - Bilder vom 17.09. und 09.10. liegen am Staging als PNG in voller Größe;
   vor dem Launch durch die optimierten JPGs aus `prototype/img/` ersetzen.
+- 09.10.2026 (Nils): Header ohne Digital-Check-Button. Rückmeldezeiten nach
+  Zielgruppe umgestellt (Merkregel). Meta Box Settings Page ist installiert;
+  Feldgruppe „Unternehmensdaten“ 243 angelegt, Einstellungsseite legt Nils
+  an, danach stellt Claude Footer, Kontaktseite und übrige Stellen auf die
+  Felder um. Anleitung: `handoff/ANLEITUNG-2026-10-09.md`.
 
