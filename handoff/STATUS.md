@@ -89,4 +89,12 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   Netleaders-Leistungsumfang und Abgrenzung zu IONOS (sichtbare Platzhalter).
 - Korrigiert: Reihenfolge von Kacheln (Startseite), Footer-Branchen und
   Header, verursacht durch Speichern ohne Array-Sortierung (Merkregel).
+- Entscheidung 4 umgesetzt (09.10.2026): Kontaktseite im Prototyp und in
+  Bricks (Entwurf 235), allgemeines Formular-Template 233, Footer mit
+  Hamburger Adresse aus dem Impressum und Link „Kontakt“. Offen: Adresse
+  Rostock. Uneinheitlich: Digital-Check-Block sagt „Rückmeldung innerhalb
+  eines Werktags“, Heilberufe und Kontaktseite „innerhalb einer Stunde
+  während der Servicezeiten“; eine Formulierung festlegen.
+- Bilder vom 17.09. und 09.10. liegen am Staging als PNG in voller Größe;
+  vor dem Launch durch die optimierten JPGs aus `prototype/img/` ersetzen.
 

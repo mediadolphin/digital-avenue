@@ -775,3 +775,30 @@ die ersten Beiträge vor dem Launch.
 Hinweis zur Prüfung: `render-elements` zeigt Accordion-Inhalte nicht
 (auch nicht auf der fertigen Heilberufe-Seite); FAQ im Frontend prüfen.
 
+## Schritt 16: Kontaktseite und allgemeines Kontaktformular
+
+Stand 09.10.2026, Entscheidung Nils. Prototyp `prototype/src/pages/kontakt.html`
+(Route `#kontakt`). Bricks: Seite „Kontakt“ 235 (Entwurf, `/kontakt/`).
+
+Aufbau: `#kontakt`: `lp-kontakt` (`lpkont`) mit Text links (Eyebrow, H1,
+Copy, vier Zeilen `lp-kontakt-direkt`: Telefon, E-Mail, Servicezeiten,
+Rückmeldung) und Formularkarte (`lpfcrd`) rechts mit Template-Element ›
+`#standorte` (bg-alt): Abschnittskopf und Raster `tiles` mit Foto-Kachel
+Hamburg (Bild 92, m07), Kachel cream Hamburg (Adresse, Link „Route planen“
+zu Google Maps, kein eingebettetes Kartenmodul), Foto-Kachel Warnemünde
+(Bild 91, m08), Kachel sand Rostock (Platzhalter Adresse) ›
+Digital-Check-Block.
+
+Neues Template „Kontaktformular allgemein“ 233 (Section, Formular
+`ktfrm0`, Klasse `lp-form`): Unternehmen, Name, E-Mail oder Rückrufnummer,
+Thema (Website, Telefonie, Online-Terminbuchung, Hosting und E-Mail, Foto,
+Video und Text, Recruiting und Karriereseite, Digital-Check, Etwas
+anderes), Nachricht, Hinweis ohne Gesundheits- und Mandantendaten mit
+Datenschutzlink, verstecktes Feld Seitentitel, Honeypot. Aktionen
+Submission speichern und E-Mail an post@digital-avenue.de. Dieses
+Template ist für alle neuen Seiten gedacht; die Formulare 165 und 194
+können später darauf umgestellt werden.
+
+Footer 54: Adresse „Appener Weg 3b, 20251 Hamburg“ (aus dem Impressum der
+alten Site) statt Platzhalter, Link „Kontakt“ (`fl0400`) vor Impressum.
+

@@ -340,5 +340,6 @@ Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
    es das Archiv-Template und erste Beiträge. Neu dazu: Partnerseiten für
    Placetel, Doctolib, IONOS und Netleaders unter `/partner/`, gebaut.
 4. Eigene Kontaktseite?
+   **Entschieden 09.10.2026:** ja, gebaut (Prototyp und Bricks-Entwurf 235).
 5. Unternehmensdaten über Meta-Box-Einstellungsseite oder das eigene Plugin?
 6. Leistungen zum Launch als vier Unterseiten oder zunächst eine Seite?
