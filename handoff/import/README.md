@@ -824,3 +824,27 @@ Stand 09.10.2026. Anleitung für Nils: `handoff/ANLEITUNG-2026-10-09.md`.
   Geändert in Template 167, Seite 196, Seite 235, Prototyp und
   Textdokumenten; Mailingtexte bewusst nicht.
 
+## Schritt 18: Leistungsseiten
+
+Stand 09.10.2026, Entscheidung Nils: jede Leistung eine Unterseite. Texte in
+`handoff/leistungen/leistungsseiten.md`, Prototyp
+`prototype/src/pages/leistungen.html` und `leistung-*.html`, Bilder m53 bis
+m60. Weiterleitungen der alten Service-Seiten: `handoff/REDIRECTS.md`.
+
+Seiten (alle Entwurf): Leistungen 244 (`/leistungen/`), Sichtbarkeit &
+Marke 245, Infrastruktur & Prozesse 246, Digital-Concierge 247, Foto, Video
+& Text 248. Aufbau wie die Partnerseiten (Schritt 15): Hero, `#leistungen`
+mit Feature-Block, `#details` mit Text und Service-Karte, `#ablauf`,
+Digital-Check, `#faq`, `#weitere` (Infrastruktur: vier Partner-Kacheln im
+Raster `tiles`, sonst drei Leistungs-Kacheln im Raster `steps`). Übersicht:
+H1, vier Kacheln wie auf der Startseite, „So arbeiten wir“,
+Digital-Check.
+
+Bilder diesmal als optimierte JPGs aus `prototype/img/` per Base64
+hochgeladen (249 bis 256, je 130 bis 240 KB), nicht als PNG-Originale.
+
+Verlinkt: Startseiten-Kacheln `lsk002`, `lsk004`, `lsk005` (Linktext jetzt
+„Mehr erfahren“), `lsk009` (Revision 262); Footer `fa0101` bis `fa0105`
+(Revision 263). Offen: Der Footer-Link „Digital-Check“ zeigt auf
+`#digital-check`, das es nicht gibt; er öffnet das Popup nicht.
+

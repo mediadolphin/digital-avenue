@@ -12,6 +12,7 @@ wie du damit arbeitest. Alles ist Entwurf, solange nichts anderes dasteht.
 | Referenzen | einfacher Menüpunkt auf `/referenzen/` | Header 52 |
 | Blog | bleibt im Menü, Seite „Blog“ ist Beitragsseite | Seite 231 |
 | Partner | Übersicht und vier Partnerseiten | Seiten 214 bis 218 |
+| Leistungen | Übersicht und vier Leistungsseiten | Seiten 244 bis 248 |
 | Kontakt | eigene Seite mit allgemeinem Formular | Seite 235, Template 233 |
 | Header | kein Digital-Check-Button mehr, weder Desktop noch mobil | Header 52 |
 | Footer | Hamburger Adresse, Links „Partner“ und „Kontakt“ | Footer 54 |
@@ -67,6 +68,20 @@ Header und Footer sind Bricks-Templates, keine WordPress-Menüs.
   auf den anderen Partnerseiten eine Kachel in „Weitere Partner“ und auf
   der Übersicht 214 eine Kachel ergänzen.
 - **Logos:** erst mit Freigabe des Partners. Bis dahin stehen die Namen als Text.
+
+## 4a. Leistungsseiten
+
+- **Adressen:** `/leistungen/` und darunter Sichtbarkeit & Marke,
+  Infrastruktur & Prozesse, Digital-Concierge, Foto, Video & Text.
+- **Aufbau** wie bei den Partnerseiten. Die Infrastruktur-Seite endet mit
+  Kacheln zu den vier Partnern, die anderen mit Kacheln zu den übrigen
+  Leistungen.
+- **Texte:** Quelle ist `handoff/leistungen/leistungsseiten.md`. Titel und
+  H1 sind Arbeitsstände bis zur Keyword-Recherche.
+- **Verlinkung:** Header „Leistungen“, Startseiten-Kacheln („Mehr
+  erfahren“), Footer-Spalte Leistungen.
+- **Alte Adressen:** Die sechs Service-Seiten der Live-Site leiten nach dem
+  Launch auf die neuen Seiten um. Liste: `handoff/REDIRECTS.md`.
 
 ## 5. Kontaktseite und Formular
 
@@ -163,6 +178,8 @@ Revisionen oder per Claude mit `restore-revision`.
 | Modul-Template Kampagnen: Rückmeldezeit | 240 |
 | Heilberufe: Rückmeldezeit | 241 |
 | Kontaktseite: Rückmeldezeit | 242 |
+| Startseite: Leistungslinks | 262 |
+| Footer: Leistungslinks | 263 |
 
 ## 11. Für Claude-Sitzungen
 

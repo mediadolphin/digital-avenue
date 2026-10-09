@@ -345,3 +345,4 @@ Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
    **Entschieden 09.10.2026:** Meta Box Settings Page ist installiert.
    Feldgruppe 243 angelegt, Einstellungsseite durch Nils (Anleitung).
 6. Leistungen zum Launch als vier Unterseiten oder zunächst eine Seite?
+   **Entschieden 09.10.2026:** vier Unterseiten, gebaut (Entwürfe 244 bis 248).

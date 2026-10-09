@@ -102,4 +102,8 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   Feldgruppe „Unternehmensdaten“ 243 angelegt, Einstellungsseite legt Nils
   an, danach stellt Claude Footer, Kontaktseite und übrige Stellen auf die
   Felder um. Anleitung: `handoff/ANLEITUNG-2026-10-09.md`.
+- Entscheidung 6 umgesetzt (09.10.2026): Leistungsübersicht und vier
+  Leistungsseiten im Prototyp und in Bricks (Entwürfe 244 bis 248), Motive
+  m53 bis m60, Startseite und Footer verlinkt. Weiterleitungsliste für den
+  Launch: `handoff/REDIRECTS.md` (ersetzt den Drive-Plan).
 

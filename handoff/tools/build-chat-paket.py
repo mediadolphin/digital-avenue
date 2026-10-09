@@ -18,6 +18,8 @@ FILES = [
     ("Kampagne: Landingpage-Texte", "handoff/kampagne/03_Landingpage_Texte.md"),
     ("Branchenseite Heilberufe: Konzept und Texte", "handoff/branchen/heilberufe.md"),
     ("Partnerseiten: Konzept und Texte", "handoff/partner/partnerseiten.md"),
+    ("Leistungsseiten: Konzept und Texte", "handoff/leistungen/leistungsseiten.md"),
+    ("Weiterleitungen für den Launch", "handoff/REDIRECTS.md"),
     ("Technisches Protokoll Bricks", "handoff/import/README.md"),
 ]
 
