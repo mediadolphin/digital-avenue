@@ -321,3 +321,21 @@ und Staging halten denselben Stand. Bilder kommen wie immer aus Higgsfield
 (Soul 2.0, Editorial-Look) und werden über `prototype/img/sources.json` und
 die GitHub-Action nachgeladen, weil das Bild-CDN aus der Cloud gesperrt ist.
 
+**Menü zeigt nur Seiten, die es zum Launch gibt.** (09.10.2026) Header,
+Footer und Startseiten-Links verweisen nur auf Seiten mit echtem Inhalt.
+Neue Branchen oder Bereiche kommen ins Menü, wenn ihre Seite steht. Ein
+Begriff je Zielgruppe überall gleich: Arztpraxen, Heilberufe, Kanzleien &
+Freie Berufe, Mittelstand.
+
+**Große Seitenbäume per Skript, nicht per Chat.** (09.10.2026) Für
+Änderungen an Component-Eigenschaften (die `update-element` nicht kann)
+den Baum mit `handoff/tools/mcpcall.py` als Datei holen, per Python
+ändern und mit `set-page-elements` samt `expectedDocumentDigest`
+zurückschreiben. Jede Speicherung legt eine Revision an. Seiten umhängen
+oder anlegen geht über die WordPress-REST-Schnittstelle
+(`/wp-json/wp/v2/pages`), die Anmeldung setzt in der Cloud der Proxy ein.
+
+**Sitzungen arbeiten auf einem Branch.** (09.10.2026) Eine parallele
+Sitzung auf einem eigenen Branch hat eine Woche Arbeit am Hauptbranch
+vorbei gebaut. Neue Sitzungen zuerst `git fetch` und die Branches prüfen,
+fremde Branches sofort zusammenführen.

@@ -337,6 +337,17 @@ Entscheidungen:
   (`.site-nav.brxe-section`), damit der Import sie nicht in Controls
   übersetzt und `color-mix`-Werte heil bleiben.
 
+Umbau 09.10.2026 (Entscheidung Nils, Statusbericht): Branchen-Dropdown
+jetzt Arztpraxen (`/branchen/arztpraxen/`), Heilberufe, Kanzleien & Freie
+Berufe (`/branchen/kanzleien/`), Mittelstand (`/branchen/mittelstand/`),
+Alle Branchen (`/branchen/`); Freie Berufe, Ferienwohnungen, Handwerk und
+Kundendienst entfallen als eigene Seiten, Gastgewerbe folgt nach dem
+Launch. Footer 54 gleich. Seiten: Arztpraxen 163 unter Branchen 193
+gehängt (Kampagnenseiten wandern mit), neue Entwürfe Kanzleien 203 und
+Mittelstand 204. Startseite: Mosaik-Kacheln und Zielgruppen-Panels zeigen
+auf die neuen Adressen, Standardlink der Component Zielgruppen-Panel
+ebenso. Revisionen zum Zurückrollen: Startseite 199, Header 200, Footer 201.
+
 Umbau 11.09.2026 nach Nils' Rückmeldung: Menü mit Leistungen, Branchen
 (Dropdown: Ärzte, Heilberufe, Freie Berufe, Kanzleien, Ferienwohnungen,
 Handwerk, Kundendienst), Referenzen (Dropdown: DIGIZT Haushaltsgeräte,
@@ -614,8 +625,9 @@ SMTP-Einrichtung wiederholen.
 ## Schritt 13: Kampagnen-Landingpages Arztpraxen (K1, K2, K9)
 
 Stand 17.09.2026. Grundlage: `handoff/kampagne/03_Landingpage_Texte.md`.
-Entscheidungen: Kampagnenseiten liegen unter `/arztpraxen/…/` (Elternseite
-„Arztpraxen“, Post 163, Entwurf); alle Referenzen dürfen genutzt werden;
+Entscheidungen: Kampagnenseiten liegen unter `/branchen/arztpraxen/…/`
+(Elternseite „Arztpraxen“, Post 163, Entwurf, seit 09.10.2026 unter
+„Branchen“ 193; vorher `/arztpraxen/…/`); alle Referenzen dürfen genutzt werden;
 die Google-Bewertung bleibt draußen; Grundparameter kommen aus dem Plugin
 „Digital Avenue Parameter“ (`wordpress/plugins/da-parameter/`).
 
@@ -654,7 +666,7 @@ die gemeinsamen Module kommen automatisch aus Template 167.
 
 Offen: Meta-Titel und -Beschreibung (Bricks hat keine SEO-Felder, dafür
 ein SEO-Plugin oder Meta Box nutzen), Seite „Arztpraxen“ (163) füllen,
-Branchenseite „Ärzte“ auf `/arztpraxen/` verlinken, Datenschutzseite mit
+Seite „Arztpraxen“ (163) als Branchenseite bauen, Datenschutzseite mit
 Abschnitt zur Rechercheansprache, Serviceversprechen nach Plugin-
 Installation per `{echo:da_param('serviceversprechen')}` einsetzen (heute
 noch als Klartext in Concierge, FAQ und Formular-Erfolgstext).

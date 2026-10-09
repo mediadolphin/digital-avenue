@@ -40,7 +40,7 @@ Rückmeldung bedeutet keine vollständige Umsetzung.
 Regeln für Texte: Sie-Ansprache, sachlich und persönlich, keine erfundenen
 Zahlen, Zitate, Bewertungen oder Referenzen. Alle Referenzen dürfen genannt
 werden; die Google-Bewertung bleibt draußen. Keine Preise in Mailings.
-Landingpages für Kampagnen liegen unter `/arztpraxen/…/` und werden weder
+Landingpages für Kampagnen liegen unter `/branchen/arztpraxen/…/` und werden weder
 in Navigation noch Footer verlinkt.
 
 Ergebnisse, die in Website, Prototyp oder Repository sollen, gib als

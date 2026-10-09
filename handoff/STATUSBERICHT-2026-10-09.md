@@ -327,6 +327,9 @@ davon nur als Prototyp-Fassung, die beim Bau noch auf die vier Bereiche
 Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
 
 1. Welche Branchenseiten zum Launch, und unter welchen Adressen?
+   **Entschieden 09.10.2026:** wie in 1.3 empfohlen, umgesetzt am selben
+   Tag (Header, Footer, Startseite, Seitenstruktur). Die Branches sind
+   ebenfalls zusammengeführt (Befund 1).
 2. Referenzen im Menü als Dropdown oder als einfacher Link?
 3. Blog zum Launch im Menü oder später?
 4. Eigene Kontaktseite?

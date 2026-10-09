@@ -68,3 +68,12 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
 - `handoff/STATUSBERICHT-2026-10-09.md`: Stand in Technik, Inhalt und
   Design, Seiteninventar gegen Navigation, Empfehlung zu Seitenstruktur
   und Meta-Box-Post-Typen, Reihenfolge bis zum Launch.
+- Branches zusammengeführt (09.10.2026): `optimistic-ride`, `youthful-ritchie`
+  und `affectionate-wright` sind im Arbeitsbranch; es gibt wieder einen Stand.
+- Entscheidung 1 umgesetzt (09.10.2026): fünf Branchenseiten unter
+  `/branchen/`: Arztpraxen (mit Kampagnenseiten darunter), Heilberufe,
+  Kanzleien & Freie Berufe, Mittelstand; Gastgewerbe nach dem Launch.
+  Header, Footer, Startseite, Component-Standard, Kampagnen-Doku und
+  Prototyp-Footer angepasst. Details in `handoff/import/README.md`, Schritt 8.
+- Neues Hilfsskript `handoff/tools/mcpcall.py`: Abilities direkt aufrufen,
+  Seitenbäume als Datei bearbeiten.

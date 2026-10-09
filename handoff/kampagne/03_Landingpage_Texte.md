@@ -2,7 +2,7 @@
 
 Neun Textvarianten auf einem gemeinsamen Seitentemplate. Die URL-Vorschläge sind noch nicht veröffentlicht. Zunächst K1, K2 und K9 umsetzen; weitere Varianten entsprechend Kampagnenstart. Alle Aussagen zu Leistungen stammen aus den bestätigten Angaben von Digital Avenue.
 
-## K1 – /arztpraxen/facharztpraxis/
+## K1 – /branchen/arztpraxen/facharztpraxis/
 
 **Meta-Titel:** Facharztpraxis entlasten | Digital Avenue
 
@@ -36,7 +36,7 @@ Lassen Sie uns in einem kurzen Gespräch ansehen, welche wiederkehrenden Informa
 
 **Button:** Gespräch anfragen
 
-## K2 – /arztpraxen/empfang-entlasten/
+## K2 – /branchen/arztpraxen/empfang-entlasten/
 
 **Meta-Titel:** Empfang entlasten | Digital Avenue
 
@@ -70,7 +70,7 @@ Besprechen wir kurz, welche wiederkehrenden Aufgaben wir Ihrem Team abnehmen kö
 
 **Button:** Gespräch anfragen
 
-## K3 – /arztpraxen/auffindbarkeit/
+## K3 – /branchen/arztpraxen/auffindbarkeit/
 
 **Meta-Titel:** Passend gefunden werden | Digital Avenue
 
@@ -104,7 +104,7 @@ Lassen Sie uns über die Leistung oder den Standort sprechen, den Sie sichtbarer
 
 **Button:** Gespräch anfragen
 
-## K4 – /arztpraxen/patienteninformation/
+## K4 – /branchen/arztpraxen/patienteninformation/
 
 **Meta-Titel:** Gut informiert zum Termin | Digital Avenue
 
@@ -138,7 +138,7 @@ Gehen wir gemeinsam einen typischen Weg vom ersten Kontakt bis zum Termin durch 
 
 **Button:** Gespräch anfragen
 
-## K5 – /arztpraxen/psychotherapie/
+## K5 – /branchen/arztpraxen/psychotherapie/
 
 **Meta-Titel:** Praxisbetreuung für Psychotherapie | Digital Avenue
 
@@ -172,7 +172,7 @@ Lassen Sie uns kurz besprechen, welche Websiteaufgaben Sie künftig abgeben möc
 
 **Button:** Gespräch anfragen
 
-## K6 – /arztpraxen/medizinische-einrichtungen/
+## K6 – /branchen/arztpraxen/medizinische-einrichtungen/
 
 **Meta-Titel:** Kommunikation für medizinische Einrichtungen | Digital Avenue
 
@@ -206,7 +206,7 @@ Besprechen wir, welche Kommunikationsaufgaben Sie dauerhaft an einen festen Ansp
 
 **Button:** Gespräch anfragen
 
-## K7 – /arztpraxen/praxisstart/
+## K7 – /branchen/arztpraxen/praxisstart/
 
 **Meta-Titel:** Praxisstart und Übernahme | Digital Avenue
 
@@ -240,7 +240,7 @@ Lassen Sie uns Ihren Zeitplan und die benötigten Bausteine gemeinsam ordnen.
 
 **Button:** Gespräch anfragen
 
-## K8 – /arztpraxen/recruiting/
+## K8 – /branchen/arztpraxen/recruiting/
 
 **Meta-Titel:** Recruiting unterstützen | Digital Avenue
 
@@ -274,7 +274,7 @@ Lassen Sie uns ansehen, wie Sie Ihre offene Stelle und Ihre Praxis als Arbeitspl
 
 **Button:** Gespräch anfragen
 
-## K9 – /arztpraxen/betreuung-wechseln/
+## K9 – /branchen/arztpraxen/betreuung-wechseln/
 
 **Meta-Titel:** Betreuung wechseln – Website und Telefonie | Digital Avenue
 

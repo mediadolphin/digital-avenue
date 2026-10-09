@@ -16,7 +16,7 @@ Einrichtungen. Ein bis wenige Standorte, meist ohne eigene Verwaltung,
 häufig mit Selbstzahlerangeboten neben Kassenleistungen.
 
 Abgrenzung zu Arztpraxen: Arztpraxen sind in der Regel ausgelastet; dort
-ist Entlastung das Thema (Kampagne K1–K9 unter `/arztpraxen/`). Bei
+ist Entlastung das Thema (Kampagne K1–K9 unter `/branchen/arztpraxen/`). Bei
 Heilberufen entscheiden Auffindbarkeit und ein einfacher Weg zum ersten
 Termin darüber, ob neue Klientinnen und Klienten kommen. Werbung, SEO und
 Google Business tragen deshalb mehr Gewicht, der Digital-Concierge bleibt
@@ -350,7 +350,7 @@ Hamburg und Rostock in Meta-Beschreibung und Textkörper, nicht im Title.
 Die Seite bleibt eine Branchenseite; keine Duplikate je Fachrichtung oder
 Stadt. Wenn einzelne Heilberufe eigene Seiten bekommen sollen, dann als
 Leistungsseiten mit eigenem Inhalt unter `/leistungen/` oder als
-Kampagnen-Landingpages nach dem Muster `/arztpraxen/`.
+Kampagnen-Landingpages nach dem Muster `/branchen/arztpraxen/`.
 
 ## 4. Offene Punkte und Entscheidungen für Nils
 

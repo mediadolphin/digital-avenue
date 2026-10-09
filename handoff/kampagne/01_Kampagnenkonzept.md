@@ -66,15 +66,15 @@ K1–K6 übersetzen Fachgruppen in passende Ansprache. K3 ist zusätzlich an ein
 
 | ID | Kampagne | Auslöser | Angebot / Gesprächsziel | Landingpage |
 |---|---|---|---|---|
-| K1 | Facharztpraxis entlasten | Wiederkehrende Patienteninformationen, laufender Betreuungsbedarf | Website und Kontaktwege betreuen | /arztpraxen/facharztpraxis/ |
-| K2 | Empfang entlasten | Wiederkehrende Änderungen und mehrere Kontaktkanäle | Concierge, Website, Google Business, Telefonie | /arztpraxen/empfang-entlasten/ |
-| K3 | Passend gefunden werden | Bestätigte neue Leistung, Standort oder Wachstumsziel | Leistungsseiten, SEO, optional SEA | /arztpraxen/auffindbarkeit/ |
-| K4 | Gut informiert zum Termin | Eigene Untersuchungs-/Eingriffstermine, Informationsbedarf | Patienten- und Zuweiserwege auf der Website | /arztpraxen/patienteninformation/ |
-| K5 | Praxisbetreuung für Psychotherapie | Erstkontakt, Abwesenheiten und Pflegebedarf | Angemessene Websitebetreuung, Telefonie optional | /arztpraxen/psychotherapie/ |
-| K6 | Kommunikation für Einrichtungen | Selbstständige Diagnostikeinrichtung mit eigener Entscheidung | Zuweiserinformationen, Website und Karriere | /arztpraxen/medizinische-einrichtungen/ |
-| K7 | Praxisstart und Übernahme | Verifizierte Gründung, Übernahme, Umzug oder Modernisierung | Gestaltung, Website, Telefonie und anschließende Betreuung | /arztpraxen/praxisstart/ |
-| K8 | Recruiting unterstützen | Bestätigte offene Stelle / Personalplanung | Arbeitgeberdarstellung, Stellen- und Bewerbungswege | /arztpraxen/recruiting/ |
-| K9 | Betreuung wechseln | Wunsch nach externer Betreuung, Systembestand prüfen | WordPress-/Placetel-Übernahme oder Neuaufbau nach Befund | /arztpraxen/betreuung-wechseln/ |
+| K1 | Facharztpraxis entlasten | Wiederkehrende Patienteninformationen, laufender Betreuungsbedarf | Website und Kontaktwege betreuen | /branchen/arztpraxen/facharztpraxis/ |
+| K2 | Empfang entlasten | Wiederkehrende Änderungen und mehrere Kontaktkanäle | Concierge, Website, Google Business, Telefonie | /branchen/arztpraxen/empfang-entlasten/ |
+| K3 | Passend gefunden werden | Bestätigte neue Leistung, Standort oder Wachstumsziel | Leistungsseiten, SEO, optional SEA | /branchen/arztpraxen/auffindbarkeit/ |
+| K4 | Gut informiert zum Termin | Eigene Untersuchungs-/Eingriffstermine, Informationsbedarf | Patienten- und Zuweiserwege auf der Website | /branchen/arztpraxen/patienteninformation/ |
+| K5 | Praxisbetreuung für Psychotherapie | Erstkontakt, Abwesenheiten und Pflegebedarf | Angemessene Websitebetreuung, Telefonie optional | /branchen/arztpraxen/psychotherapie/ |
+| K6 | Kommunikation für Einrichtungen | Selbstständige Diagnostikeinrichtung mit eigener Entscheidung | Zuweiserinformationen, Website und Karriere | /branchen/arztpraxen/medizinische-einrichtungen/ |
+| K7 | Praxisstart und Übernahme | Verifizierte Gründung, Übernahme, Umzug oder Modernisierung | Gestaltung, Website, Telefonie und anschließende Betreuung | /branchen/arztpraxen/praxisstart/ |
+| K8 | Recruiting unterstützen | Bestätigte offene Stelle / Personalplanung | Arbeitgeberdarstellung, Stellen- und Bewerbungswege | /branchen/arztpraxen/recruiting/ |
+| K9 | Betreuung wechseln | Wunsch nach externer Betreuung, Systembestand prüfen | WordPress-/Placetel-Übernahme oder Neuaufbau nach Befund | /branchen/arztpraxen/betreuung-wechseln/ |
 
 Die Zuordnungen im Import sind ausdrücklich vorläufig: K1 963, K2 3.113, K4 673, K5 1.927 und K6 180 Einträge; 35 sind ungeklärt. Diese primäre Zuweisung ist überschneidungsfrei. Die Fachgruppenübersicht im Anhang kann Mehrfachnennungen enthalten und darf nicht zur Gesamtzahl addiert werden. K3, K7, K8 und K9 werden erst nach tatsächlichem Anlass final zugewiesen.
 

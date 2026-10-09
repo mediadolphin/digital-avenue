@@ -1,6 +1,6 @@
 # Digital Avenue: Projektwissen für den Chat
 
-Stand 17.09.2026. Automatisch aus dem Repository `mediadolphin/digital-avenue` gebündelt (`handoff/tools/build-chat-paket.py`). Bei jedem neuen Thema zuerst „Projektstand“ und „Merkregeln“ lesen.
+Stand 09.10.2026. Automatisch aus dem Repository `mediadolphin/digital-avenue` gebündelt (`handoff/tools/build-chat-paket.py`). Bei jedem neuen Thema zuerst „Projektstand“ und „Merkregeln“ lesen.
 
 ## Inhalt
 
@@ -24,7 +24,7 @@ Quelle: `handoff/STATUS.md`
 
 ## Bricks-Handoff: Stand
 
-Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45 offiziellen Bricks-Skills (codeerhq/bricks-skills, Release v0.1.0-beta.3) in `.claude/skills/bricks-*`, Stand in `.claude/skills/BRICKS-SKILLS.lock`.
+Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45 offiziellen Bricks-Skills (codeerhq/bricks-skills, Release v0.1.0) in `.claude/skills/bricks-*`, Stand in `.claude/skills/BRICKS-SKILLS.lock`.
 
 | Phase | Stand | Ergebnis |
 |---|---|---|
@@ -32,7 +32,7 @@ Skill: `.claude/skills/bricks-handoff/` (Ablauf in dessen SKILL.md). Dazu die 45
 | 1 Tokens exportieren | erledigt, am Staging importiert (Theme Style, 52 Farben, 48 Variablen über den Style Manager, 11.09.2026) | `export/`: 52 Farb-Tokens mit Hell- und Dunkel-Wert (davon 16 Schatten- und Glasfarben), 48 Variablen in 8 Kategorien, keine unzugeordneten. Dunkelmodus im Prototyp umgesetzt und am Staging bestätigt (Toggle-Mode-Element, 11.09.2026): Hintergrund, Button und Icons wechseln über den Color Manager. |
 | 2 Schriften & Icons | erledigt (11.09.2026) | Manrope und Jost als Custom Fonts mit je 8 Schnitten im Font Manager (Jost lokal statt Google). Icon-Set „Digital Avenue“ mit 15 Icons im Icon Manager, Quelle `import/06-icons/` (SVG → Bricks Optimizer). |
 | 3 Komponenten als Global Classes und Components | erledigt (11.09.2026): 50 Klassen am Staging in 8 Kategorien, 14 Components per MCP (Karten, Kacheln, Listenzeilen, Abschnitte Feature-Block, Concierge, Digital-Check-Block, Hero Landingpage), FAQ als Accordion-Muster, alle Fotos in der Mediathek; Testseiten 50, 60, 63, 101. Offen: Abnahme durch Nils, Popup Digital-Check (Formular), Partnerzeile, Zielgruppen-Tabs, Mosaik beim Seitenimport | Stand, IDs und Lernpunkte in `handoff/import/README.md`, Schritt 7. |
-| 4 Templates & Seiten | begonnen (11.09.2026): Header (Nav mit Dropdowns Branchen/Referenzen, Umschalter, CTA, Burger) und Footer als Templates per MCP gebaut, Startseite mit Hero, Mosaik und Partnerzeile; offen: mobiles Menü, Rest der Startseite (Kacheln, Schritte, Referenzen, Kundenstimmen, Digital-Check, FAQ), drei Landingpages, Popup Digital-Check | Aufbau in `handoff/import/README.md`, Schritte 8 und 9. |
+| 4 Templates & Seiten | Header und Footer fertig (inkl. mobiles Menü, 13.09.2026), Startseite komplett (Hero, Mosaik, Partner, Für wen, Leistungen, So arbeiten wir, Referenzen, Über uns, Digital-Check, 13.09.2026); Popup Digital-Check mit Bricks-Formular (Template 130, E-Mail plus Submissions-Tabelle, kein HubSpot, 13.09.2026); Kampagnenseiten K1, K2, K9 und Branchenseite Heilberufe als Entwürfe (17.09.2026); offen: SMTP am Server, Datenschutz-Link, echte Texte für Kundenstimmen und Referenzen, alle weiteren Seiten (Statusbericht 09.10.2026) | Aufbau in `handoff/import/README.md`, Schritte 8 bis 14. |
 | 5 Abgleich, Redirects, Launch | offen | Checkliste in `references/launch-checklist.md`. |
 
 Bricks-Version: 2.4 final am Staging (Update von RC2 am 17.09.2026). Das Plugin `da-content-model` war am Staging kurz aktiv und ist wieder entfernt (11.09.2026); Post-Typen kommen erst nach den Templates zurück. Style Guide mit Inventar und Arbeitsliste: `prototype/styleguide.html`.
@@ -50,11 +50,57 @@ Merkregeln zum Nachschlagen: `handoff/MERKREGELN.md`. Importdaten für den Aufba
 
 Nachtrag 11.09.2026 (abends): Startseite um die Section „Für wen“ mit Bricks-Tabs (Klasse `tabs`), Abschnittskopf (`section-head center`) und Component „Zielgruppen-Panel“ (`28c728`) ergänzt. Glas-Deckkraft auf 0.84/0.86 mit stärkerem Blur eingependelt.
 
+Nachtrag 13.09.2026: Header auf „Sticky on scroll“ umgestellt (Hero-Abstand oben wieder da), Rasterklassen `mosaic`, `audience`, `lp-hero`, `flip` so umgebaut, dass die Media-Queries greifen (Grundwerte in Controls bzw. Selektoren mit Element-Klasse). Nächster Schritt: mobiles Menü in der Navigation.
+
+Nachtrag 13.09.2026 (2): Mosaik auf `width: 100%`, `minmax`-Spalten und `grid-template-areas` umgebaut, Containerbreite im Theme Style von 1100 auf 1240px korrigiert (`container.width`). Offen: Header-Menü läuft bei 400px über (mobiles Menü).
+
+Nachtrag 13.09.2026 (3): Mobiles Menü läuft. Ursache war der fehlende Wrapper-Block `ul.brx-nav-nested-items` in der Nav (plus `backdrop-filter` auf der Header-Section als Containing Block des Drawers). Header 52 umgebaut, Drawer mit CTA, Merkregeln ergänzt. Offen: Burger als X im offenen Zustand, Rest der Startseite.
+
+Nachtrag 13.09.2026 (4): Header-Feinschliff: Burger als X, Drawer-Untermenüs als Liste, Seitenabstand, mobil Logo links und Icons rechts. Nächster Schritt: Rest der Startseite aus den Components.
+
+Nachtrag 13.09.2026 (5): Startseite fertig gebaut (Leistungen, So arbeiten wir, Referenzen, Über uns, Digital-Check), neue Klasse `about`. Nächster Schritt: Popup Digital-Check mit Formular, dann Landingpages.
+
+Nachtrag 13.09.2026 (6): Popup Digital-Check gebaut, alle vier CTA-Buttons öffnen es. E-Mail-Versand am Staging scheitert ohne SMTP-Plugin; Einrichtung offen.
+
+Nachtrag 13.09.2026 (7): `handoff/BAUKASTEN.md` angelegt: Anleitung für manuell gebaute Seiten mit allen 65 Global Classes, 14 Components, Templates, Rezepten und Fehlerbildern.
+
+Nachtrag 16.09.2026: Positionierung erweitert (Foto und Video vom Konzept bis zum Publishing, alle Inhalte auf Wunsch, alles aus einer Hand). Startseite, Footer, Prototyp-Quellen und Briefing angepasst; vierter Leistungsbereich „Foto, Video & Text“ als Kachel. Landingpages übernehmen das beim Bau.
+
 Nachtrag 17.09.2026: Kampagnenpaket (`handoff/kampagne/`, ohne Kontaktdaten) übernommen. Landingpages K1/K2/K9 unter `/arztpraxen/` als Entwürfe gebaut (Posts 169, 171, 173), gemeinsame Module als Section-Template 167, Kontaktformular als Template 165. Plugin „Digital Avenue Parameter“ für Telefon, Servicezeiten, Serviceversprechen per Shortcode/Echo-Tag geschrieben (`wordpress/plugins/da-parameter.zip`), Installation durch Nils.
 
 Nachtrag 17.09.2026: Footer-Spalte „Für wen“ (Prototyp) bzw. „Branchen“ (Bricks, Template 54) um Heilberufe und Gastgewerbe ergänzt. Beide verweisen auf `/branchen/heilberufe/` und `/branchen/gastgewerbe/`; im Prototyp vorläufig auf die Praxen- bzw. Mittelstand-Seite. Für beide Zielgruppen gibt es noch keine Seite und keinen Text.
 
 Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handoff/branchen/heilberufe.md`) im Prototyp (`#heilberufe`) und in Bricks (Post 196 unter Elternseite „Branchen“ 193, beide Entwurf) gebaut, fünf neue Higgsfield-Motive m40–m44, eigenes Formular-Template 194. Offene Entscheidungen im Konzept, Abschnitt 4.
+
+#### Nachtrag 20.09.2026: Farbsystem-Dokument
+
+- `handoff/BRICKS-FARBSYSTEM-DARKMODE.md`: portable Beschreibung des
+  Bricks-Farbsystems und des Hell/Dunkelmodus (Attribut `data-brx-theme`,
+  Skript `bricks-dl-mode-js-after` mit `brx_mode`, Palette wird als `:root`-
+  und Dunkelblock gedruckt, Datenmodell einer Farbe, Regeln, Umschalter,
+  Übertragung auf neue Projekte). Für andere Claude-Code-Umgebungen gedacht.
+- Dabei aufgefallen: `color-scheme: light/dark` steht am Staging noch nicht
+  im Custom CSS (Formularfelder, Scrollbalken). Standardmodus am Staging ist
+  `light`, im Prototyp galt die Systemeinstellung; Entscheidung offen.
+- `handoff/BRICKS-SVG-ICONS.md`: portable Anleitung für SVG-Icons in Bricks
+  (Normalisierung, eigenes Set per Icon Manager oder MCP, Icon-Element,
+  Klassen `icon`/`icon-20`, Farbe über Kontext, Components, Stolperfallen).
+  Icon-IDs des Staging-Sets per `list-custom-icons` aufgenommen.
+
+#### Nachtrag 09.10.2026: Statusbericht
+
+- `handoff/STATUSBERICHT-2026-10-09.md`: Stand in Technik, Inhalt und
+  Design, Seiteninventar gegen Navigation, Empfehlung zu Seitenstruktur
+  und Meta-Box-Post-Typen, Reihenfolge bis zum Launch.
+- Branches zusammengeführt (09.10.2026): `optimistic-ride`, `youthful-ritchie`
+  und `affectionate-wright` sind im Arbeitsbranch; es gibt wieder einen Stand.
+- Entscheidung 1 umgesetzt (09.10.2026): fünf Branchenseiten unter
+  `/branchen/`: Arztpraxen (mit Kampagnenseiten darunter), Heilberufe,
+  Kanzleien & Freie Berufe, Mittelstand; Gastgewerbe nach dem Launch.
+  Header, Footer, Startseite, Component-Standard, Kampagnen-Doku und
+  Prototyp-Footer angepasst. Details in `handoff/import/README.md`, Schritt 8.
+- Neues Hilfsskript `handoff/tools/mcpcall.py`: Abilities direkt aufrufen,
+  Seitenbäume als Datei bearbeiten.
 
 
 ---
@@ -93,9 +139,15 @@ Query Loop.
 ### Theme Style
 
 **Section-Abstand steht in der Gruppe Section, die Breite in der Gruppe
-Container.** (11.09.2026) Die Felder „Root container padding“ und „Root
-container width“ unter General tragen ein rotes Symbol, sind Altlasten und
-wirken nicht auf Sections.
+Container.** (11.09.2026, ergänzt 13.09.2026) Die Felder „Root container
+padding“ und „Root container width“ unter General tragen ein rotes Symbol,
+sind Altlasten und wirken nicht auf Sections: `general.containerMaxWidth`
+gibt `.brxe-container.root` aus, und Container in Sections tragen kein
+`root`. Die Breite gehört als `container.width` (Feld „Width“) in die
+Gruppe Container; das ergibt `.brxe-container { width: 1240px }` und
+überschreibt Bricks' Vorgabe von 1100px. `widthMax` allein reicht nicht,
+weil es die Vorgabe-Breite nicht anhebt. Am Staging am 13.09.2026
+umgestellt, der Build schreibt jetzt `width`.
 
 **HTML-Schriftgröße im Theme Style auf 100 % setzen.** (11.09.2026)
 Ohne den Wert rechnet Bricks mit 62,5 % (1rem = 10px), und alles in rem
@@ -166,11 +218,25 @@ Abstand selbst, deshalb ist die Wurzel eine Section, nicht ein Div in
 einer Section. Alle anderen Abschnitte liegen als Div in Section und
 Container.
 
+**Media-Query mit gleichem Selektor wie die Basisregel verliert.**
+(17.09.2026) Bricks gibt `@media`-Blöcke vor den Basisregeln aus. Steht in
+beiden dieselbe Selektorstärke (`.lp-kontakt.brxe-div`), gewinnt die
+Basisregel auch auf dem Handy. Deshalb im Media-Block die Klasse doppeln:
+`.lp-kontakt.lp-kontakt.brxe-div`. `render-elements` (summary) meldet den
+Fall als `responsive_override_precedes_base_rule`; nach jedem Klassen-
+Anlegen einmal prüfen. Korrigiert für `lp-kontakt`, `lp-form`, `audience`,
+`tabs`.
+
 **Nestable-Kinder tragen ihre Rolle in `_hidden._cssClasses`.**
-(11.09.2026) Accordion: `accordion-title-wrapper` und
+(11.09.2026, ergänzt 13.09.2026) Accordion: `accordion-title-wrapper` und
 `accordion-content-wrapper`; Dropdown: `brx-dropdown-content`; Tabs:
-`tab-menu`, `tab-title`, `tab-content`, `tab-pane`. Ohne diese Klassen
-läuft das Bricks-Skript nicht.
+`tab-menu`, `tab-title`, `tab-content`, `tab-pane`; **Nav (Nestable):
+ein Block mit `customTag: ul` und `brx-nav-nested-items`, in dem alle
+Menüpunkte liegen, der Toggle (Burger) bleibt direktes Kind der Nav.**
+Ohne diese Klassen läuft das Bricks-Skript nicht. Beim Header fehlte der
+Nav-Wrapper: Bricks hängt Ausblenden unter dem Breakpoint, Drawer und
+`brx-open` an genau diese `ul`, deshalb blieb das Menü sichtbar und hinter
+dem Burger war nichts.
 
 **Controls mit Bricks-Vorgabewerten am Element setzen, nicht in der Klasse.**
 (11.09.2026) Tabs und Accordion bringen Vorgaben mit (Padding 20px,
@@ -184,14 +250,104 @@ lassen (Beispiel: `tabs` auf dem Zielgruppen-Umschalter).
 (z. B. Zielgruppen-Panel) steckt darin. So kollidiert das `display` der
 Component nicht mit dem Ein- und Ausblenden von Bricks.
 
-**Media-Queries in Klassen brauchen die Element-Klasse im Selektor.**
-(11.09.2026) Bricks erzeugt aus den Controls eine Regel wie
+**Media-Queries in Klassen brauchen die Element-Klasse im Selektor, und eine Stufe mehr Spezifität.**
+(11.09.2026, präzisiert 13.09. und 17.09.2026) Bricks erzeugt aus den Controls eine Regel wie
 `.tiles.brxe-div { grid-template-columns: … }` und gibt Media-Queries
 davor aus. `@media { .tiles { … } }` verliert dann doppelt (Spezifität
 und Reihenfolge). Deshalb in Media-Queries immer
 `.tiles.brxe-div, .tiles.brxe-block, .tiles.brxe-container` schreiben.
 Gleiches gilt für Regeln, die einen Control-Wert überschreiben sollen
 (`.tile-photo { padding: 0 }` gegen `.tile.brxe-div { padding }`).
+
+**Grundwerte, die eine Media-Query überschreibt, gehören in die Controls
+der Klasse, nicht ins Custom-CSS.** (13.09.2026) Bricks gibt bei einer
+Global Class zuerst die CSS aus den Controls aus und danach `_cssCustom`;
+der MCP-Adapter sortiert `@media`-Blöcke innerhalb von `_cssCustom` beim
+Speichern nach oben (eine Umsortierung kommt unverändert zurück). Steht
+die Grundregel im Custom-CSS, landet sie hinter der Media-Query und
+gewinnt bei gleicher Spezifität. Deshalb `display`, `grid-template-columns`,
+`gap`, `grid-auto-rows`, `align-items` als Controls
+(`_display`, `_gridTemplateColumns`, `_gridGap`, `_gridAutoRows`,
+`_alignItemsGrid`) setzen und im Custom-CSS nur die Media-Queries lassen
+(so funktionieren `tiles`, `steps`, `mosaic`, `audience`). Zielt die
+Media-Query auf ein Kind (`.lp-hero .lp-hero-grid`, `.feature.flip figure`),
+hilft kein Control; dann bekommt der Media-Query-Selektor die Element-Klasse
+zusätzlich (`.lp-hero.brxe-section .lp-hero-grid`), damit er über die
+Spezifität gewinnt.
+
+**Layout-Divs im Container brauchen `width: 100%`.** (13.09.2026) Bricks
+setzt am Container `align-items: flex-start`; ein Div darin wird nicht
+gestreckt, sondern so breit wie sein Inhalt. Ein Grid mit `1fr`-Spalten
+wächst dann mit dem längsten Text und lässt rechts einen Rand (Mosaik am
+Tablet). Deshalb bei Rasterklassen (`mosaic`, künftig `tiles`, `steps`,
+`refs`, `quotes`) `_width: 100%` als Control setzen.
+
+**Raster: Spalten als `minmax(0, …fr)`, Reihen als `minmax(…, auto)`,
+Anordnung über `grid-template-areas`.** (13.09.2026) `1fr` heißt
+`minmax(auto, 1fr)`; ein langer Text kann die Spalte aufblähen. `minmax(0,
+4fr)` hält das Verhältnis, Kacheln bekommen `min-width: 0`. Feste
+`grid-auto-rows: 500px` schneiden längere Texte ab, `minmax(500px, auto)`
+lässt die Reihe wachsen. Die Anordnung je Breite steht in
+`grid-template-areas`, die Kacheln tragen nur `grid-area: praxis` usw.;
+umstellen heißt dann eine Zeile ändern. Weil es für `grid-template-areas`
+kein Control gibt, stehen alle drei Zustände in sich ausschließenden
+Media-Queries (`min-width: 1081px`, `641px bis 1080px`, `max-width:
+640px`); so spielt die Reihenfolge im Custom-CSS keine Rolle.
+
+### Templates
+
+**Header-Template mit „Sticky header“ und „Sticky on scroll“.** (13.09.2026)
+Nur `headerSticky` macht den Header `position: fixed`; er liegt dann über
+dem Seitenanfang, und der obere Section-Abstand des Heros verschwindet
+hinter den 72px Nav-Höhe. Mit `headerStickyOnScroll` wird er `position:
+sticky`, bleibt wie im Prototyp im Fluss und der Hero beginnt darunter.
+
+**Kein `backdrop-filter` (und kein `transform`, `filter`) auf Header-Section
+oder -Container.** (13.09.2026) Diese Eigenschaften machen das Element zum
+Containing Block für `position: fixed`. Der mobile Drawer der Nav ist
+`fixed` und liegt zwingend in der Nav; mit dem Blur auf der Section war
+er nur 48px hoch und lag hinter dem Hero. Der Blur sitzt jetzt auf
+`.site-nav.brxe-section::before` (absolut, `inset: 0`, `z-index: -1`),
+die Section bleibt filterfrei.
+
+**Nav-Controls gibt Bricks mit ID-Selektor aus, und zwar nach der
+Element-CSS der Kinder.** (13.09.2026) `itemPadding`, `itemTypography`
+usw. werden zu `#brxe-navmn1 :where(.brx-nav-nested-items > li > a)`
+(Spezifität eines IDs). Eine Klasse verliert immer, und auch Controls am
+Kind (`#brxe-navcta`) verlieren, weil Bricks sie vor der Nav-Regel
+ausgibt. Wer einen einzelnen Menüpunkt anders gestalten will (CTA-Button
+im Drawer), braucht `!important` in der Klasse; das ist hier bewusst so.
+
+**Toggle-Element: der offene Zustand kommt per CSS, nicht per zweitem
+Icon.** (13.09.2026) Das Toggle hat nur ein Icon-Control. Beim Öffnen
+setzt Bricks `aria-expanded="true"` und die Klasse `is-active` auf den
+Button. Darauf reagiert die Klasse `nav-burger`: SVG ausblenden, X aus
+zwei Pseudo-Elementen in `currentColor`.
+
+**Was mobil anders aussehen soll, darf nicht in Nav-Controls stehen.**
+(13.09.2026) Dropdown-Controls der Nav (`dropdownBackgroundColor`,
+`dropdownBorder`, …) gelten in beiden Zuständen mit ID-Spezifität; die
+Drawer-Variante in der Klasse verliert dann. Deshalb Dropdown-Optik nur in
+der Klasse `nav-menu`, Controls der Nav nur für das, was Desktop und
+Drawer teilen.
+
+**Global Classes immer per ID in `_cssGlobalClasses` referenzieren.**
+(13.09.2026) `_cssClasses: "name"` schreibt nur den Klassennamen ins HTML;
+Bricks gibt das CSS einer Global Class nur aus, wenn ein Element sie per
+ID referenziert. Für Kind-Elemente, die nur ein Selektor der Klasse
+anspricht (`.check-dialog .dialog-head`), reicht `_cssClasses`.
+
+**Buttons, die ein Popup öffnen, sind `tag: button` ohne Link.**
+(13.09.2026) Mit `href` (auch `#anker`) läuft die Klick-Interaktion
+„show popup“ nicht. Interaktionen stehen am Element; auf einer Global
+Class nimmt der MCP-Adapter `_interactions` nicht an.
+
+**Instanz-Properties und Slots ändern heißt: Instanz neu einfügen.**
+(16.09.2026) `update-element` nimmt nur `settings`; `properties` einer
+Component-Instanz lehnt es ab, und ein Kind, das per `add-element` an eine
+Instanz gehängt wird, steht nicht im Slot und rendert nicht. Deshalb
+Instanz mit `remove-element` entfernen und mit `add-element` (gleiche ID,
+`position`, `properties`, `slotChildren` verschachtelt) neu einfügen.
 
 ### Icons
 
@@ -218,6 +374,15 @@ Authorization-Header durch die hinterlegte Anmeldung; ein 401 von dort sagt
 nur, dass diese Anmeldung veraltet ist. Erst wenn der Test vom Mac 200
 liefert und trotzdem `rest_forbidden` kommt, liegt es am Server
 (Skill-Referenz `bricks-2-4.md`, Punkt 3).
+
+**Neue Bricks-Site mit dem Skill `bricks-connect` anbinden.** (20.09.2026)
+`scripts/bricks-connect.sh check` prüft Rewrite und Adapter ohne Anmeldung,
+`config --write .mcp.json` legt den HTTP-Eintrag mit eigener Variable
+`BRICKS_MCP_AUTH_<HOST>` an, `keychain` und `test` laufen im Terminal des
+Nutzers (Schlüsselbund, Handshake, Abilities zählen). Die Client-Anleitung
+aus Bricks › AI liefert nur URL und Anmeldename; ihren npx-Block nicht
+übernehmen, er scheitert an Node 18 und am npx-Cache, sobald zwei Sites
+gleichzeitig starten.
 
 **Struktur am Staging bauen, Inhalte in der Produktion pflegen.**
 (11.09.2026) Struktur-Änderungen wandern als Transfer-Paket vom Staging in
@@ -267,6 +432,25 @@ und Staging halten denselben Stand. Bilder kommen wie immer aus Higgsfield
 (Soul 2.0, Editorial-Look) und werden über `prototype/img/sources.json` und
 die GitHub-Action nachgeladen, weil das Bild-CDN aus der Cloud gesperrt ist.
 
+**Menü zeigt nur Seiten, die es zum Launch gibt.** (09.10.2026) Header,
+Footer und Startseiten-Links verweisen nur auf Seiten mit echtem Inhalt.
+Neue Branchen oder Bereiche kommen ins Menü, wenn ihre Seite steht. Ein
+Begriff je Zielgruppe überall gleich: Arztpraxen, Heilberufe, Kanzleien &
+Freie Berufe, Mittelstand.
+
+**Große Seitenbäume per Skript, nicht per Chat.** (09.10.2026) Für
+Änderungen an Component-Eigenschaften (die `update-element` nicht kann)
+den Baum mit `handoff/tools/mcpcall.py` als Datei holen, per Python
+ändern und mit `set-page-elements` samt `expectedDocumentDigest`
+zurückschreiben. Jede Speicherung legt eine Revision an. Seiten umhängen
+oder anlegen geht über die WordPress-REST-Schnittstelle
+(`/wp-json/wp/v2/pages`), die Anmeldung setzt in der Cloud der Proxy ein.
+
+**Sitzungen arbeiten auf einem Branch.** (09.10.2026) Eine parallele
+Sitzung auf einem eigenen Branch hat eine Woche Arbeit am Hauptbranch
+vorbei gebaut. Neue Sitzungen zuerst `git fetch` und die Branches prüfen,
+fremde Branches sofort zusammenführen.
+
 
 ---
 
@@ -293,6 +477,12 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
   USP: Sichtbarkeit (Webdesign, PR, Marketing) plus Infrastruktur
   (Placetel-Telefonie, Hosting, Doctolib-/HubSpot-Anbindung) aus einer Hand,
   proaktiver Service (Beispiel: Urlaubs-Service).
+- Ergänzung 16.09.2026 (Nils): Digital Avenue bietet **Foto und Video vom
+  Konzept über die Produktion bis zum Publishing** an und **erstellt auf Wunsch
+  alle Inhalte** (Texte, Fotos, Videos). Kernaussage überall: **alles aus einer
+  Hand**, keine dritte Agentur nötig. Auf der Startseite als vierter
+  Leistungsbereich „Foto, Video & Text“ umgesetzt (Kachel, Hero-Lead,
+  Zielgruppen-Panels, Digital-Check-Liste, Über uns, Footer).
 - Das Design System und die Entwürfe aus Claude Design liegen seit dem
   10.09.2026 unverändert unter `design-system/` im Repo (ZIP-Export).
 
@@ -316,6 +506,12 @@ Stand: 10. September 2026. Ergebnis der Vorab-Klärung (Fragen und Antworten von
 - Claude-Design-Projekt (Quelle des Exports):
   https://claude.ai/design/p/019ddea1-f8fe-7a97-bba0-f6d090a4b241
 - Inhalt des "Digital-Check" mit Nils abstimmen (Umfang, Dauer, was der Kunde bekommt).
+- Referenzen für Foto und Video (16.09.2026): Nils hat Porträts und einen
+  Imagefilm aus Kundenprojekten. Nutzungsrechte für die Website müssen erst
+  geklärt werden (Kunde und abgebildete Personen). Bis dahin bleiben die
+  Referenzkarten bei Website-Projekten. Nach Freigabe: eine Referenzkarte
+  je Projekt mit Foto-Serie bzw. Film; Film selbst gehostet (MP4 mit
+  Vorschaubild), kein YouTube-Embed, damit keine fremden Cookies laden.
 - Echte Kundenstimmen nachliefern.
 - Hosting-Hintergrund (Nils, 10.09.2026): Digital Avenue hostet nicht selbst,
   sondern arbeitet mit Partnern (IONOS, Netleaders), weil diese Infrastruktur
@@ -620,15 +816,15 @@ K1–K6 übersetzen Fachgruppen in passende Ansprache. K3 ist zusätzlich an ein
 
 | ID | Kampagne | Auslöser | Angebot / Gesprächsziel | Landingpage |
 |---|---|---|---|---|
-| K1 | Facharztpraxis entlasten | Wiederkehrende Patienteninformationen, laufender Betreuungsbedarf | Website und Kontaktwege betreuen | /arztpraxen/facharztpraxis/ |
-| K2 | Empfang entlasten | Wiederkehrende Änderungen und mehrere Kontaktkanäle | Concierge, Website, Google Business, Telefonie | /arztpraxen/empfang-entlasten/ |
-| K3 | Passend gefunden werden | Bestätigte neue Leistung, Standort oder Wachstumsziel | Leistungsseiten, SEO, optional SEA | /arztpraxen/auffindbarkeit/ |
-| K4 | Gut informiert zum Termin | Eigene Untersuchungs-/Eingriffstermine, Informationsbedarf | Patienten- und Zuweiserwege auf der Website | /arztpraxen/patienteninformation/ |
-| K5 | Praxisbetreuung für Psychotherapie | Erstkontakt, Abwesenheiten und Pflegebedarf | Angemessene Websitebetreuung, Telefonie optional | /arztpraxen/psychotherapie/ |
-| K6 | Kommunikation für Einrichtungen | Selbstständige Diagnostikeinrichtung mit eigener Entscheidung | Zuweiserinformationen, Website und Karriere | /arztpraxen/medizinische-einrichtungen/ |
-| K7 | Praxisstart und Übernahme | Verifizierte Gründung, Übernahme, Umzug oder Modernisierung | Gestaltung, Website, Telefonie und anschließende Betreuung | /arztpraxen/praxisstart/ |
-| K8 | Recruiting unterstützen | Bestätigte offene Stelle / Personalplanung | Arbeitgeberdarstellung, Stellen- und Bewerbungswege | /arztpraxen/recruiting/ |
-| K9 | Betreuung wechseln | Wunsch nach externer Betreuung, Systembestand prüfen | WordPress-/Placetel-Übernahme oder Neuaufbau nach Befund | /arztpraxen/betreuung-wechseln/ |
+| K1 | Facharztpraxis entlasten | Wiederkehrende Patienteninformationen, laufender Betreuungsbedarf | Website und Kontaktwege betreuen | /branchen/arztpraxen/facharztpraxis/ |
+| K2 | Empfang entlasten | Wiederkehrende Änderungen und mehrere Kontaktkanäle | Concierge, Website, Google Business, Telefonie | /branchen/arztpraxen/empfang-entlasten/ |
+| K3 | Passend gefunden werden | Bestätigte neue Leistung, Standort oder Wachstumsziel | Leistungsseiten, SEO, optional SEA | /branchen/arztpraxen/auffindbarkeit/ |
+| K4 | Gut informiert zum Termin | Eigene Untersuchungs-/Eingriffstermine, Informationsbedarf | Patienten- und Zuweiserwege auf der Website | /branchen/arztpraxen/patienteninformation/ |
+| K5 | Praxisbetreuung für Psychotherapie | Erstkontakt, Abwesenheiten und Pflegebedarf | Angemessene Websitebetreuung, Telefonie optional | /branchen/arztpraxen/psychotherapie/ |
+| K6 | Kommunikation für Einrichtungen | Selbstständige Diagnostikeinrichtung mit eigener Entscheidung | Zuweiserinformationen, Website und Karriere | /branchen/arztpraxen/medizinische-einrichtungen/ |
+| K7 | Praxisstart und Übernahme | Verifizierte Gründung, Übernahme, Umzug oder Modernisierung | Gestaltung, Website, Telefonie und anschließende Betreuung | /branchen/arztpraxen/praxisstart/ |
+| K8 | Recruiting unterstützen | Bestätigte offene Stelle / Personalplanung | Arbeitgeberdarstellung, Stellen- und Bewerbungswege | /branchen/arztpraxen/recruiting/ |
+| K9 | Betreuung wechseln | Wunsch nach externer Betreuung, Systembestand prüfen | WordPress-/Placetel-Übernahme oder Neuaufbau nach Befund | /branchen/arztpraxen/betreuung-wechseln/ |
 
 Die Zuordnungen im Import sind ausdrücklich vorläufig: K1 963, K2 3.113, K4 673, K5 1.927 und K6 180 Einträge; 35 sind ungeklärt. Diese primäre Zuweisung ist überschneidungsfrei. Die Fachgruppenübersicht im Anhang kann Mehrfachnennungen enthalten und darf nicht zur Gesamtzahl addiert werden. K3, K7, K8 und K9 werden erst nach tatsächlichem Anlass final zugewiesen.
 
@@ -1331,7 +1527,7 @@ Quelle: `handoff/kampagne/03_Landingpage_Texte.md`
 
 Neun Textvarianten auf einem gemeinsamen Seitentemplate. Die URL-Vorschläge sind noch nicht veröffentlicht. Zunächst K1, K2 und K9 umsetzen; weitere Varianten entsprechend Kampagnenstart. Alle Aussagen zu Leistungen stammen aus den bestätigten Angaben von Digital Avenue.
 
-### K1 – /arztpraxen/facharztpraxis/
+### K1 – /branchen/arztpraxen/facharztpraxis/
 
 **Meta-Titel:** Facharztpraxis entlasten | Digital Avenue
 
@@ -1365,7 +1561,7 @@ Lassen Sie uns in einem kurzen Gespräch ansehen, welche wiederkehrenden Informa
 
 **Button:** Gespräch anfragen
 
-### K2 – /arztpraxen/empfang-entlasten/
+### K2 – /branchen/arztpraxen/empfang-entlasten/
 
 **Meta-Titel:** Empfang entlasten | Digital Avenue
 
@@ -1399,7 +1595,7 @@ Besprechen wir kurz, welche wiederkehrenden Aufgaben wir Ihrem Team abnehmen kö
 
 **Button:** Gespräch anfragen
 
-### K3 – /arztpraxen/auffindbarkeit/
+### K3 – /branchen/arztpraxen/auffindbarkeit/
 
 **Meta-Titel:** Passend gefunden werden | Digital Avenue
 
@@ -1433,7 +1629,7 @@ Lassen Sie uns über die Leistung oder den Standort sprechen, den Sie sichtbarer
 
 **Button:** Gespräch anfragen
 
-### K4 – /arztpraxen/patienteninformation/
+### K4 – /branchen/arztpraxen/patienteninformation/
 
 **Meta-Titel:** Gut informiert zum Termin | Digital Avenue
 
@@ -1467,7 +1663,7 @@ Gehen wir gemeinsam einen typischen Weg vom ersten Kontakt bis zum Termin durch 
 
 **Button:** Gespräch anfragen
 
-### K5 – /arztpraxen/psychotherapie/
+### K5 – /branchen/arztpraxen/psychotherapie/
 
 **Meta-Titel:** Praxisbetreuung für Psychotherapie | Digital Avenue
 
@@ -1501,7 +1697,7 @@ Lassen Sie uns kurz besprechen, welche Websiteaufgaben Sie künftig abgeben möc
 
 **Button:** Gespräch anfragen
 
-### K6 – /arztpraxen/medizinische-einrichtungen/
+### K6 – /branchen/arztpraxen/medizinische-einrichtungen/
 
 **Meta-Titel:** Kommunikation für medizinische Einrichtungen | Digital Avenue
 
@@ -1535,7 +1731,7 @@ Besprechen wir, welche Kommunikationsaufgaben Sie dauerhaft an einen festen Ansp
 
 **Button:** Gespräch anfragen
 
-### K7 – /arztpraxen/praxisstart/
+### K7 – /branchen/arztpraxen/praxisstart/
 
 **Meta-Titel:** Praxisstart und Übernahme | Digital Avenue
 
@@ -1569,7 +1765,7 @@ Lassen Sie uns Ihren Zeitplan und die benötigten Bausteine gemeinsam ordnen.
 
 **Button:** Gespräch anfragen
 
-### K8 – /arztpraxen/recruiting/
+### K8 – /branchen/arztpraxen/recruiting/
 
 **Meta-Titel:** Recruiting unterstützen | Digital Avenue
 
@@ -1603,7 +1799,7 @@ Lassen Sie uns ansehen, wie Sie Ihre offene Stelle und Ihre Praxis als Arbeitspl
 
 **Button:** Gespräch anfragen
 
-### K9 – /arztpraxen/betreuung-wechseln/
+### K9 – /branchen/arztpraxen/betreuung-wechseln/
 
 **Meta-Titel:** Betreuung wechseln – Website und Telefonie | Digital Avenue
 
@@ -1712,7 +1908,7 @@ Einrichtungen. Ein bis wenige Standorte, meist ohne eigene Verwaltung,
 häufig mit Selbstzahlerangeboten neben Kassenleistungen.
 
 Abgrenzung zu Arztpraxen: Arztpraxen sind in der Regel ausgelastet; dort
-ist Entlastung das Thema (Kampagne K1–K9 unter `/arztpraxen/`). Bei
+ist Entlastung das Thema (Kampagne K1–K9 unter `/branchen/arztpraxen/`). Bei
 Heilberufen entscheiden Auffindbarkeit und ein einfacher Weg zum ersten
 Termin darüber, ob neue Klientinnen und Klienten kommen. Werbung, SEO und
 Google Business tragen deshalb mehr Gewicht, der Digital-Concierge bleibt
@@ -2046,7 +2242,7 @@ Hamburg und Rostock in Meta-Beschreibung und Textkörper, nicht im Title.
 Die Seite bleibt eine Branchenseite; keine Duplikate je Fachrichtung oder
 Stadt. Wenn einzelne Heilberufe eigene Seiten bekommen sollen, dann als
 Leistungsseiten mit eigenem Inhalt unter `/leistungen/` oder als
-Kampagnen-Landingpages nach dem Muster `/arztpraxen/`.
+Kampagnen-Landingpages nach dem Muster `/branchen/arztpraxen/`.
 
 ### 4. Offene Punkte und Entscheidungen für Nils
 
@@ -2426,6 +2622,17 @@ Entscheidungen:
   (`.site-nav.brxe-section`), damit der Import sie nicht in Controls
   übersetzt und `color-mix`-Werte heil bleiben.
 
+Umbau 09.10.2026 (Entscheidung Nils, Statusbericht): Branchen-Dropdown
+jetzt Arztpraxen (`/branchen/arztpraxen/`), Heilberufe, Kanzleien & Freie
+Berufe (`/branchen/kanzleien/`), Mittelstand (`/branchen/mittelstand/`),
+Alle Branchen (`/branchen/`); Freie Berufe, Ferienwohnungen, Handwerk und
+Kundendienst entfallen als eigene Seiten, Gastgewerbe folgt nach dem
+Launch. Footer 54 gleich. Seiten: Arztpraxen 163 unter Branchen 193
+gehängt (Kampagnenseiten wandern mit), neue Entwürfe Kanzleien 203 und
+Mittelstand 204. Startseite: Mosaik-Kacheln und Zielgruppen-Panels zeigen
+auf die neuen Adressen, Standardlink der Component Zielgruppen-Panel
+ebenso. Revisionen zum Zurückrollen: Startseite 199, Header 200, Footer 201.
+
 Umbau 11.09.2026 nach Nils' Rückmeldung: Menü mit Leistungen, Branchen
 (Dropdown: Ärzte, Heilberufe, Freie Berufe, Kanzleien, Ferienwohnungen,
 Handwerk, Kundendienst), Referenzen (Dropdown: DIGIZT Haushaltsgeräte,
@@ -2441,13 +2648,15 @@ die optische Reihenfolge regelt `order` (Nav 1, Aktionen 2, mobil Nav 3,
 damit der Burger rechts außen steht).
 
 Nachtrag: Die Klassenregeln `.nav-menu .brx-nav-nested-items …` griffen
-im Frontend nicht (Ursache offen, Reihenfolge und Order-Regel griffen).
-Abstand, Padding, Typografie, Hover, Aktiv-Zustand und Dropdown-Optik
-liegen deshalb jetzt in den Nav-Einstellungen selbst (`gap`,
-`itemPadding`, `itemTypography`, `itemTypography:hover`,
-`itemTypographyActive`, `dropdown…`), die Bricks mit `#brxe-navmn1
-:where(…)` ausgibt. Die Klasse `nav-menu` behält Order-Regeln und das
-mobile Layout.
+im Frontend nicht (Ursache am 13.09.2026 gefunden: der Wrapper-Block
+`ul.brx-nav-nested-items` fehlte, siehe unten).
+Abstand, Padding, Typografie, Hover und Aktiv-Zustand der obersten Ebene
+liegen deshalb in den Nav-Einstellungen selbst (`gap`, `itemPadding`,
+`itemTypography`, `itemTypography:hover`, `itemTypographyActive`), die
+Bricks mit `#brxe-navmn1 :where(…)` ausgibt. Die Dropdown-Optik liegt seit
+13.09.2026 wieder komplett in der Klasse `nav-menu` (Desktop-Karte und
+Drawer-Liste), weil die ID-Regeln der Controls sonst die mobile Variante
+blockieren.
 
 Offen: Footer-Template „Main Footer“ (54), mobiles Menü im Browser
 prüfen, aktiver Menüpunkt (`aria-current`) setzt Bricks automatisch.
@@ -2487,11 +2696,62 @@ Blur der Service-Karte auf `blur(24px) saturate(1.4)` erhöht; Tokens in
 Karte: Selektor `.sc-title` hat jetzt `line-height: 1.3` (vorher erbte
 der Titel die Absatz-Zeilenhöhe).
 
-Nächste Schritte: mobiles Menü (Bricks 2.4 rendert die Nav-Kinder ohne
-`ul.brx-nav-nested-items`, deshalb greifen Bricks' Mobile-Regeln nicht;
-Alternative Offcanvas-Element), Startseite unterhalb des Heros aus den
-Components (Mosaik, Kacheln, Schritte, Referenzen, Kundenstimmen,
-Digital-Check), Popup Digital-Check mit Formular.
+Nachjustiert (13.09.2026): Der Hero begann direkt unter dem Header, weil
+das Header-Template nur `headerSticky` hatte (`position: fixed`, Header
+über dem Inhalt). Jetzt zusätzlich `headerStickyOnScroll` (`position:
+sticky`, im Fluss), der obere Abstand `--da-sp-20` ist wieder sichtbar.
+Das Mosaik brach nie um: Die Grundregel `.mosaic.brxe-div` stand im
+Custom-CSS hinter den Media-Queries (der Adapter sortiert `@media` nach
+oben). Grundwerte jetzt als Controls (`_display`, `_gridTemplateColumns`,
+`_gridGap`, `_gridAutoRows`), Media-Queries bleiben im Custom-CSS; gleiche
+Korrektur für `audience` (Controls) sowie `lp-hero` und `flip`
+(Media-Query-Selektoren mit Element-Klasse). Regel in `MERKREGELN.md`.
+Geprüft per Playwright bei 1440/900/400px: 4, 2, 1 Spalten.
+
+Mosaik zweiter Durchgang (13.09.2026): Am Tablet blieb rechts ein Rand,
+weil Bricks' Container `align-items: flex-start` hat und das Mosaik-Div
+nur so breit wurde wie sein Inhalt. Klasse `mosaic` jetzt mit `_width:
+100%`, Spalten `minmax(0, 4fr) minmax(0, 3fr) minmax(0, 2.4fr) minmax(0,
+2.4fr)`, Reihen `minmax(500px, auto)`, Anordnung über
+`grid-template-areas` (Desktop eine Zeile, Tablet 2×2, Smartphone eine
+Spalte), Kacheln mit `grid-area` statt `grid-column`. Dabei fiel auf, dass
+die Container am Staging 1100px breit waren: Der Theme Style hatte nur die
+Altlast `general.containerMaxWidth` (`.brxe-container.root`). Jetzt
+`container.width: 1240px`, Altlast entfernt, Build angepasst. Geprüft bei
+1440/1280/900/400px: Container 1240/1234/864/364, Mosaik bündig, kein
+Überlauf außer dem Header-Menü bei 400px (nächster Schritt).
+
+Mobiles Menü (13.09.2026): Die Diagnose „Bricks 2.4 rendert die Nav-Kinder
+ohne `ul.brx-nav-nested-items`“ war falsch. Bricks rendert den Wrapper
+nicht selbst; er ist ein Kind-Element der Nav, das der Builder beim
+Einfügen anlegt und das beim Aufbau per MCP fehlte (Vorlage: das gekaufte
+Mega-Menu-Template von Nick Arce, Nav › Block `brx-nav-nested-items` ›
+Punkte, Toggle daneben). Header 52 jetzt: Nav `navmn1` › Block `navitm`
+(`customTag: ul`, `_hidden._cssClasses: brx-nav-nested-items`) › Leistungen,
+Branchen, Referenzen, Blog, Über uns, Button `navcta` (`nav-cta`, nur im
+Drawer sichtbar) › Toggle `hdrbrg`. Dazu zwei Klassenkorrekturen:
+`site-nav` trägt den Blur auf `::before` (ein `backdrop-filter` auf der
+Section machte sie zum Containing Block des fixierten Drawers, Höhe 48px),
+`nav-menu` richtet den Drawer oben aus (`justify-content: flex-start`) und
+gestaltet den CTA mit `!important` gegen die ID-Regeln der Nav-Controls.
+Geprüft bei 1440/900/400px: Desktop-Menü ohne Burger, darunter Burger,
+Drawer 72px bis Fensterunterkante, Dropdowns klappen im Drawer auf, Body
+ist gesperrt, kein horizontaler Überlauf. Revisionen 120 bis 123.
+
+Feinschliff (13.09.2026): Burger zeigt im offenen Zustand ein X (Bricks
+setzt `aria-expanded="true"` und `is-active`; das SVG wird ausgeblendet,
+zwei Pseudo-Elemente bilden das X, kein zweites Icon nötig). Untermenüs im
+Drawer wie im Prototyp: eingerückte schlichte Liste ohne Karte, Rahmen und
+Hover-Fläche. Dafür sind die Dropdown-Controls der Nav (`dropdown…`)
+entfernt, die Klasse `nav-menu` gestaltet Desktop-Karte und Drawer-Liste
+allein. Header-Section mit `padding: 0 var(--da-sp-6)`; `nav-inner` trägt
+Richtung, Ausrichtung, Lücke und Höhe als Controls, mobil kleinere Lücke;
+`nav-actions` rückt mobil mit `margin-left: auto` neben den Burger (Logo
+links, Mond und Burger rechts). Geprüft bei 400/900/1440px.
+
+Nächste Schritte: Startseite unterhalb des Heros aus den Components
+(Kacheln, Schritte, Referenzen, Kundenstimmen, Digital-Check), Popup
+Digital-Check mit Formular.
 
 ### Schritt 10: Zielgruppen-Umschalter (Tabs) auf der Startseite
 
@@ -2529,11 +2789,130 @@ blenden (`.tab-pane.brx-open`) unberührt; die Einblend-Animation hängt an
 Component-Instanzen mit `slotChildren: {slotId: [Kinder]}` an, eigene
 6-stellige IDs werden übernommen.
 
-### Schritt 11: Kampagnen-Landingpages Arztpraxen (K1, K2, K9)
+### Schritt 11: Startseite unterhalb des Heros
+
+Stand 13.09.2026: Startseite (Post 2) ist komplett, alle Abschnitte des
+Prototyps `prototype/index.html` sind aus den Components zusammengesetzt
+(Revisionen 125 bis 129). Aufbau je Abschnitt, jeweils Section › Container:
+
+- **Leistungen** `lssec0` (`#leistungen`, Klasse `section`, Hintergrund
+  `--da-bg-alt`, Rahmen oben/unten als Controls) › Abschnittskopf `lshead`
+  (`section-head`) › Kacheln `lstile` (`tiles`) mit acht Instanzen in
+  Prototyp-Reihenfolge: Foto-Kachel `0851ab` (74, Ausschnitt 35 % 25 %),
+  Kachel `c3c53b` cream (Standard), Foto 94, Kachel teal, Kachel deep,
+  Foto 92, Kachel sand, Foto 88.
+- **So arbeiten wir** `sasec0` (`#so-arbeiten-wir`) › Kopf › Schritte
+  `sastep` (`steps`) mit drei Schritt-Instanzen `719767` (nummer, titel,
+  copy).
+- **Referenzen** `rfsec0` (`#referenzen`, Klasse `section-sm`, bg-alt,
+  Rahmen) › Kopf (nur Eyebrow und H2) › Referenzkarten `rfrefs` (`refs`)
+  mit vier Instanzen `cbca1c` (Logos 62, 106, 107, 108) › Kundenstimmen
+  `rfquot` (`quotes`, Abstand oben `--da-sp-5`) mit zwei Instanzen `05cb9e`
+  (erste `featured`). Texte tragen noch die Platzhalter aus dem Prototyp.
+- **Über uns** `absec0` (`#ueber-uns`, Klassen `section` und neu `about`
+  `023c83`) › Div `absplt` (`split`, `width: 100 %`) › Spalte 1 mit
+  Eyebrow, H2 und `about-facts` (vier `fact`-Divs mit `num` und `label`
+  als Spans) › Spalte 2 `about-text` mit drei Absätzen. `about` trägt
+  Hintergrund, Rahmen, Fakten-Raster (2 Spalten, ab 480px eine) und
+  Typografie; die Kind-Elemente tragen nur `_cssClasses`.
+- **Digital-Check** `dcsec0` (`#digital-check-info`) › Instanz
+  Digital-Check-Block `e44db4` mit fünf Service-Punkten im Slot `17e049`.
+
+Geprüft per Playwright bei 1440/900/400px: keine kaputten Bilder, kein
+horizontaler Überlauf, Raster 4/2/1 (Kacheln), 3/3/1 (Schritte), 4/3/1
+(Referenzen), 2/2/1 (Kundenstimmen, Über uns).
+
+Attachment-IDs der Fotos folgen dem Muster `99 − n` für `mNN` (m05 → 94,
+m07 → 92, m11 → 88, m25 → 74).
+
+Hinweis: Die Klasse `split` (Import vom 11.09.) hat ihre Media-Query noch
+hinter der Grundregel im Custom-CSS. Das funktioniert, weil der Import
+nicht umsortiert; bei der nächsten Änderung per MCP nach der Merkregel
+(Grundwerte in Controls) umbauen.
+
+Inhaltliche Ergänzung (16.09.2026, Nils): Foto und Video vom Konzept bis zum
+Publishing, alle Inhalte auf Wunsch aus einer Hand. Umgesetzt auf der
+Startseite: Hero-Lead (`herold`), Abschnittskopf Leistungen („Vier
+Bereiche“, `lshh20`, `lshp00`), Kachelraster: Foto-Kachel Hafen (m07)
+ersetzt durch Kachel `lsk009` „04 · Foto, Video & Text“ (Sand), Recruiting-
+Kachel `lsk007` auf Creme, Kachel 01 `lsk002` ohne „Texte und Bilder“;
+Mosaik-Karte `ml0204` („Neue Teamfotos …“); je Zielgruppen-Panel ein
+vierter Service-Punkt (`fwc104`, `fwc204`, `fwc304`), Mittelstand-Lead;
+Über uns `abp002`; Digital-Check-Block mit sechstem Prüfpunkt „Inhalte“
+(`dcp006`); Footer 54: Link „Foto, Video & Text“ (`fl0105`) und Kurztext.
+Prototyp-Quellen in `prototype/src/` gleich geändert, Build gelaufen.
+
+Gelernt: `update-element` und `batch-update-elements` ändern nur
+`settings`. Property-Werte einer Component-Instanz und Slot-Inhalte
+lassen sich nur durch Entfernen und Neu-Einfügen der Instanz ändern
+(`add-element` mit `properties` und `slotChildren`); ein `add-element`
+mit `parentId` = Instanz landet zwar im Baum, aber nicht im Slot.
+
+Offen: Popup Digital-Check mit Formular (alle Buttons zeigen auf
+`#digital-check`), echte Kundenstimmen und Leistungsumfang je Referenz,
+Adresse im Footer, drei Landingpages.
+
+### Schritt 12: Popup Digital-Check mit Formular
+
+Stand 13.09.2026, Entscheidung Nils: kein HubSpot, Bricks-Bordmittel,
+Anfragen werden manuell bearbeitet. Popup-Template „Popup Digital-Check“
+(130, Bedingung „gesamte Website“, Schließen per Backdrop und Escape,
+Inhalt `calc(100% - 32px)`, max. 640px, Hintergrund `--da-teal-deeper` zu
+70 %). Aufbau: Div `ckdlg0` (Global Class `check-dialog` `b44e42`, Kategorie
+Sections: Fläche, Radius, Schatten, Kopfzeile, Schließen-Button,
+Formular-Feinheiten) › Kopf `ckhead` (Eyebrow, H2, Intro, Button `ckclos`
+mit X-Icon `icon_ekrpbw1ba` und Interaktion „hide popup 130“) › Formular
+`ckform`.
+
+Felder (IDs sind zugleich die Platzhalter in der E-Mail): `audnce` Radio
+„Ich führe“ (Praxis, Kanzlei, Unternehmen, Pflicht), `fname1` Name
+(Pflicht, 50 %), `femail` E-Mail (Pflicht, 50 %), `fphone` Telefon (50 %),
+`fsite1` Website (50 %), `fmsg01` Textarea, `fdsgvo` Checkbox Einwilligung
+(Pflicht, Text mit Platzhalter für den Datenschutz-Link), `fpage1` Hidden
+`{post_title}` (Seite, von der die Anfrage kam), `fhoney` Honeypot.
+Aktionen in dieser Reihenfolge: `save-submission` (Tabelle, global aktiv),
+`email` an post@digital-avenue.de mit Reply-To auf die Absenderadresse.
+Erfolgs- und Fehlermeldung mit Telefonnummer als Ausweg.
+
+Öffnen: Interaktion `click › show › popup 130` direkt auf den vier Buttons
+Hero `herob1` (Post 2), Header `hdrcta` und Drawer `navcta` (Template 52)
+und dem Button `07a417` in der Component Digital-Check-Block (Property
+„Button-Link“ entfernt). Alle vier sind jetzt `tag: button` ohne Link.
+
+Geprüft per Playwright: Popup öffnet aus allen vier Buttons bei 1440 und
+400px, schließt per X, Backdrop und Escape, Body-Scroll gesperrt; die
+Probesendung liefert alle Felder korrekt in den E-Mail-Text, scheitert aber
+an der E-Mail-Aktion, weil am Staging kein Mailversand eingerichtet ist
+(kein SMTP-Plugin, siehe Systeminfo). Gelernt:
+
+- Klassen-CSS wird nur ausgegeben, wenn das Element die Klasse per
+  `_cssGlobalClasses` (ID) referenziert. `_cssClasses: "check-dialog"`
+  setzt nur den Namen ins HTML, das CSS der Global Class fehlt dann.
+- Eine Klick-Interaktion auf einem Button mit `href` (auch `#anker`)
+  öffnet das Popup nicht; erst ohne Link läuft sie. Deshalb CTA-Buttons als
+  `tag: button` ohne Link.
+- `_interactions` auf einer Global Class nimmt der MCP-Adapter nicht an
+  („Expected a registered setting for a global class“); Interaktionen
+  deshalb je Element setzen.
+- `list-form-submissions` sucht das Formular-Element auf der angegebenen
+  Post-ID; die Tabelle speichert aber die Seite, auf der abgeschickt wurde.
+  Popup-Formulare lassen sich damit per MCP nicht auslesen, im Admin unter
+  Bricks › Form Submissions schon.
+- Playwrights `click()` scheitert auf Bricks-Elementen mit Lazy-Load-Klasse
+  an der Sichtbarkeitsprüfung; im Test per `element.click()` auslösen.
+
+Offen: SMTP einrichten (Staging und Produktion, z. B. WP Mail SMTP oder
+FluentSMTP mit dem Mailkonto des Hosters), Datenschutz-Link im
+Checkbox-Text, optional Cloudflare Turnstile (Schlüssel nötig),
+Löschfrist für die Submissions-Tabelle festlegen, Probesendung nach
+SMTP-Einrichtung wiederholen.
+
+### Schritt 13: Kampagnen-Landingpages Arztpraxen (K1, K2, K9)
 
 Stand 17.09.2026. Grundlage: `handoff/kampagne/03_Landingpage_Texte.md`.
-Entscheidungen: Kampagnenseiten liegen unter `/arztpraxen/…/` (Elternseite
-„Arztpraxen“, Post 163, Entwurf); alle Referenzen dürfen genutzt werden;
+Entscheidungen: Kampagnenseiten liegen unter `/branchen/arztpraxen/…/`
+(Elternseite „Arztpraxen“, Post 163, Entwurf, seit 09.10.2026 unter
+„Branchen“ 193; vorher `/arztpraxen/…/`); alle Referenzen dürfen genutzt werden;
 die Google-Bewertung bleibt draußen; Grundparameter kommen aus dem Plugin
 „Digital Avenue Parameter“ (`wordpress/plugins/da-parameter/`).
 
@@ -2572,7 +2951,7 @@ die gemeinsamen Module kommen automatisch aus Template 167.
 
 Offen: Meta-Titel und -Beschreibung (Bricks hat keine SEO-Felder, dafür
 ein SEO-Plugin oder Meta Box nutzen), Seite „Arztpraxen“ (163) füllen,
-Branchenseite „Ärzte“ auf `/arztpraxen/` verlinken, Datenschutzseite mit
+Seite „Arztpraxen“ (163) als Branchenseite bauen, Datenschutzseite mit
 Abschnitt zur Rechercheansprache, Serviceversprechen nach Plugin-
 Installation per `{echo:da_param('serviceversprechen')}` einsetzen (heute
 noch als Klartext in Concierge, FAQ und Formular-Erfolgstext).
@@ -2593,7 +2972,7 @@ die IDs bleiben dabei erhalten (so am 17.09.2026 die Bilder getauscht).
 `render-elements` zeigt für Template-Elemente zwar das HTML der Templates,
 aber nicht deren Klassen-CSS; das erzeugt Bricks erst im Frontend.
 
-### Schritt 12: Branchenseite Heilberufe
+### Schritt 14: Branchenseite Heilberufe
 
 Stand 17.09.2026. Grundlage `handoff/branchen/heilberufe.md` (Konzept und
 Texte aus dem Chat). Elternseite „Branchen“ (Post 193, Entwurf, leer),
