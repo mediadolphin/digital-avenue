@@ -348,6 +348,11 @@ Mittelstand 204. Startseite: Mosaik-Kacheln und Zielgruppen-Panels zeigen
 auf die neuen Adressen, Standardlink der Component Zielgruppen-Panel
 ebenso. Revisionen zum Zurückrollen: Startseite 199, Header 200, Footer 201.
 
+Umbau 09.10.2026 (2): Referenzen im Header als einfacher Link
+`navli2` auf `/referenzen/` statt Dropdown mit fünf Kunden (Revision 205).
+Die Übersicht kommt aus dem Post-Typ `referenz` und verlinkt die
+Einzelseiten. Option für später: eine Referenzen-Liste im Footer.
+
 Umbau 11.09.2026 nach Nils' Rückmeldung: Menü mit Leistungen, Branchen
 (Dropdown: Ärzte, Heilberufe, Freie Berufe, Kanzleien, Ferienwohnungen,
 Handwerk, Kundendienst), Referenzen (Dropdown: DIGIZT Haushaltsgeräte,

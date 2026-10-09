@@ -77,3 +77,5 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   Prototyp-Footer angepasst. Details in `handoff/import/README.md`, Schritt 8.
 - Neues Hilfsskript `handoff/tools/mcpcall.py`: Abilities direkt aufrufen,
   Seitenbäume als Datei bearbeiten.
+- Entscheidung 2 umgesetzt (09.10.2026): Referenzen im Header als einfacher
+  Link auf `/referenzen/`, kein Dropdown. Option: Referenzen-Liste im Footer.

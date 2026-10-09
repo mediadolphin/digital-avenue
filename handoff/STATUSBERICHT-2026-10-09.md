@@ -331,6 +331,8 @@ Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
    Tag (Header, Footer, Startseite, Seitenstruktur). Die Branches sind
    ebenfalls zusammengeführt (Befund 1).
 2. Referenzen im Menü als Dropdown oder als einfacher Link?
+   **Entschieden 09.10.2026:** einfacher Link, umgesetzt. Bei Bedarf
+   später eine Referenzen-Liste im Footer.
 3. Blog zum Launch im Menü oder später?
 4. Eigene Kontaktseite?
 5. Unternehmensdaten über Meta-Box-Einstellungsseite oder das eigene Plugin?
