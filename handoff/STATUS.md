@@ -46,3 +46,14 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   (Normalisierung, eigenes Set per Icon Manager oder MCP, Icon-Element,
   Klassen `icon`/`icon-20`, Farbe über Kontext, Components, Stolperfallen).
   Icon-IDs des Staging-Sets per `list-custom-icons` aufgenommen.
+
+### Nachtrag 09.10.2026: Statusbericht
+
+- `handoff/STATUSBERICHT-2026-10-09.md`: Stand in Technik, Inhalt und
+  Design, Seiteninventar gegen Navigation, Empfehlung zu Seitenstruktur
+  und Meta-Box-Post-Typen, Reihenfolge bis zum Launch.
+- Achtung: Der Branch `claude/optimistic-ride-6edr1i` (11. bis 16.09.)
+  enthält mobiles Menü, Rest der Startseite, Popup, BAUKASTEN.md und
+  „Foto, Video & Text“. Am Staging umgesetzt, im Hauptbranch noch nicht.
+  Diese Datei ist deshalb in Teilen veraltet, bis die Branches
+  zusammengeführt sind.
