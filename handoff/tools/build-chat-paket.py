@@ -7,6 +7,7 @@ import datetime, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FILES = [
+    ("Statusbericht 09.10.2026", "handoff/STATUSBERICHT-2026-10-09.md"),
     ("Projektstand", "handoff/STATUS.md"),
     ("Merkregeln und Entscheidungen", "handoff/MERKREGELN.md"),
     ("Briefing", "BRIEFING.md"),
@@ -15,6 +16,7 @@ FILES = [
     ("Kampagne: Mailingtexte", "handoff/kampagne/02_Mailingtexte.md"),
     ("Kampagne: Landingpage-Texte", "handoff/kampagne/03_Landingpage_Texte.md"),
     ("Branchenseite Heilberufe: Konzept und Texte", "handoff/branchen/heilberufe.md"),
+    ("Partnerseiten: Konzept und Texte", "handoff/partner/partnerseiten.md"),
     ("Technisches Protokoll Bricks", "handoff/import/README.md"),
 ]
 

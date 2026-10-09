@@ -156,7 +156,9 @@ später wachsen kann.
 /ueber-uns/
 /kontakt/
 /impressum/  /datenschutz/
-/blog/                             erst mit Beiträgen
+/blog/                             bleibt im Menü (Entscheidung 09.10.)
+/partner/                          Übersicht, neu 09.10.
+  /partner/placetel/  /partner/doctolib/  /partner/ionos/  /partner/netleaders/
 ```
 
 Damit stünden zum Launch rund 20 gefüllte Seiten statt 19 leerer Links.
@@ -334,6 +336,9 @@ Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
    **Entschieden 09.10.2026:** einfacher Link, umgesetzt. Bei Bedarf
    später eine Referenzen-Liste im Footer.
 3. Blog zum Launch im Menü oder später?
+   **Entschieden 09.10.2026:** Blog bleibt im Menü. Vor dem Launch braucht
+   es das Archiv-Template und erste Beiträge. Neu dazu: Partnerseiten für
+   Placetel, Doctolib, IONOS und Netleaders unter `/partner/`, gebaut.
 4. Eigene Kontaktseite?
 5. Unternehmensdaten über Meta-Box-Einstellungsseite oder das eigene Plugin?
 6. Leistungen zum Launch als vier Unterseiten oder zunächst eine Seite?

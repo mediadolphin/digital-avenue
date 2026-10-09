@@ -79,3 +79,14 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   Seitenbäume als Datei bearbeiten.
 - Entscheidung 2 umgesetzt (09.10.2026): Referenzen im Header als einfacher
   Link auf `/referenzen/`, kein Dropdown. Option: Referenzen-Liste im Footer.
+- Entscheidung 3 (09.10.2026): Blog bleibt im Menü. Folge: Archiv-Template
+  und erste Beiträge vor dem Launch nötig. Seite „Blog“ 231 als Entwurf und
+  Beitragsseite angelegt, „Hello world!“ im Papierkorb.
+- Partnerseiten (09.10.2026, Auftrag Nils): Übersicht und je eine Seite für
+  Placetel, Doctolib, IONOS, Netleaders im Prototyp und in Bricks (Entwürfe
+  214 bis 218), acht neue Motive m45 bis m52. Footer-Link „Partner“,
+  Partnerzeile der Startseite verlinkt. Offen: Partnerstatus prüfen,
+  Netleaders-Leistungsumfang und Abgrenzung zu IONOS (sichtbare Platzhalter).
+- Korrigiert: Reihenfolge von Kacheln (Startseite), Footer-Branchen und
+  Header, verursacht durch Speichern ohne Array-Sortierung (Merkregel).
+

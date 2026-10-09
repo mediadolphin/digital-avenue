@@ -739,3 +739,39 @@ Header und Footer als Templates, dann Seiten per
 `commit-html-css-page-import` (Hero zuerst als Probe), dann Felder und
 Post-Typen aus den fertigen Templates ableiten. Siehe
 `handoff/BETRIEBSKONZEPT-MCP.md`.
+
+## Schritt 15: Partnerseiten und Blog-Seite
+
+Stand 09.10.2026. Auftrag Nils: eigene Seiten für Placetel, Doctolib, IONOS
+und Netleaders. Texte und Annahmen in `handoff/partner/partnerseiten.md`,
+Prototyp `prototype/src/pages/partner*.html` (Routen `#partner`,
+`#partner-placetel` usw.), Bilder m45 bis m52.
+
+Seiten (alle Entwurf): Partner 214 (`/partner/`), Placetel 215, Doctolib
+216, IONOS 217, Netleaders 218 (`/partner/<slug>/`). Aufbau je Partnerseite:
+Hero Landingpage `951227` als Section-Root › `#leistungen` (bg-alt):
+Abschnittskopf, Feature-Block `25cc6c` mit fünf Service-Punkten ›
+`#zustaendigkeiten`: `split` mit Text und Service-Karte `580b83` (sand)
+„Wer macht was“ › `#ablauf` (bg-alt): drei Schritte `719767` im Raster
+`steps` › `#digital-check-info`: Digital-Check-Block `e44db4` mit vier
+Punkten › `#faq` (bg-alt): Accordion mit FAQ-Schema › `#weitere-partner`
+(`section-sm`): drei Kacheln `c3c53b` (cream) mit Links. Übersicht 214:
+Abschnittskopf mit H1 und vier Kacheln (cream, teal, sand, deep) im Raster
+`tiles`, danach Digital-Check-Block.
+
+Bilder (Mediathek): m45 206, m46 207, m47 208, m48 209, m49 210, m50 211,
+m51 212, m52 213. Erzeugt wurden die Bäume per Skript aus denselben Daten
+wie Konzept und Prototyp.
+
+Verlinkung: Footer 54, Spalte Leistungen, Link „Partner“ (`fl0106`);
+Partnerzeile der Startseite (`prtw01` bis `prtw04`) verlinkt die
+Einzelseiten über das `link`-Feld des Basic-Text-Elements.
+
+Blog: Seite „Blog“ 231 (Entwurf) ist als Beitragsseite eingetragen
+(`set-reading-settings`), der Standardbeitrag „Hello world!“ liegt im
+Papierkorb. Offen: Archiv-Template für Beiträge (zuerst im Prototyp) und
+die ersten Beiträge vor dem Launch.
+
+Hinweis zur Prüfung: `render-elements` zeigt Accordion-Inhalte nicht
+(auch nicht auf der fertigen Heilberufe-Seite); FAQ im Frontend prüfen.
+

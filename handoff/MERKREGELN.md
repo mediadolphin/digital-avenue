@@ -339,3 +339,12 @@ oder anlegen geht über die WordPress-REST-Schnittstelle
 Sitzung auf einem eigenen Branch hat eine Woche Arbeit am Hauptbranch
 vorbei gebaut. Neue Sitzungen zuerst `git fetch` und die Branches prüfen,
 fremde Branches sofort zusammenführen.
+
+**Reihenfolge kommt aus dem Array, nicht aus `children`.** (09.10.2026)
+`set-page-elements` leitet beim Speichern die `children` jedes Elements aus
+der Reihenfolge im flachen Array ab. Wer nur `children` umsortiert oder ein
+Element hinten anhängt, verschiebt Geschwister (so am 09.10. Kacheln der
+Startseite, Heilberufe im Footer, Referenzen im Header). Vor jedem
+Speichern das Array per Tiefensuche entlang der gewünschten `children`
+sortieren und danach im Frontend die Reihenfolge prüfen.
+

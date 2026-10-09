@@ -4,16 +4,370 @@ Stand 09.10.2026. Automatisch aus dem Repository `mediadolphin/digital-avenue` g
 
 ## Inhalt
 
-1. Projektstand (`handoff/STATUS.md`)
-2. Merkregeln und Entscheidungen (`handoff/MERKREGELN.md`)
-3. Briefing (`BRIEFING.md`)
-4. Kampagne: Start (`handoff/kampagne/00_START_HIER.md`)
-5. Kampagne: Konzept (`handoff/kampagne/01_Kampagnenkonzept.md`)
-6. Kampagne: Mailingtexte (`handoff/kampagne/02_Mailingtexte.md`)
-7. Kampagne: Landingpage-Texte (`handoff/kampagne/03_Landingpage_Texte.md`)
-8. Branchenseite Heilberufe: Konzept und Texte (`handoff/branchen/heilberufe.md`)
-9. Technisches Protokoll Bricks (`handoff/import/README.md`)
+1. Statusbericht 09.10.2026 (`handoff/STATUSBERICHT-2026-10-09.md`)
+2. Projektstand (`handoff/STATUS.md`)
+3. Merkregeln und Entscheidungen (`handoff/MERKREGELN.md`)
+4. Briefing (`BRIEFING.md`)
+5. Kampagne: Start (`handoff/kampagne/00_START_HIER.md`)
+6. Kampagne: Konzept (`handoff/kampagne/01_Kampagnenkonzept.md`)
+7. Kampagne: Mailingtexte (`handoff/kampagne/02_Mailingtexte.md`)
+8. Kampagne: Landingpage-Texte (`handoff/kampagne/03_Landingpage_Texte.md`)
+9. Branchenseite Heilberufe: Konzept und Texte (`handoff/branchen/heilberufe.md`)
+10. Partnerseiten: Konzept und Texte (`handoff/partner/partnerseiten.md`)
+11. Technisches Protokoll Bricks (`handoff/import/README.md`)
 
+
+
+---
+
+# Statusbericht 09.10.2026
+
+Quelle: `handoff/STATUSBERICHT-2026-10-09.md`
+
+## Statusbericht Relaunch digital-avenue.de
+
+Stand 09.10.2026. Grundlage: Staging `relaunch.digital-avenue.de` am selben
+Tag per MCP und Frontend gelesen, alle vier Branches im Repository, das
+Konzept „Konzept und Website-Texte Relaunch“ und das „URL-Inventar &
+Redirect-Plan“ aus Google Drive, die Sitemap der Live-Site.
+
+Maßstab für jede Empfehlung: Wartung, SEO und Usability im Gleichgewicht,
+so viel wie möglich in Bricks, so wenig eigener Code wie möglich.
+
+### Auf einen Blick
+
+| Bereich | Stand | Bewertung |
+|---|---|---|
+| Design-Fundament | Farben, Dunkelmodus, Schriften, 68 Klassen, 14 Components, 15 Icons, Theme Style | fertig |
+| Header, Footer, Popup | gebaut, mobiles Menü läuft, Popup-Formular speichert | fertig bis auf E-Mail-Versand |
+| Startseite | gebaut und veröffentlicht | fertig bis auf 11 Platzhalter |
+| Übrige Seiten | 19 Link-Ziele in Header und Footer, davon keins öffentlich erreichbar | Hauptarbeit liegt noch vor uns |
+| Copy | vollständig für Startseite, Heilberufe, drei Kampagnenseiten; Prototyp-Texte für Praxen, Kanzleien, Mittelstand | für rund zwei Drittel der Seiten fehlt Text |
+| Informationsarchitektur | drei verschiedene Fassungen im Umlauf | größtes Risiko, Entscheidung nötig |
+| SEO-Technik | kein SEO-Plugin, Sprache Englisch, keine Redirects | vor dem Launch nötig, wenig Aufwand |
+
+Der Kern: Das Fundament ist solide und gut dokumentiert. Was fehlt, sind
+weniger Technik als Entscheidungen und Texte. Die Navigation verspricht
+mehr Seiten, als es Inhalte gibt.
+
+### 1. Technik
+
+#### 1.1 Was am Staging steht
+
+| Baustein | Bestand |
+|---|---|
+| Seiten | Startseite (veröffentlicht); Entwürfe Heilberufe (196), Kampagnenseiten Facharztpraxis (169), Empfang entlasten (171), Betreuung wechseln (173); leere Entwürfe Arztpraxen (163) und Branchen (193); vier private Testseiten; WordPress-Standardseite „Privacy Policy“ |
+| Templates | Header 52, Footer 54, Popup Digital-Check 130; Abschnitte „LP Arztpraxen: Kontaktformular“ 165, „LP Arztpraxen: Gemeinsame Module“ 167, „Heilberufe: Kontaktformular“ 194 |
+| Design System | 52 Farben mit Dunkelwert, 48 Variablen, 68 Global Classes in 8 Kategorien, 14 Components, Icon-Set mit 15 Icons |
+| Post-Typen, Menüs | keine eigenen Post-Typen, keine WordPress-Menüs; die Navigation steckt fest im Header-Template |
+| Umgebung | WordPress 7.1.3, PHP 8.4, Bricks 2.4, Meta Box mit MCP-Abilities, Plesk |
+
+#### 1.2 Befunde
+
+1. **Das Repository ist gespalten.** Eine parallele Sitzung hat vom 11. bis
+   16.09. auf dem Branch `claude/optimistic-ride-6edr1i` gearbeitet: mobiles
+   Menü, Rest der Startseite, Popup Digital-Check, `handoff/BAUKASTEN.md`
+   und die Erweiterung um „Foto, Video & Text“. Am Staging ist das alles
+   umgesetzt, im Hauptbranch fehlt es. `handoff/STATUS.md` im Hauptbranch
+   meldet deshalb das mobile Menü noch als offen. Zwei weitere Branches
+   enthalten Skill-Updates. Zusammenführen ist der erste Schritt; Konflikte
+   gibt es nur in fünf Doku-Dateien, die zwei Skill-Branches gehen glatt.
+
+2. **Die Informationsarchitektur existiert in drei Fassungen.**
+
+   | Quelle | Zielgruppen bzw. Branchen |
+   |---|---|
+   | Prototyp-Navigation | Für Praxen, Für Kanzleien, Für den Mittelstand |
+   | Header am Staging | Ärzte, Heilberufe, Freie Berufe, Kanzleien, Ferienwohnungen, Handwerk, Kundendienst |
+   | Footer am Staging | Ärzte, Heilberufe, Kanzleien, Handwerk, Kundendienst, Gastgewerbe |
+
+   Dazu liegen die Kampagnenseiten unter `/arztpraxen/`, die Navigation
+   verlinkt aber `/branchen/aerzte/`. Der Mittelstand ist auf der
+   Startseite eine der drei Hauptzielgruppen (Eyebrow, H1-Umfeld, dritter
+   Tab), hat aber keine eigene Seite; „Mehr für den Mittelstand“ führt auf
+   die leere Branchenübersicht. Für SEO und Nutzer heißt das: zwei Seiten
+   konkurrieren um „Arztpraxis“, und die wichtigste Zielgruppe nach Praxen
+   und Kanzleien hat keinen Landeplatz.
+
+3. **Sieben Branchen im Menü, Texte für vier.** Für Freie Berufe,
+   Ferienwohnungen, Handwerk, Kundendienst und Gastgewerbe gibt es keine
+   Zeile Copy. Dünne Branchenseiten schaden mehr, als sie nutzen: Google
+   wertet sie als wenig hilfreich, und jede Seite muss gepflegt werden.
+   Inhaltlich überschneiden sie sich: Kanzleien sind Freie Berufe,
+   Ferienwohnungen gehören zum Gastgewerbe, Handwerk und Kundendienst sind
+   der Mittelstand aus dem Prototyp. Empfehlung in 1.3.
+
+4. **Referenzen als Dropdown mit fünf Kundennamen.** Für Besucher sagen
+   Firmennamen im Hauptmenü wenig, jede neue Referenz erfordert eine
+   Header-Änderung, und die Übersichtsseite bekommt keine Links. Besser:
+   „Referenzen“ als einfacher Link auf die Übersicht, die Einzelseiten
+   hängen darunter. Für Metallbau Rostock gibt es weder Karte noch Text.
+
+5. **„Blog“ ohne Beiträge.** Die alte Site hat keine Beiträge, im
+   Repository gibt es keine. Ein leerer Blog im Hauptmenü wirkt
+   unfertig. Empfehlung: Menüpunkt erst, wenn drei bis fünf Beiträge
+   stehen; bis dahin raus.
+
+6. **Keine Kontaktseite, keine Adresse.** Im Footer steht „[Adresse
+   ergänzen]“. Für die lokale Suche in Hamburg und Rostock braucht es Name,
+   Adresse und Telefon einheitlich auf der Seite und im Google-Profil.
+   Eine schlichte Seite `/kontakt/` mit beiden Standorten und dem
+   Formular ist Standard, den Besucher erwarten. Der Digital-Check bleibt
+   der Haupt-CTA.
+
+7. **Drei Formulare für denselben Zweck.** Popup Digital-Check, Template
+   165 und Template 194 sind getrennte Formulare mit eigener Mailvorlage.
+   Wartbarer ist ein Kontaktformular-Template mit verstecktem Feld
+   `{post_title}`, das jede Seite einbindet. Am Staging fehlt ein
+   SMTP-Plugin, Mails aus den Formularen kommen nicht an. Der Link zur
+   Datenschutzerklärung ist in zwei Formularen noch Platzhalter.
+
+8. **Sprache steht auf Englisch.** WordPress läuft mit `en-US`, die Seite
+   gibt `<html lang="en-US">` aus. Das schadet Screenreadern und der
+   Spracherkennung von Suchmaschinen. Behebung ohne Code: Einstellungen ›
+   Allgemein › Sprache Deutsch.
+
+9. **Kein SEO-Plugin.** Seitentitel ist nur „Digital Avenue“, keine
+   Meta-Description, kein strukturiertes Datenformat, keine Sitemap. Die
+   Live-Site nutzt Rank Math. Empfehlung: Rank Math beibehalten. Es deckt
+   Titel und Descriptions, Sitemap, Schema für das lokale Unternehmen,
+   noindex für die Kampagnenseiten und die 301-Redirects ab. Damit
+   entfallen ein Redirect-Plugin und eigener Code.
+
+10. **Redirect-Plan ist veraltet.** Das Drive-Dokument plant drei Säulen,
+    heute sind es vier Bereiche. Es sagt „Über uns unverändert“, die neue
+    Adresse ist aber `/ueber-uns/` statt `/ueber-digital-avenue/`. Die
+    Rechtsseiten liegen alt unter `/legal/...`. Die Sitemap der Live-Site
+    enthält außerdem rund ein Dutzend Plugin-Reste (login, register,
+    members, sample-page, ui, newsletter), die nach dem Launch auf 410
+    oder die Startseite zeigen sollten.
+
+11. **Unternehmensdaten doppelt gepflegt.** Telefon und E-Mail stehen fest
+    im Footer und in Texten. Das Plugin `da-parameter` aus dem Repository
+    ist nicht installiert (am Staging geprüft). Mit Blick auf „wenig
+    eigener Code“: Eine Meta-Box-Einstellungsseite leistet dasselbe, und
+    Bricks liest sie nativ über Dynamic Data. Ob die nötige
+    Meta-Box-Erweiterung installiert ist, habe ich nicht prüfen können.
+
+12. **Kleinere Punkte.** Footer-Überschriften sind H4 direkt nach H2 (die
+    Gliederung springt). `color-scheme` fehlt im Custom CSS, Formularfelder
+    bleiben im Dunkelmodus hell. Standardmodus ist „hell“, im Prototyp galt
+    die Systemeinstellung. Vor dem Launch Testseiten und „Privacy Policy“
+    löschen. Das Staging steht korrekt auf noindex; das muss beim Go-Live
+    umgestellt werden.
+
+#### 1.3 Empfohlene Seitenstruktur
+
+Ziel ist eine Struktur, die zum Launch vollständig gefüllt ist und
+später wachsen kann.
+
+```
+/                                  Startseite
+/leistungen/                       Übersicht der vier Bereiche
+  /leistungen/sichtbarkeit-marke/
+  /leistungen/infrastruktur-prozesse/
+  /leistungen/digital-concierge/
+  /leistungen/foto-video-text/
+/branchen/                         Übersicht
+  /branchen/arztpraxen/            statt /branchen/aerzte/ (Suchbegriff „Arztpraxis“)
+    /branchen/arztpraxen/facharztpraxis/        Kampagne, noindex
+    /branchen/arztpraxen/empfang-entlasten/     Kampagne, noindex
+    /branchen/arztpraxen/betreuung-wechseln/    Kampagne, noindex
+  /branchen/heilberufe/
+  /branchen/kanzleien/             inklusive Freie Berufe
+  /branchen/mittelstand/           Handwerk und Kundendienst als Abschnitte
+  /branchen/gastgewerbe/           später, inklusive Ferienvermietung
+/referenzen/                       Archiv des Post-Typs
+  /referenzen/<kunde>/             Einzelseiten aus einem Template
+/ueber-uns/
+/kontakt/
+/impressum/  /datenschutz/
+/blog/                             bleibt im Menü (Entscheidung 09.10.)
+/partner/                          Übersicht, neu 09.10.
+  /partner/placetel/  /partner/doctolib/  /partner/ionos/  /partner/netleaders/
+```
+
+Damit stünden zum Launch rund 20 gefüllte Seiten statt 19 leerer Links.
+Die Kampagnenseiten wandern unter die Branchenseite; der leere Entwurf
+„Arztpraxen“ unter `/arztpraxen/` entfällt. Weil die Kampagne noch nicht
+läuft, kostet der Umzug nichts.
+
+Leistungen als vier Unterseiten, nicht als eine Seite mit Ankern: Jede
+Seite kann für ihren Suchbegriff ranken (Webdesign Hamburg, Telefonanlage
+für Praxen, Fotograf und Imagefilm), und die sieben alten `/service/`-URLs
+bekommen ein passendes Ziel. Für den Launch reicht notfalls die
+Übersichtsseite mit vier Abschnitten; die Unterseiten folgen.
+
+#### 1.4 Meta Box: Custom Post Types ja oder nein
+
+| Inhalt | Empfehlung | Begründung |
+|---|---|---|
+| Referenzen | **Post-Typ `referenz`** mit Taxonomie `branche` | Erscheinen auf Startseite, Branchenseiten, Übersicht und als Einzelseite. Mit Query Loop und der vorhandenen Component „Referenzkarte“ erscheint eine neue Referenz überall, ohne Seiten anzufassen. Einzelseiten kommen aus einem Bricks-Template, die Branchenseiten filtern über die Taxonomie. Felder: Kunde, Ort, Logo hell und dunkel, Kurztext für die Karte, Ergebnis, Leistungen, Bilder, Kundenstimme. |
+| Kundenstimmen | **Feldgruppe in `referenz`**, kein eigener Typ | Es gibt zwei echte. Ein eigener Typ lohnt erst ab etwa zehn. |
+| FAQ | **Post-Typ `faq`** mit Taxonomien `branche` und `thema`, zweite Welle | Preis, Vertrag, Reaktionszeit und Datenschutz wiederholen sich auf rund acht Seiten. Eine Antwort an einer Stelle hält sie gleich, das war dein Anliegen beim Parameter-Plugin. Bricks-Accordion mit Query Loop, FAQ-Schema bleibt. |
+| Branchen | **Seiten**, kein Post-Typ | Jede Branchenseite hat eigenen Aufbau und eigene Länge (Heilberufe 1.500 Wörter, Kanzleien 500). Ein Post-Typ erzwänge ein Einheitslayout oder Felder für jede Variante. Die Taxonomie `branche` verbindet sie trotzdem mit Referenzen und FAQ. |
+| Leistungen | **Seiten**, kein Post-Typ | Vier Einträge, die sich selten ändern und individuell aufgebaut sind. Die alte Site hatte einen Post-Typ „service“; dessen URLs werden umgeleitet. |
+| Partner | Abschnitt-Template | Vier Logos, ändern sich kaum. |
+| Team | Teil von Über uns | Eine bis zwei Personen. |
+| Blog | WordPress-Beiträge | Nativ, falls er kommt. |
+| Digital-Check-Anfragen | Bricks-Formulareinträge, kein Post-Typ | Bricks speichert Anfragen bereits, HubSpot folgt. Die Entscheidung vom 11.09. für einen Anfrage-Typ ist damit überholt. |
+| Unternehmensdaten | Meta-Box-Einstellungsseite, sonst `da-parameter` | Siehe Befund 11. |
+
+Umsetzung ohne eigenen Code: Post-Typen, Taxonomien und Feldgruppen legt
+der Meta-Box-MCP an (`create-post-type`, `create-taxonomy`,
+`create-field-group`). Bricks liest Meta-Box-Felder nativ. Die Definitionen
+exportieren wir als JSON ins Repository, damit sie dokumentiert sind.
+
+Reihenfolge: zuerst `referenz` mit Template und Übersicht, dann die
+Referenzkarten der Startseite auf den Query Loop umstellen. `faq` erst,
+wenn drei Branchenseiten stehen und die gemeinsamen Fragen sichtbar sind.
+
+#### 1.5 Bis zum Launch technisch nötig
+
+- Sprache Deutsch, Rank Math, SMTP-Plugin mit echtem Postfach
+- Redirects: sieben `/service/`-URLs, `/ueber-digital-avenue/`, zwei
+  `/legal/`-URLs, Plugin-Reste
+- Ein Kontaktformular-Template, Datenschutz-Link, Testversand je Formular
+- `color-scheme`, Standardmodus, Dunkel-Logos der Referenzen
+- 404-Seite als Bricks-Template
+- Lighthouse und Barrierefreiheit je Seitentyp, Mobilprüfung der
+  Kampagnenseiten nach der Media-Query-Korrektur
+- Testseiten löschen, noindex aus, Go-Live per Migration
+
+### 2. Inhalt
+
+#### 2.1 Geplante Seiten und vorhandene Copy
+
+| Seite laut Navigation | Copy | Prototyp | Bricks |
+|---|---|---|---|
+| Startseite | vollständig, 11 Platzhalter (2.2) | ja | veröffentlicht |
+| Leistungen | nur Kacheltexte (je zwei Sätze) und Säulentexte aus dem Drive-Konzept (je rund 70 Wörter, noch drei statt vier Bereiche); alte `/service/`-Seiten als Materialquelle | nein | nein |
+| Branchen-Übersicht | keine | nein | leerer Entwurf |
+| Ärzte / Arztpraxen | Prototyp „Für Praxen“, rund 700 Wörter | ja | nein |
+| Heilberufe | vollständig, rund 1.500 Wörter; offene Entscheidungen im Konzept, Abschnitt 4 | ja | Entwurf |
+| Kanzleien | Prototyp, rund 520 Wörter; Kanzlei-Referenz fehlt | ja | nein |
+| Mittelstand | Prototyp, rund 570 Wörter; nicht in der Navigation | ja | nein |
+| Freie Berufe, Ferienwohnungen, Handwerk, Kundendienst, Gastgewerbe | keine | nein | nein |
+| Referenzen-Übersicht | Seitendesign im Design System vorhanden, die Fälle darin sind bis auf DIGIZT erfunden | Design | nein |
+| Fünf Referenz-Einzelseiten | je zwei Sätze Kartentext; Metallbau Rostock ohne alles | nein | nein |
+| Blog | keine | nein | nein |
+| Über uns | Abschnitt der Startseite, Branchenbuch-Text aus Drive (rund 200 Wörter), alte Seite als Material | nein | nein |
+| Impressum, Datenschutz | auf der alten Site; Datenschutz muss aktualisiert werden | nein | nein |
+| Drei Kampagnenseiten | vollständig | ja | Entwürfe |
+
+Zusammengezählt: Für 6 von 19 Link-Zielen gibt es brauchbare Copy, 4
+davon nur als Prototyp-Fassung, die beim Bau noch auf die vier Bereiche
+(Foto, Video & Text) gezogen werden muss.
+
+#### 2.2 Platzhalter auf der Startseite
+
+| Platzhalter | Anzahl | Wer liefert |
+|---|---|---|
+| Leistungsumfang des Digital-Checks | 4 | Nils |
+| Kundenstimme, Name und Funktion | 2 + 2 | Nils |
+| Link zur Datenschutzerklärung | 2 | entsteht mit der Seite |
+| Adresse | 1 | Nils |
+
+#### 2.3 Befunde
+
+1. **Der Digital-Check ist nicht definiert.** Umfang, Dauer und Ergebnis
+   sind seit dem Briefing offen und stehen viermal als Platzhalter auf der
+   Startseite. Er ist der Haupt-CTA jeder Seite und das Ziel der Kampagne.
+   Das ist der wichtigste offene Inhalt.
+2. **Leistungen sind die größte Lücke.** Sie sind die natürlichen
+   SEO-Träger für allgemeine Suchbegriffe und das Ziel der alten
+   Service-URLs. Material: Drive-Konzept, Kacheltexte, alte Seiten.
+3. **Die Positionierung hat sich bewegt.** Das Drive-Konzept spricht von
+   drei Säulen und der H1 „Digital-Agentur anders gedacht!“. Gebaut ist
+   „Ihre Digitalagentur in Hamburg und Rostock“ mit vier Bereichen. Das
+   Drive-Dokument ist damit überholt und sollte als Quelle nicht mehr
+   gelten.
+4. **Referenzen sind dünn.** Fünf Kunden, je zwei Sätze. Für
+   Einzelseiten braucht es je Ausgangslage, Lösung, Ergebnis und, wo
+   möglich, eine Kennzahl (wie die zwei MFA in vier Wochen). Eine
+   Kanzlei-Referenz fehlt, obwohl Kanzleien eine Hauptzielgruppe sind. Die
+   Rechte für Foto- und Videoreferenzen sind ungeklärt.
+5. **Keyword-Recherche steht aus.** Laut Briefing sollen die H1 der
+   Branchen- und Leistungsseiten die konkreten Suchbegriffe tragen. Das
+   sollte vor dem Schreiben der fehlenden Seiten passieren, nicht danach.
+6. **Rechtstexte.** Die Datenschutzerklärung muss die gespeicherten
+   Formulareinträge, HubSpot, lokal eingebundene Schriften und selbst
+   gehostete Videos abdecken. Das ist Aufgabe eines Generators oder einer
+   Fachperson, nicht des Seitenbaus.
+
+### 3. Design
+
+#### 3.1 Stand
+
+- Design System vollständig in Bricks: Tokens, Dunkelmodus über den Color
+  Manager, Schriften lokal, Klassen, Components, Icons.
+- Seitentypen gebaut: Startseite, Kampagnenseite, Branchenseite
+  (Heilberufe), Popup.
+- Dokumentiert: `handoff/BAUKASTEN.md` (auf dem Seitenbranch),
+  `handoff/BRICKS-FARBSYSTEM-DARKMODE.md`, `handoff/BRICKS-SVG-ICONS.md`,
+  `handoff/MERKREGELN.md`.
+
+#### 3.2 Offen und Befunde
+
+1. **Abnahme der 14 Components fehlt.** Die Ergebnistabelle in
+   `handoff/ABNAHME-COMPONENTS.md` ist leer. Jede weitere Seite baut auf
+   diesen Components auf; Mängel sind jetzt billiger zu beheben als nach
+   zehn weiteren Seiten.
+2. **Seitentypen ohne Entwurf:** Leistungsseite, Branchenübersicht,
+   Referenz-Einzelseite, Über uns, Kontakt, 404, Rechtstexte. Für die
+   Referenzübersicht gibt es einen Entwurf im Design System. Nach unserer
+   Regel entstehen sie zuerst im Prototyp.
+3. **Bildwelt hat eine Grenze.** Die Higgsfield-Motive tragen Stimmung und
+   Zielgruppen. Für Über uns und Referenzen wären generierte Menschen
+   irreführend. Dort braucht es echte Fotos von dir und echte
+   Projektbilder oder Logos, dazu Dunkel-Logos der Referenzen.
+4. **Sichtbare Platzhalter.** Die Kundenstimmen auf der Startseite zeigen
+   „[Kundenstimme]“. Bis echte Zitate da sind, sollte der Abschnitt
+   ausgeblendet werden. Die zwei echten Bewertungen könnten mit Erlaubnis
+   als Zitate dienen.
+5. **Begriffe vereinheitlichen.** „Ärzte“, „Arztpraxen“, „Für Praxen“ und
+   „Praxen“ stehen nebeneinander. Mit der Entscheidung zur Struktur
+   sollte ein Begriff je Zielgruppe gelten, in Menü, Footer, Tabs und
+   Überschriften.
+
+### 4. Empfohlene Reihenfolge
+
+1. **Branches zusammenführen** (Claude, kurz): ein Stand für alle
+   Sitzungen und den Chat.
+2. **Struktur entscheiden** (Nils): Branchen, Referenzen-Menü, Blog,
+   Kontakt, URLs. Danach Header, Footer, Startseiten-Links und die
+   Kampagnen-URLs anpassen.
+3. **Technische Basis** (Claude, Nils für Zugangsdaten): Sprache, Rank
+   Math, SMTP, Unternehmensdaten, `color-scheme`, ein Formular-Template.
+4. **Abnahme der Components** (Nils), parallel zu Schritt 3.
+5. **Referenzen als Post-Typ** mit Template, Übersicht und Loop auf der
+   Startseite (Claude), Inhalte je Referenz (Nils).
+6. **Seiten nach Geschäftswert:** Arztpraxen (Ziel der Kampagne),
+   Kanzleien, Mittelstand, Leistungen, Über uns, Kontakt, Rechtstexte,
+   404. Jede zuerst im Prototyp mit Higgsfield-Bildern, dann in Bricks.
+7. **Inhalte parallel** (Nils, Chat): Digital-Check-Umfang, Adresse,
+   Keyword-Recherche, Referenzdetails, Fotos, Rechtstexte.
+8. **Launch:** Redirects, Sitemap, noindex aus, Lighthouse, Formulartests,
+   Migration. Danach startet die Kampagne.
+
+### 5. Offene Entscheidungen
+
+Diese Fragen stelle ich einzeln, in dieser Reihenfolge:
+
+1. Welche Branchenseiten zum Launch, und unter welchen Adressen?
+   **Entschieden 09.10.2026:** wie in 1.3 empfohlen, umgesetzt am selben
+   Tag (Header, Footer, Startseite, Seitenstruktur). Die Branches sind
+   ebenfalls zusammengeführt (Befund 1).
+2. Referenzen im Menü als Dropdown oder als einfacher Link?
+   **Entschieden 09.10.2026:** einfacher Link, umgesetzt. Bei Bedarf
+   später eine Referenzen-Liste im Footer.
+3. Blog zum Launch im Menü oder später?
+   **Entschieden 09.10.2026:** Blog bleibt im Menü. Vor dem Launch braucht
+   es das Archiv-Template und erste Beiträge. Neu dazu: Partnerseiten für
+   Placetel, Doctolib, IONOS und Netleaders unter `/partner/`, gebaut.
+4. Eigene Kontaktseite?
+5. Unternehmensdaten über Meta-Box-Einstellungsseite oder das eigene Plugin?
+6. Leistungen zum Launch als vier Unterseiten oder zunächst eine Seite?
 
 
 ---
@@ -103,6 +457,16 @@ Nachtrag 17.09.2026: Branchenseite Heilberufe nach Konzept aus dem Chat (`handof
   Seitenbäume als Datei bearbeiten.
 - Entscheidung 2 umgesetzt (09.10.2026): Referenzen im Header als einfacher
   Link auf `/referenzen/`, kein Dropdown. Option: Referenzen-Liste im Footer.
+- Entscheidung 3 (09.10.2026): Blog bleibt im Menü. Folge: Archiv-Template
+  und erste Beiträge vor dem Launch nötig. Seite „Blog“ 231 als Entwurf und
+  Beitragsseite angelegt, „Hello world!“ im Papierkorb.
+- Partnerseiten (09.10.2026, Auftrag Nils): Übersicht und je eine Seite für
+  Placetel, Doctolib, IONOS, Netleaders im Prototyp und in Bricks (Entwürfe
+  214 bis 218), acht neue Motive m45 bis m52. Footer-Link „Partner“,
+  Partnerzeile der Startseite verlinkt. Offen: Partnerstatus prüfen,
+  Netleaders-Leistungsumfang und Abgrenzung zu IONOS (sichtbare Platzhalter).
+- Korrigiert: Reihenfolge von Kacheln (Startseite), Footer-Branchen und
+  Header, verursacht durch Speichern ohne Array-Sortierung (Merkregel).
 
 
 ---
@@ -452,6 +816,14 @@ oder anlegen geht über die WordPress-REST-Schnittstelle
 Sitzung auf einem eigenen Branch hat eine Woche Arbeit am Hauptbranch
 vorbei gebaut. Neue Sitzungen zuerst `git fetch` und die Branches prüfen,
 fremde Branches sofort zusammenführen.
+
+**Reihenfolge kommt aus dem Array, nicht aus `children`.** (09.10.2026)
+`set-page-elements` leitet beim Speichern die `children` jedes Elements aus
+der Reihenfolge im flachen Array ab. Wer nur `children` umsortiert oder ein
+Element hinten anhängt, verschiebt Geschwister (so am 09.10. Kacheln der
+Startseite, Heilberufe im Footer, Referenzen im Header). Vor jedem
+Speichern das Array per Tiefensuche entlang der gewünschten `children`
+sortieren und danach im Frontend die Reihenfolge prüfen.
 
 
 ---
@@ -2281,6 +2653,274 @@ Bilder über `prototype/img/sources.json` nachladen (m40–m44). Footer-Link
 
 ---
 
+# Partnerseiten: Konzept und Texte
+
+Quelle: `handoff/partner/partnerseiten.md`
+
+## Partnerseiten: Konzept und Texte
+
+Stand 09.10.2026. Auftrag von Nils: eigene Seiten für die Partner Placetel,
+Doctolib, IONOS und Netleaders. Die Texte hier sind die Quelle für Prototyp
+(`prototype/src/pages/partner*.html`) und Bricks.
+
+### Entscheidungen und Annahmen
+
+- **Adressen:** Übersicht `/partner/`, Einzelseiten `/partner/placetel/`,
+  `/partner/doctolib/`, `/partner/ionos/`, `/partner/netleaders/`.
+- **Verlinkung:** nicht im Hauptmenü. Footer-Spalte Leistungen bekommt den
+  Link „Partner“, die Partnerzeile der Startseite verlinkt die Einzelseiten,
+  jede Partnerseite verlinkt die drei anderen.
+- **Seiten statt Post-Typ:** vier Einträge, die sich selten ändern. Alle
+  vier haben denselben Aufbau aus vorhandenen Components; neue Partner
+  entstehen durch Duplizieren einer Partnerseite.
+- **Aussagen nach Kampagnenkonzept:** Partner werden über ihre konkrete
+  Aufgabe vorgestellt. Doctolib wird vermittelt und eingebunden, die
+  Verwaltung des Doctolib-Kontos übernehmen wir nicht. Eine Doctolib-
+  Telefonanbindung wird je Auftrag geklärt. Hosting bleibt im Vertrag des
+  Kunden. Providerkosten werden gesondert ausgewiesen.
+- **Keine Partnerlogos** ohne Freigabe der Partner. Die Seiten nennen die
+  Namen als Text, wie die Partnerzeile der Startseite.
+- **Zu prüfen durch Nils:**
+  - Partnerstatus bei Placetel und Doctolib: Dürfen wir „Partner“ sagen,
+    und gibt es eine offizielle Bezeichnung? (Briefing: Placetel-Status prüfen.)
+  - Netleaders: Leistungsumfang, Vertragsmodell und Abgrenzung zu IONOS.
+    Die Seite nimmt an, dass Netleaders für höhere Anforderungen an Leistung
+    und Sicherheit eingesetzt wird. Sichtbare Platzhalter markieren die Stellen.
+  - IONOS-Agenturzugang: Beschreibung entspricht dem Kampagnenkonzept.
+  - Die Zahlen in den Service-Karten (etwa „Elf Termine online“) sind
+    Beispiele wie auf den Kampagnenseiten, keine Kundendaten.
+
+### Aufbau jeder Partnerseite
+
+1. Hero Landingpage: Eyebrow, H1 mit Betonung, Lead, Buttons (Digital-Check, „Was wir übernehmen“), Vertrauenszeile, Foto mit Service-Karte
+2. `#leistungen` (bg-alt): Abschnittskopf und Feature-Block mit fünf Service-Punkten
+3. `#zustaendigkeiten`: Zwei Spalten, links Text, rechts Service-Karte (Sand) „Wer macht was“
+4. `#ablauf` (bg-alt): drei Schritte
+5. Digital-Check-Block
+6. `#faq` (bg-alt): Accordion mit FAQ-Schema
+7. `#weitere-partner`: drei Kacheln mit Links auf die anderen Partnerseiten
+
+### Übersicht `/partner/`
+
+- Title: Unsere Partner: Placetel, Doctolib, IONOS, Netleaders | Digital Avenue
+- Description: Telefonie, Terminbuchung, Hosting und Infrastruktur von spezialisierten Partnern, eingerichtet und betreut von Digital Avenue aus Hamburg und Rostock.
+- Eyebrow: Partner
+- H1: Partner, die ihr Fach beherrschen. **Wir verbinden sie für Sie.**
+- Lead: Wir hosten nicht selbst und bauen keine Telefonanlagen. Dafür arbeiten wir mit Anbietern, die Rechenzentren, Leitungen und Kalender rund um die Uhr betreiben. Unsere Aufgabe: alles einrichten, verbinden und betreuen, damit Sie einen Ansprechpartner haben.
+
+- Kachel cream: **Placetel** (Telefonie): Cloud-Telefonanlage, eingerichtet oder übernommen und laufend betreut. Link „Mehr zu Placetel“ auf `/partner/placetel/`
+- Kachel teal: **Doctolib** (Terminbuchung): Online-Terminbuchung, vermittelt und in Website, Google-Profil und Ansage eingebunden. Link „Mehr zu Doctolib“ auf `/partner/doctolib/`
+- Kachel sand: **IONOS** (Hosting und E-Mail): Hosting im eigenen Vertrag, technisch betreut über den Agenturzugang. Link „Mehr zu IONOS“ auf `/partner/ionos/`
+- Kachel deep: **Netleaders** (Server und Infrastruktur): Infrastruktur für höhere Anforderungen an Leistung und Sicherheit. Link „Mehr zu Netleaders“ auf `/partner/netleaders/`
+- Danach Digital-Check-Block.
+
+### Placetel `/partner/placetel/`
+
+- Title: Placetel Cloud-Telefonanlage einrichten und betreuen | Digital Avenue
+- Description: Wir richten Ihre Placetel-Cloud-Telefonanlage ein oder übernehmen die Betreuung einer bestehenden Anlage. Für Praxen, Kanzleien und Mittelstand in Hamburg und Rostock.
+
+**Hero.** Eyebrow: Partner · Placetel Cloud-Telefonie. H1: Telefonie, die mitdenkt. **Eingerichtet und betreut von uns.**
+
+Lead: Placetel ist eine Telefonanlage aus der Cloud: keine Technik im Keller, Ihre Rufnummern bleiben, telefoniert wird am Tischtelefon, am Laptop oder unterwegs. Wir richten sie für Sie ein, stimmen sie mit Website und Google-Profil ab und stellen um, wenn sich etwas ändert.
+
+Vertrauenszeile: Rufnummern bleiben erhalten · Bestehende Anlagen nach Prüfung übernommen · Urlaubsansagen ohne Ihr Zutun
+
+Bild: `m45-telefonie-empfang-headset` (Eine Empfangsmitarbeiterin telefoniert lächelnd mit einem schmalen Headset am hellen Praxisempfang.). Service-Karte: Ansage für den Urlaub · geschaltet · Praxis bis 28. Juli geschlossen, Vertretung wird angesagt.
+
+**Was wir übernehmen.** H2: Von der Rufnummer bis zur Urlaubsansage. Copy: Sie sagen uns, wie Ihr Telefon klingen soll. Wir setzen es um und halten es aktuell.
+
+Feature-Block: Eyebrow Einrichtung und Betreuung. Titel: Eine Anlage, die zu Ihren Abläufen passt.
+
+Wir planen mit Ihnen, wer wann erreichbar ist, und bauen daraus Ansagen, Weiterleitungen und Gruppen. Danach bleiben wir Ihr Ansprechpartner: Eine kurze Nachricht genügt, und neue Öffnungszeiten, eine neue Kollegin oder die Urlaubsansage sind eingestellt.
+
+- Ansagemenü, das Anliegen vorsortiert, etwa Rezepte, Termine oder Rückruf
+- Weiterleitung aufs Handy, ins Homeoffice oder an einen zweiten Standort
+- Mailbox, deren Nachrichten als E-Mail ankommen
+- Portierung Ihrer bestehenden Rufnummern
+- Übernahme einer vorhandenen Placetel-Anlage nach Prüfung
+
+Bild: `m46-telefonie-homeoffice` (Ein Steuerberater telefoniert lächelnd an seinem Schreibtisch im sonnigen Homeoffice.)
+
+**Zuständigkeiten.** H2: Klar geregelt, wer was macht.
+
+Placetel stellt die Telefonanlage, die Leitungen und die Rufnummern bereit. Die Kosten dafür laufen gesondert über Placetel und stehen getrennt in unserem Angebot.
+
+Wir übernehmen die Einrichtung und die vereinbarte Betreuung. Sie haben einen Ansprechpartner, der Ihre Anlage kennt und auch Website und Google-Profil im Blick hat.
+
+Karte: Wer macht was · geklärt · Ein Ansprechpartner für Ihre Telefonie.
+- Placetel: Anlage, Leitungen, Rufnummern
+- Sie: Freigaben und Wünsche
+- Wir: Einrichtung, Ansagen, Änderungen, Betreuung
+
+**So läuft es ab.** H2: In drei Schritten zu Placetel, betreut von uns.
+
+1. **Bestand aufnehmen.** Wir schauen uns Ihre heutige Telefonie an: Rufnummern, Geräte, Verträge und wer wann erreichbar sein soll.
+2. **Einrichten und umziehen.** Wir richten die Anlage ein, portieren Ihre Nummern und stimmen die Ansagen mit Ihnen ab. Der Wechsel passiert zu einem vereinbarten Termin.
+3. **Betreuen.** Ändert sich etwas, schreiben Sie uns kurz. Wir stellen um und, wenn nötig, auch wieder zurück.
+
+**Häufige Fragen.** H2: Was Sie zu Placetel wissen sollten.
+
+- **Behalten wir unsere Rufnummern?** Ja. Bestehende Rufnummern werden zu Placetel portiert. Den Termin für den Wechsel stimmen wir mit Ihnen ab.
+- **Wir nutzen Placetel schon. Übernehmen Sie die Betreuung?** In der Regel ja. Wir prüfen vorher, wie Ihre Anlage eingerichtet ist, und sagen Ihnen, was wir übernehmen können und was wir ändern würden.
+- **Brauchen wir neue Telefone?** Nicht unbedingt. Telefoniert wird über Tischtelefon, Computer oder Smartphone. Ob Ihre vorhandenen Geräte passen, klären wir bei der Bestandsaufnahme.
+- **Lässt sich Placetel mit Doctolib verbinden?** Das hängt von Ihrer Anlage und Ihrem Doctolib-Paket ab. Wir klären die technische Lösung im Einzelfall und nennen sie im Angebot.
+- **Was kostet das?** Einrichtung und Betreuung bieten wir nach einer kurzen Bedarfsklärung an. Die Kosten für Anlage und Gespräche laufen gesondert über Placetel.
+
+### Doctolib `/partner/doctolib/`
+
+- Title: Doctolib in Website und Praxisalltag einbinden | Digital Avenue
+- Description: Wir vermitteln Doctolib und binden die Online-Terminbuchung in Ihre Praxiswebsite, Ihr Google-Profil und, wenn gewünscht, Ihre Telefonanlage ein. Für Praxen in Hamburg und Rostock.
+
+**Hero.** Eyebrow: Partner · Doctolib Online-Terminbuchung. H1: Termine online buchen lassen. **Und überall passt es zusammen.**
+
+Lead: Mit Doctolib buchen Patientinnen und Patienten rund um die Uhr selbst, Ihr Team telefoniert weniger. Wir vermitteln die Lösung und binden sie so in Website, Google-Profil und, wenn gewünscht, Telefonanlage ein, dass der Weg zum Termin überall gleich einfach ist.
+
+Vertrauenszeile: Vermittlung und Einbindung aus einer Hand · Buchen-Button auf Website und Google-Profil · Telefonansage verweist auf die Online-Buchung
+
+Bild: `m47-doctolib-praxis-empfang` (Eine Ärztin steht entspannt neben ihrer Praxismitarbeiterin am hellen Empfangstresen.). Service-Karte: Über Nacht · gebucht · Elf Termine online vereinbart, kein Anruf dafür.
+
+**Was wir übernehmen.** H2: Vom ersten Gespräch bis zum Buchen-Button. Copy: Doctolib liefert Kalender und Buchung. Wir sorgen dafür, dass Patienten sie auf Ihrer Website, im Google-Profil und am Telefon auch finden.
+
+Feature-Block: Eyebrow Vermittlung und Einbindung. Titel: Ein Weg zum Termin, überall gleich.
+
+Wir stellen den Kontakt zu Doctolib her und begleiten Sie bis zum Vertrag. Danach binden wir die Buchung dort ein, wo Patienten nach Ihnen suchen: auf der Website, im Google-Unternehmensprofil und in der Ansage Ihrer Telefonanlage.
+
+- Kontakt zu Doctolib und Begleitung bis zum Abschluss
+- Buchen-Button und Terminhinweise auf Ihrer Praxiswebsite
+- Terminlink im Google-Unternehmensprofil
+- Hinweis auf die Online-Buchung in der Telefonansage
+- Website, Profil und Ansage passend zu Urlaub und Schließzeiten
+
+Bild: `m48-wartebereich-patient-smartphone` (Ein älterer Mann sitzt auf einer Holzbank im hellen Wartebereich einer Praxis und schaut auf sein Smartphone.)
+
+**Zuständigkeiten.** H2: Was Doctolib macht und was wir machen.
+
+Doctolib liefert Kalender, Online-Buchung und Terminerinnerungen. Den Vertrag schließen Sie direkt mit Doctolib, Kalender und Terminarten richten Sie gemeinsam mit Doctolib ein.
+
+Wir kümmern uns um alles, was Patienten außerhalb von Doctolib sehen und hören: Website, Google-Profil und Telefonansage. Die Verwaltung Ihres Doctolib-Kontos übernehmen wir nicht.
+
+Karte: Wer macht was · geklärt · Klare Aufgaben, ein Ansprechpartner.
+- Doctolib: Kalender, Buchung, Erinnerungen
+- Ihre Praxis: Vertrag, Terminarten, Freigaben
+- Wir: Vermittlung, Website, Google-Profil, Ansage
+
+**So läuft es ab.** H2: In drei Schritten zu Doctolib, betreut von uns.
+
+1. **Klären.** Wir besprechen, welche Termine online buchbar sein sollen und ob Doctolib dafür passt.
+2. **Vermitteln.** Wir stellen den Kontakt her. Den Vertrag schließen Sie direkt mit Doctolib.
+3. **Einbinden.** Nach dem Start bauen wir die Buchung in Website und Google-Profil ein und, wenn gebucht, in die Telefonanlage.
+
+**Häufige Fragen.** H2: Was Sie zu Doctolib wissen sollten.
+
+- **Wir nutzen Doctolib bereits. Können Sie trotzdem helfen?** Ja. Wir binden Ihre bestehende Buchung in Website und Google-Profil ein und prüfen, ob Ihre Telefonansage darauf verweist.
+- **Richten Sie unseren Doctolib-Kalender ein?** Nein. Kalender, Terminarten und die laufende Verwaltung richten Sie mit Doctolib ein. Wir kümmern uns um alles, was Patienten außerhalb von Doctolib sehen und hören.
+- **Funktioniert das mit unserer Telefonanlage?** Das hängt von Ihrer Anlage und Ihrem Doctolib-Paket ab. Wir klären die technische Lösung im Einzelfall und nennen sie im Angebot.
+- **Was kostet die Einbindung?** Die Einbindung bieten wir nach einer kurzen Bedarfsklärung an. Die Kosten für Doctolib selbst rechnet Doctolib direkt mit Ihnen ab.
+
+### IONOS `/partner/ionos/`
+
+- Title: Hosting und E-Mail bei IONOS, betreut von uns | Digital Avenue
+- Description: Ihr Hosting bleibt bei IONOS und auf Ihren Namen. Über einen freigegebenen Agenturzugang übernehmen wir Einrichtung, Updates und Postfächer. Für Praxen, Kanzleien und Mittelstand.
+
+**Hero.** Eyebrow: Partner · IONOS Hosting und E-Mail. H1: Ihr Hosting bleibt Ihres. **Die Technik übernehmen wir.**
+
+Lead: Bei IONOS liegen Website, Domain und E-Mail auf Servern in Deutschland, der Vertrag läuft auf Ihren Namen. Über einen Zugang, den Sie uns freigeben und jederzeit wieder entziehen können, kümmern wir uns um Einrichtung, Updates und Änderungen.
+
+Vertrauenszeile: Vertrag bleibt auf Ihren Namen · Server in Deutschland · Zugang jederzeit widerrufbar
+
+Bild: `m49-unternehmer-buero-werkstatt` (Ein Unternehmer lehnt zufrieden an seinem Schreibtisch im hellen Büro neben der Werkstatt.). Service-Karte: Diese Nacht · erledigt · Sicherheitsupdate eingespielt, Backup geprüft.
+
+**Was wir übernehmen.** H2: Website, Domain und E-Mail. Laufend gepflegt. Copy: Sie behalten Vertrag und Kontrolle. Wir halten alles am Laufen.
+
+Feature-Block: Eyebrow Technische Betreuung. Titel: Wir kümmern uns, bevor etwas hakt.
+
+Wir richten Webspace, Domain und Postfächer ein, spielen Updates ein, prüfen Backups und behalten Zertifikate im Blick. Fängt jemand neu bei Ihnen an, steht das Postfach am ersten Tag.
+
+- Einrichtung von Webspace, Domain und Postfächern
+- Updates für WordPress, Themes und Plugins
+- Backups prüfen, Zertifikate im Blick behalten
+- Umzug einer bestehenden Website zu IONOS, wenn er sich lohnt
+- Postfächer anlegen und entfernen, wenn sich im Team etwas ändert
+
+Bild: `m50-kollegen-stehpult` (Zwei Kollegen besprechen sich an einem hohen Holztisch über ausgedruckte Unterlagen.)
+
+**Zuständigkeiten.** H2: Ihr Vertrag, unsere Arbeit.
+
+IONOS betreibt Rechenzentrum, Server und Netz. Den Hostingvertrag schließen Sie direkt mit IONOS. Er bleibt Ihr Eigentum, auch wenn Sie später die Agentur wechseln.
+
+Wir übernehmen die Technik, die darauf läuft. Das schafft klare Zuständigkeiten und lässt Ihnen jede Freiheit.
+
+Karte: Wer macht was · geklärt · Getrennte Rollen, ein Ansprechpartner.
+- IONOS: Rechenzentrum, Server, Netz
+- Sie: Vertrag, Domain, Freigabe des Zugangs
+- Wir: Einrichtung, Updates, Postfächer, Änderungen
+
+**So läuft es ab.** H2: In drei Schritten zu IONOS, betreut von uns.
+
+1. **Bestand prüfen.** Wir schauen, wo Website, Domain und E-Mail heute liegen und was gut läuft.
+2. **Zugang einrichten.** Sie geben uns den Agenturzugang frei. Wenn sinnvoll, ziehen wir Website und Postfächer um.
+3. **Betreuen.** Updates, Backups und Änderungen erledigen wir laufend. Sie hören von uns, bevor etwas ausläuft.
+
+**Häufige Fragen.** H2: Was Sie zu IONOS wissen sollten.
+
+- **Warum hosten Sie nicht selbst?** Weil Rechenzentren Personal und Technik für Sicherheit und Verfügbarkeit brauchen, die ein Anbieter wie IONOS rund um die Uhr vorhält. Wir konzentrieren uns auf das, was darauf läuft.
+- **Was passiert, wenn wir die Zusammenarbeit beenden?** Vertrag, Domain und Daten bleiben bei Ihnen. Sie entziehen uns den Zugang, und alles läuft weiter.
+- **Unsere Website liegt woanders. Müssen wir wechseln?** Nein. Wir prüfen, ob Ihr heutiges Hosting passt. Ein Umzug lohnt sich nur, wenn er etwas besser macht.
+- **Wie greifen Sie auf unser Konto zu?** Über einen Agenturzugang, den Sie in Ihrem IONOS-Konto freigeben. Ihr eigenes Passwort bleibt bei Ihnen.
+
+### Netleaders `/partner/netleaders/`
+
+- Title: Hosting und IT-Infrastruktur mit Netleaders | Digital Avenue
+- Description: Wenn Standard-Hosting nicht reicht: Mit Netleaders betreuen wir Server und Infrastruktur für Unternehmen mit höheren Anforderungen an Leistung und Sicherheit.
+
+**Hero.** Eyebrow: Partner · Netleaders Server und Infrastruktur. H1: Wenn mehr gebraucht wird als Webspace. **Infrastruktur mit Netleaders.**
+
+Lead: Manche Websites, Shops und Anwendungen brauchen mehr Leistung, eigene Server oder besondere Sicherheit. Dafür arbeiten wir mit Netleaders. Netleaders betreibt die Infrastruktur, wir planen mit Ihnen, richten ein und bleiben Ihr Ansprechpartner.
+
+Vertrauenszeile: Infrastruktur in Deutschland · Für höhere Anforderungen an Leistung und Sicherheit · Ein Ansprechpartner für alles darauf
+
+Bild: `m51-anwaeltin-abendlicht` (Eine Anwältin lehnt sich mit einer Tasse Kaffee in ihrem ruhigen Büro im warmen Abendlicht zurück.). Service-Karte: Lastspitze am Montag · aufgefangen · Shop und Website laufen, auch bei doppeltem Andrang.
+
+**Was wir übernehmen.** H2: Infrastruktur, die mitwächst. Copy: Wir klären mit Ihnen, was Ihre Anwendungen brauchen, und setzen es mit Netleaders um.
+
+Feature-Block: Eyebrow Planung und Betreuung. Titel: Leistung und Sicherheit nach Maß.
+
+Wir planen mit Ihnen, welche Server, welcher Speicher und welche Sicherungen Ihre Anwendungen brauchen. Netleaders stellt die Infrastruktur bereit, wir richten Website, Anwendungen und E-Mail darauf ein und betreuen sie.
+
+- Bedarf klären: Leistung, Speicher, Verfügbarkeit
+- Einrichtung von Website, Shop und Anwendungen auf der Infrastruktur
+- Sicherungen und Updates nach festem Plan
+- Ein Ansprechpartner zwischen Ihnen und dem Rechenzentrum
+- [Leistungsumfang Netleaders prüfen]
+
+Bild: `m52-team-besprechung` (Drei Mitarbeitende eines mittelständischen Unternehmens sprechen entspannt an einem hellen Holztisch.)
+
+**Zuständigkeiten.** H2: Rechenzentrum dort, Betreuung hier.
+
+Netleaders betreibt Rechenzentrum, Server und Netz und sorgt für deren Verfügbarkeit. [Vertragsmodell prüfen: Vertrag direkt mit Netleaders oder über uns]
+
+Wir übernehmen Planung, Einrichtung und Betreuung dessen, was darauf läuft. Für Sie bleibt es bei einem Ansprechpartner.
+
+Karte: Wer macht was · geklärt · Getrennte Rollen, ein Ansprechpartner.
+- Netleaders: Rechenzentrum, Server, Netz
+- Sie: Anforderungen, Freigaben
+- Wir: Planung, Einrichtung, Betreuung
+
+**So läuft es ab.** H2: In drei Schritten zu Netleaders, betreut von uns.
+
+1. **Anforderungen klären.** Wir sprechen über Ihre Anwendungen, Besucherzahlen und Sicherheitsanforderungen.
+2. **Planen und einrichten.** Wir legen mit Netleaders die passende Infrastruktur fest und ziehen Website und Anwendungen um.
+3. **Betreuen.** Updates, Sicherungen und Änderungen erledigen wir laufend und melden uns, bevor es eng wird.
+
+**Häufige Fragen.** H2: Was Sie zu Netleaders wissen sollten.
+
+- **Wann brauchen wir mehr als normales Hosting?** Wenn ein Shop oder eine Anwendung viel Leistung braucht, Lastspitzen auffangen muss oder besondere Sicherheitsanforderungen hat. Für die meisten Websites reicht Hosting bei IONOS.
+- **Was unterscheidet Netleaders von IONOS?** IONOS ist für Websites und E-Mail im eigenen Vertrag gedacht. Netleaders setzen wir ein, wenn mehr Leistung, eigene Server oder individuelle Lösungen gefragt sind. [Abgrenzung prüfen]
+- **Was kostet das?** Das hängt von der Infrastruktur ab. Nach einer Bedarfsklärung erhalten Sie ein Angebot, in dem Infrastruktur und Betreuung getrennt ausgewiesen sind.
+
+
+---
+
 # Technisches Protokoll Bricks
 
 Quelle: `handoff/import/README.md`
@@ -3026,3 +3666,38 @@ Header und Footer als Templates, dann Seiten per
 `commit-html-css-page-import` (Hero zuerst als Probe), dann Felder und
 Post-Typen aus den fertigen Templates ableiten. Siehe
 `handoff/BETRIEBSKONZEPT-MCP.md`.
+
+### Schritt 15: Partnerseiten und Blog-Seite
+
+Stand 09.10.2026. Auftrag Nils: eigene Seiten für Placetel, Doctolib, IONOS
+und Netleaders. Texte und Annahmen in `handoff/partner/partnerseiten.md`,
+Prototyp `prototype/src/pages/partner*.html` (Routen `#partner`,
+`#partner-placetel` usw.), Bilder m45 bis m52.
+
+Seiten (alle Entwurf): Partner 214 (`/partner/`), Placetel 215, Doctolib
+216, IONOS 217, Netleaders 218 (`/partner/<slug>/`). Aufbau je Partnerseite:
+Hero Landingpage `951227` als Section-Root › `#leistungen` (bg-alt):
+Abschnittskopf, Feature-Block `25cc6c` mit fünf Service-Punkten ›
+`#zustaendigkeiten`: `split` mit Text und Service-Karte `580b83` (sand)
+„Wer macht was“ › `#ablauf` (bg-alt): drei Schritte `719767` im Raster
+`steps` › `#digital-check-info`: Digital-Check-Block `e44db4` mit vier
+Punkten › `#faq` (bg-alt): Accordion mit FAQ-Schema › `#weitere-partner`
+(`section-sm`): drei Kacheln `c3c53b` (cream) mit Links. Übersicht 214:
+Abschnittskopf mit H1 und vier Kacheln (cream, teal, sand, deep) im Raster
+`tiles`, danach Digital-Check-Block.
+
+Bilder (Mediathek): m45 206, m46 207, m47 208, m48 209, m49 210, m50 211,
+m51 212, m52 213. Erzeugt wurden die Bäume per Skript aus denselben Daten
+wie Konzept und Prototyp.
+
+Verlinkung: Footer 54, Spalte Leistungen, Link „Partner“ (`fl0106`);
+Partnerzeile der Startseite (`prtw01` bis `prtw04`) verlinkt die
+Einzelseiten über das `link`-Feld des Basic-Text-Elements.
+
+Blog: Seite „Blog“ 231 (Entwurf) ist als Beitragsseite eingetragen
+(`set-reading-settings`), der Standardbeitrag „Hello world!“ liegt im
+Papierkorb. Offen: Archiv-Template für Beiträge (zuerst im Prototyp) und
+die ersten Beiträge vor dem Launch.
+
+Hinweis zur Prüfung: `render-elements` zeigt Accordion-Inhalte nicht
+(auch nicht auf der fertigen Heilberufe-Seite); FAQ im Frontend prüfen.
