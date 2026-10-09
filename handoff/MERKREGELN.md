@@ -28,9 +28,15 @@ Query Loop.
 ## Theme Style
 
 **Section-Abstand steht in der Gruppe Section, die Breite in der Gruppe
-Container.** (11.09.2026) Die Felder „Root container padding“ und „Root
-container width“ unter General tragen ein rotes Symbol, sind Altlasten und
-wirken nicht auf Sections.
+Container.** (11.09.2026, ergänzt 13.09.2026) Die Felder „Root container
+padding“ und „Root container width“ unter General tragen ein rotes Symbol,
+sind Altlasten und wirken nicht auf Sections: `general.containerMaxWidth`
+gibt `.brxe-container.root` aus, und Container in Sections tragen kein
+`root`. Die Breite gehört als `container.width` (Feld „Width“) in die
+Gruppe Container; das ergibt `.brxe-container { width: 1240px }` und
+überschreibt Bricks' Vorgabe von 1100px. `widthMax` allein reicht nicht,
+weil es die Vorgabe-Breite nicht anhebt. Am Staging am 13.09.2026
+umgestellt, der Build schreibt jetzt `width`.
 
 **HTML-Schriftgröße im Theme Style auf 100 % setzen.** (11.09.2026)
 Ohne den Wert rechnet Bricks mit 62,5 % (1rem = 10px), und alles in rem
@@ -111,10 +117,15 @@ Anlegen einmal prüfen. Korrigiert für `lp-kontakt`, `lp-form`, `audience`,
 `tabs`.
 
 **Nestable-Kinder tragen ihre Rolle in `_hidden._cssClasses`.**
-(11.09.2026) Accordion: `accordion-title-wrapper` und
+(11.09.2026, ergänzt 13.09.2026) Accordion: `accordion-title-wrapper` und
 `accordion-content-wrapper`; Dropdown: `brx-dropdown-content`; Tabs:
-`tab-menu`, `tab-title`, `tab-content`, `tab-pane`. Ohne diese Klassen
-läuft das Bricks-Skript nicht.
+`tab-menu`, `tab-title`, `tab-content`, `tab-pane`; **Nav (Nestable):
+ein Block mit `customTag: ul` und `brx-nav-nested-items`, in dem alle
+Menüpunkte liegen, der Toggle (Burger) bleibt direktes Kind der Nav.**
+Ohne diese Klassen läuft das Bricks-Skript nicht. Beim Header fehlte der
+Nav-Wrapper: Bricks hängt Ausblenden unter dem Breakpoint, Drawer und
+`brx-open` an genau diese `ul`, deshalb blieb das Menü sichtbar und hinter
+dem Burger war nichts.
 
 **Controls mit Bricks-Vorgabewerten am Element setzen, nicht in der Klasse.**
 (11.09.2026) Tabs und Accordion bringen Vorgaben mit (Padding 20px,
@@ -129,13 +140,103 @@ lassen (Beispiel: `tabs` auf dem Zielgruppen-Umschalter).
 Component nicht mit dem Ein- und Ausblenden von Bricks.
 
 **Media-Queries in Klassen brauchen die Element-Klasse im Selektor, und eine Stufe mehr Spezifität.**
-(11.09.2026) Bricks erzeugt aus den Controls eine Regel wie
+(11.09.2026, präzisiert 13.09. und 17.09.2026) Bricks erzeugt aus den Controls eine Regel wie
 `.tiles.brxe-div { grid-template-columns: … }` und gibt Media-Queries
 davor aus. `@media { .tiles { … } }` verliert dann doppelt (Spezifität
 und Reihenfolge). Deshalb in Media-Queries immer
 `.tiles.brxe-div, .tiles.brxe-block, .tiles.brxe-container` schreiben.
 Gleiches gilt für Regeln, die einen Control-Wert überschreiben sollen
 (`.tile-photo { padding: 0 }` gegen `.tile.brxe-div { padding }`).
+
+**Grundwerte, die eine Media-Query überschreibt, gehören in die Controls
+der Klasse, nicht ins Custom-CSS.** (13.09.2026) Bricks gibt bei einer
+Global Class zuerst die CSS aus den Controls aus und danach `_cssCustom`;
+der MCP-Adapter sortiert `@media`-Blöcke innerhalb von `_cssCustom` beim
+Speichern nach oben (eine Umsortierung kommt unverändert zurück). Steht
+die Grundregel im Custom-CSS, landet sie hinter der Media-Query und
+gewinnt bei gleicher Spezifität. Deshalb `display`, `grid-template-columns`,
+`gap`, `grid-auto-rows`, `align-items` als Controls
+(`_display`, `_gridTemplateColumns`, `_gridGap`, `_gridAutoRows`,
+`_alignItemsGrid`) setzen und im Custom-CSS nur die Media-Queries lassen
+(so funktionieren `tiles`, `steps`, `mosaic`, `audience`). Zielt die
+Media-Query auf ein Kind (`.lp-hero .lp-hero-grid`, `.feature.flip figure`),
+hilft kein Control; dann bekommt der Media-Query-Selektor die Element-Klasse
+zusätzlich (`.lp-hero.brxe-section .lp-hero-grid`), damit er über die
+Spezifität gewinnt.
+
+**Layout-Divs im Container brauchen `width: 100%`.** (13.09.2026) Bricks
+setzt am Container `align-items: flex-start`; ein Div darin wird nicht
+gestreckt, sondern so breit wie sein Inhalt. Ein Grid mit `1fr`-Spalten
+wächst dann mit dem längsten Text und lässt rechts einen Rand (Mosaik am
+Tablet). Deshalb bei Rasterklassen (`mosaic`, künftig `tiles`, `steps`,
+`refs`, `quotes`) `_width: 100%` als Control setzen.
+
+**Raster: Spalten als `minmax(0, …fr)`, Reihen als `minmax(…, auto)`,
+Anordnung über `grid-template-areas`.** (13.09.2026) `1fr` heißt
+`minmax(auto, 1fr)`; ein langer Text kann die Spalte aufblähen. `minmax(0,
+4fr)` hält das Verhältnis, Kacheln bekommen `min-width: 0`. Feste
+`grid-auto-rows: 500px` schneiden längere Texte ab, `minmax(500px, auto)`
+lässt die Reihe wachsen. Die Anordnung je Breite steht in
+`grid-template-areas`, die Kacheln tragen nur `grid-area: praxis` usw.;
+umstellen heißt dann eine Zeile ändern. Weil es für `grid-template-areas`
+kein Control gibt, stehen alle drei Zustände in sich ausschließenden
+Media-Queries (`min-width: 1081px`, `641px bis 1080px`, `max-width:
+640px`); so spielt die Reihenfolge im Custom-CSS keine Rolle.
+
+## Templates
+
+**Header-Template mit „Sticky header“ und „Sticky on scroll“.** (13.09.2026)
+Nur `headerSticky` macht den Header `position: fixed`; er liegt dann über
+dem Seitenanfang, und der obere Section-Abstand des Heros verschwindet
+hinter den 72px Nav-Höhe. Mit `headerStickyOnScroll` wird er `position:
+sticky`, bleibt wie im Prototyp im Fluss und der Hero beginnt darunter.
+
+**Kein `backdrop-filter` (und kein `transform`, `filter`) auf Header-Section
+oder -Container.** (13.09.2026) Diese Eigenschaften machen das Element zum
+Containing Block für `position: fixed`. Der mobile Drawer der Nav ist
+`fixed` und liegt zwingend in der Nav; mit dem Blur auf der Section war
+er nur 48px hoch und lag hinter dem Hero. Der Blur sitzt jetzt auf
+`.site-nav.brxe-section::before` (absolut, `inset: 0`, `z-index: -1`),
+die Section bleibt filterfrei.
+
+**Nav-Controls gibt Bricks mit ID-Selektor aus, und zwar nach der
+Element-CSS der Kinder.** (13.09.2026) `itemPadding`, `itemTypography`
+usw. werden zu `#brxe-navmn1 :where(.brx-nav-nested-items > li > a)`
+(Spezifität eines IDs). Eine Klasse verliert immer, und auch Controls am
+Kind (`#brxe-navcta`) verlieren, weil Bricks sie vor der Nav-Regel
+ausgibt. Wer einen einzelnen Menüpunkt anders gestalten will (CTA-Button
+im Drawer), braucht `!important` in der Klasse; das ist hier bewusst so.
+
+**Toggle-Element: der offene Zustand kommt per CSS, nicht per zweitem
+Icon.** (13.09.2026) Das Toggle hat nur ein Icon-Control. Beim Öffnen
+setzt Bricks `aria-expanded="true"` und die Klasse `is-active` auf den
+Button. Darauf reagiert die Klasse `nav-burger`: SVG ausblenden, X aus
+zwei Pseudo-Elementen in `currentColor`.
+
+**Was mobil anders aussehen soll, darf nicht in Nav-Controls stehen.**
+(13.09.2026) Dropdown-Controls der Nav (`dropdownBackgroundColor`,
+`dropdownBorder`, …) gelten in beiden Zuständen mit ID-Spezifität; die
+Drawer-Variante in der Klasse verliert dann. Deshalb Dropdown-Optik nur in
+der Klasse `nav-menu`, Controls der Nav nur für das, was Desktop und
+Drawer teilen.
+
+**Global Classes immer per ID in `_cssGlobalClasses` referenzieren.**
+(13.09.2026) `_cssClasses: "name"` schreibt nur den Klassennamen ins HTML;
+Bricks gibt das CSS einer Global Class nur aus, wenn ein Element sie per
+ID referenziert. Für Kind-Elemente, die nur ein Selektor der Klasse
+anspricht (`.check-dialog .dialog-head`), reicht `_cssClasses`.
+
+**Buttons, die ein Popup öffnen, sind `tag: button` ohne Link.**
+(13.09.2026) Mit `href` (auch `#anker`) läuft die Klick-Interaktion
+„show popup“ nicht. Interaktionen stehen am Element; auf einer Global
+Class nimmt der MCP-Adapter `_interactions` nicht an.
+
+**Instanz-Properties und Slots ändern heißt: Instanz neu einfügen.**
+(16.09.2026) `update-element` nimmt nur `settings`; `properties` einer
+Component-Instanz lehnt es ab, und ein Kind, das per `add-element` an eine
+Instanz gehängt wird, steht nicht im Slot und rendert nicht. Deshalb
+Instanz mit `remove-element` entfernen und mit `add-element` (gleiche ID,
+`position`, `properties`, `slotChildren` verschachtelt) neu einfügen.
 
 ## Icons
 
